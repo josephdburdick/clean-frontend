@@ -1,0 +1,20 @@
+{% extends "layout/_layout.njk" %}
+{% block content %}
+<div class="page-header">
+  <div class="container">
+    {{__DATA | dump | safe}}
+    <h1>{{data.site.name}} <small>Templates Overview</small></h1>
+  </div>
+</div>
+<div class="container">
+  <div class="list-group">
+    {% for view, data in data.views %}
+      <a href="{{data.url}}" class="list-group-item">
+        {{data.name}}
+      </a>
+    {% else %}
+      <span class="list-group-item">No views to display</span>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

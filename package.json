@@ -14,12 +14,15 @@
     "gulp-babel": "^6.1.1",
     "gulp-cache": "^0.4.2",
     "gulp-cssnano": "^2.0.0",
+    "gulp-data": "^1.2.1",
     "gulp-eslint": "^3.0.0",
+    "gulp-gh-pages": "^0.5.4",
     "gulp-htmlmin": "^3.0.0",
     "gulp-if": "^2.0.0",
     "gulp-imagemin": "^3.0.1",
     "gulp-load-plugins": "^1.2.4",
     "gulp-mustache": "^2.3.0",
+    "gulp-nunjucks-render": "^2.0.0",
     "gulp-plumber": "^1.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.0.0",
@@ -44,5 +47,11 @@
         "single"
       ]
     }
-  }
+  },
+  "scripts": {
+    "start": "gulp serve",
+    "build": "gulp default",
+    "deploy": "gulp default && gulp deploy"
+  },
+  "dependencies": {}
 }

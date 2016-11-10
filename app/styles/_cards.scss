@@ -1,0 +1,102 @@
+/*
+
+CARDS
+*/
+
+.card {
+  display: flex;
+  flex-direction: column;
+
+  .card-block{
+    padding-top: 24px;
+    padding-left: $grid-gutter-width;
+    padding-right: $grid-gutter-width;
+    padding-bottom: 0;
+
+    &:first-child{
+      padding-bottom: 24px;
+    }
+    &:last-child{
+      padding-bottom: 24px;
+    }
+
+    .form-group:last-child{
+      margin-bottom: 0;
+    }
+  }
+  hr {
+    margin-top: $grid-gutter-width;
+    margin-bottom: $grid-gutter-width;
+  }
+
+  .bg-color--gray,
+  .bg-color--grey{
+    background-color: #f3f3f3;
+  }
+}
+
+.card--thin-padding .card-block{
+  padding-top: $grid-gutter-width / 2;
+  padding-bottom: 0;
+
+  &:first-child{
+    padding-bottom: $grid-gutter-width / 2;
+  }
+  &:last-child{
+    padding-bottom: $grid-gutter-width / 2;
+  }
+  hr {
+    margin-top: $grid-gutter-width / 2;
+    margin-bottom: $grid-gutter-width / 2;
+    margin-left: -$grid-gutter-width / 2;
+    margin-right: -$grid-gutter-width / 2;
+  }
+}
+
+.card-block > .card-heading{
+  margin: 0;
+}
+
+.card-img .img-responsive {
+  width: 100%;
+}
+.card-img > img{
+  margin: auto;
+}
+@for $i from 1 through 5 {
+  .card-outline--#{$i} {
+    border: #{$i}px solid #{$border-color};
+    .card-outline{
+      border-top: 0;
+    }
+    .card-outline + .card-outline {
+      border-top: #{$i}px solid #{$border-color};
+    }
+    .card-outline--top{
+      border-top: #{$i}px solid #{$border-color};
+    }
+    .card-outline--bottom{
+      border-bottom: #{$i}px solid #{$border-color};
+    }
+    .card-img {
+      text-align: center;
+
+      &.card-img--top {
+        margin-top: -#{$i}px;
+        margin-left: -#{$i}px;
+        margin-right: -#{$i}px;
+      }
+
+      &.card-img--block {
+        margin-left: -#{$i}px;
+        margin-right: -#{$i}px;
+      }
+
+      &.card-img--bottom {
+        margin-bottom: -#{$i}px;
+        margin-left: -#{$i}px;
+        margin-right: -#{$i}px;
+      }
+    }
+  }
+}

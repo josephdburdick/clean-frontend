@@ -1,4 +1,3 @@
-// generated on 2016-11-08 using generator-webapp 2.2.0
 const gulp = require('gulp');
 const gulpLoadPlugins = require('gulp-load-plugins');
 const browserSync = require('browser-sync');
@@ -18,14 +17,21 @@ gulp.task('data', () => {
 
 gulp.task('templates', ['data'], () => {
   const templateData = require('./.tmp/global.js').default;
-  console.dir(templateData);
-  return gulp.src('app/templates/*.mustache')
-    .pipe($.plumber())
-    .pipe($.mustache(templateData))
+  $.nunjucksRender.nunjucks.configure(['app']);
+
+  return gulp.src(['app/templates/**/*.njk', '!app/templates/layout/layout.njk'])
+    .pipe($.data(() => templateData ))
+    .pipe($.nunjucksRender({
+      path: [
+        'app/templates',
+        'app/templates/components'
+      ]
+    }))
     .pipe($.rename({
       extname: ".html"
     }))
-    .pipe(gulp.dest('.tmp/'));
+    .pipe(gulp.dest('.tmp/'))
+    .pipe(reload({stream: true}));
 });
 
 gulp.task('styles', () => {
@@ -102,6 +108,7 @@ gulp.task('fonts', () => {
 gulp.task('extras', () => {
   return gulp.src([
     'app/*',
+    '!data',
     '!app/*.html',
     '!app/templates/*.mustache',
     '!app/**/*.mustache'
@@ -132,7 +139,7 @@ gulp.task('serve', () => {
     ]).on('change', reload);
 
     gulp.watch('app/data/**/*.js', ['templates']);
-    gulp.watch('app/templates/**/*.mustache', ['templates']);
+    gulp.watch('app/templates/**/*.njk', ['templates']);
     gulp.watch('app/styles/**/*.scss', ['styles']);
     gulp.watch('app/scripts/**/*.js', ['scripts']);
     gulp.watch('app/fonts/**/*', ['fonts']);
@@ -177,12 +184,12 @@ gulp.task('wiredep', () => {
     }))
     .pipe(gulp.dest('app/styles'));
 
-  gulp.src('app/*.html')
+  gulp.src('app/templates/layout/_layout.njk')
     .pipe(wiredep({
       exclude: ['bootstrap-sass'],
       ignorePath: /^(\.\.\/)*\.\./
     }))
-    .pipe(gulp.dest('app'));
+    .pipe(gulp.dest('app/templates/layout'));
 });
 
 gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
@@ -191,4 +198,9 @@ gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
 
 gulp.task('default', () => {
   runSequence(['clean', 'wiredep'], 'build');
+});
+
+gulp.task('deploy', () => {
+  return gulp.src('./dist/**/*')
+    .pipe($.ghPages());
 });

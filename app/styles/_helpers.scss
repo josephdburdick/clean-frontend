@@ -1,0 +1,46 @@
+
+.display-block {
+  display: block;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.fill-height-or-more {
+  display: flex;
+  flex-direction: column;
+
+  & > * {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+  }
+}
+
+.placeholder-block {
+  text-align: center;
+  display: flex;
+  padding: 40px 0;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee;
+
+  & + & {
+    margin-top: 1em;
+  }
+
+  span {
+    display: inline-block;
+    padding: 0.5em 1em;
+    border: 2px solid #999;
+  }
+}

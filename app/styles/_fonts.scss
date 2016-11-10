@@ -1,0 +1,108 @@
+// $font | fonts faces from typekit
+$heading-font: "futura-pt"; // book:400 | bold:700 | 130k
+$body-font: "luxi-sans"; // book:400 | bold:700 | 130k
+@mixin font-family-fallback($priority-font-family){
+  font-family: $priority-font-family, 'helvetica neue', helvetica, arial, sans-serif;
+}
+
+@mixin futura($weight: "book"){
+  @if $weight == "book" {
+    @include font-family-fallback("Futura-Book");
+  } @else if $weight == "light"  {
+    @include font-family-fallback("Futura-Light");
+  } @else if $weight == "medium"  {
+    @include font-family-fallback("futuraBT-Medium");
+  } @else if $weight == "bold"  {
+    @include font-family-fallback("Futura-Bold");
+  } @else if $weight == "heavy" {
+    @include font-family-fallback("Futura-Heavy");
+  } @else {
+    @include font-family-fallback("Futura");
+  }
+}
+
+@mixin proxima($weight: "regular"){
+  font-style: normal;
+  @if $weight == "regular" {
+    @include font-family-fallback('proxima-nova');
+    font-weight: 400;
+  } @else if $weight == "medium" {
+    @include font-family-fallback('proxima-nova');
+    font-weight: 500;
+  } @else if $weight == "medium italic" {
+    @include font-family-fallback('proxima-nova');
+    font-weight: 500;
+    font-style: italic;
+  } @else if $weight == "semibold" {
+    @include font-family-fallback('proxima-nova');
+    font-weight: 600;
+  } @else if $weight == "bold" {
+    @include font-family-fallback('proxima-nova');
+    font-weight: 700;
+  } @else if $weight == "thin" {
+    @include font-family-fallback('proxima-nova');
+    font-weight: 100;
+  } @else {
+    @include font-family-fallback('proxima-nova');
+    font-weight: 400;
+  }
+}
+
+/* Handle letter-spacing */
+@mixin letter-spacing($kerning: 0){
+  @if $kerning == "tight" {
+    letter-spacing: 0.05em;
+  } @else if $kerning == "reset" {
+    letter-spacing: 0;
+  } @else {
+    letter-spacing: inherit;
+  }
+}
+/*
+
+HEADINGS
+*/
+.heading-text {
+  @include futura('book');
+}
+.heading-text--book {
+  @include futura('book');
+}
+.heading-text--medium {
+  @include futura('medium');
+}
+.heading-text--light {
+  @include futura('medium');
+}
+
+.section-heading{
+  @include futura('medium');
+  font-size: 35px;
+  margin: 0 0 $grid-gutter-width;
+  @media(max-width: $screen-sm){
+    font-size: 30px;
+  }
+}
+
+.section-header .section-heading + .section-subheading{
+  margin-top: -$grid-gutter-width / 2;
+  margin-bottom: 0;
+}
+
+/*
+
+BODY
+*/
+.body-text {
+  @include proxima();
+}
+.body-text--lg {
+  @include proxima();
+  font-size: 21px;
+  & > p{
+    font-size: 21px;
+  }
+}
+.body-text--medium{
+  @include proxima('medium');
+}

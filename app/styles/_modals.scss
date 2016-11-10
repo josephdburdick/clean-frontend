@@ -1,0 +1,50 @@
+/*
+
+MODALS
+*/
+
+.flexbox .modal{
+  @media (min-width: 768px){
+    .modal-dialog{
+      width: 970px;
+    }
+    .modal-content{
+      border-radius: 0;
+    }
+    .modal-body{
+      padding: $grid-gutter-width;
+      max-width: 670px;
+      margin: auto;
+    }
+  }
+  .close{
+    // background: red;
+  }
+  .modal-header{
+    padding: $grid-gutter-width $grid-gutter-width 0 $grid-gutter-width;
+    border-bottom: 0;
+  }
+  .modal-footer{
+    border-top: 0;
+  }
+  .modal__btn-close{
+    font-size: 20px;
+    opacity: 1;
+    &:hover {
+      opacity: .5;
+    }
+  }
+  &.modal-prompt .modal-content{
+    min-height: 45vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0;
+  }
+  .modal-prompt__date-picker--option-text{
+    @include proxima('regular');
+    font-size: 30px;
+  }
+}
+#modal--primary .modal-body{
+  max-width: none;
+}

@@ -1,0 +1,106 @@
+$directions: top, bottom, left, right;
+@each $direction in $directions{
+  .gutter--#{$direction}{
+    margin-#{$direction}: $grid-gutter-width;
+  }
+  .padding--#{$direction}{
+    padding-#{$direction}: $grid-gutter-width;
+  }
+}
+
+.flexbox .container {
+  // @include container-fixed;
+
+  @media (min-width: $screen-sm-min) {
+    width: calc(#{$container-sm} + #{$grid-gutter-width});
+  }
+  @media (min-width: $screen-md-min) {
+    width: calc(#{$container-md} + #{$grid-gutter-width});
+  }
+  @media (min-width: $screen-lg-min) {
+    width: calc(#{$container-lg} + #{$grid-gutter-width});
+  }
+}
+
+.flexbox .row{
+  &--flex{
+    @extend .row;
+    display: flex;
+  }
+  & > [class*="col-"],
+  & > [class*=" col-"]{
+    float: none;
+    padding-right: $grid-gutter-width / 2;
+    padding-left: $grid-gutter-width / 2;
+  }
+
+  &--no-gutter {
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-left: 0;
+    margin-right: 0;
+
+    & > [class*="col-"],
+    & > [class*=" col-"]{
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  &--half-gutter {
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-right: -#{$grid-gutter-width / 4};
+    margin-left: -#{$grid-gutter-width / 4};
+
+    & > [class*="col-"],
+    & > [class*=" col-"]{
+      padding-right: #{$grid-gutter-width / 4};
+      padding-left: #{$grid-gutter-width / 4};
+    }
+  }
+
+  &--double-gutter {
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-right: -#{$grid-gutter-width};
+    margin-left: -#{$grid-gutter-width};
+
+    & > [class*="col-"],
+    & > [class*=" col-"]{
+      padding-right: #{$grid-gutter-width};
+      padding-left: #{$grid-gutter-width};
+    }
+    @media(max-width: $screen-md){
+      margin-right: -#{$grid-gutter-width / 2};
+      margin-left: -#{$grid-gutter-width / 2};
+
+      & > [class*="col-"],
+      & > [class*=" col-"]{
+        padding-right: #{$grid-gutter-width / 2};
+        padding-left: #{$grid-gutter-width / 2};
+      }
+    }
+  }
+
+  &--quadruple-gutter {
+    display: flex;
+    flex: 0 1 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-right: -#{$grid-gutter-width * 2};
+    margin-left: -#{$grid-gutter-width * 2};
+
+    & > [class*="col-"],
+    & > [class*=" col-"]{
+      padding-right: #{$grid-gutter-width * 2};
+      padding-left: #{$grid-gutter-width * 2};
+    }
+  }
+}

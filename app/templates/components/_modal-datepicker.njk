@@ -1,0 +1,43 @@
+{# datepicker modal #}
+<div class="modal modal-prompt fade" tabindex="-1" role="dialog" id="{{datepicker.id}}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="row">
+          <div class="col-xs-12">
+            <a class="close modal__btn-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><img src="{{imagesDir}}{{site.icons.btnClose}}"/></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <form class="form" role="form" data-function="datepicker">
+          <div class="row">
+            <div class="section-header">
+              <h2 class="section-heading text-center">{{datepicker.headerText}}</h2>
+            </div>
+          </div>
+          <div class="row between-xs">
+            {% for option in datepicker.options %}
+            <div class="col">
+              <label class="control control--radio">
+                <span class="modal-prompt__date-picker--option-text">Start {{option.text}}</span>
+                <input type="radio" name="radio--{{option.name}}" data-date="{{option.date}}" data-humandate="{{option.text}}" />
+                <div class="control__indicator"></div>
+              </label>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="row center-xs text-success gutter--top body-text--lg" data-function="form-feedback">
+            &nbsp;
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <div class="row">
+          <!-- possibly a button here that submits the form via ajax? -->
+        </div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+{# /modal #}
