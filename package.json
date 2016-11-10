@@ -44,5 +44,8 @@
         "single"
       ]
     }
+  },
+  "scripts": {
+    "start": "gulp serve"
   }
 }

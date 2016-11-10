@@ -102,6 +102,7 @@ gulp.task('fonts', () => {
 gulp.task('extras', () => {
   return gulp.src([
     'app/*',
+    '!data',
     '!app/*.html',
     '!app/templates/*.mustache',
     '!app/**/*.mustache'
