@@ -19,13 +19,21 @@ gulp.task('data', () => {
 gulp.task('templates', ['data'], () => {
   const templateData = require('./.tmp/global.js').default;
   console.dir(templateData);
-  return gulp.src('app/templates/*.mustache')
-    .pipe($.plumber())
-    .pipe($.mustache(templateData))
+  $.nunjucksRender.nunjucks.configure(['app']);
+
+  return gulp.src(['app/templates/**/*.njk', '!app/templates/layout/layout.njk'])
+    .pipe($.data(() => templateData ))
+    .pipe($.nunjucksRender({
+      path: [
+        'app/templates',
+        'app/templates/components'
+      ]
+    }))
     .pipe($.rename({
       extname: ".html"
     }))
-    .pipe(gulp.dest('.tmp/'));
+    .pipe(gulp.dest('.tmp/'))
+    .pipe(reload({stream: true}));
 });
 
 gulp.task('styles', () => {
@@ -133,7 +141,7 @@ gulp.task('serve', () => {
     ]).on('change', reload);
 
     gulp.watch('app/data/**/*.js', ['templates']);
-    gulp.watch('app/templates/**/*.mustache', ['templates']);
+    gulp.watch('app/templates/**/*.njk', ['templates']);
     gulp.watch('app/styles/**/*.scss', ['styles']);
     gulp.watch('app/scripts/**/*.js', ['scripts']);
     gulp.watch('app/fonts/**/*', ['fonts']);
