@@ -1,14 +1,31 @@
 export default {
-  name : "Group Cleanse Page",
+  name : "Group Cleanse",
   url : "group-cleanse.html",
   headerText : "Join the 21-Day Group Cleanse",
   sections : {
+    hero: {
+      modal: true,
+      videoUrl: "https://www.youtube.com/watch?v=z3byVTFTyec"
+    },
     product: {
       title: "21-Day Cleanse",
       price: 425,
-      flavors: [
-        "Vanilla", "Chocolate", "Other"
-      ],
+      flavor: {
+        title: "Flavor",
+        items: [
+          "Vanilla", "Chocolate", "Other"
+        ]
+      },
+      quantity: {
+        title: "Quantity",
+        count: 10
+      },
+      image:{
+        alt: "21-day Group Cleanse Package",
+        url: "http://placehold.it/960x600",
+        height: 415,
+        width: "100%"
+      },
       quantityMax: 10,
       description: `
         <p>
@@ -41,9 +58,26 @@ export default {
         }
       ]
     },
-    "join-us": {
+    join: {
       title: "Join Us!",
-      buttons: [
+      bodyText: "Doing a homemade cleanse or following the book, Clean? Sign up for our exclusive content to guide your journey – it’s 100% FREE!",
+      background: {
+        url: "http://placehold.it/960x600",
+        size: "cover"
+      },
+      options: [
+        {
+          text: "Start January 9",
+          date: new Date("January 9, 2017")
+        }, {
+          text: "Start January 30",
+          date: new Date("January 30, 2017")
+        }
+      ]
+    },
+    prompt: {
+      titleText: "Which Cleanse group would you like to join?",
+      options:[
         {
           text: "Start January 9",
           date: new Date("January 9, 2017")
@@ -71,7 +105,7 @@ export default {
         }
       ]
     },
-    "exclusive-bundles": {
+    bundles: {
       title: "Exclusive Bundles",
       subtitle: "Enhance your cleanse experience and save on our favorite supportive products.",
       sections: [

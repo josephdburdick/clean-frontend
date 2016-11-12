@@ -1,4 +1,4 @@
-{% extends "layout/layout.njk" %}
+{% extends "layout/_layout.njk" %}
 {% block content %}
 <div class="page-header">
   <div class="container">
@@ -7,10 +7,12 @@
 </div>
 <div class="container">
   <div class="list-group">
-    {% for view in data.views %}
-      <a href="{{view.url}}" class="list-group-item">
-        {{view.name}}
+    {% for view, data in data.views %}
+      <a href="{{data.url}}" class="list-group-item">
+        {{data.name}}
       </a>
+    {% else %}
+      <span class="list-group-item">No views to display</span>
     {% endfor %}
   </div>
 </div>

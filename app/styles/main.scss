@@ -1,5 +1,5 @@
 $icon-font-path: '../fonts/';
-
+@import "variables";
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
@@ -12,11 +12,17 @@ $icon-font-path: '../fonts/';
   padding: 0.2em 0;
 }
 
-.placeholder-block{
+.placeholder-block {
   text-align: center;
   display: flex;
   padding: 40px 0;
   justify-content: center;
   align-items: center;
   background-color: #eee;
+
+  span{
+    display: inline-block;
+    padding: .5em 1em;
+    border: 2px solid;
+  }
 }
