@@ -49,5 +49,6 @@
   },
   "scripts": {
     "start": "gulp serve"
-  }
+  },
+  "dependencies": {}
 }
