@@ -48,7 +48,8 @@
     }
   },
   "scripts": {
-    "start": "gulp serve"
+    "start": "gulp serve",
+    "build": "gulp default"
   },
   "dependencies": {}
 }
