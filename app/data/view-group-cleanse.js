@@ -8,6 +8,23 @@ export default {
       videoUrl: "https://www.youtube.com/watch?v=z3byVTFTyec"
     },
     product: {
+      title: "Join the 21-Day Cleanse",
+      image:{
+        alt: "21-day Group Cleanse Package",
+        url: "http://placehold.it/960x600",
+        height: 415,
+        width: "100%"
+      },
+      description: `
+        <p>
+          The 21-Day Clean Program is a simple-to-follow daily routine to help restore your body’s natural ability to heal itself. Many cleansers have experienced better digestion, higher energy levels, healthy weight loss, more youthful-looking skin, and mental clarity.
+        </p>
+        <p>
+          Join our 2017 group cleanse to receive exclusive free content from Dr. Junger, his team of Wellness Coaches, and the Clean community!
+        </p>
+        `
+    },
+    purchaseform:{
       title: "21-Day Cleanse",
       price: 425,
       flavor: {
@@ -16,6 +33,7 @@ export default {
           "Vanilla", "Chocolate", "Other"
         ]
       },
+      cleanseCTA: "When would you like to cleanse?",
       quantity: {
         title: "Quantity",
         count: 10
@@ -27,17 +45,13 @@ export default {
         width: "100%"
       },
       quantityMax: 10,
-      description: `
-        <p>
-          The 21-Day Clean Program is a simple-to-follow daily routine to help restore your body’s natural ability to heal itself. Many cleansers have experienced better digestion, higher energy levels, healthy weight loss, more youthful-looking skin, and mental clarity.
-        </p>
-        <p>
-          Join our 2017 group cleanse to receive exclusive free content from Dr. Junger, his team of Wellness Coaches, and the Clean community!
-        </p>
-        `
+      addToCart: {
+        iconClass: "fa fa-plus",
+        buttonText: "Add To Cart"
+      }
     },
     "exclusive-content": {
-      title: "Exclusive Content",
+      title: "Group Cleanse Exclusive Content",
       sections: [
         {
           titleText: "Quizzes",

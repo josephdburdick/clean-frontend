@@ -3,10 +3,13 @@
   {% set data = data.views['groupCleanse'] %}
   {% set product = data.sections.product %}
   {% set join = data.sections.join %}
+  {% set exclusiveContent = data.sections['exclusive-content'] %}
+
+
   {% include "components/header.njk" %}
   <main role="main" class="main-body">
-    <!-- video hero -->
-    <div class="container">
+    {# video hero #}
+    <section class="container page-section">
       <div class="row">
         <div class="col-md-12">
           <div class="embed-responsive embed-responsive-16by9">
@@ -14,37 +17,52 @@
           </div>
         </div>
       </div>
-    </div>
-    <!-- /video hero -->
+    </section>
+    {# /video hero #}
 
-    <!-- group cleanse product -->
-    <div class="container">
+    {# group cleanse product #}
+    <section class="container page-section">
+      <h2 class="section-header text-center">{{product.title}}</h2>
       <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-3 col-md-push-9">
+          {% include 'components/_purchase-box.njk' %}
+        </div>
+        <div class="col-md-9 col-md-pull-3">
           <img
             src="{{product.image.url}}" class="img-responsive" alt="{{product.image.alt}}">
         </div>
-        <div class="col-md-3">
-          <form class="cl-purchase-box " action="index.html" method="post">
-            <div class="form-group">
-              <h4 class="title">
-                {{product.title}}
-              </h4>
-            </div>
-            <div class="form-group">
-              <label for="select-flavor">{{product.flavor.title}}</label>
-              <select name="select-flavor" id="select-flavor" class="form-control">
-                {% for i in range(1, product.quantity.count + 1) -%}
-                  <option value="{{i}}">{{i}} item{% if i === 1 %}s {% endif %}
-                  </option>
-                {%- endfor %}
-              </select>
-            </div>
-          </form>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          {{product.description | safe}}
         </div>
       </div>
-    </div
-    <!-- /group cleanse product -->
+    </section>
+    {# /group cleanse product #}
+
+    {# group cleanse exclusive content #}
+    <section class="container page-section">
+      <h2 class="section-header text-center">{{exclusiveContent.title}}</h2>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="embed-responsive embed-responsive-16by9 placeholder-block"><span>icon</span></div>
+          <div class="embed-responsive embed-responsive-16by9 placeholder-block"><span>icon</span></div>
+          <div class="embed-responsive embed-responsive-16by9 placeholder-block"><span>icon</span></div>
+        </div>
+        <div class="col-md-9">
+          <div class="card">
+            <img class="card-img-top" src alt="Card image cap">
+            <div class="card-block">
+              <h4 class="card-title">Card title</h4>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    {# /group cleanse exclusive content #}
+
 
   </main>
 {% endblock %}

@@ -2,6 +2,7 @@ $icon-font-path: '../fonts/';
 @import "variables";
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "bower_components/font-awesome/scss/font-awesome.scss";
 // endbower
 @import "grid";
 
@@ -19,10 +20,23 @@ $icon-font-path: '../fonts/';
   justify-content: center;
   align-items: center;
   background-color: #eee;
-
+  & + & {
+    margin-top: 1em;
+  }
   span{
     display: inline-block;
     padding: .5em 1em;
     border: 2px solid;
   }
+}
+
+.page-header{
+  margin-top: 0;
+  padding-top: 40px;
+  background-color: #ececec;
+  border-bottom: 1px solid #ccc;
+}
+
+.page-section + .page-section{
+  margin-top: 60px;
 }
