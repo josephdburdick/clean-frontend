@@ -10,7 +10,7 @@ const reload = browserSync.reload;
 
 gulp.task('data', () => {
   return gulp.src('app/data/*.js')
-    .pipe($.plumber())
+    .pipe($.plumber({errorHandler: $.notify.onError("Error: <%= error.message %>")}))
     .pipe($.babel())
     .pipe(gulp.dest('.tmp/'));
 });
@@ -36,7 +36,7 @@ gulp.task('templates', ['data'], () => {
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
-    .pipe($.plumber())
+    .pipe($.plumber({errorHandler: $.notify.onError("Error: <%= error.message %>")}))
     .pipe($.sourcemaps.init())
     .pipe($.sass.sync({
       outputStyle: 'expanded',
@@ -51,7 +51,7 @@ gulp.task('styles', () => {
 
 gulp.task('scripts', () => {
   return gulp.src('app/scripts/**/*.js')
-    .pipe($.plumber())
+    .pipe($.plumber({errorHandler: $.notify.onError("Error: <%= error.message %>")}))
     .pipe($.sourcemaps.init())
     .pipe($.babel())
     .pipe($.sourcemaps.write('.'))
