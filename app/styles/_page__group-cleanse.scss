@@ -123,7 +123,11 @@
 
   .feature-module {
     min-height: 100%;
-
+    .card-body{
+      @media(min-width: $screen-md){
+        max-width: 330px;
+      }
+    }
     .card-block {
       padding: $grid-gutter-width;
     }

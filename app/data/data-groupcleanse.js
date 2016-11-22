@@ -210,11 +210,11 @@ export default {
           },
           link:{
             href: "#",
-            text: "Shop now >"
+            text: "Add to Cart >"
           }
         }, {
           image: {
-            url: "bundles__product_eliminate+move.png",
+            url: "bundles__product_integrity+beta-glucan.png",
             width: 298,
             height: 206
           },
@@ -226,7 +226,7 @@ export default {
           },
           link:{
             href: "#",
-            text: "Shop now >"
+            text: "Add to Cart >"
           }
         }, {
           image: {
@@ -242,7 +242,7 @@ export default {
           },
           link:{
             href: "#",
-            text: "Shop now >"
+            text: "Add to Cart >"
           }
         }
       ]
