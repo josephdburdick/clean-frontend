@@ -1,15 +1,17 @@
 $icon-font-path: '../fonts/';
+@import "mixins";
 @import "variables";
 // bower:scss
-@import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "bower_components/bootstrap/scss/bootstrap.scss";
 // endbower
-@import "flexboxgrid";
+// @import "flexboxgrid";
 @import "fonts";
 @import "grid";
 @import "helpers";
 
 @import "headings";
 @import "forms";
+@import "buttons";
 @import "cards";
 @import "modals";
 

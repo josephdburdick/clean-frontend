@@ -17,7 +17,7 @@ $container-md:                 $container-desktop !default;
 $container-large-desktop:      (940px + $grid-gutter-width) !default;
 //** For `$screen-lg-min` and up.
 $container-lg:                 $container-large-desktop !default;
-
+$enable-flex: true;
 
 $border-color: #d7dadf;
 $orange: #eb5c21;
@@ -43,3 +43,16 @@ $primary-color:               #0f1f66;
 $secondary-color:             $MediumGray;
 $tertiary-color:              $LightGray;
 $warning-color:               $DarkRed;
+
+$btn-primary-color: white;
+$btn-primary-bg: $primary-color;
+$btn-primary-border: $primary-color;
+
+
+$border-radius: 0rem;
+
+$card-spacer-x:            1.25rem !default;
+$card-img-overlay-padding: 1.25rem !default;
+$card-columns-sm-up-column-gap: 1.25rem !default;
+$alert-padding-x:             1.25rem !default;
+$list-group-item-padding-x:             1.25rem !default;

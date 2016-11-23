@@ -3,10 +3,10 @@
 MODALS
 */
 
-.flexbox .modal{
-  @media (min-width: 768px){
+.modal{
+  @include media-breakpoint-up(md) {
     .modal-dialog{
-      width: 970px;
+      max-width: 970px;
     }
     .modal-content{
       border-radius: 0;
@@ -16,9 +16,6 @@ MODALS
       max-width: 670px;
       margin: auto;
     }
-  }
-  .close{
-    
   }
   .modal-header{
     padding: $grid-gutter-width $grid-gutter-width 0 $grid-gutter-width;
@@ -47,4 +44,8 @@ MODALS
 }
 #modal--primary .modal-body{
   max-width: none;
+}
+#modal-prompt__date-picker .modal-body{
+  padding-left: $grid-gutter-width;
+  padding-right: $grid-gutter-width;
 }

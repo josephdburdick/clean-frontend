@@ -8,10 +8,10 @@ CARDS
   flex-direction: column;
 
   .card-block{
-    padding-top: 24px;
-    padding-left: $grid-gutter-width;
-    padding-right: $grid-gutter-width;
-    padding-bottom: 0;
+    // padding-top: 24px;
+    // padding-left: $grid-gutter-width;
+    // padding-right: $grid-gutter-width;
+    // padding-bottom: 0;
 
     &:first-child{
       padding-bottom: 24px;
@@ -24,10 +24,10 @@ CARDS
       margin-bottom: 0;
     }
   }
-  hr {
-    margin-top: $grid-gutter-width;
-    margin-bottom: $grid-gutter-width;
-  }
+  // hr {
+  //   margin-top: $grid-gutter-width;
+  //   margin-bottom: $grid-gutter-width;
+  // }
 
   .bg-color--gray,
   .bg-color--grey{
@@ -36,6 +36,8 @@ CARDS
 }
 
 .card--thin-padding .card-block{
+  padding-left: $grid-gutter-width / 2;
+  padding-right: $grid-gutter-width / 2;
   padding-top: $grid-gutter-width / 2;
   padding-bottom: 0;
 
@@ -45,19 +47,13 @@ CARDS
   &:last-child{
     padding-bottom: $grid-gutter-width / 2;
   }
-  hr {
-    margin-top: $grid-gutter-width / 2;
-    margin-bottom: $grid-gutter-width / 2;
-    margin-left: -$grid-gutter-width / 2;
-    margin-right: -$grid-gutter-width / 2;
-  }
 }
 
 .card-block > .card-heading{
   margin: 0;
 }
 
-.card-img .img-responsive {
+.card-img .img-fluid {
   width: 100%;
 }
 .card-img > img{

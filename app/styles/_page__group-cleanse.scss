@@ -1,6 +1,6 @@
 .page__group-cleanse {
   clear: both;
-
+  padding-bottom: 8rem;
   p {
     margin-bottom: 1em;
   }
@@ -31,11 +31,7 @@
     .icon-container {
       display: flex;
       position: absolute;
-      width: 100%;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
+      margin: auto;
     }
   }
 
@@ -44,7 +40,8 @@
   }
 
   .section__product_feature-image {
-    @media(max-width: $screen-md) {
+
+    @include media-breakpoint-down(md) {
       margin-top: $grid-gutter-width;
 
       img {
@@ -59,14 +56,20 @@
   .section__exclusive-content {
     .icon-modules {
       flex-flow: row wrap;
-      @media(min-width: $screen-xs) and (max-width: $screen-md) {
+      @include media-breakpoint-between(xs, md) {
         display: flex;
       }
 
       & > div + div {
-        @media(min-width: $screen-md) {
+        @include media-breakpoint-up(md) {
           margin-top: $grid-gutter-width;
+          margin-bottom: 0;
         }
+      }
+    }
+    .text-wrap{
+      @include media-breakpoint-up(md) {
+        max-width: calc(350px);
       }
     }
 
@@ -74,11 +77,13 @@
       display: flex;
       position: relative;
       min-height: 185px;
-      @media(min-width: $screen-sm) and (max-width: $screen-md) {
+
+      @include media-breakpoint-only(sm) {
         margin-top: $grid-gutter-width;
         flex-basis: calc(33.3% - #{$grid-gutter-width / 2});
       }
-      @media(max-width: $screen-sm) {
+      @include media-breakpoint-down(sm) {
+
         margin-top: $grid-gutter-width * 1.5;
       }
 
@@ -111,20 +116,22 @@
     .icon-container {
       position: relative;
       margin: auto;
+      text-align: center;
     }
   }
 
   .feature-module__title,
   .icon-module__overlay-title,
   .icon-module__title {
-    @include futura( 'medium');
+    @include futura('medium');
     font-size: $grid-gutter-width;
   }
 
   .feature-module {
     min-height: 100%;
     .card-body{
-      @media(min-width: $screen-md){
+
+      @include media-breakpoint-up(md) {
         max-width: 330px;
       }
     }
@@ -151,9 +158,13 @@
   .section__join-us {
     position: relative;
     overflow: hidden;
-    @media(min-width: $screen-md) {
+
+    @include media-breakpoint-up(md) {
       min-height: 605px;
     }
+  }
+  .section__join-us .text-wrap{
+    max-width: 520px;
   }
 
   .section__join-us .form-group {
@@ -162,6 +173,9 @@
 
   .section__join-us .section-header {
     margin-top: 45px;
+    .section-heading{
+      margin: 0;
+    }
   }
 
   .section__join-us .bg-cover.position-absolute {
@@ -175,11 +189,6 @@
     z-index: 0;
     margin-right: $grid-gutter-width / 2;
     margin-left: $grid-gutter-width / 2;
-    @media(max-width: $screen-md) {
-      opacity: 0.5;
-      background-position: bottom center;
-      filter: blur(2px);
-    }
 
     & + * {
       z-index: 1;
@@ -187,7 +196,8 @@
   }
 
   .section__join-us .input-email-container {
-    @media(min-width: $screen-md) {
+
+    @include media-breakpoint-up(md) {
       margin-left: -$grid-gutter-width;
       margin-right: -$grid-gutter-width;
     }
@@ -203,10 +213,10 @@
 
     .section__social-item {
       margin-bottom: $grid-gutter-width;
-    }
 
-    .section__social-item > .card-block + .card-block {
-      margin-top: $grid-gutter-width;
+      .card-heading{
+        text-transform: uppercase;
+      }
     }
   }
 
@@ -231,7 +241,7 @@
   .section__bundles {}
 
   .section__bundles .btn-shopnow {
-    @include proxima( 'medium italic');
+    @include proxima('medium italic');
     font-size: 30px;
   }
 
@@ -254,16 +264,17 @@
   }
 
   .section__bundles .card-heading {
-    @include futura( 'book');
-    @include letter-spacing( 'tight');
-    font-size: 16px;
-    margin-bottom: $grid-gutter-width / 2;
+    @include futura('light');
+    @include letter-spacing('tight');
+    font-size: 18px;
+    margin-bottom: 6px;
   }
 
   .price-chart__items {
     display: flex;
     align-items: stretch;
-    @media(max-width: $screen-md) {
+
+    @include media-breakpoint-down(md) {
       align-items: stretch;
       justify-content: center;
     }
@@ -271,6 +282,12 @@
 
   .price-chart__item {
     margin-bottom: $grid-gutter-width;
+  }
+
+  .price-chart__item .btn-cta{
+    @include proxima('medium italic');
+    font-size: 18px;
+    color: $orange;
   }
 
   .price-chart__item .card {
@@ -289,7 +306,7 @@
   }
 
   .price-chart .price-chart__price-text {
-    @include proxima('bold'); //should be medium but font doesn't exist
+    @include proxima('medium');
     font-size: 18px;
   }
   /*
@@ -297,7 +314,7 @@
   FORMS
   */
   .btn {
-    @include futura( 'medium');
+    @include futura('medium');
     font-size: 16px;
     border-radius: 0;
   }
@@ -311,10 +328,6 @@
     height: 40px;
   }
 
-  .btn-orange-text {
-    color: $orange;
-  }
-
   .form-control--block {
     width: 100%;
   }
@@ -324,6 +337,10 @@
   */
   .purchase-box {
     align-items: stretch;
+    margin-bottom: 0;
+  }
+  .purchase-box .card-heading{
+    @include letter-spacing('heading');
   }
 
   .purchase-box .card-block {
@@ -339,20 +356,22 @@
   }
 
   .purchase-box .card-heading {
-    @include futura( 'book');
-    @include letter-spacing();
+    @include futura('book');
+    @include letter-spacing('heading');
     font-size: 21px;
     color: #2e2e2e;
     margin-top: 0;
   }
 
   .purchase-box label {
-    @include proxima( 'bold');
+    @include proxima('bold');
   }
 
-  .purchase-box .lead {
-    @include futura( 'book');
-    font-size: 27px;
+  .purchase-box .purchase-box_price {
+    @include futura('book');
+    @include letter-spacing('heading');
+    font-size: 28px;
+    color: #2e2e2e;
   }
 
   .purchase-box button {
@@ -362,14 +381,4 @@
   .purchase-box button[type="submit"] {
     background-color: $orange;
   }
-}
-
-.flexbox .global-header {
-  // width: 100vw;
-  float: none;
-}
-
-.flexbox .global-footer .clean-inner-wrapper {
-  max-width: 970px;
-  padding: 0 15px;
 }
