@@ -83,8 +83,7 @@
         flex-basis: calc(33.3% - #{$grid-gutter-width / 2});
       }
       @include media-breakpoint-down(sm) {
-
-        margin-top: $grid-gutter-width * 1.5;
+        margin-top: $grid-gutter-width;
       }
 
       &__link {
@@ -109,6 +108,9 @@
         span {
           background-color: white;
           padding: 0 $grid-gutter-width;
+          @include media-breakpoint-only(sm){
+            padding: 0 10px;
+          }
         }
       }
     }
@@ -216,6 +218,9 @@
 
       .card-heading{
         text-transform: uppercase;
+      }
+      .card-block{
+        padding: ($grid-gutter-width / 2) 0;
       }
     }
   }

@@ -20,33 +20,23 @@ html,body{
   flex-direction: column;
 }
 .flexbox .container {
-  // @include container-fixed;
 
-  // @media (min-width: $screen-sm-min) {
-  @include media-breakpoint-up(sm) {
-    width: calc(#{$container-sm} + #{$grid-gutter-width});
-  }
-  // @media (min-width: $screen-md-min) {
-  @include media-breakpoint-up(md) {
-    width: calc(#{$container-md} + #{$grid-gutter-width});
-  }
-  // @media (min-width: $screen-lg-min) {
   @include media-breakpoint-up(lg) {
     width: calc(#{$container-lg} + #{$grid-gutter-width});
   }
+  @include media-breakpoint-up(md) {
+    width: calc(#{$container-md} + #{$grid-gutter-width});
+  }
+  @include media-breakpoint-down(md) {
+    // width: calc(#{$container-md} + #{$grid-gutter-width});
+    width: 100%;
+  }
+  // @include media-breakpoint-up(sm) {
+  //   width: calc(#{$container-sm} + #{$grid-gutter-width});
+  // }
 }
 
 .flexbox .row{
-  // &--flex{
-  //   @extend .row;
-  //   display: flex;
-  // }
-  // & > [class*="col-"],
-  // & > [class*=" col-"]{
-  //   float: none;
-  //   padding-right: $grid-gutter-width / 2;
-  //   padding-left: $grid-gutter-width / 2;
-  // }
 
   &--no-gutter {
     display: flex;
@@ -91,7 +81,7 @@ html,body{
       padding-right: #{$grid-gutter-width};
       padding-left: #{$grid-gutter-width};
     }
-    // @media(max-width: $screen-md){
+
     @include media-breakpoint-down(md) {
       margin-right: -#{$grid-gutter-width / 2};
       margin-left: -#{$grid-gutter-width / 2};
