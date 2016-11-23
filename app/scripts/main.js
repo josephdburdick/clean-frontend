@@ -36,7 +36,7 @@
       const _this = {
         default: {
           iframe: {
-            attributes: `webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder="0"`,
+            attributes: 'webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder="0"',
             width: 560,
             height: 315
           }
@@ -132,7 +132,7 @@
     */
     (() => {
       const TEMPLATE = {
-        placeholder: () => `<div class="embed-responsive-item placeholder-block"></div>`,
+        placeholder: () => '<div class="embed-responsive-item placeholder-block"></div>',
         modal: () => `
           <div class="modal fade" id="modal--primary" tabindex="-1" role="dialog" aria-labelledby="Modal Window" aria-hidden="true">
             <div class="modal-dialog" role="document">
