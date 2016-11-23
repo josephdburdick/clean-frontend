@@ -1,8 +1,8 @@
 {% extends "layout/_layout.njk" %}
 {% block content %}
-  {% set imagesDir = data.site.dir.images %}
-  {% set site = data.site %}
-  {% set data = data.views['groupCleanse'] %}
+  {% set imagesDir = GLOBAL_DATA.site.dir.images %}
+  {% set site = GLOBAL_DATA.site %}
+  {% set data = GLOBAL_DATA.views['groupCleanse'] %}
   {% set datepicker = data.sections.modals.datepicker %}
   {% include "components/header.njk" %}
 
@@ -16,7 +16,7 @@
       <div class="row">
         <div class="col-md-12">
           <div class="media-container">
-            <a href="#" class="display-flex position-relative center-xs middle-xs" href="#{{modal.id}}" class="text-muted" data-toggle="modal" data-target="#{{modal.id}}" data-media="{{modal.url}}">
+            <a href="#" class="display-flex position-relative center-xs middle-xs" href="#{{modal.id}}" class="text-muted" data-toggle="modal" data-target="#{{modal.id}}" data-media-url="{{modal.url}}" data-media-autoplay="true">
               <img class="img-responsive" src="{{imagesDir}}{{hero.video.poster.url}}" alt="{{hero.video.poster.alt}}" width="{{hero.video.poster.width}}" height="{{hero.video.poster.height}}" />
               <div class="center-xs middle-xs icon-container">
                 <img src="{{imagesDir}}{{hero.video.play.image.url}}" alt="{{hero.video.play.image.alt}}" />
@@ -210,7 +210,7 @@
     </section>
     {# /exclusive bundles #}
     {% include "components/_modal-datepicker.njk" %}
-    {% include "components/_modal.njk" %}
+    {# {% include "components/_modal.njk" %} #}
   </main>
   <!-- / MAIN -->
   {% include "components/footer.njk" %}
