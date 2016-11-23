@@ -364,7 +364,10 @@
   }
 
   .purchase-box label {
-    @include proxima('bold');
+    @include proxima('medium');
+    @include letter-spacing('heading');
+    font-size: 14px;
+    margin-bottom: 0.15em;
   }
 
   .purchase-box .purchase-box_price {
