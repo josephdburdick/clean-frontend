@@ -1,19 +1,35 @@
 {% extends "layout/_layout.njk" %}
 {% block content %}
-<div class="page-header">
-  <div class="container">
-    <h1>{{data.site.name}} <small>Templates Overview</small></h1>
-  </div>
-</div>
-<div class="container">
-  <div class="list-group">
-    {% for view, data in GLOBAL_DATA.views %}
-      <a href="{{data.url}}" class="list-group-item">
-        {{data.name}}
-      </a>
-    {% else %}
-      <span class="list-group-item">No views to display</span>
-    {% endfor %}
-  </div>
+<div class="h-100 d-flex page__template-index">
+  <header class="d-flex">
+    <section class="jumbotron text-xs-center">
+      <div class="container">
+        <h1 class="jumbotron-heading">{{GLOBAL_DATA.site.name}}</h1>
+        <p class="lead text-muted">Template Index</p>
+      </div>
+    </section>
+  </header>
+  <main class="d-flex">
+    <div class="container">
+      <div class="row flex-items-xs-middle">
+        <div class="col-xs-12">
+          <div class="list-group">
+            {% for view, data in GLOBAL_DATA.views %}
+            <a href="{{data.url}}" class="list-group-item list-group-item-action">
+              {{data.name}}
+            </a>
+            {% else %}
+            <span class="list-group-item disabled">No views to display</span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="d-flex">
+    <div class="col-xs-12 text-xs-center">
+      <p class="text-muted">Clean front-end templates. Powered by Nunjucks, Sass, Gulp, and Babel. Built by <a href="http://j0ey.co">Joey</a></p>
+    </div>
+  </footer>
 </div>
 {% endblock %}
