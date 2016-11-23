@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no">
+
     <title></title>
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -11,7 +12,7 @@
 
     <link rel="stylesheet" href="styles/vendor.css">
 
-    <link rel="stylesheet" href="http://www.cleanprogram.com/2016-11-13-7-49-UTC/skin/frontend/clean/default/css/app.css">
+    
     <link rel="stylesheet" href="styles/main.css">
 
     <script src="scripts/vendor/modernizr.js"></script>
@@ -29,7 +30,7 @@
   
   
   
-  <div class="placeholder-block text-muted text-center">
+  <div class="placeholder-block text-muted text-xs-center">
   <span>global header</span>
 </div>
 
@@ -45,10 +46,12 @@
       <div class="row">
         <div class="col-md-12">
           <div class="media-container">
-            <a href="#" class="display-flex position-relative center-xs middle-xs" href="#modal--primary" class="text-muted" data-toggle="modal" data-target="#modal--primary" data-media="https://www.youtube.com/watch?v=z3byVTFTyec">
-              <img class="img-responsive" src="images/video__bg_poster.png" alt="Clean Hero Video" width="" height="">
-              <div class="center-xs middle-xs icon-container">
-                <img src="images/video__btn_play.png" alt="Play Video">
+            <a href="#" class="display-flex position-relative flex-items-xs-center flex-items-xs-middle" href="#modal--primary" class="text-muted" data-toggle="modal" data-target="#modal--primary" data-media-url="https://www.youtube.com/watch?v=aLPFyOtu8KU" data-media-autoplay="true">
+              <img class="img-fluid" src="images/video__bg_poster.png" alt="Clean Hero Video" width="" height="">
+              <div class="row flex-items-xs-center flex-items-xs-middle icon-container">
+                <div class="col-xs-12">
+                  <img src="images/video__btn_play.png" alt="Play Video" width="143" height="143">
+                </div>
               </div>
             </a>
           </div>
@@ -62,15 +65,15 @@
     
     <section class="clearfix container page-section section__product">
       <div class="section-header">
-        <h2 class="section-heading text-center">Join the 21-Day Cleanse</h2>
+        <h2 class="section-heading text-xs-center">Join the 21-Day Group Cleanse</h2>
       </div>
-      <div class="row row--reverse">
-        <div class="col-xs-12 col-sm-12 col-md-4 fill-height-or-more">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-4 flex-md-last fill-height-or-more">
           
 <form class="card card-outline--2 purchase-box" role="form">
   <div class="card-block">
     <div class="form-group">
-      <div class="card-header">
+      <div class="card-block_header">
         <h4 class="card-heading text-uppercase">
           21-Day Cleanse
         </h4>
@@ -96,16 +99,12 @@
     </div>
   </div>
   <div class="card-block card-outline--top bg-color--gray">
-    <div class="text-center form-group text-muted lead">
+    <div class="text-xs-center form-group purchase-box_price">
       $425
     </div>
-    <div class="form-group text-center">
-      <a href="#modal-prompt__date-picker" class="text-muted" data-toggle="modal" data-target="#modal-prompt__date-picker">
-        When would you like to cleanse?
-      </a>
-    </div>
+    
     <div class="form-group">
-      <button type="submit" class="btn btn-md btn-block btn-warning text-uppercase">
+      <button type="button" class="btn btn-md btn-block btn-warning text-uppercase" data-toggle="modal" data-target="#modal-prompt__date-picker">
         + Add To Cart
       </button>
     </div>
@@ -113,8 +112,8 @@
 </form>
 
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-8 text-center section__product_feature-image">
-          <img src="images/product__feature_package.png" class="img-responsive" alt="21-day Group Cleanse Package">
+        <div class="col-xs-12 col-sm-12 col-md-8 text-xs-center section__product_feature-image">
+          <img src="images/product__feature_package.png" class="img-fluid" alt="21-day Group Cleanse Package">
         </div>
       </div>
       <div class="row gutter--top">
@@ -138,39 +137,37 @@
     
     <section class="clearfix container page-section section__exclusive-content">
       <div class="section-header">
-        <h2 class="section-heading text-center">Group Cleanse Exclusive Content</h2>
+        <h2 class="section-heading text-xs-center">Group Cleanse Exclusive Content</h2>
       </div>
-      <div class="row row--double-gutter row--reverse center-xs">
+      <div class="row row--double-gutter flex-items-xs-center">
         
-        <div class="col-xs-12 col-sm-12 col-md-7 start-xs feature-module-container fill-height-or-more">
+        <div class="col-xs-12 col-sm-12 col-md-7 flex-md-last flex-xs-first feature-module-container fill-height-or-more">
           <div class="card card-outline--2 fill-height-or-more feature-module">
             <div class="card-img">
-              <img class="img-responsive img-responsive--full" src="images/content__feature_podcasts.png" alt="Tune in ever week for tips and answers from Dr. Junger">
+              <img class="img-fluid img-fluid--full" src="images/content__feature_podcasts.png" alt="Tune in ever week for tips and answers from Dr. Junger">
             </div>
-            <div class="card-block">
-              <div class="row center-xs">
-                <div class="col-md-8">
-                  <div class="card-header">
-                    <h4 class="card-heading feature-module__title">
-                      Podcasts
-                    </h4>
-                  </div>
-                  <div class="card-text body-text--large feature-module__body">Tune in every week for cleanse tips, answers to your burning questions, advice from Dr. Junger, and exclusive promos.</div>
+            <div class="row flex-items-xs-center text-xs-center card-block">
+              <div class="col-xs-12 col-sm-10 text-wrap">
+                <div class="card-block_header">
+                  <h4 class="text-xs-center text-uppercase card-heading feature-module__title">
+                    Podcasts
+                  </h4>
                 </div>
+                <div class="card-text body-text--large feature-module__body">Tune in every week for cleanse tips, answers to your burning questions, advice from Dr. Junger, and exclusive promos.</div>
               </div>
             </div>
           </div>
         </div>
         
         
-        <div class="col-xs-12 col-sm-12 col-md-5 between-xs icon-modules">
+        <div class="col-xs-12 col-sm-12 col-md-5 flex-items-xs-between icon-modules">
           
             <div class="col-xs-12 col-sm-4 col-md-12 col-lg-12 card card-outline--2 icon-module icon-module--quiz">
               <a class="icon-module__link card-block" href="#quizzes">
                 <div class="icon-container">
-                  <img src="images/icon_quiz.png" class="img-responsive" width="313" height="186" alt="Quizzes icon">
+                  <img src="images/icon_quiz.png" class="img-fluid" width="313" height="186" alt="Quizzes icon">
                 </div>
-                <div class="icon-module__overlay text-center">
+                <div class="icon-module__overlay text-xs-center">
                   <span class="icon-module__overlay-title text-uppercase heading-text--medium">Quizzes</span>
                 </div>
               </a>
@@ -179,9 +176,9 @@
             <div class="col-xs-12 col-sm-4 col-md-12 col-lg-12 card card-outline--2 icon-module icon-module--email">
               <a class="icon-module__link card-block" href="#emails">
                 <div class="icon-container">
-                  <img src="images/icon_email.png" class="img-responsive" width="313" height="186" alt="Emails icon">
+                  <img src="images/icon_email.png" class="img-fluid" width="313" height="186" alt="Emails icon">
                 </div>
-                <div class="icon-module__overlay text-center">
+                <div class="icon-module__overlay text-xs-center">
                   <span class="icon-module__overlay-title text-uppercase heading-text--medium">Emails</span>
                 </div>
               </a>
@@ -190,9 +187,9 @@
             <div class="col-xs-12 col-sm-4 col-md-12 col-lg-12 card card-outline--2 icon-module icon-module--video">
               <a class="icon-module__link card-block" href="#videos">
                 <div class="icon-container">
-                  <img src="images/icon_video.png" class="img-responsive" width="313" height="186" alt="Videos icon">
+                  <img src="images/icon_video.png" class="img-fluid" width="313" height="186" alt="Videos icon">
                 </div>
-                <div class="icon-module__overlay text-center">
+                <div class="icon-module__overlay text-xs-center">
                   <span class="icon-module__overlay-title text-uppercase heading-text--medium">Videos</span>
                 </div>
               </a>
@@ -209,28 +206,30 @@
     <section class="clearfix container page-section section__join-us">
       <div class="bg-cover position-absolute" style="background-image:url(images/newsletter__bg_jars.png)"></div>
       <div class="col-xs-12">
-        <div class="section-header">
-          <h2 class="section-heading text-center">Join Us!</h2>
+        <div class="row flex-items-xs-center">
+          <div class="section-header">
+            <h2 class="section-heading text-xs-center">Join Us!</h2>
+          </div>
         </div>
-        <div class="row form-group">
-          <div class="col-xs-12 col-sm-10 col-md-7 center-block text-center body-text--lg">
+        <div class="row flex-items-xs-center form-group">
+          <div class="col-xs-12 col-sm-10 col-md-7 text-xs-center body-text--lg text-wrap">
             Doing a homemade cleanse or following the book, Clean? Sign up for our exclusive content to guide your journey – it’s 100% FREE!
           </div>
         </div>
-        <div class="row">
-          <form class="form center-block col-lg-8">
-            <div class="form-group input-email-container">
+        <div class="row flex-items-xs-center">
+          <form class="form col-md-10 col-lg-8">
+            <div class="form-group input-group-lg input-email-container">
               <input type="text" name="input-email" class="form-control form-control--block input-lg" value="" placeholder="Your Email Address">
             </div>
-            <div class="row row--flex around-md">
+            <div class="row flex-items-md-around">
               
-              <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="col-xs-12 col-sm-6 col-md col-lg">
                 <div class="form-group">
                   <button class="btn btn-primary btn-lg btn-block" href role="button" data-startdate="Mon Jan 09 2017 00:00:00 GMT-0500 (EST)">Start January 9</button>
                 </div>
               </div>
               
-              <div class="col-xs-12 col-sm-6 col-md-6">
+              <div class="col-xs-12 col-sm-6 col-md col-lg">
                 <div class="form-group">
                   <button class="btn btn-primary btn-lg btn-block" href role="button" data-startdate="Mon Jan 30 2017 00:00:00 GMT-0500 (EST)">Start January 30</button>
                 </div>
@@ -247,51 +246,51 @@
     
     <section class="clearfix container page-section section__social">
       <div class="section-header">
-        <h2 class="section-heading text-center">Let&#39;s Get Social</h2>
+        <h2 class="section-heading text-xs-center">Let&#39;s Get Social</h2>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <div class="row--flex stretch-md center-sm center-xs section__social-items">
+          <div class="row stretch-md flex-items-sm-center flex-items-xs-center section__social-items">
             
             <div class="col-xs-10 col-sm-6 col-md-4 section__social-item">
-              <div class="card-block icon-container text-center">
+              <div class="card-block icon-container text-xs-center">
                 <img src="images/icon_facebook.svg" alt="Facebook Events" width="80" height="80">
               </div>
-              <div class="card-block card-header">
-                <h4 class="card-heading heading-text--medium text-center">
+              <div class="card-block card-block_header">
+                <h4 class="card-heading heading-text--medium text-xs-center">
                   Facebook Events
                 </h4>
               </div>
               <div class="card-block card-body">
-                <div class="card-text text-center body-text--lg social-module__body">Choose your dates and join other cleansers around the world for support, tips, and recipes.</div>
+                <div class="card-text text-xs-center body-text--lg social-module__body">Choose your dates and join other cleansers around the world for support, tips, and recipes.</div>
               </div>
             </div>
             
             <div class="col-xs-10 col-sm-6 col-md-4 section__social-item">
-              <div class="card-block icon-container text-center">
+              <div class="card-block icon-container text-xs-center">
                 <img src="images/icon_instagram.svg" alt="#CleanProgram" width="80" height="80">
               </div>
-              <div class="card-block card-header">
-                <h4 class="card-heading heading-text--medium text-center">
+              <div class="card-block card-block_header">
+                <h4 class="card-heading heading-text--medium text-xs-center">
                   #CleanProgram
                 </h4>
               </div>
               <div class="card-block card-body">
-                <div class="card-text text-center body-text--lg social-module__body">Click, double-tap, and share your way through Clean recipes and testimonials across Instagram.</div>
+                <div class="card-text text-xs-center body-text--lg social-module__body">Click, double-tap, and share your way through Clean recipes and testimonials across Instagram.</div>
               </div>
             </div>
             
             <div class="col-xs-10 col-sm-6 col-md-4 section__social-item">
-              <div class="card-block icon-container text-center">
+              <div class="card-block icon-container text-xs-center">
                 <img src="images/icon_twitter.svg" alt="LIVE Q&amp;A" width="80" height="80">
               </div>
-              <div class="card-block card-header">
-                <h4 class="card-heading heading-text--medium text-center">
+              <div class="card-block card-block_header">
+                <h4 class="card-heading heading-text--medium text-xs-center">
                   LIVE Q&amp;A
                 </h4>
               </div>
               <div class="card-block card-body">
-                <div class="card-text text-center body-text--lg social-module__body">Tweet us your questions for quick answers from Dr. Junger and his team of Wellness Coaches.</div>
+                <div class="card-text text-xs-center body-text--lg social-module__body">Tweet us your questions for quick answers from Dr. Junger and his team of Wellness Coaches.</div>
               </div>
             </div>
             
@@ -305,96 +304,96 @@
     
     <section class="clearfix container page-section section__bundles">
       <div class="section-header">
-        <h2 class="section-heading text-center">Exclusive Bundles</h2>
-        <div class="section-subheading text-center body-text--lg">Enhance your cleanse experience and save on our favorite supportive products.</div>
+        <h2 class="section-heading text-xs-center">Exclusive Bundles</h2>
+        <div class="section-subheading text-xs-center body-text--lg">Enhance your cleanse experience and save on our favorite supportive products.</div>
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <div class="row--flex price-chart price-chart__items">
+          <div class="row price-chart price-chart__items">
             
             <div class="col-xs-12 col-sm-6 col-md-4 section__bundle-item price-chart__item">
               <div class="card card--thin-padding card-outline--2">
-                <div class="card-img card-outline--bottom icon-container text-center">
-                  <img class="img-responsive" src="images/bundles__product_eliminate+move.png" alt="Eliminate + Move" width="298" height="206">
+                <div class="card-img card-outline--bottom icon-container text-xs-center">
+                  <img class="img-fluid" src="images/bundles__product_eliminate+move.png" alt="Eliminate + Move" width="298" height="206">
                 </div>
                 <div class="card-block">
-                  <h4 class="card-heading heading-text--light text-center">
+                  <h4 class="card-heading text-uppercase t--light text-xs-center">
                     Eliminate + Move
                   </h4>
-                  <div class="card-body card-text text-center social-module__body">Encourage better digestion and relieve constipation during your cleanse and after.</div>
+                  <div class="card-body card-text text-xs-center social-module__body">Encourage better digestion and relieve constipation during your cleanse and after.</div>
                 </div>
                 <div class="card-block">
                   <hr>
-                  <div class="row middle-xs center-xs price-chart__prices">
-                    <div class="col-xs text-center price-chart__price-text">
+                  <div class="row flex-items-xs-middle flex-items-xs-center price-chart__prices">
+                    <div class="col-xs text-xs-center price-chart__price-text">
                       <s>Total $63</s>
                     </div>
                     <div class="col col-divider--vertical"></div>
-                    <div class="col-xs text-center price-chart__price-text">
+                    <div class="col-xs text-xs-center price-chart__price-text">
                       Now $50
                     </div>
                   </div>
                 </div>
                 <div class="card-block">
-                  <a href="#" class="text-center btn-block btn-orange-text btn-shopnow">Shop now &gt;</a>
+                  <a href="#" class="text-xs-center btn-block btn-cta">Add to Cart &gt;</a>
                 </div>
               </div>
             </div>
             
             <div class="col-xs-12 col-sm-6 col-md-4 section__bundle-item price-chart__item">
               <div class="card card--thin-padding card-outline--2">
-                <div class="card-img card-outline--bottom icon-container text-center">
-                  <img class="img-responsive" src="images/bundles__product_eliminate+move.png" alt="Beta Glucan + Integrity" width="298" height="206">
+                <div class="card-img card-outline--bottom icon-container text-xs-center">
+                  <img class="img-fluid" src="images/bundles__product_integrity+beta-glucan.png" alt="Beta Glucan + Integrity" width="298" height="206">
                 </div>
                 <div class="card-block">
-                  <h4 class="card-heading heading-text--light text-center">
+                  <h4 class="card-heading text-uppercase t--light text-xs-center">
                     Beta Glucan + Integrity
                   </h4>
-                  <div class="card-body card-text text-center social-module__body">Support gut healing and enhance the probiotic power of the cleanse for improved digestion.</div>
+                  <div class="card-body card-text text-xs-center social-module__body">Support gut healing and enhance the probiotic power of the cleanse for improved digestion.</div>
                 </div>
                 <div class="card-block">
                   <hr>
-                  <div class="row middle-xs center-xs price-chart__prices">
-                    <div class="col-xs text-center price-chart__price-text">
+                  <div class="row flex-items-xs-middle flex-items-xs-center price-chart__prices">
+                    <div class="col-xs text-xs-center price-chart__price-text">
                       <s>Total $170</s>
                     </div>
                     <div class="col col-divider--vertical"></div>
-                    <div class="col-xs text-center price-chart__price-text">
+                    <div class="col-xs text-xs-center price-chart__price-text">
                       Now $135
                     </div>
                   </div>
                 </div>
                 <div class="card-block">
-                  <a href="#" class="text-center btn-block btn-orange-text btn-shopnow">Shop now &gt;</a>
+                  <a href="#" class="text-xs-center btn-block btn-cta">Add to Cart &gt;</a>
                 </div>
               </div>
             </div>
             
             <div class="col-xs-12 col-sm-6 col-md-4 section__bundle-item price-chart__item">
               <div class="card card--thin-padding card-outline--2">
-                <div class="card-img card-outline--bottom icon-container text-center">
-                  <img class="img-responsive" src="images/bundles__product_clean+clean-eats.png" alt="Clean + Clean Eats" width="298" height="206">
+                <div class="card-img card-outline--bottom icon-container text-xs-center">
+                  <img class="img-fluid" src="images/bundles__product_clean+clean-eats.png" alt="Clean + Clean Eats" width="298" height="206">
                 </div>
                 <div class="card-block">
-                  <h4 class="card-heading heading-text--light text-center">
+                  <h4 class="card-heading text-uppercase t--light text-xs-center">
                     Clean + Clean Eats
                   </h4>
-                  <div class="card-body card-text text-center social-module__body">Get inspired by the story that started the movement and cook up some of Clean’s best recipes.</div>
+                  <div class="card-body card-text text-xs-center social-module__body">Get inspired by the story that started the movement and cook up some of Clean’s best recipes.</div>
                 </div>
                 <div class="card-block">
                   <hr>
-                  <div class="row middle-xs center-xs price-chart__prices">
-                    <div class="col-xs text-center price-chart__price-text">
+                  <div class="row flex-items-xs-middle flex-items-xs-center price-chart__prices">
+                    <div class="col-xs text-xs-center price-chart__price-text">
                       <s>Total $45</s>
                     </div>
                     <div class="col col-divider--vertical"></div>
-                    <div class="col-xs text-center price-chart__price-text">
+                    <div class="col-xs text-xs-center price-chart__price-text">
                       Now $40
                     </div>
                   </div>
                 </div>
                 <div class="card-block">
-                  <a href="#" class="text-center btn-block btn-orange-text btn-shopnow">Shop now &gt;</a>
+                  <a href="#" class="text-xs-center btn-block btn-cta">Add to Cart &gt;</a>
                 </div>
               </div>
             </div>
@@ -418,13 +417,13 @@
       <div class="modal-body">
         <form class="form" role="form" data-function="datepicker">
           <div class="row">
-            <div class="section-header">
-              <h2 class="section-heading text-center">Which Cleanse group would you like to join?</h2>
+            <div class="col-xs-12 section-header">
+              <h2 class="section-heading text-xs-center">Which Cleanse group would you like to join?</h2>
             </div>
           </div>
-          <div class="row between-xs">
+          <div class="row flex-items-xs-between">
             
-            <div class="col">
+            <div class="col-sm">
               <label class="control control--radio">
                 <span class="modal-prompt__date-picker--option-text">Start January 9</span>
                 <input type="radio" name="radio--" data-date="Mon Jan 09 2017 00:00:00 GMT-0500 (EST)" data-humandate="January 9">
@@ -432,7 +431,7 @@
               </label>
             </div>
             
-            <div class="col">
+            <div class="col-sm">
               <label class="control control--radio">
                 <span class="modal-prompt__date-picker--option-text">Start January 30</span>
                 <input type="radio" name="radio--" data-date="Mon Jan 30 2017 00:00:00 GMT-0500 (EST)" data-humandate="January 30">
@@ -441,8 +440,10 @@
             </div>
             
           </div>
-          <div class="row center-xs text-success gutter--top body-text--lg" data-function="form-feedback">
-            &nbsp;
+          <div class="row">
+            <div class="col-xs-12 text-xs-center text-success gutter--top body-text--lg" data-function="form-feedback">
+              &nbsp;
+            </div>
           </div>
         </form>
       </div>
@@ -456,27 +457,10 @@
 </div><!-- /.modal -->
 
 
-    <div class="modal fade" id="modal--primary" tabindex="-1" role="dialog" aria-labelledby="Modal Window" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <a class="close modal__btn-close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true"><img src="images/icon__btn-x.png"></span>
-        </a>
-      </div>
-
-      <div class="modal-body">
-        <div role="video" class="media-container embed-responsive embed-responsive-16by9">
-          <iframe width="560" class="embed-responsive-item" height="315" src="https://www.youtube.com/embed/1WFLYNFkW58" frameborder="0" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
+    
   </main>
   <!-- / MAIN -->
-  <div class="placeholder-block text-muted text-center">
+  <div class="placeholder-block text-muted text-xs-center">
   <span>global footer</span>
 </div>
 
@@ -504,10 +488,24 @@
 
     <script src="scripts/vendor.js"></script>
 
-    <script src="scripts/plugins.js"></script>
-
-
     
+
+
+    <script type="text/javascript">
+    var __DATA = (function () {
+      var GLOBAL = {"site":{"title":"21-Day Cleanse, Detox, and Diet | Clean Program","name":"Clean","dir":{"images":"images/"},"icons":{"btnClose":"icon__btn-x.png"}},"views":{"groupCleanse":{"name":"Group Cleanse","url":"group-cleanse.html","headerText":"Join the 21-Day Group Cleanse","sections":{"hero":{"video":{"id":"modal-prompt__video","title":"Video Modal","url":"https://www.youtube.com/watch?v=aLPFyOtu8KU","poster":{"url":"video__bg_poster.png","alt":"Clean Hero Video"},"play":{"image":{"url":"video__btn_play.png","alt":"Play Video","width":143,"height":143}}}},"modals":{"datepicker":{"id":"modal-prompt__date-picker","headerText":"Which Cleanse group would you like to join?","options":[{"text":"January 9","date":"2017-01-09T05:00:00.000Z"},{"text":"January 30","date":"2017-01-30T05:00:00.000Z"}]},"video":{"id":"modal--primary","headerText":null,"url":"https://www.youtube.com/watch?v=aLPFyOtu8KU"}},"product":{"title":"Join the 21-Day Group Cleanse","image":{"alt":"21-day Group Cleanse Package","url":"product__feature_package.png","height":415,"width":"100%"},"description":"\n        <p>\n          The 21-Day Clean Program is a simple-to-follow daily routine to help restore your body’s natural ability to heal itself. Many cleansers have experienced better digestion, higher energy levels, healthy weight loss, more youthful-looking skin, and mental clarity.\n        </p>\n        <p>\n          Join our 2017 group cleanse to receive exclusive free content from Dr. Junger, his team of Wellness Coaches, and the Clean community!\n        </p>\n        "},"purchaseform":{"title":"21-Day Cleanse","price":425,"flavor":{"title":"Flavor","items":["Vanilla","Chocolate","Other"]},"cleanseCTA":"When would you like to cleanse?","quantity":{"title":"Quantity","count":10},"image":{"alt":"21-day Group Cleanse Package","url":"http://placehold.it/960x600","height":415,"width":"100%"},"quantityMax":10,"addToCart":{"iconClass":"fa fa-plus","buttonText":"+ Add To Cart"}},"exclusive-content":{"title":"Group Cleanse Exclusive Content","feature":{"image":{"alt":"Tune in ever week for tips and answers from Dr. Junger","url":"content__feature_podcasts.png"},"title":"Podcasts","href":"#podcasts","bodyText":"Tune in every week for cleanse tips, answers to your burning questions, advice from Dr. Junger, and exclusive promos."},"items":[{"icon":"icon_quiz.svg","image":{"url":"icon_quiz.png","width":313,"height":186},"className":"icon-module--quiz","title":"Quizzes","href":"#quizzes"},{"icon":"icon_email.svg","image":{"url":"icon_email.png","width":313,"height":186},"className":"icon-module--email","title":"Emails","href":"#emails"},{"icon":"icon_video.svg","image":{"url":"icon_video.png","width":313,"height":186},"className":"icon-module--video","title":"Videos","href":"#videos"}]},"join":{"title":"Join Us!","bodyText":"Doing a homemade cleanse or following the book, Clean? Sign up for our exclusive content to guide your journey – it’s 100% FREE!","background":{"url":"newsletter__bg_jars.png","size":"cover"},"options":[{"name":"option-jan9","text":"Start January 9","date":"2017-01-09T05:00:00.000Z"},{"name":"option-jan30","text":"Start January 30","date":"2017-01-30T05:00:00.000Z"}]},"prompt":{"title":"Which Cleanse group would you like to join?","options":[{"name":"option-jan9","text":"Start January 9","date":"2017-01-09T05:00:00.000Z"},{"name":"option-jan30","text":"Start January 30","date":"2017-01-30T05:00:00.000Z"}]},"social":{"title":"Let's Get Social","items":[{"title":"Facebook Events","icon":{"width":80,"height":80,"url":"icon_facebook.svg"},"bodyText":"Choose your dates and join other cleansers around the world for support, tips, and recipes."},{"title":"#CleanProgram","icon":{"width":80,"height":80,"url":"icon_instagram.svg"},"bodyText":"Click, double-tap, and share your way through Clean recipes and testimonials across Instagram."},{"title":"LIVE Q&A","icon":{"width":80,"height":80,"url":"icon_twitter.svg"},"bodyText":"Tweet us your questions for quick answers from Dr. Junger and his team of Wellness Coaches."}]},"bundles":{"title":"Exclusive Bundles","subtitle":"Enhance your cleanse experience and save on our favorite supportive products.","items":[{"image":{"url":"bundles__product_eliminate+move.png","width":298,"height":206},"title":"Eliminate + Move","bodyText":"Encourage better digestion and relieve constipation during your cleanse and after.","price":{"total":63,"now":50},"link":{"href":"#","text":"Add to Cart >"}},{"image":{"url":"bundles__product_integrity+beta-glucan.png","width":298,"height":206},"title":"Beta Glucan + Integrity","bodyText":"Support gut healing and enhance the probiotic power of the cleanse for improved digestion.","price":{"total":170,"now":135},"link":{"href":"#","text":"Add to Cart >"}},{"image":{"url":"bundles__product_clean+clean-eats.png","width":298,"height":206},"title":"Clean + Clean Eats","bodyText":"Get inspired by the story that started the movement and cook up some of Clean’s best recipes.","price":{"total":45,"now":40},"link":{"href":"#","text":"Add to Cart >"}}]}}}}}
+      return {
+        get: function(key) {
+          return !key ? GLOBAL : GLOBAL[key];
+        },
+        set: function(key, val) {
+          !data.state[key] ? data.state[key] = key : null;
+          data.state[key] = val;
+          return data.state;
+        }
+      };
+    })();
+    </script>
     <script src="scripts/main.js"></script>
 
   </body>
