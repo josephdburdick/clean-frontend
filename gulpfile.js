@@ -124,6 +124,7 @@ gulp.task('serve', () => {
     browserSync({
       notify: false,
       port: 9000,
+      open: false,
       server: {
         baseDir: ['.tmp', 'app'],
         routes: {
