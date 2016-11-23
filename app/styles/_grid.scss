@@ -9,6 +9,8 @@ $directions: top, bottom, left, right;
 }
 html,body{
   height: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 .d-flex {
   display: flex;
@@ -24,9 +26,9 @@ html,body{
   @include media-breakpoint-up(lg) {
     width: calc(#{$container-lg} + #{$grid-gutter-width});
   }
-  @include media-breakpoint-up(md) {
-    width: calc(#{$container-md} + #{$grid-gutter-width});
-  }
+  // @include media-breakpoint-up(md) {
+  //   width: calc(#{$container-md} + #{$grid-gutter-width});
+  // }
   @include media-breakpoint-down(md) {
     // width: calc(#{$container-md} + #{$grid-gutter-width});
     width: 100%;
