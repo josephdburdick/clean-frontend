@@ -128,11 +128,10 @@
     @include futura('medium');
     font-size: $grid-gutter-width;
   }
-
   .feature-module {
     min-height: 100%;
+    margin-bottom: 0;
     .card-body{
-
       @include media-breakpoint-up(md) {
         max-width: 330px;
       }
