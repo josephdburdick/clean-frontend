@@ -1,7 +1,7 @@
 import groupCleanse from './data-groupcleanse';
 
 export default {
-  data : {
+  GLOBAL_DATA : {
     site: {
       title: "21-Day Cleanse, Detox, and Diet | Clean Program",
       name: "Clean",
@@ -13,10 +13,6 @@ export default {
       }
     },
     views: {
-      groupCleanse,
-      groupCleanse,
-      groupCleanse,
-      groupCleanse,
       groupCleanse
     }
   }

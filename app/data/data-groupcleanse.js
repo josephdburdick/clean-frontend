@@ -8,7 +8,7 @@ export default {
       video: {
         id: "modal-prompt__video",
         title: "Video Modal",
-        url: "https://www.youtube.com/watch?v=z3byVTFTyec",
+        url: "https://www.youtube.com/watch?v=aLPFyOtu8KU",
         poster: {
           url: "video__bg_poster.png",
           alt: "Clean Hero Video"
@@ -40,7 +40,7 @@ export default {
       video:{
         id: "modal--primary",
         headerText: null,
-        url: "https://www.youtube.com/watch?v=z3byVTFTyec"
+        url: "https://www.youtube.com/watch?v=aLPFyOtu8KU"
       }
     },
     product: {
