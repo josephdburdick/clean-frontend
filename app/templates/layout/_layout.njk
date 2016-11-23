@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no">
+
     <title>{{global.name}}</title>
 
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -15,7 +16,7 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <link rel="stylesheet" href="http://www.cleanprogram.com/2016-11-13-7-49-UTC/skin/frontend/clean/default/css/app.css">
+    {# <link rel="stylesheet" href="http://www.cleanprogram.com/2016-11-13-7-49-UTC/skin/frontend/clean/default/css/app.css"> #}
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
@@ -73,12 +74,12 @@
     <!-- endbuild -->
 
 
-    {# <script type="text/javascript">
+    <script type="text/javascript">
     var __DATA = (function () {
-      var data = {{data | dump | safe}}
+      var GLOBAL = {{GLOBAL_DATA | dump | safe}}
       return {
         get: function(key) {
-          return !key ? data : data[key];
+          return !key ? GLOBAL : GLOBAL[key];
         },
         set: function(key, val) {
           !data.state[key] ? data.state[key] = key : null;
@@ -87,7 +88,7 @@
         }
       };
     })();
-    </script> #}
+    </script>
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
