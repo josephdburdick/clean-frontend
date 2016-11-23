@@ -2,7 +2,7 @@
 <form class="card card-outline--2 purchase-box" role="form">
   <div class="card-block">
     <div class="form-group">
-      <div class="card-header">
+      <div class="card-block_header">
         <h4 class="card-heading text-uppercase">
           {{form.title}}
         </h4>
@@ -26,14 +26,14 @@
     </div>
   </div>
   <div class="card-block card-outline--top bg-color--gray">
-    <div class="text-center form-group text-muted lead ">
-      ${{form.price}}
+    <div class="text-xs-center form-group purchase-box_price ">
+      ${{form.price|round(2, 'floor')}}
     </div>
-    <div class="form-group text-center">
+    {# <div class="form-group text-xs-center">
       <a href="#{{datepicker.id}}" class="text-muted" >
         {{form.cleanseCTA}}
       </a>
-    </div>
+    </div> #}
     <div class="form-group">
       <button type="button" class="btn btn-md btn-block btn-warning text-uppercase" data-toggle="modal" data-target="#{{datepicker.id}}">
         {{form.addToCart.buttonText}}

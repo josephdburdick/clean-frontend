@@ -17,8 +17,8 @@ export default {
           image: {
             url: "video__btn_play.png",
             alt: "Play Video",
-            width: 970,
-            height: 475
+            width: 143,
+            height: 143
           }
         }
       }
@@ -44,7 +44,7 @@ export default {
       }
     },
     product: {
-      title: "Join the 21-Day Cleanse",
+      title: "Join the 21-Day Group Cleanse",
       image: {
         alt: "21-day Group Cleanse Package",
         url: "product__feature_package.png",

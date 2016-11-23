@@ -2,10 +2,10 @@
   "name": "clean-bs3",
   "private": true,
   "dependencies": {
-    "bootstrap-sass": "~3.3.5",
     "modernizr": "~2.8.1",
     "jPlayer": "jplayer#^2.9.2",
-    "font-awesome": "fontawesome#^4.7.0"
+    "font-awesome": "fontawesome#^4.7.0",
+    "bootstrap": "v4.0.0-alpha.5"
   },
   "overrides": {
     "bootstrap-sass": {

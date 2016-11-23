@@ -1,23 +1,33 @@
 // $font | fonts faces from typekit
 $heading-font: "futura-pt"; // book:400 | bold:700 | 130k
-$body-font: "luxi-sans"; // book:400 | bold:700 | 130k
+
 @mixin font-family-fallback($priority-font-family){
   font-family: $priority-font-family, 'helvetica neue', helvetica, arial, sans-serif;
+  font-style: normal;
 }
 
 @mixin futura($weight: "book"){
   @if $weight == "book" {
-    @include font-family-fallback("Futura-Book");
+    @include font-family-fallback("futura-pt");
+    font-weight: 400;
   } @else if $weight == "light"  {
-    @include font-family-fallback("Futura-Light");
+    @include font-family-fallback("futura-pt");
+    font-weight: 300;
   } @else if $weight == "medium"  {
-    @include font-family-fallback("futuraBT-Medium");
+    @include font-family-fallback("futura-pt");
+    font-weight: 500;
   } @else if $weight == "bold"  {
-    @include font-family-fallback("Futura-Bold");
+    @include font-family-fallback("futura-pt");
+    font-weight: 700;
   } @else if $weight == "heavy" {
-    @include font-family-fallback("Futura-Heavy");
+    @include font-family-fallback("futura-pt");
+    font-weight: 700;
+  } @else if $weight == "extra bold" {
+    @include font-family-fallback("futura-pt");
+    font-weight: 800;
   } @else {
-    @include font-family-fallback("Futura");
+    @include font-family-fallback("futura-pt");
+    font-weight: 400;
   }
 }
 
@@ -52,6 +62,8 @@ $body-font: "luxi-sans"; // book:400 | bold:700 | 130k
 @mixin letter-spacing($kerning: 0){
   @if $kerning == "tight" {
     letter-spacing: 0.05em;
+  } @else if $kerning == "heading" {
+    letter-spacing: 0.075em;
   } @else if $kerning == "reset" {
     letter-spacing: 0;
   } @else {
@@ -79,7 +91,7 @@ HEADINGS
   @include futura('medium');
   font-size: 35px;
   margin: 0 0 $grid-gutter-width;
-  @media(max-width: $screen-sm){
+  @include media-breakpoint-down(sm) {
     font-size: 30px;
   }
 }

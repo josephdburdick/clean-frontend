@@ -12,23 +12,25 @@
       <div class="modal-body">
         <form class="form" role="form" data-function="datepicker">
           <div class="row">
-            <div class="section-header">
-              <h2 class="section-heading text-center">{{datepicker.headerText}}</h2>
+            <div class="col-xs-12 section-header">
+              <h2 class="section-heading text-xs-center">{{datepicker.headerText}}</h2>
             </div>
           </div>
-          <div class="row between-xs">
+          <div class="row flex-items-xs-between">
             {% for option in datepicker.options %}
-            <div class="col">
+            <div class="col-sm">
               <label class="control control--radio">
-                <span class="modal-prompt__date-picker--option-text text-uppercase">Start {{option.text}}</span>
+                <span class="modal-prompt__date-picker--option-text">Start {{option.text}}</span>
                 <input type="radio" name="radio--{{option.name}}" data-date="{{option.date}}" data-humandate="{{option.text}}" />
                 <div class="control__indicator"></div>
               </label>
             </div>
             {% endfor %}
           </div>
-          <div class="row center-xs text-success gutter--top body-text--lg" data-function="form-feedback">
-            &nbsp;
+          <div class="row">
+            <div class="col-xs-12 text-xs-center text-success gutter--top body-text--lg" data-function="form-feedback">
+              &nbsp;
+            </div>
           </div>
         </form>
       </div>

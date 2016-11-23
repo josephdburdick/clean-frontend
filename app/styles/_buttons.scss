@@ -1,0 +1,5 @@
+.btn{
+  @include futura('book');
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+}
