@@ -47,7 +47,7 @@ export default {
       title: "Join the 21-Day Group Cleanse",
       image: {
         alt: "21-day Group Cleanse Package",
-        url: "product__feature_package.png",
+        url: "product__feature_21-day-package.png",
         height: 415,
         width: "100%"
       },

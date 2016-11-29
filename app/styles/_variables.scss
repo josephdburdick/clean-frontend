@@ -46,13 +46,14 @@ $container-lg:                 $container-large-desktop !default;
 $enable-flex: true;
 
 $border-color: #d7dadf;
-$orange: #eb5c21;
+
 
 //_ Base colors
 //_ -------------------------
 $White:                         #FFFFFF !default;
 $Black:                         #000000 !default;
 $CleanBlue:                     #263675 !default;
+$orange: #eb5c21;
 $LightGray:                     #f9faf9 !default;
 $MediumGray:                    #f1f1f1 !default;
 $DarkGray:                      #dbdbdb !default;
@@ -74,5 +75,8 @@ $btn-primary-color: white;
 $btn-primary-bg: $primary-color;
 $btn-primary-border: $primary-color;
 
+$btn-warning-color: $orange;
+$btn-warning-bg: $orange;
+$btn-warning-border: $orange;
 
 $border-radius: 0rem;

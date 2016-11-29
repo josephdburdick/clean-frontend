@@ -63,7 +63,7 @@
       </div>
       <div class="row row--double-gutter flex-items-xs-center">
         {# exclusive content featured module #}
-        <div class="col-xs-12 col-sm-12 col-md-7 flex-md-last flex-xs-first feature-module-container fill-height-or-more">
+        <div class="col-xs-12 col-sm-12 col-md-8 flex-md-last flex-xs-first feature-module-container fill-height-or-more">
           <div class="card card-outline--2 fill-height-or-more feature-module">
             <div class="card-img">
               <img class="img-fluid img-fluid--full" src="{{imagesDir}}{{exclusive.feature.image.url}}" alt="{{exclusive.feature.image.alt}}">
@@ -82,7 +82,7 @@
         </div>
         {# /exclusive content featured module #}
         {# exclusive content icon modules #}
-        <div class="col-xs-12 col-sm-12 col-md-5 flex-items-xs-between icon-modules">
+        <div class="col-xs-12 col-sm-12 col-md-4 flex-items-xs-between icon-modules">
           {% for item in exclusive.items %}
             <div class="col-xs-12 col-sm-4 col-md-12 col-lg-12 card card-outline--2 icon-module {{item.className}}">
               <a class="icon-module__link card-block" href="{{item.href}}">
@@ -121,11 +121,12 @@
             <div class="form-group input-group-lg input-email-container">
               <input type="text" name="input-email" class="form-control form-control--block input-lg" value="" placeholder="Your Email Address">
             </div>
-            <div class="row flex-items-md-around">
+            <div class="row flex-items-md-around flex-items-xs-center">
+              {% set cls = cycler("btn-column--odd", "btn-column--even") %}
               {% for button in join.options %}
-              <div class="col-xs-12 col-sm-6 col-md col-lg ">
+              <div class="col-xs-12 col-sm-6 col-md col-lg {{ cls.next() }}">
                 <div class="form-group">
-                  <button class="btn btn-primary btn-lg btn-block" href role="button" data-startdate="{{button.date}}">{{button.text}}</button>
+                  <button class="btn btn-primary btn-lg" href role="button" data-startdate="{{button.date}}">{{button.text}}</button>
                 </div>
               </div>
               {% endfor %}
@@ -144,7 +145,7 @@
       </div>
       <div class="row">
         <div class="col-xs-12">
-          <div class="row row--half-gutter flex-items-sm-center flex-items-xs-center section__social-items">
+          <div class="row flex-items-sm-center flex-items-xs-center section__social-items">
             {% for item in social.items %}
             <div class="col-xs-10 col-sm-6 col-md-4 section__social-item">
               <div class="card-block icon-container text-xs-center">
