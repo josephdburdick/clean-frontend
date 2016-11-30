@@ -65,7 +65,7 @@ export default {
       price: "475.00",
       flavor: {
         title: "Flavor",
-        items: ["Vanilla", "Chocolate", "Other"]
+        items: ["Vanilla", "Chocolate", "Mixed"]
       },
       cleanseCTA: "When would you like to cleanse?",
       quantity: {
