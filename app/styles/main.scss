@@ -1,20 +1,30 @@
 $icon-font-path: '../fonts/';
-@import "mixins";
-@import "variables";
+@import 'utilities/mixins';
+@import 'utilities/variables';
 // bower:scss
-@import "bower_components/bootstrap/scss/bootstrap.scss";
+@import 'bower_components/bootstrap/scss/bootstrap.scss';
 // endbower
-// @import "flexboxgrid";
-@import "fonts";
-@import "grid";
-@import "helpers";
+@import 'utilities/fonts';
+@import 'utilities/grid';
+@import 'utilities/helpers';
 
-@import "bg";
-@import "headings";
-@import "forms";
-@import "buttons";
-@import "cards";
-@import "modals";
 
-@import 'page__template-index';
-@import 'page__group-cleanse';
+/*
+
+Components
+*/
+@import 'components/bg';
+@import 'components/headings';
+@import 'components/forms';
+@import 'components/buttons';
+@import 'components/cards';
+@import 'components/modals';
+
+@import 'components/purchase-box';
+
+/*
+
+Pages
+*/
+@import 'pages/page__template-index';
+@import 'pages/page__group-cleanse';

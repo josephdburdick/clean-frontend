@@ -28,16 +28,9 @@ html,body{
   @include media-breakpoint-up(lg) {
     width: calc(#{$container-lg} + #{$grid-gutter-width});
   }
-  // @include media-breakpoint-up(md) {
-  //   width: calc(#{$container-md} + #{$grid-gutter-width});
-  // }
   @include media-breakpoint-down(md) {
-    // width: calc(#{$container-md} + #{$grid-gutter-width});
     width: 100%;
   }
-  // @include media-breakpoint-up(sm) {
-  //   width: calc(#{$container-sm} + #{$grid-gutter-width});
-  // }
 }
 
 .flexbox .row{

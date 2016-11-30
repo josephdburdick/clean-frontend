@@ -1,0 +1,53 @@
+/*
+
+PURCHASE BOX
+*/
+.purchase-box {
+  align-items: stretch;
+  margin-bottom: 0;
+}
+.purchase-box .card-heading{
+  @include letter-spacing('heading');
+}
+
+.purchase-box .card-block {
+  flex: 1;
+  padding: 36px;
+  &:first-child {
+    padding-top: 24px;
+  }
+
+  &:last-child {
+    padding-top: 24px;
+  }
+}
+
+.purchase-box .card-heading {
+  @include futura('book');
+  @include letter-spacing('heading');
+  font-size: 21px;
+  color: #2e2e2e;
+  margin-top: 0;
+}
+
+.purchase-box label {
+  @include proxima('medium');
+  @include letter-spacing('heading');
+  font-size: 14px;
+  margin-bottom: 0.15em;
+}
+
+.purchase-box .purchase-box_price {
+  @include futura('book');
+  @include letter-spacing('heading');
+  font-size: 28px;
+  color: #2e2e2e;
+}
+
+.purchase-box button {
+  color: white;
+}
+
+.purchase-box button[type="submit"] {
+  background-color: $orange;
+}
