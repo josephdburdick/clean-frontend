@@ -62,7 +62,7 @@ export default {
     },
     purchaseform: {
       title: "21-Day Cleanse",
-      price: "425.00",
+      price: "475.00",
       flavor: {
         title: "Flavor",
         items: ["Vanilla", "Chocolate", "Other"]
