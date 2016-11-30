@@ -40,7 +40,7 @@
   }
 
   .section__product_feature-image {
-    @include media-breakpoint-down(md) {
+    @include media-breakpoint-down(sm) {
       margin-top: $grid-gutter-width;
 
       img {
