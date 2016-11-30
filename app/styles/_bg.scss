@@ -1,0 +1,14 @@
+.bg,
+.bg-contain,
+.bg-cover {
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &--top {
+    background-position: top center;
+  }
+
+  &--bottom {
+    background-position: top center;
+  }
+}
