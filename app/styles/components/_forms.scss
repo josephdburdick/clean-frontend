@@ -6,7 +6,7 @@ FORMS
   .control-group {
     display: inline-block;
     vertical-align: top;
-    background: $White;
+    background: $white;
     text-align: left;
     box-shadow: 0 1px 2px rgba(0,0,0,0.1);
     padding: 30px;
@@ -36,7 +36,7 @@ FORMS
     left: 0;
     height: 20px;
     width: 20px;
-    background: darken($LightGray, 20%);
+    background: darken($light-gray, 20%);
     top: 50%;
     transform: translateY(-50%);
   }
@@ -47,7 +47,7 @@ FORMS
 
   .control input:focus ~ .control__indicator,
   .control:hover input ~ .control__indicator {
-    background: darken($LightGray, 10%);
+    background: darken($light-gray, 10%);
   }
 
   .control input:checked ~ .control__indicator {
@@ -60,7 +60,7 @@ FORMS
   }
 
   .control input:disabled ~ .control__indicator {
-    background: darken($LightGray, 20%);
+    background: darken($light-gray, 20%);
     opacity: 0.6;
     pointer-events: none;
   }
@@ -80,13 +80,13 @@ FORMS
     top: 4px;
     width: 3px;
     height: 8px;
-    border: solid $White;
+    border: solid $white;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
   }
 
   .control--checkbox input:disabled ~ .control__indicator:after {
-    border-color: $MediumGray;
+    border-color: $medium-gray;
   }
 
   .control--radio .control__indicator:after {
@@ -95,11 +95,11 @@ FORMS
     height: 6px;
     width: 6px;
     border-radius: 50%;
-    background: $White;
+    background: $white;
   }
 
   .control--radio input:disabled ~ .control__indicator:after {
-    background: $MediumGray;
+    background: $medium-gray;
   }
 
   .select {
@@ -117,8 +117,8 @@ FORMS
     outline: 0;
     border: 0;
     border-radius: 0;
-    background: darken($LightGray, 20%);
-    color: $MediumGray;
+    background: darken($light-gray, 20%);
+    color: $medium-gray;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -131,7 +131,7 @@ FORMS
   .select select:focus,
   .select select:hover {
     color: #000;
-    background: darken($LightGray, 10%);
+    background: darken($light-gray, 10%);
   }
 
   .select select:disabled {
@@ -148,7 +148,7 @@ FORMS
     pointer-events: none;
     border-style: solid;
     border-width: 8px 5px 0 5px;
-    border-color: $MediumGray transparent transparent transparent;
+    border-color: $medium-gray transparent transparent transparent;
   }
 
   .select select:focus ~ .select__arrow,
@@ -157,6 +157,6 @@ FORMS
   }
 
   .select select:disabled ~ .select__arrow {
-    border-top-color: darken($LightGray, 10%);
+    border-top-color: darken($light-gray, 10%);
   }
 }

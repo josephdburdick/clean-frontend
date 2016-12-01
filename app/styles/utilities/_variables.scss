@@ -50,15 +50,15 @@ $border-color: #d7dadf;
 
 //_ Base colors
 //_ -------------------------
-$White:                         #FFFFFF !default;
-$Black:                         #000000 !default;
-$CleanBlue:                     #263675 !default;
-$orange: #eb5c21;
-$LightGray:                     #f9faf9 !default;
-$MediumGray:                    #f1f1f1 !default;
-$DarkGray:                      #dbdbdb !default;
-$OffBlack:                      #3c3c3c !default;
-$DarkRed:                       #9b280d !default;
+$white:       #FFFFFF !default;
+$black:       #000000 !default;
+$blue:        #263675 !default;
+$orange:      #eb5c21 !default;
+$light-gray:  #f9faf9 !default;
+$medium-gray: #f1f1f1 !default;
+$dark-gray:   #dbdbdb !default;
+$off-black:   #3c3c3c !default;
+$dark-red:    #9b280d !default;
 
 //_ Opacity
 //_  ------------------------
@@ -67,16 +67,16 @@ $Opacity:                      0.6;
 //_  Theme Color
 //_  ------------------------
 $primary-color:               #0f1f66;
-$secondary-color:             $MediumGray;
-$tertiary-color:              $LightGray;
-$warning-color:               $DarkRed;
+$secondary-color:             $medium-gray;
+$tertiary-color:              $light-gray;
+$warning-color:               $dark-red;
 
-$btn-primary-color: white;
-$btn-primary-bg: $primary-color;
-$btn-primary-border: $primary-color;
+$btn-primary-color:           $white;
+$btn-primary-bg:              $primary-color;
+$btn-primary-border:          $primary-color;
 
-$btn-warning-color: $orange;
-$btn-warning-bg: $orange;
-$btn-warning-border: $orange;
+$btn-warning-color:           $orange;
+$btn-warning-bg:              $orange;
+$btn-warning-border:          $orange;
 
 $border-radius: 0rem;

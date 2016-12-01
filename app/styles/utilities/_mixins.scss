@@ -23,3 +23,11 @@ $baseline-px: 16px;
     #{$property}: $rem-values;
   }
 }
+
+@mixin clingToParent($margin: 0){
+  position: absolute;
+  top: $margin;
+  right: $margin;
+  bottom: $margin;
+  left: $margin;
+}

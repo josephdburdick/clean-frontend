@@ -29,9 +29,15 @@
     }
 
     .icon-container {
+      @include clingToParent();
       display: flex;
-      position: absolute;
       margin: auto;
+    }
+    .icon-img__play{
+      @include media-breakpoint-down(sm) {
+        width: 15%;
+        height: auto;
+      }
     }
   }
 
