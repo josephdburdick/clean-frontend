@@ -54,5 +54,7 @@
     "build": "gulp default",
     "deploy": "gulp default && gulp deploy"
   },
-  "dependencies": {}
+  "dependencies": {
+    "moment": "^2.17.0"
+  }
 }

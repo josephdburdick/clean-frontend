@@ -8,19 +8,30 @@
         </h4>
       </div>
     </div>
+
     <div class="form-group">
       <label class="text-muted text-uppercase" for="select-flavor">{{form.flavor.title}}</label>
-      <select name="select-flavor" id="select-flavor" class="form-control">
+      <select name="flavor" id="select-flavor" class="form-control">
         {% for flavor in form.flavor.items %}
           <option value="{{flavor}}">{{flavor}}</option>
         {% endfor %}
-    </select>
+      </select>
     </div>
+
     <div class="form-group">
       <label class="text-muted text-uppercase" for="select-quantity">{{form.quantity.title}}</label>
-      <select name="select-quantity" id="select-quantity" class="form-control">
+      <select name="quantity" id="select-quantity" class="form-control">
         {% for i in range(1, form.quantity.count + 1) -%}
         <option value="{{i}}">{{i}} item{% if i > 1 %}s {% endif %}</option>
+        {%- endfor %}
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="text-muted text-uppercase" for="select-quantity">{{form.startDate.title}}</label>
+      <select name="date" id="select-date" class="form-control">
+        {% for option in form.startDate.dates -%}
+        <option value="{{option.date}}">{{option.text}}</option>
         {%- endfor %}
       </select>
     </div>
@@ -29,13 +40,8 @@
     <div class="text-xs-center form-group purchase-box_price ">
       ${{ form.price }}
     </div>
-    {# <div class="form-group text-xs-center">
-      <a href="#{{datepicker.id}}" class="text-muted" >
-        {{form.cleanseCTA}}
-      </a>
-    </div> #}
     <div class="form-group text-xs-center">
-      <button type="button" class="btn btn-md btn-warning text-uppercase" data-toggle="modal" data-target="#{{datepicker.id}}">
+      <button type="submit" class="btn btn-md btn-warning text-uppercase">
         {{form.addToCart.buttonText}}
       </button>
     </div>

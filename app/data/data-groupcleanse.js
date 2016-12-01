@@ -1,3 +1,5 @@
+import helpers from './helpers';
+
 export default {
   name : "Group Cleanse",
   url : "group-cleanse.html",
@@ -24,19 +26,6 @@ export default {
       }
     },
     modals: {
-      datepicker:{
-        id: "modal-prompt__date-picker",
-        headerText: "Which Cleanse group would you like to join?",
-        options: [
-          {
-            text: "January 9",
-            date: new Date("January 9, 2017")
-          }, {
-            text: "January 30",
-            date: new Date("January 30, 2017")
-          }
-        ]
-      },
       video:{
         id: "modal--primary",
         headerText: null,
@@ -79,6 +68,18 @@ export default {
         width: "100%"
       },
       quantityMax: 10,
+      startDate: {
+        title: "Date",
+        dates: [
+          {
+            text: `Start on ${helpers.formatDate('January 9, 2017')}`,
+            date: new Date('January 9, 2017')
+          }, {
+            text: `Start on ${helpers.formatDate('January 30, 2017')}`,
+            date: new Date('January 30, 2017')
+          }
+        ]
+      },
       addToCart: {
         iconClass: "fa fa-plus",
         buttonText: "+ Add To Cart"
@@ -139,29 +140,29 @@ export default {
       options: [
         {
           name: "option-jan9",
-          text: "Start January 9",
+          text: `Start ${helpers.formatDate('January 9, 2017')}`,
           date: new Date("January 9, 2017")
         }, {
           name: "option-jan30",
-          text: "Start January 30",
+          text: `Start ${helpers.formatDate('January 30, 2017')}`,
           date: new Date("January 30, 2017")
         }
       ]
     },
-    prompt: {
-      title: "Which Cleanse group would you like to join?",
-      options: [
-        {
-          name: "option-jan9",
-          text: "Start January 9",
-          date: new Date("January 9, 2017")
-        }, {
-          name: "option-jan30",
-          text: "Start January 30",
-          date: new Date("January 30, 2017")
-        }
-      ]
-    },
+    // prompt: {
+    //   title: "Which Cleanse group would you like to join?",
+    //   options: [
+    //     {
+    //       name: "option-jan9",
+    //       text: "Start January 9",
+    //       date: new Date("January 9, 2017")
+    //     }, {
+    //       name: "option-jan30",
+    //       text: "Start January 30",
+    //       date: new Date("January 30, 2017")
+    //     }
+    //   ]
+    // },
     social: {
       title: "Let's Get Social",
       items: [
