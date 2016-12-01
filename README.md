@@ -9,12 +9,12 @@ Static front-end development workflow featuring Gulp, ES6, Sass, and Nunjucks te
 ## Installation
 1. run `yarn` in project root to install Node dependencies
 2. run `bower install` in project root to install Bower dependencies
-3. run `gulp wiredep` if adding any front-end assets from Bower
 
 ## Usage
 1. run `npm start` or `gulp serve` to watch changes in `app` (changes to `app/data` needs a whole restart)
 2. run `npm run build` to build static assets in `dist` directory
-3. if ever adding bower dependencies, update the `_layout` partial by running `gulp wiredep`
+3. run `gulp wiredep` if ever adding bower dependencies, it'll update the `_layout` partial
+4. run `npm run build; npm run deploy` to deploy generated static pages to Github repository's gh-pages branch
 
 ## Contributing
 1. Fork it!
