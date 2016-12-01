@@ -2,7 +2,7 @@
 Static front-end development workflow featuring Gulp, ES6, Sass, and Nunjucks templates. The intention is to precompile written templates of components, inject them with data, and generate corresponding pages.
 
 ## Prerequisites
-1. Install Node.js
+1. Install [Node.js](https://nodejs.org/en/download/)
 2. Install Bower `npm i bower -g`
 3. Install Yarn `npm i yarn -g`
 
