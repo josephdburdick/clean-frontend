@@ -235,4 +235,4 @@ export default {
       ]
     }
   }
-}
+};

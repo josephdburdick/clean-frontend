@@ -7,17 +7,45 @@ const runSequence = require('run-sequence');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
-
 const rollup = require('rollup-stream');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 const nodeResolve = require('rollup-plugin-node-resolve');
 
+const fs = require('fs');
+const vm = require('vm');
+const path = require('path');
+
+function requireUncached( $module ) {
+  delete require.cache[require.resolve( $module )];
+  return require( $module );
+}
+
+const C = (() => {
+  this.dir = {
+    root: '.',
+    src: 'app',
+    dist: 'dist',
+    tmp: '.tmp',
+    tmpData: '.tmp/data'
+  };
+  this.getFileType = (file) => path.basename(file.path).split('.').pop();
+  this.getFileName = (file) => {
+    let filePath = path.basename(file.path).split('.');
+    filePath.pop();
+    filePath.push('js');
+    return filePath.join('.');
+  };
+  this.getFilePath = (file) => `${__dirname}/.tmp/data/${this.getFileName(file)}`;
+  return this;
+})();
+
 gulp.task('data', () => {
   return gulp.src('app/data/*.js')
     .pipe($.plumber({errorHandler: $.notify.onError("Error: <%= error.message %>")}))
     .pipe($.babel())
-    .pipe(gulp.dest('.tmp/'));
+    .pipe(gulp.dest('.tmp/data'))
+    .pipe(reload({stream: true}));
 });
 
 gulp.task('bundle', () => {
@@ -34,24 +62,42 @@ gulp.task('bundle', () => {
     .pipe(source('index.js', './app/scripts'))
     .pipe(buffer())
     .pipe($.sourcemaps.init({loadMaps: true}))
-    .pipe($.babel())
     .pipe($.rename('main.js'))
+    .pipe($.babel())
     .pipe($.sourcemaps.write('.'))
+    .pipe(gulp.dest('./test/scripts'))
     .pipe(gulp.dest('./.tmp/scripts'));
+});
+gulp.task('bundle:data', ['data'], () => {
+  return rollup({
+    entry: './.tmp/data/global.js',
+    sourceMap: false,
+    plugins: [
+      nodeResolve({
+        jsnext: true
+      })
+    ]
+  })
+  .pipe($.plumber({errorHandler: $.notify.onError("Error: <%= error.message %>")}))
+  .pipe(source('global.js', './.tmp/data'))
+  .pipe(buffer())
+  .pipe($.sourcemaps.init({loadMaps: true}))
+  // .pipe($.babel())
+  .pipe($.sourcemaps.write('.'))
+  .pipe(gulp.dest('./test/data'));
 });
 
 gulp.task('templates', ['data'], () => {
-  const templateData = require('./.tmp/global.js').default;
-  $.nunjucksRender.nunjucks.configure(['app']);
-
-  return gulp.src(['app/templates/**/*.njk', '!app/templates/layout/layout.njk'])
-    .pipe($.data(() => templateData ))
-    .pipe($.nunjucksRender({
-      path: [
-        'app/templates',
-        'app/templates/components'
-      ]
+  return gulp.src(['app/templates/*.njk', '!app/templates/layout/layout.njk'])
+    .pipe($.data((file) => {
+      const templateData = Object.assign(
+        {},
+        requireUncached('./.tmp/data/global.js').default,
+        requireUncached(C.getFilePath(file)).default
+      );
+      return templateData;
     }))
+    .pipe($.nunjucks.compile())
     .pipe($.rename({
       extname: ".html"
     }))
@@ -159,7 +205,7 @@ gulp.task('extras', () => {
   }).pipe(gulp.dest('dist'));
 });
 
-gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
+gulp.task('clean', del.bind(null, ['.tmp', 'dist', 'test/data', 'test/scripts']));
 
 gulp.task('serve', () => {
   runSequence(['clean', 'wiredep'], ['templates', 'styles', 'bundle', 'fonts'], () => {
@@ -200,15 +246,18 @@ gulp.task('serve:dist', () => {
   });
 });
 
-gulp.task('serve:test', ['bundle'], () => {
+gulp.task('serve:test', ['templates', 'styles','bundle:data'], () => {
   browserSync({
     notify: false,
     port: 3000,
     ui: false,
     server: {
-      baseDir: 'test',
+      baseDir: ['test'],
       routes: {
+        '/images': 'app/images',
+        '/styles': '.tmp/styles',
         '/scripts': '.tmp/scripts',
+        '/data': 'test/data',
         '/bower_components': 'bower_components'
       }
     }
