@@ -7,17 +7,44 @@ const runSequence = require('run-sequence');
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
-
 const rollup = require('rollup-stream');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 const nodeResolve = require('rollup-plugin-node-resolve');
 
+const fs = require('fs');
+const path = require('path');
+
+function requireUncached( $module ) {
+  delete require.cache[require.resolve( $module )];
+  return require( $module );
+}
+
+const C = (() => {
+  this.dir = {
+    root: '.',
+    src: 'app',
+    dist: 'dist',
+    tmp: '.tmp',
+    tmpData: '.tmp/data'
+  };
+  this.getFileType = (file) => path.basename(file.path).split('.').pop()
+  this.getFileName = (file) => {
+    let filePath = path.basename(file.path).split('.');
+    filePath.pop();
+    filePath.push('js');
+    return filePath.join('.');
+  };
+  this.getFilePath = (file) => `${__dirname}/.tmp/data/${this.getFileName(file)}`;
+  return this;
+})();
+
 gulp.task('data', () => {
   return gulp.src('app/data/*.js')
     .pipe($.plumber({errorHandler: $.notify.onError("Error: <%= error.message %>")}))
     .pipe($.babel())
-    .pipe(gulp.dest('.tmp/'));
+    .pipe(gulp.dest('.tmp/data'))
+    .pipe(reload({stream: true}));
 });
 
 gulp.task('bundle', () => {
@@ -41,23 +68,45 @@ gulp.task('bundle', () => {
 });
 
 gulp.task('templates', ['data'], () => {
-  const templateData = require('./.tmp/global.js').default;
-  $.nunjucksRender.nunjucks.configure(['app']);
+  // const templateData = require('./.tmp/global.js').default;
+  // console.log(templateData);
+  // $.nunjucksRender.nunjucks.configure(['app']);
+  return gulp.src(['app/templates/*.njk', '!app/templates/layout/layout.njk'])
+    .pipe($.data((file) => {
+      const templateData = Object.assign(
+        {},
+        requireUncached('./.tmp/data/global.js').default,
+        requireUncached(C.getFilePath(file)).default
+      );
 
-  return gulp.src(['app/templates/**/*.njk', '!app/templates/layout/layout.njk'])
-    .pipe($.data(() => templateData ))
-    .pipe($.nunjucksRender({
-      path: [
-        'app/templates',
-        'app/templates/components'
-      ]
+      console.log(templateData);
+      return templateData;
     }))
+    .pipe($.nunjucks.compile())
     .pipe($.rename({
       extname: ".html"
     }))
     .pipe(gulp.dest('.tmp/'))
     .pipe(reload({stream: true}));
 });
+// gulp.task('templates', ['data'], () => {
+//   const templateData = require('./.tmp/global.js').default;
+//   $.nunjucksRender.nunjucks.configure(['app']);
+//
+//   return gulp.src(['app/templates/**/*.njk', '!app/templates/layout/layout.njk'])
+//     .pipe($.data(() => templateData ))
+//     .pipe($.nunjucksRender({
+//       path: [
+//         'app/templates',
+//         'app/templates/components'
+//       ]
+//     }))
+//     .pipe($.rename({
+//       extname: ".html"
+//     }))
+//     .pipe(gulp.dest('.tmp/'))
+//     .pipe(reload({stream: true}));
+// });
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')

@@ -1,11 +1,12 @@
 {% extends "layout/_layout.njk" %}
 {% block content %}
+{% set data = global.views.index %}
 <div class="h-100 d-flex page__template-index">
   <header class="d-flex">
     <section class="jumbotron text-xs-center">
       <div class="container">
-        <h1 class="jumbotron-heading">{{GLOBAL_DATA.site.name}}</h1>
-        <p class="lead text-muted">Template Index</p>
+        <h1 class="jumbotron-heading">{{global.name}}</h1>
+        <p class="lead text-muted">{{data.name}}</p>
       </div>
     </section>
   </header>
@@ -14,9 +15,9 @@
       <div class="row flex-items-xs-middle">
         <div class="col-xs-12">
           <div class="list-group">
-            {% for view, data in GLOBAL_DATA.views %}
-            <a href="{{data.url}}" class="list-group-item list-group-item-action">
-              {{data.name}}
+            {% for key, view in global.views %}
+            <a href="{{view.url}}" class="list-group-item list-group-item-action">
+              {{view.name}}
             </a>
             {% else %}
             <span class="list-group-item disabled">No views to display</span>

@@ -1,19 +1,19 @@
-import groupCleanse from './data-groupcleanse';
+import index from './index';
+import groupCleanse from './group-cleanse';
 
-export default {
-  GLOBAL_DATA : {
-    site: {
-      title: "21-Day Cleanse, Detox, and Diet | Clean Program",
-      name: "Clean",
-      dir: {
-        images: "images/"
-      },
-      icons: {
-        btnClose: "icon__btn-x.png"
-      }
-    },
-    views: {
-      groupCleanse
-    }
+const global = {
+  title: "21-Day Cleanse, Detox, and Diet | Clean Program",
+  name: "Clean",
+  dir: {
+    images: "images/"
+  },
+  icons: {
+    btnClose: "icon__btn-x.png"
+  },
+  views: {
+    index,
+    groupCleanse
   }
 };
+
+export default { global };
