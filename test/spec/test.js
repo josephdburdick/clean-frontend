@@ -20,26 +20,6 @@
         </a>`;
       $(link).appendTo($('body'));
       $(link).trigger('click');
-      // $('[data-toggle="modal"][data-media-url]').on('click', (e) => {
-      //   const
-      //     $this = $(e.currentTarget),
-      //     media = {
-      //       url: $this.data('media-url'),
-      //       autoplay: !!$this.data('media-autoplay'),
-      //       controls: !!$this.data('media-controls')
-      //     },
-      //     modal = {
-      //       $el: $($this.data('target')),
-      //       target: $this.data('target')
-      //     };
-      //   // if modal doesn't exist, add it and cache it
-      //   if (!$(modal.target).length){
-      //     $(mediaModal.modalTemplate()).appendTo($('body'));
-      //     modal.$el = $(modal.target);
-      //   }
-      //   assert(modal.$el.length > 0)
-      // }).trigger('click');
-
     });
   });
 
