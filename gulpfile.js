@@ -67,10 +67,7 @@ gulp.task('bundle', () => {
     .pipe(gulp.dest('./.tmp/scripts'));
 });
 
-gulp.task('templates', ['data'], () => {
-  // const templateData = require('./.tmp/global.js').default;
-  // console.log(templateData);
-  // $.nunjucksRender.nunjucks.configure(['app']);
+gulp.task('templates', ['data'], () =>
   return gulp.src(['app/templates/*.njk', '!app/templates/layout/layout.njk'])
     .pipe($.data((file) => {
       const templateData = Object.assign(
@@ -89,24 +86,6 @@ gulp.task('templates', ['data'], () => {
     .pipe(gulp.dest('.tmp/'))
     .pipe(reload({stream: true}));
 });
-// gulp.task('templates', ['data'], () => {
-//   const templateData = require('./.tmp/global.js').default;
-//   $.nunjucksRender.nunjucks.configure(['app']);
-//
-//   return gulp.src(['app/templates/**/*.njk', '!app/templates/layout/layout.njk'])
-//     .pipe($.data(() => templateData ))
-//     .pipe($.nunjucksRender({
-//       path: [
-//         'app/templates',
-//         'app/templates/components'
-//       ]
-//     }))
-//     .pipe($.rename({
-//       extname: ".html"
-//     }))
-//     .pipe(gulp.dest('.tmp/'))
-//     .pipe(reload({stream: true}));
-// });
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
