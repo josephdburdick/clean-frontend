@@ -13,6 +13,7 @@ const buffer = require('vinyl-buffer');
 const nodeResolve = require('rollup-plugin-node-resolve');
 
 const fs = require('fs');
+const vm = require('vm');
 const path = require('path');
 
 function requireUncached( $module ) {
@@ -28,7 +29,7 @@ const C = (() => {
     tmp: '.tmp',
     tmpData: '.tmp/data'
   };
-  this.getFileType = (file) => path.basename(file.path).split('.').pop()
+  this.getFileType = (file) => path.basename(file.path).split('.').pop();
   this.getFileName = (file) => {
     let filePath = path.basename(file.path).split('.');
     filePath.pop();
@@ -61,13 +62,32 @@ gulp.task('bundle', () => {
     .pipe(source('index.js', './app/scripts'))
     .pipe(buffer())
     .pipe($.sourcemaps.init({loadMaps: true}))
-    .pipe($.babel())
     .pipe($.rename('main.js'))
+    .pipe($.babel())
     .pipe($.sourcemaps.write('.'))
+    .pipe(gulp.dest('./test/scripts'))
     .pipe(gulp.dest('./.tmp/scripts'));
 });
+gulp.task('bundle:data', ['data'], () => {
+  return rollup({
+    entry: './.tmp/data/global.js',
+    sourceMap: false,
+    plugins: [
+      nodeResolve({
+        jsnext: true
+      })
+    ]
+  })
+  .pipe($.plumber({errorHandler: $.notify.onError("Error: <%= error.message %>")}))
+  .pipe(source('global.js', './.tmp/data'))
+  .pipe(buffer())
+  .pipe($.sourcemaps.init({loadMaps: true}))
+  // .pipe($.babel())
+  .pipe($.sourcemaps.write('.'))
+  .pipe(gulp.dest('./test/data'));
+});
 
-gulp.task('templates', ['data'], () =>
+gulp.task('templates', ['data'], () => {
   return gulp.src(['app/templates/*.njk', '!app/templates/layout/layout.njk'])
     .pipe($.data((file) => {
       const templateData = Object.assign(
@@ -75,8 +95,6 @@ gulp.task('templates', ['data'], () =>
         requireUncached('./.tmp/data/global.js').default,
         requireUncached(C.getFilePath(file)).default
       );
-
-      console.log(templateData);
       return templateData;
     }))
     .pipe($.nunjucks.compile())
@@ -187,7 +205,7 @@ gulp.task('extras', () => {
   }).pipe(gulp.dest('dist'));
 });
 
-gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
+gulp.task('clean', del.bind(null, ['.tmp', 'dist', 'test/data', 'test/scripts']));
 
 gulp.task('serve', () => {
   runSequence(['clean', 'wiredep'], ['templates', 'styles', 'bundle', 'fonts'], () => {
@@ -228,15 +246,18 @@ gulp.task('serve:dist', () => {
   });
 });
 
-gulp.task('serve:test', ['bundle'], () => {
+gulp.task('serve:test', ['templates', 'styles','bundle:data'], () => {
   browserSync({
     notify: false,
     port: 3000,
     ui: false,
     server: {
-      baseDir: 'test',
+      baseDir: ['test'],
       routes: {
+        '/images': 'app/images',
+        '/styles': '.tmp/styles',
         '/scripts': '.tmp/scripts',
+        '/data': 'test/data',
         '/bower_components': 'bower_components'
       }
     }
