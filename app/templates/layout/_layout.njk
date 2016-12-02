@@ -62,22 +62,6 @@
     <!-- build:js scripts/plugins.js -->
     <!-- endbuild -->
 
-
-    <script type="text/javascript">
-    var __DATA = (function () {
-      var GLOBAL = {{GLOBAL_DATA | dump | safe}}
-      return {
-        get: function(key) {
-          return !key ? GLOBAL : GLOBAL[key];
-        },
-        set: function(key, val) {
-          !data.state[key] ? data.state[key] = key : null;
-          data.state[key] = val;
-          return data.state;
-        }
-      };
-    })();
-    </script>
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
