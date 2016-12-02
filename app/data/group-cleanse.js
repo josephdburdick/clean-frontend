@@ -1,6 +1,7 @@
 import helpers from './helpers';
 
 export default {
+  id: "groupCleanse",
   name : "Group Cleanse",
   url : "group-cleanse.html",
   headerText : "Join the 21-Day Group Cleanse",
