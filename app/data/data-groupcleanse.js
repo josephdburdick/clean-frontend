@@ -149,20 +149,6 @@ export default {
         }
       ]
     },
-    // prompt: {
-    //   title: "Which Cleanse group would you like to join?",
-    //   options: [
-    //     {
-    //       name: "option-jan9",
-    //       text: "Start January 9",
-    //       date: new Date("January 9, 2017")
-    //     }, {
-    //       name: "option-jan30",
-    //       text: "Start January 30",
-    //       date: new Date("January 30, 2017")
-    //     }
-    //   ]
-    // },
     social: {
       title: "Let's Get Social",
       items: [

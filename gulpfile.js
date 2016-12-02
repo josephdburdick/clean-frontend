@@ -8,11 +8,36 @@ const runSequence = require('run-sequence');
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
+const rollup = require('rollup-stream');
+const source = require('vinyl-source-stream');
+const buffer = require('vinyl-buffer');
+const nodeResolve = require('rollup-plugin-node-resolve');
+
 gulp.task('data', () => {
   return gulp.src('app/data/*.js')
     .pipe($.plumber({errorHandler: $.notify.onError("Error: <%= error.message %>")}))
     .pipe($.babel())
     .pipe(gulp.dest('.tmp/'));
+});
+
+gulp.task('bundle', () => {
+  return rollup({
+      entry: './app/scripts/index.js',
+      sourceMap: false,
+      plugins: [
+        nodeResolve({
+          jsnext: true
+        })
+      ]
+    })
+    .pipe($.plumber({errorHandler: $.notify.onError("Error: <%= error.message %>")}))
+    .pipe(source('index.js', './app/scripts'))
+    .pipe(buffer())
+    .pipe($.sourcemaps.init({loadMaps: true}))
+    .pipe($.babel())
+    .pipe($.rename('main.js'))
+    .pipe($.sourcemaps.write('.'))
+    .pipe(gulp.dest('./.tmp/scripts'));
 });
 
 gulp.task('templates', ['data'], () => {
@@ -49,13 +74,13 @@ gulp.task('styles', () => {
     .pipe(reload({stream: true}));
 });
 
-gulp.task('scripts', () => {
-  return gulp.src('app/scripts/**/*.js')
+gulp.task('scripts', ['bundle'], () => {
+  return gulp.src('./.tmp/scripts/**/*.js')
     .pipe($.plumber({errorHandler: $.notify.onError("Error: <%= error.message %>")}))
     .pipe($.sourcemaps.init())
     .pipe($.babel())
     .pipe($.sourcemaps.write('.'))
-    .pipe(gulp.dest('.tmp/scripts'))
+    .pipe(gulp.dest('dist/scripts'))
     .pipe(reload({stream: true}));
 });
 
@@ -69,9 +94,26 @@ function lint(files, options) {
 
 gulp.task('lint', () => {
   return lint('app/scripts/**/*.js', {
-    fix: true
+    fix: true,
+    ecmaFeatures: {
+      modules: true,
+      spread : true,
+      restParams : true
+    },
+    env : {
+      browser : true,
+      node : true,
+      es6 : true
+    },
+    rules : {
+      'no-unused-vars' : 2,
+      'no-undef' : 2
+    },
+      parserOptions: {
+      sourceType: "module"
+    }
   })
-    .pipe(gulp.dest('app/scripts'));
+  .pipe(gulp.dest('app/scripts'));
 });
 gulp.task('lint:test', () => {
   return lint('test/spec/**/*.js', {
@@ -83,7 +125,7 @@ gulp.task('lint:test', () => {
     .pipe(gulp.dest('test/spec'));
 });
 
-gulp.task('html', ['templates', 'styles', 'scripts'], () => {
+gulp.task('html', ['templates', 'styles', 'bundle'], () => {
   return gulp.src('.tmp/*.html')
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe($.if('*.js', $.uglify()))
@@ -120,7 +162,7 @@ gulp.task('extras', () => {
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', () => {
-  runSequence(['clean', 'wiredep'], ['templates', 'styles', 'scripts', 'fonts'], () => {
+  runSequence(['clean', 'wiredep'], ['templates', 'styles', 'bundle', 'fonts'], () => {
     browserSync({
       notify: false,
       port: 3000,
@@ -142,7 +184,7 @@ gulp.task('serve', () => {
     gulp.watch('app/data/**/*.js', ['templates']);
     gulp.watch('app/templates/**/*.njk', ['templates']);
     gulp.watch('app/styles/**/*.scss', ['styles']);
-    gulp.watch('app/scripts/**/*.js', ['scripts']);
+    gulp.watch('app/scripts/**/*.js', ['bundle']);
     gulp.watch('app/fonts/**/*', ['fonts']);
     gulp.watch('bower.json', ['wiredep', 'fonts']);
   });
@@ -158,7 +200,7 @@ gulp.task('serve:dist', () => {
   });
 });
 
-gulp.task('serve:test', ['scripts'], () => {
+gulp.task('serve:test', ['bundle'], () => {
   browserSync({
     notify: false,
     port: 3000,
@@ -172,7 +214,7 @@ gulp.task('serve:test', ['scripts'], () => {
     }
   });
 
-  gulp.watch('app/scripts/**/*.js', ['scripts']);
+  gulp.watch('app/scripts/**/*.js', ['bundle']);
   gulp.watch(['test/spec/**/*.js', 'test/index.html']).on('change', reload);
   gulp.watch('test/spec/**/*.js', ['lint:test']);
 });
