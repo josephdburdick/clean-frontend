@@ -2,7 +2,7 @@
   "name": "clean-bs3",
   "private": true,
   "dependencies": {
-    "bootstrap": "v4.0.0-alpha.5",
+    "bootstrap": "4.0.0-alpha.5",
     "font-awesome": "fontawesome#^4.7.0",
     "modernizr": "~2.8.1"
   },
