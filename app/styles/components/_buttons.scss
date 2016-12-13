@@ -2,4 +2,27 @@
   @include futura('book');
   text-transform: uppercase;
   letter-spacing: 0.25em;
+  border-radius: 0px;
+}
+
+.btn-default--dark{
+  background-color: $off-black;
+  color: white;
+}
+
+.btn-black{
+  background-color: black;
+  color: white;
+
+  &:hover{ color: white; }
+}
+
+[class*="btn-outline"],
+[class^="btn-outline"]{
+  border-width: 5px;
+}
+
+
+.btn-lg{
+  @include futura('extra bold')
 }

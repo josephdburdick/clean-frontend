@@ -1,5 +1,30 @@
 'use strict';
 
+var mobileMenu = function () {
+  var _this = {
+    state: {
+      open: false
+    }
+  };
+  _this.init = function () {
+    _this.registerEvents();
+  }, _this.registerEvents = function () {
+    $('[data-toggle="mobile-menu"]').on('click', function (e) {
+      e.preventDefault();
+      _this.state.open = !_this.state.open;
+      _this.state.open ? $('body').addClass('mobile-menu--open') : $('body').removeClass('mobile-menu--open');
+    });
+  };
+
+  return {
+    init: _this.init
+  };
+}();
+
+var mobileMenu$1 = {
+  init: mobileMenu.init
+};
+
 var MEDIA = function () {
   var _state = {};
   var _this = {
@@ -157,9 +182,41 @@ var mediaModal$1 = {
   modalTemplate: mediaModal.modalTemplate
 };
 
+var carousel = function (options) {
+  'use strict';
+
+  var _this = {};
+
+  var defaults = {
+    lazyLoad: 'progressive',
+    // adaptiveHeight: true,
+    autoplay: true,
+    autoplaySpeed: 8000,
+    dots: true,
+    slidesToShow: 1,
+    centerMode: true,
+    centerPadding: '0px',
+    variableWidth: true
+  };
+
+  var settings = Object.assign({}, defaults, options);
+
+  _this.init = function () {
+    $('.hero-carousel').slick(settings);
+  };
+
+  return { init: _this.init };
+}();
+
+var carousel$1 = {
+  init: carousel.init
+};
+
 (function () {
   $('document').ready(function () {
+    mobileMenu$1.init();
     mediaModal$1.init();
+    carousel$1.init();
   });
 })();
 //# sourceMappingURL=main.js.map

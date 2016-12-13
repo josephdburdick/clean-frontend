@@ -1,202 +1,92 @@
-<div class="placeholder-block text-muted text-xs-center">
-  <span>global footer</span>
-</div>
-{# <footer class="clean-section global-footer">
-  <div class="clean-inner-wrapper">
+{% set footer = global.components.footer %}
+{% set imgDir = global.dir.images %}
 
-    <!-- $products -->
-    <div class="block-item footer-products-list">
-      <h3>Products</h3>
-      <ul>
-        <li>
-          <a href="http://www.cleanprogram.com/cleanse">Cleanse</a>
-        </li>
-        <li>
-          <a href="http://www.cleanprogram.com/store#shakes">Shakes</a>
-        </li>
-        <li>
-          <a href="http://www.cleanprogram.com/store#supplements">Supplements</a>
-        </li>
-        <li>
-          <a href="http://www.cleanprogram.com/wholesale/signup">Wholesale</a>
-        </li>
-        <li>
-          <a href="http://www.cleanprogram.com/retail-locations">Retail Locations</a>
-        </li>
-      </ul>
-    </div>
-
-    <!-- $support -->
-    <div class="block-item footer-support-list">
-      <h3>Support</h3>
-      <ul>
-        <li>
-          <a href="mailto:support@cleanprogram.com">Ask a Question</a>
-        </li>
-        <li>
-          <a href="http://clean.helpscoutdocs.com/">Help Central</a>
-        </li>
-        <li>
-          <a href="http://my.cleanprogram.com">Community</a>
-        </li>
-        <li>
-          <a href="http://www.cleanprogram.com/coach">Talk to a Wellness Coach</a>
-        </li>
-        <li>
-          <a href="http://www.cleanprogram.com/international-store">International Shipping</a>
-        </li>
-        <li>
-          <a href="http://www.cleanprogram.com/functional-medicine-practitioner">Functional Medicine</a>
-        </li>
-        <li>
-          <span>P: (888) 497-8417</span>
-        </li>
-        <li>
-          <a href="http://www.cleanprogram.com/contact/">Contact</a>
-        </li>
-      </ul>
-    </div>
-
-    <!-- $about us -->
-    <div class="block-item footer-about-us-list">
-      <h3>About us</h3>
-      <ul>
-        <!--                <li><a href="-->
-        <!--ourteam">Our Team</a></li>-->
-        <li>
-          <a href="http://www.cleanprogram.com/careers">Careers</a>
-        </li>
-        <li>
-          <a href="http://blog.cleanprogram.com/" target="_blank">Clean Blog</a>
-        </li>
-        <li>
-          <a href="http://www.facebook.com/cleanprogram" target="_blank">Facebook</a>
-        </li>
-        <li>
-          <a href="http://twitter.com/cleanprogram" target="_blank">Twitter</a>
-        </li>
-        <li>
-          <a href="http://instagram.com/cleanprogram" target="_blank">Instagram</a>
-        </li>
-        <li>
-          <a href="http://www.pinterest.com/cleanprogram/" target="_blank">Pinterest</a>
-        </li>
-        <li>
-          <a href="https://plus.google.com/u/0/108240578348891473308/posts" target="_blank">Google Plus</a>
-        </li>
-      </ul>
-    </div>
-
-    <!-- $buzz -->
-    <div class="block-item footer-buzz-list">
-      <h3>Buzz</h3>
-      <ul>
-        <li>
-          <a href="http://www.cleanprogram.com/loyalty">Become a Clean Insider</a>
-        </li>
-        <li>
-          <a href="http://www.cleanprogram.com/testimonials">Testimonials</a>
-        </li>
-        <li>
-          <a href="http://www.cleanprogram.com/press">Press</a>
-        </li>
-        <li>
-          <a href="http://www.cleanprogram.com/share">Refer Your Friends</a>
-        </li>
-      </ul>
-    </div>
-
-    <!-- $newsletter signup -->
-    <div class="newsletter-w">
-      <h3>Newsletter</h3>
-      <h5>Dr. Junger's
-        <nobr>Newsletter</nobr>
-      </h5>
-      <p>Sign up for Dr. Junger's newsletter for weekly inspiration to keep it Clean.</p>
-      <div class="signup-wrapper newsletter-signup">
-        <form
-          novalidate=""
-          accept-charset="UTF-8"
-          action="https://forms.hubspot.com/uploads/form/v2/2291938/f8529618-4847-4d3a-9d1c-0da0f24354c7"
-          enctype="multipart/form-data"
-          id="hsForm_f8529618-4847-4d3a-9d1c-0da0f24354c7_footer-signup"
-          method="POST"
-          class="hs-form stacked"
-          data-form-id="f8529618-4847-4d3a-9d1c-0da0f24354c7"
-          data-portal-id="2291938"
-          data-reactid=".hbspt-forms-0">
-          <fieldset class="form-columns-2" data-reactid=".hbspt-forms-0.0:$0">
-            <div class="hs_firstname field hs-form-field" data-reactid=".hbspt-forms-0.0:$0.1:$firstname">
-              <label class="" placeholder="Enter your First Name" for="firstname-f8529618-4847-4d3a-9d1c-0da0f24354c7_footer-signup" data-reactid=".hbspt-forms-0.0:$0.1:$firstname.0">
-                <span data-reactid=".hbspt-forms-0.0:$0.1:$firstname.0.0">First Name</span>
-              </label>
-              <legend class="hs-field-desc" style="display:none;" data-reactid=".hbspt-forms-0.0:$0.1:$firstname.1"></legend>
-              <div class="input" data-reactid=".hbspt-forms-0.0:$0.1:$firstname.$firstname"><input
-                id="firstname-f8529618-4847-4d3a-9d1c-0da0f24354c7_footer-signup"
-                class="hs-input"
-                type="text"
-                name="firstname"
-                value=""
-                placeholder="first name"
-                data-reactid=".hbspt-forms-0.0:$0.1:$firstname.$firstname.0"
-                style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAfBJREFUWAntVk1OwkAUZkoDKza4Utm61iP0AqyIDXahN2BjwiHYGU+gizap4QDuegWN7lyCbMSlCQjU7yO0TOlAi6GwgJc0fT/fzPfmzet0crmD7HsFBAvQbrcrw+Gw5fu+AfOYvgylJ4TwCoVCs1ardYTruqfj8fgV5OUMSVVT93VdP9dAzpVvm5wJHZFbg2LQ2pEYOlZ/oiDvwNcsFoseY4PBwMCrhaeCJyKWZU37KOJcYdi27QdhcuuBIb073BvTNL8ln4NeeR6NRi/wxZKQcGurQs5oNhqLshzVTMBewW/LMU3TTNlO0ieTiStjYhUIyi6DAp0xbEdgTt+LE0aCKQw24U4llsCs4ZRJrYopB6RwqnpA1YQ5NGFZ1YQ41Z5S8IQQdP5laEBRJcD4Vj5DEsW2gE6s6g3d/YP/g+BDnT7GNi2qCjTwGd6riBzHaaCEd3Js01vwCPIbmWBRx1nwAN/1ov+/drgFWIlfKpVukyYihtgkXNp4mABK+1GtVr+SBhJDbBIubVw+Cd/TDgKO2DPiN3YUo6y/nDCNEIsqTKH1en2tcwA9FKEItyDi3aIh8Gl1sRrVnSDzNFDJT1bAy5xpOYGn5fP5JuL95ZjMIn1ya7j5dPGfv0A5eAnpZUY3n5jXcoec5J67D9q+VuAPM47D3XaSeL4AAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%;"></div>
-            </div>
-            <div class="hs_email field hs-form-field" data-reactid=".hbspt-forms-0.0:$0.1:$email">
-              <label class="" placeholder="Enter your Email" for="email-f8529618-4847-4d3a-9d1c-0da0f24354c7_footer-signup" data-reactid=".hbspt-forms-0.0:$0.1:$email.0">
-                <span data-reactid=".hbspt-forms-0.0:$0.1:$email.0.0">Email</span>
-                <span class="hs-form-required" data-reactid=".hbspt-forms-0.0:$0.1:$email.0.1">*</span>
-              </label>
-              <legend class="hs-field-desc" style="display:none;" data-reactid=".hbspt-forms-0.0:$0.1:$email.1"></legend>
-              <div class="input" data-reactid=".hbspt-forms-0.0:$0.1:$email.$email"><input id="email-f8529618-4847-4d3a-9d1c-0da0f24354c7_footer-signup" class="hs-input" type="email" name="email" required="" placeholder="email address" value="" data-reactid=".hbspt-forms-0.0:$0.1:$email.$email.0"></div>
-            </div>
-          </fieldset>
-          <fieldset class="form-columns-3" data-reactid=".hbspt-forms-0.0:$1">
-            <div class="hs_newsletter_subscriber field hs-form-field" style="display:none;" data-reactid=".hbspt-forms-0.0:$1.1:$newsletter_subscriber">
-              <label class="" placeholder="Enter your Newsletter Subscriber" for="newsletter_subscriber-f8529618-4847-4d3a-9d1c-0da0f24354c7_footer-signup" data-reactid=".hbspt-forms-0.0:$1.1:$newsletter_subscriber.0">
-                <span data-reactid=".hbspt-forms-0.0:$1.1:$newsletter_subscriber.0.0"></span>
-              </label>
-              <legend class="hs-field-desc" style="display:none;" data-reactid=".hbspt-forms-0.0:$1.1:$newsletter_subscriber.1"></legend>
-              <div class="input" data-reactid=".hbspt-forms-0.0:$1.1:$newsletter_subscriber.$newsletter_subscriber"><input name="newsletter_subscriber" class="hs-input" type="hidden" value="true" data-reactid=".hbspt-forms-0.0:$1.1:$newsletter_subscriber.$newsletter_subscriber.0"></div>
-            </div>
-            <div class="hs_signup_code field hs-form-field" style="display:none;" data-reactid=".hbspt-forms-0.0:$1.1:$signup_code">
-              <label class="" placeholder="Enter your Signup Code" for="signup_code-f8529618-4847-4d3a-9d1c-0da0f24354c7_footer-signup" data-reactid=".hbspt-forms-0.0:$1.1:$signup_code.0">
-                <span data-reactid=".hbspt-forms-0.0:$1.1:$signup_code.0.0">Signup Code</span>
-              </label>
-              <legend class="hs-field-desc" style="display:none;" data-reactid=".hbspt-forms-0.0:$1.1:$signup_code.1"></legend>
-              <div class="input" data-reactid=".hbspt-forms-0.0:$1.1:$signup_code.$signup_code"><input name="signup_code" class="hs-input" type="hidden" value="newsletter-signup-U34FGEZL" data-reactid=".hbspt-forms-0.0:$1.1:$signup_code.$signup_code.0"></div>
-            </div>
-            <div class="hs_signup_source field hs-form-field" style="display:none;" data-reactid=".hbspt-forms-0.0:$1.1:$signup_source">
-              <label class="" placeholder="Enter your Signup Source" for="signup_source-f8529618-4847-4d3a-9d1c-0da0f24354c7_footer-signup" data-reactid=".hbspt-forms-0.0:$1.1:$signup_source.0">
-                <span data-reactid=".hbspt-forms-0.0:$1.1:$signup_source.0.0">Signup Source</span>
-              </label>
-              <legend class="hs-field-desc" style="display:none;" data-reactid=".hbspt-forms-0.0:$1.1:$signup_source.1"></legend>
-              <div class="input" data-reactid=".hbspt-forms-0.0:$1.1:$signup_source.$signup_source"><input name="signup_source" class="hs-input" type="hidden" value="" data-reactid=".hbspt-forms-0.0:$1.1:$signup_source.$signup_source.0"></div>
-            </div>
-          </fieldset>
-          <div class="hs_submit" data-reactid=".hbspt-forms-0.2">
-            <div class="hs-field-desc" style="display:none;" data-reactid=".hbspt-forms-0.2.0"></div>
-            <div class="actions" data-reactid=".hbspt-forms-0.2.1"><input type="submit" value="Sign Up" class="button" data-reactid=".hbspt-forms-0.2.1.0"></div>
-          </div><input
-            name="hs_context"
-            type="hidden"
-            value="{&quot;rumScriptExecuteTime&quot;:4601.780000000001,&quot;rumServiceResponseTime&quot;:6397.515,&quot;rumFormRenderTime&quot;:1407.4100000000008,&quot;rumTotalRequestTime&quot;:1404.4750000000004,&quot;css&quot;:&quot;&quot;,&quot;pageUrl&quot;:&quot;http://www.cleanprogram.com/&quot;,&quot;pageTitle&quot;:&quot;21-Day Cleanse, Detox, and Diet | Clean Program&quot;,&quot;source&quot;:&quot;FormsNext-static-1.390&quot;,&quot;isHostedOnHubspot&quot;:false,&quot;timestamp&quot;:1479350192290,&quot;userAgent&quot;:&quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.71 Safari/537.36&quot;,&quot;referrer&quot;:&quot;&quot;,&quot;hutk&quot;:&quot;958d6dbb64dd9b8b7562e95aad0704e4&quot;,&quot;originalEmbedContext&quot;:{&quot;css&quot;:&quot;&quot;,&quot;portalId&quot;:&quot;2291938&quot;,&quot;formId&quot;:&quot;f8529618-4847-4d3a-9d1c-0da0f24354c7&quot;,&quot;formInstanceId&quot;:&quot;footer-signup&quot;,&quot;submitButtonClass&quot;:&quot;button&quot;,&quot;inlineMessage&quot;:&quot;Thanks for signing up!&quot;,&quot;target&quot;:&quot;.newsletter-w .newsletter-signup&quot;},&quot;recentFieldsCookie&quot;:{},&quot;boolCheckBoxFields&quot;:&quot;newsletter_subscriber&quot;,&quot;dateFields&quot;:&quot;&quot;,&quot;formInstanceId&quot;:&quot;footer-signup&quot;,&quot;smartFields&quot;:{},&quot;urlParams&quot;:{},&quot;formValidity&quot;:{},&quot;correlationId&quot;:&quot;abba43c7-7cb9-423b-8b20-8fc14c5abded&quot;,&quot;disableCookieSubmission&quot;:false}"
-            data-reactid=".hbspt-forms-0.3"></form>
+<footer class="{{footer.id}}">
+  <div class="container">
+    <div class="row row--no-gutter flex-items-xs-middle flex-items-sm-middle flex-items-md-left">
+      <div class="col-md-12">
+        <div class="row flex-items-xs-middle flex-items-sm-middle flex-items-md-left mb-1">
+          <div class="col-md">
+            <ul class="list-unstyled global-footer__social-links">
+              {% for link in footer.connect.social.links %}
+              <li>
+                <a href="{{link.href}}" class="d-block">
+                  <img class="img-fluid" src="{{imgDir}}{{link.icon.url}}" alt="{{link.name}} icon" width="{{link.icon.width}}">
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="col-md-3 hidden-md-down">
+            <a href="{{footer.connect.telephone.link.href}}">
+              <img src="{{imgDir}}{{footer.connect.telephone.icon.url}}" alt="Call {{footer.connect.telephone.text}}" width="{{footer.connect.telephone.icon.width}}">
+              {{footer.connect.telephone.link.text}}
+            </a>
+          </div>
+          <div class="col-md-4 hidden-md-down">
+            <a href="{{footer.connect.email.link.href}}">
+              <img src="{{imgDir}}{{footer.connect.email.icon.url}}" alt="Call {{footer.connect.email.text}}" width="{{footer.connect.email.icon.width}}">
+              {{footer.connect.email.link.text}}
+            </a>
+          </div>
+        </div>
       </div>
     </div>
-    <!-- .newsletter-w -->
-
-    <!-- $terms -->
-    <div class="terms">
-      <p>Copyright 2016 ©
-        <a href="http://www.cleanprogram.com/terms">Terms&nbsp;&amp;&nbsp;Conditions</a>
-        •
-        <a href="http://www.cleanprogram.com/terms#returns">Return Policy</a>
-        •
-        <a href="http://www.cleanprogram.com/terms#Health-disclaimer">Health Disclaimers</a>
-      </p>
-      <p>Statements on this site have not been evaluated by the Food and Drug&nbsp;Administration.</p>
+    <div class="row flex-items-xs-middle">
+      <div class="col-lg-8 col-md-12">
+        <div class="row {{footer.nav.id}}">
+          {%- for links in footer.nav.links | slice(3) %}
+            <ul class="list-unstyled col-md-4 footer-navigation-links footer-navigation__column-{{ loop.index }}">
+              {%- for link in links %}
+                <li>
+                  <a href="{{link.href}}" class="text-uppercase">
+                    {{link.text}}
+                  </a>
+                </li>
+              {%- endfor %}
+            </ul>
+          {%- endfor %}
+        </div>
+      </div>
+      <div class="col-md-6 col-sm-12 hidden-lg-up">
+        <a class="d-block" href="{{footer.connect.telephone.link.href}}">
+          <div class="media">
+            <div class="media-left mr-1">
+              <img src="{{imgDir}}{{footer.connect.telephone.icon.url}}" alt="Call {{footer.connect.telephone.text}}" width="{{footer.connect.telephone.icon.width}}">
+            </div>
+            <div class="media-body">
+              {{footer.connect.telephone.link.text}}
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-12 hidden-md-up global-footer__divider-horizontal"></div>
+      <div class="col-md-6 col-sm-12 hidden-lg-up">
+        <a class="d-block" href="{{footer.connect.email.link.href}}">
+          <div class="media">
+            <div class="media-left mr-1">
+              <img src="{{imgDir}}{{footer.connect.email.icon.url}}" alt="Call {{footer.connect.email.text}}" width="{{footer.connect.email.icon.width}}">
+            </div>
+            <div class="media-body">
+              {{footer.connect.email.link.text}}
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-sm-12 hidden-lg-up global-footer__divider-horizontal mb-2"></div>
+      <div class="col-lg-4 col-md-6 ">
+        <form class="{{footer.id}}__newsletter">
+          <div class="form-group">
+            <label for="newsletter-input">{{footer.connect.newsletter.label}}</label>
+            <div class="input-group">
+              <input type="email" class="form-control" id="newsletter-input" placeholder="you@domain.com">
+              <button type="submit" class="input-group-addon btn btn-default--dark">
+                <i class="fa fa-caret-right fa-2x fa-fw" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
-
   </div>
-  <!-- .clean-inner-wrapper -->
-</footer> #}
+</footer>

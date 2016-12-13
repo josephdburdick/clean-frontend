@@ -1,0 +1,72 @@
+/*
+
+Global footer
+*/
+
+.global-footer{
+
+  @include futura('regular');
+  letter-spacing: .2em;
+  background-color: #f3f3f3;
+  @include media-breakpoint-up(lg){
+    padding: ($grid-gutter-width * 4) $grid-gutter-width;
+  }
+  @include media-breakpoint-down(lg){
+    padding: ($grid-gutter-width * 2) ($grid-gutter-width / 4);
+  }
+}
+
+.global-footer a {
+  color: $off-black;
+  text-decoration: none !important;
+
+}
+.global-footer__newsletter{
+  button[type="submit"] .fa{
+    padding-left: 0.3em;
+    padding-right: 0.1em;
+    margin: 0 -.25em;
+  }
+}
+.global-footer__social-links{
+  $gutter: .5em;
+  display: flex;
+  flex-direction: row;
+  margin: 0 (-$gutter);
+
+  @include media-breakpoint-down(md){
+    justify-content: space-between;
+    margin-bottom: 1em;
+    li {
+      text-align: center;
+    }
+  }
+  li{
+    padding: 0 $gutter;
+  }
+  @include media-breakpoint-up(sm){
+    align-items: flex-start;
+  }
+  @include media-breakpoint-down(sm){
+    padding-left: auto;
+    padding-right: auto;
+    align-items: stretch;
+    img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+}
+.global-footer .footer-navigation-links{
+  @include media-breakpoint-down(md){
+    margin-bottom: 1.5em;
+  }
+
+  a{
+    display: inline-block;
+    padding: .25em 0;
+  }
+}
+.global-footer__divider-horizontal{
+  margin: .25em 0;
+}

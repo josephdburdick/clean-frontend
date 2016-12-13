@@ -1,5 +1,10 @@
-import index from './index';
-import groupCleanse from './group-cleanse';
+import header from './components/header';
+import footer from './components/footer';
+import modal from './components/modal';
+
+import index from './templates/index';
+import groupCleanse from './templates/group-cleanse';
+import homepage from './templates/homepage';
 
 const global = {
   title: "21-Day Cleanse, Detox, and Diet | Clean Program",
@@ -10,8 +15,14 @@ const global = {
   icons: {
     btnClose: "icon__btn-x.png"
   },
+  components: {
+    header,
+    footer,
+    modal
+  },
   views: {
     index,
+    homepage,
     groupCleanse
   }
 };

@@ -972,6 +972,13 @@ caseless@~0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/caseless/-/caseless-0.11.0.tgz#715b96ea9841593cc33067923f5ec60ebda4f7d7"
 
+casual@^1.5.8:
+  version "1.5.8"
+  resolved "https://registry.yarnpkg.com/casual/-/casual-1.5.8.tgz#82009d3cd39b79e7ec8db7a6245699fcfbcb3691"
+  dependencies:
+    mersenne-twister "^1.0.1"
+    moment "^2.15.2"
+
 caw@^1.0.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/caw/-/caw-1.2.0.tgz#ffb226fe7efc547288dc62ee3e97073c212d1034"
@@ -2638,6 +2645,15 @@ gulp-nunjucks-render@^2.0.0:
     nunjucks "^2.0.0"
     through2 "~0.4.0"
 
+gulp-nunjucks@^2.3.0:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/gulp-nunjucks/-/gulp-nunjucks-2.3.0.tgz#44f0763babdd325a26b4d3bfaaa99e1d9e9ac480"
+  dependencies:
+    gulp-util "^3.0.0"
+    nunjucks "^2.5.2"
+    object-assign "^4.0.1"
+    through2 "^2.0.0"
+
 gulp-plumber@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/gulp-plumber/-/gulp-plumber-1.1.0.tgz#f12176c2d0422f60306c242fff6a01a394faba09"
@@ -3923,6 +3939,10 @@ merge-stream@^1.0.0:
   dependencies:
     readable-stream "^2.0.1"
 
+mersenne-twister@^1.0.1:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/mersenne-twister/-/mersenne-twister-1.1.0.tgz#f916618ee43d7179efcf641bec4531eb9670978a"
+
 micromatch@^2.1.5, micromatch@^2.3.7, micromatch@^2.3.8, micromatch@2.3.11:
   version "2.3.11"
   resolved "https://registry.yarnpkg.com/micromatch/-/micromatch-2.3.11.tgz#86677c97d1720b363431d04d0d15293bd38c1565"
@@ -4013,6 +4033,10 @@ modify-babel-preset@^2.1.1:
 moment:
   version "2.17.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.17.0.tgz#a4c292e02aac5ddefb29a6eed24f51938dd3b74f"
+
+moment@^2.15.2:
+  version "2.17.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.17.1.tgz#fed9506063f36b10f066c8b59a144d7faebe1d82"
 
 mout@^1.0.0:
   version "1.0.0"
@@ -4227,7 +4251,7 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
 
-nunjucks@^2.0.0:
+nunjucks@^2.0.0, nunjucks@^2.5.2:
   version "2.5.2"
   resolved "https://registry.yarnpkg.com/nunjucks/-/nunjucks-2.5.2.tgz#ea7d346e785b8a4874666c3cca9e18c577fba22c"
   dependencies:

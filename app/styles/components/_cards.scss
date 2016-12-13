@@ -8,11 +8,6 @@ CARDS
   flex-direction: column;
 
   .card-block{
-    // padding-top: 24px;
-    // padding-left: $grid-gutter-width;
-    // padding-right: $grid-gutter-width;
-    // padding-bottom: 0;
-
     &:first-child{
       padding-bottom: 24px;
     }
@@ -24,10 +19,6 @@ CARDS
       margin-bottom: 0;
     }
   }
-  // hr {
-  //   margin-top: $grid-gutter-width;
-  //   margin-bottom: $grid-gutter-width;
-  // }
 
   .bg-color--gray,
   .bg-color--grey{
@@ -94,5 +85,70 @@ CARDS
         margin-right: -#{$i}px;
       }
     }
+  }
+}
+.caption-cards{
+  display: flex;
+  flex-direction: row;
+}
+.caption-card{
+  @include fill-height-or-more();
+  figure{
+    margin: 0;
+    flex: 0;
+    text-align: center;
+
+    img{
+      width: 100%;
+    }
+  }
+  &__header{
+    position: relative;
+    margin: 0 ($grid-gutter-width / 1.5);
+    justify-content: center;
+    align-content: center;
+    padding: ($grid-gutter-width / 1.5);
+    box-shadow: 0 0 10px rgba(black, .25);
+    background-color: white;
+    transform: translateY(-50%);
+    .card-heading{
+      @include futura('medium');
+      @include em('font-size', 22px);
+      line-height: 1.5;
+      flex: 0;
+    }
+    &:after{
+      content: "";
+      @include em('height', 12px);
+      display: block;
+      position: absolute;
+      width: 100%;
+      bottom:0;
+      left:0;
+      right: 0;
+      background-color: $blue;
+    }
+  }
+}
+
+.hero-card{
+  display: flex;
+  @include em('padding', ($grid-gutter-width * 2));
+
+  @include media-breakpoint-down(md){
+    font-size: 10px;
+  }
+
+  @include media-breakpoint-down(sm){
+    font-size: 8px;
+  }
+
+  .card{
+    flex: 1;
+    width: 100%;
+    flex-basis: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    @include em('padding', ($grid-gutter-width * 2));
   }
 }

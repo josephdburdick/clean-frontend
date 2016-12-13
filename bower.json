@@ -1,17 +1,31 @@
 {
-  "name": "clean-bs3",
+  "name": "clean-templates",
   "private": true,
   "dependencies": {
     "bootstrap": "4.0.0-alpha.5",
     "font-awesome": "fontawesome#^4.7.0",
-    "modernizr": "~2.8.1"
+    "modernizr": "~2.8.1",
+    "slick-carousel": "slick.js#^1.6.0"
   },
   "overrides": {
-    "bootstrap-sass": {
+    "slick-carousel": {
       "main": [
-        "assets/stylesheets/_bootstrap.scss",
-        "assets/fonts/bootstrap/*",
-        "assets/javascripts/bootstrap.js"
+        "slick/fonts/slick.svg",
+        "slick/fonts/slick.ttf",
+        "slick/fonts/slick.eot",
+        "slick/fonts/slick.woff",
+        "slick/ajax-loader.gif",
+        "slick/slick.css",
+        "slick/slick-theme.css",
+        "slick/slick.js"
+      ]
+    },
+    "bootstrap": {
+      "main": [
+        "scss/bootstrap.scss",
+        "js/dist/dropdown.js",
+        "js/dist/modal.js",
+        "js/dist/util.js"
       ]
     },
     "font-awesome": {

@@ -14,6 +14,15 @@ html,body{
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
+
+.container {
+  @include media-breakpoint-up(lg) {
+    width: calc(#{$container-lg} + #{$grid-gutter-width});
+  }
+  @include media-breakpoint-down(md) {
+    width: 100%;
+  }
+}
 .d-flex {
   display: flex;
   flex-direction: column;
@@ -23,18 +32,8 @@ html,body{
   display: inline-flex;
   flex-direction: column;
 }
-.flexbox .container {
-
-  @include media-breakpoint-up(lg) {
-    width: calc(#{$container-lg} + #{$grid-gutter-width});
-  }
-  @include media-breakpoint-down(md) {
-    width: 100%;
-  }
-}
 
 .flexbox .row{
-
   &--no-gutter {
     display: flex;
     flex: 0 1 auto;
@@ -104,5 +103,30 @@ html,body{
       padding-right: #{$grid-gutter-width * 2};
       padding-left: #{$grid-gutter-width * 2};
     }
+  }
+}
+
+.col{
+  flex-direction: column;
+
+  &--with-gutter{
+    padding-top: $grid-gutter-width;
+    padding-bottom: $grid-gutter-width;
+  }
+  &--no-gutter{
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  &--double-gutter{
+    padding-top: #{$grid-gutter-width * 2};
+    padding-bottom: #{$grid-gutter-width * 2};
+  }
+  &--triple-gutter{
+    padding-top: #{$grid-gutter-width * 3};
+    padding-bottom: #{$grid-gutter-width * 3};
+  }
+  &--quadruple-gutter{
+    padding-top: #{$grid-gutter-width * 3};
+    padding-bottom: #{$grid-gutter-width * 3};
   }
 }

@@ -14,13 +14,21 @@ $icon-font-path: '../fonts/';
 Components
 */
 @import 'components/bg';
+@import 'components/media';
 @import 'components/headings';
 @import 'components/forms';
 @import 'components/buttons';
 @import 'components/cards';
 @import 'components/modals';
+@import 'components/lists';
+@import 'components/hero-carousel';
+
 
 @import 'components/purchase-box';
+@import 'components/global-header';
+@import 'components/primary-navigation';
+@import 'components/global-footer';
+
 
 /*
 
@@ -28,3 +36,4 @@ Pages
 */
 @import 'pages/page__template-index';
 @import 'pages/page__group-cleanse';
+@import 'pages/page__homepage';

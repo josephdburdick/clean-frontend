@@ -1,10 +1,10 @@
-import helpers from './helpers';
+import helpers from '../helpers';
 
-export default {
-  id: "groupCleanse",
+const groupCleanse = {
+  id: "group-cleanse",
   name : "Group Cleanse",
   url : "group-cleanse.html",
-  headerText : "Join the 21-Day Group Cleanse",
+  headerText : "Don't Join the 21-Day Group Cleanse",
 
   sections : {
     hero: {
@@ -13,7 +13,7 @@ export default {
         title: "Video Modal",
         url: "https://www.youtube.com/watch?v=aLPFyOtu8KU",
         poster: {
-          url: "video__bg_poster.png",
+          url: "video__bg_poster--xl.png",
           alt: "Clean Hero Video"
         },
         play: {
@@ -237,3 +237,5 @@ export default {
     }
   }
 };
+
+export default groupCleanse;

@@ -1,36 +1,38 @@
-{% extends "layout/_layout.njk" %}
+{% extends "layout/_index-layout.njk" %}
 {% block content %}
-{% set data = global.views.index %}
-<div class="h-100 d-flex page__template-index">
-  <header class="d-flex">
-    <section class="jumbotron text-xs-center">
+  {% set data = global.views.index %}
+  <div class="h-100 d-flex page__template-index">
+    <header class="d-flex">
+      <section class="jumbotron text-xs-center">
+        <div class="container">
+          <h1 class="jumbotron-heading">{{global.name}}</h1>
+          <p class="lead text-muted">{{data.name}}</p>
+        </div>
+      </section>
+    </header>
+    <main class="d-flex">
       <div class="container">
-        <h1 class="jumbotron-heading">{{global.name}}</h1>
-        <p class="lead text-muted">{{data.name}}</p>
-      </div>
-    </section>
-  </header>
-  <main class="d-flex">
-    <div class="container">
-      <div class="row flex-items-xs-middle">
-        <div class="col-xs-12">
-          <div class="list-group">
-            {% for key, view in global.views %}
-            <a href="{% if (view.id === "index") %}#{% else %}{{view.url}}{% endif %}" class="list-group-item {% if (view.id === "index") %} disabled {% else %} list-group-item-action {% endif %}" >
-              {{view.name}}
-            </a>
-            {% else %}
-            <span class="list-group-item disabled">No views to display</span>
-            {% endfor %}
+        <div class="row flex-items-xs-middle">
+          <div class="col-xs-12">
+            <div class="list-group">
+              {% for key, view in global.views %}
+                <a href="{% if (view.id === "index") %}#{% else %}{{view.url}}{% endif %}" class="list-group-item {% if (view.id === "index") %} disabled {% else %} list-group-item-action {% endif %}">
+                  {{view.name}}
+                </a>
+              {% else %}
+                <span class="list-group-item disabled">No views to display</span>
+              {% endfor %}
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </main>
-  <footer class="d-flex">
-    <div class="col-xs-12 text-xs-center">
-      <p class="text-muted">Clean front-end templates. Powered by Nunjucks, Sass, Gulp, and Babel. Built by <a href="http://j0ey.co">Joey</a></p>
-    </div>
-  </footer>
-</div>
+    </main>
+    <footer class="d-flex">
+      <div class="col-xs-12 text-xs-center">
+        <p class="text-muted">Clean front-end templates. Powered by Nunjucks, Sass, Gulp, and Babel. Built by
+          <a href="http://j0ey.co">Joey</a>
+        </p>
+      </div>
+    </footer>
+  </div>
 {% endblock %}
