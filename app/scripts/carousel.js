@@ -4,7 +4,7 @@ const carousel = ((options) => {
 
   const defaults = {
     lazyLoad: 'progressive',
-    // adaptiveHeight: true,
+    adaptiveHeight: true,
     autoplay: true,
     autoplaySpeed: 8000,
     dots: true,
