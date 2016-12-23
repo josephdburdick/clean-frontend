@@ -1,0 +1,14 @@
+{% macro sectionHeader(
+  heading="Section Header Here",
+  subheading=false,
+  headerLevel="h3",
+  subheaderLevel="h4",
+  hr=false)
+%}
+<div class="section-header {% if hr %}section-heading--hr{% endif %}">
+  <{{headerLevel}} class="section-heading text-xs-center">{{ heading | safe }}</{{headerLevel}}>
+  {% if subheading %}
+    <{{subheaderLevel}} class="section-subheading text-xs-center">{{ subheading | safe }}</{{subheaderLevel}}>
+  {% endif %}
+</div>
+{% endmacro %}

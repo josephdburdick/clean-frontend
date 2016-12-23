@@ -1,0 +1,22 @@
+{% macro mediaModalToggle(
+  id="modal--primary",
+  poster="http://placehold.it/435x265",
+  alt="",
+  mediaUrl="",
+  autoplay=true,
+  playImageUrl="images/video__btn_play.png",
+  playImageWidth=143,
+  playImageHeight=143
+)
+%}
+{% set imageDir = global.dir.images %}
+{% set modal = global.components.modal %}
+<div class="media-container">
+  <a href="#" class="display-flex position-relative flex-items-xs-center flex-items-xs-middle" href="#{{id}}" class="text-muted" data-toggle="modal" data-target="#{{id}}" data-media-url="{{mediaUrl}}" data-media-autoplay="{{autoplay}}">
+    <img class="img-fluid" src="{{imageDir}}{{poster}}" alt="{{alt}}" />
+    <div class="row flex-items-xs-center flex-items-xs-middle icon-container">
+      <img src="{{playImageUrl}}" alt="Play Media" width="{{playImageWidth}}" height="{{playImageHeight}}" class="icon-img__play"/>
+    </div>
+  </a>
+</div>
+{% endmacro %}

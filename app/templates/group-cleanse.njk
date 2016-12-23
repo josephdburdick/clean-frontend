@@ -2,10 +2,12 @@
 {% block content %}
   {% set imageDir = global.dir.images %}
   {% set data = global.views.groupCleanse %}
-  {% include "components/header.njk" %}
+
+  {% from "macros/_section-header.njk" import sectionHeader %}
+  {% from "macros/_media-modal-toggle.njk" import mediaModalToggle %}
 
   <!-- MAIN -->
-  <main role="main" class="main-body page__group-cleanse">
+  <main role="main" class="main-body page__{{data.id}}">
     {# video hero #}
     {% set hero = data.sections.hero %}
     {% set video = data.sections.hero.video %}
@@ -13,14 +15,7 @@
     <section class="clearfix container page-section section__hero">
       <div class="row">
         <div class="col-md-12">
-          <div class="media-container">
-            <a href="#" class="display-flex position-relative flex-items-xs-center flex-items-xs-middle" href="#{{modal.id}}" class="text-muted" data-toggle="modal" data-target="#{{modal.id}}" data-media-url="{{modal.url}}" data-media-autoplay="true">
-              <img class="img-fluid" src="{{imageDir}}{{hero.video.poster.url}}" alt="{{hero.video.poster.alt}}" width="{{hero.video.poster.width}}" height="{{hero.video.poster.height}}" />
-              <div class="row flex-items-xs-center flex-items-xs-middle icon-container">
-                <img src="{{imageDir}}{{hero.video.play.image.url}}" alt="{{hero.video.play.image.alt}}" width="{{hero.video.play.image.width}}" height="{{hero.video.play.image.height}}" class="icon-img__play"/>
-              </div>
-            </a>
-          </div>
+          {{ mediaModalToggle(poster = imageDir + hero.video.poster.url, mediaUrl=modal.url) }}
         </div>
       </div>
     </section>
@@ -29,9 +24,9 @@
     {# group cleanse product #}
     {% set product = data.sections.product %}
     <section class="clearfix container page-section section__product">
-      <div class="section-header">
-        <h2 class="section-heading text-xs-center">{{product.title}}</h2>
-      </div>
+
+      {{ sectionHeader(heading = product.title) }}
+
       <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4 flex-md-last fill-height-or-more">
           {% include 'components/_purchase-box.njk' %}
@@ -55,9 +50,9 @@
     {# group cleanse exclusive content #}
     {% set exclusive = data.sections['exclusive-content'] %}
     <section class="clearfix container page-section section__exclusive-content">
-      <div class="section-header">
-        <h2 class="section-heading text-xs-center">{{exclusive.title}}</h2>
-      </div>
+
+      {{ sectionHeader(heading = exclusive.title) }}
+
       <div class="row row--double-gutter flex-items-xs-center">
         {# exclusive content featured module #}
         <div class="col-xs-12 col-sm-12 col-md-8 flex-md-last flex-xs-first feature-module-container fill-height-or-more">
@@ -67,7 +62,7 @@
             </div>
             <div class="row flex-items-xs-center text-xs-center card-block">
               <div class="col-xs-12 col-sm-10 text-wrap">
-                <div class="card-block_header">
+                <div class="card-block__header">
                   <h4 class="text-xs-center text-uppercase card-heading feature-module__title">
                     {{exclusive.feature.title}}
                   </h4>
@@ -104,9 +99,9 @@
       <div class="bg-cover position-absolute" style="background-image:url(images/{{join.background.url}})"></div>
       <div class="col-xs-12">
         <div class="row flex-items-xs-center">
-          <div class="section-header">
-            <h2 class="section-heading text-xs-center">{{join.title}}</h2>
-          </div>
+
+          {{ sectionHeader(heading = join.title) }}
+
         </div>
         <div class="row flex-items-xs-center form-group">
           <div class="col-xs-12 col-sm-10 col-md-7 text-xs-center body-text--lg text-wrap">
@@ -137,9 +132,9 @@
     {# let's get social #}
     {% set social = data.sections.social %}
     <section class="clearfix container page-section section__social">
-      <div class="section-header">
-        <h2 class="section-heading text-xs-center">{{social.title}}</h2>
-      </div>
+
+      {{ sectionHeader(heading = social.title) }}
+
       <div class="row">
         <div class="col-xs-12">
           <div class="row flex-items-sm-center flex-items-xs-center section__social-items">
@@ -148,7 +143,7 @@
               <div class="card-block icon-container text-xs-center">
                 <img src="{{imageDir}}{{item.icon.url}}" alt="{{item.title}}" width="{{item.icon.width}}" height="{{item.icon.height}}" />
               </div>
-              <div class="card-block card-block_header">
+              <div class="card-block card-block__header">
                 <h4 class="card-heading heading-text--medium text-xs-center">
                   {{item.title}}
                 </h4>
@@ -167,10 +162,9 @@
     {# exclusive bundles #}
     {% set bundles = data.sections.bundles %}
     <section class="clearfix container page-section section__bundles">
-      <div class="section-header">
-        <h2 class="section-heading text-xs-center">{{bundles.title}}</h2>
-        <div class="section-subheading text-xs-center body-text--lg">{{bundles.subtitle}}</div>
-      </div>
+
+      {{ sectionHeader(heading = bundles.title, subheading = bundles.subtitle) }}
+
       <div class="row">
         <div class="col-xs-12">
           <div class="row price-chart price-chart__items">
@@ -211,7 +205,4 @@
     {# /exclusive bundles #}
   </main>
   <!-- / MAIN -->
-  {% include "components/footer.njk" %}
-
-
 {% endblock %}

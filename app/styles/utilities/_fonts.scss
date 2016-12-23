@@ -46,6 +46,9 @@ $heading-font: "futura-pt"; // book:400 | bold:700 | 130k
   } @else if $weight == "semibold" {
     @include font-family-fallback('proxima-nova');
     font-weight: 600;
+  } @else if $weight == "semi-bold" {
+    @include font-family-fallback('proxima-nova');
+    font-weight: 600;
   } @else if $weight == "bold" {
     @include font-family-fallback('proxima-nova');
     font-weight: 700;
@@ -70,41 +73,13 @@ $heading-font: "futura-pt"; // book:400 | bold:700 | 130k
     letter-spacing: inherit;
   }
 }
-/*
 
-HEADINGS
-*/
-.heading-text {
-  @include futura('book');
-}
-.heading-text--book {
-  @include futura('book');
-}
-.heading-text--medium {
-  @include futura('medium');
-}
-.heading-text--light {
-  @include futura('medium');
-}
-
-.section-heading{
-  @include futura('medium');
-  font-size: 35px;
-  margin: 0 0 $grid-gutter-width;
-  @include media-breakpoint-down(sm) {
-    font-size: 30px;
-  }
-}
-
-.section-header .section-heading + .section-subheading{
-  margin-top: -$grid-gutter-width / 2;
-  margin-bottom: 0;
-}
 
 /*
 
 BODY
 */
+
 .body-text {
   @include proxima();
 }

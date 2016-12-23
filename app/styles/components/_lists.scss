@@ -1,0 +1,14 @@
+/*
+
+Lists
+*/
+.list-inline {
+  padding-left: 0;
+  list-style: none;
+  margin-left: -($grid-gutter-width / 8);
+}
+.list-inline > li {
+  display: inline-block;
+  padding-left: ($grid-gutter-width / 8);
+  padding-right: ($grid-gutter-width / 8);
+}

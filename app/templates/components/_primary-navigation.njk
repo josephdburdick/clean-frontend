@@ -1,0 +1,42 @@
+<nav class="navbar {{header.nav.id}}">
+  <ul class="nav {{header.nav.id}}__menu">
+    {% for link in header.nav.links %}
+      <li class="nav-item {% if link.dropdown %}dropdown{% endif %} {% if link.mobileOnly %}hidden-md-up{% endif %}">
+        <a href="{% if link.links %}#{% else %}{{link.href}}{% endif %}" class="nav-link {%if link.dropdown %}dropdown-toggle{% endif %}" {% if link.dropdown %} data-toggle="dropdown" aria-labelledby="dropdownMenuLink" {% endif %}>
+          {{link.text}}
+        </a>
+        {% if link.dropdown %}
+          <div class="dropdown-menu {{header.nav.id}}__dropdown-menu {{header.nav.id}}__dropdown-menu_{{link.dropdown.id}}" aria-labelledby="dropdownMenu">
+            <ul class="list-unstyled row flex-items-xs-center">
+              {% for link in link.dropdown.items %}
+                <li class="col-sm-6 dropdown-link-item">
+                  <a href="{{link.href}}" class="d-block">
+                    <div class="media">
+                      <div class="media-left">
+                        {% if link.image.circle %}
+                          <span class="icon-bg">
+                            <img src="{{imgDir}}{{link.image.src}}" class="media-object"/> {#img-fluid#}
+                          </span>
+                        {% else %}
+                          <img src="{{imgDir}}{{link.image.src}}" width="{{link.image.width}}" class="media-object"/> {#img-fluid#}
+                        {% endif %}
+                      </div>
+                      <div class="media-body">
+                        <div class="dropdown-title">
+                          {{link.title}}
+                        </div>
+                        <div class="dropdown-text">
+                          {{link.text}}
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

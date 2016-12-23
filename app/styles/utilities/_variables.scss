@@ -19,10 +19,14 @@ $grid-breakpoints: (
   xs: 0,
   sm: 576px,
   md: 768px,
-  lg: 970px,
-  xl: 1200px
+  lg: 990px,
+  xl: 1250px
 ) !default;
 
+//_ Transition attributes
+//
+$transition-ease: ease-out;
+$transition-speed: .2s;
 
 $grid-gutter-width:         30px;
 //== Container sizes
@@ -40,7 +44,7 @@ $container-desktop:            (940px + $grid-gutter-width) !default;
 $container-md:                 $container-desktop !default;
 
 //_ Large screen / wide desktop
-$container-large-desktop:      (940px + $grid-gutter-width) !default;
+$container-large-desktop:      (1220px + $grid-gutter-width) !default;
 //** For `$screen-lg-min` and up.
 $container-lg:                 $container-large-desktop !default;
 $enable-flex: true;
@@ -54,7 +58,7 @@ $white:       #FFFFFF !default;
 $black:       #000000 !default;
 $blue:        #263675 !default;
 $orange:      #eb5c21 !default;
-$light-gray:  #f9faf9 !default;
+$light-gray:  #e0e5ec !default;
 $medium-gray: #f1f1f1 !default;
 $dark-gray:   #dbdbdb !default;
 $off-black:   #3c3c3c !default;

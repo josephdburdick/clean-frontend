@@ -23,11 +23,50 @@ $baseline-px: 16px;
     #{$property}: $rem-values;
   }
 }
+@mixin em($property, $px-values) {
+  // Convert the baseline into ems
+  $baseline-em: $baseline-px / 1em; // Print the first line in pixel values
+  #{$property}: $px-values; // If there is only one (numeric) value, return the property/value line for it.
 
-@mixin clingToParent($margin: 0){
+  @if type-of($px-values) == "number" {
+    #{$property}: $px-values / $baseline-em;
+  }
+  @else {
+    // Create an empty list that we can dump values into
+    $em-values: unquote("");
+    @each $value in $px-values {
+      // If the value is zero or a string or a color, return unchanged input
+      @if $value == 0 or type-of($value) == "string" or type-of($value) == "color" {
+        $em-values: append($em-values, $value);
+      }
+      @else {
+        $em-values: append($em-values, $value / $baseline-em);
+      }
+    }
+    // Return the property and its list of converted values
+    #{$property}: $em-values;
+  }
+}
+
+@mixin fitToParent($margin: 0){
   position: absolute;
   top: $margin;
   right: $margin;
   bottom: $margin;
   left: $margin;
+}
+
+.fit-to-parent{
+  @include fitToParent();
+}
+
+@mixin fill-height-or-more(){
+  display: flex;
+  flex-direction: column;
+
+  & > * {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+  }
 }

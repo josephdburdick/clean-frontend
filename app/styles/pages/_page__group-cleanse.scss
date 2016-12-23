@@ -1,6 +1,7 @@
 .page__group-cleanse {
   clear: both;
   padding-bottom: 8rem;
+
   p {
     margin-bottom: 1em;
   }
@@ -20,24 +21,9 @@
   }
 
   .page-section + .page-section {
-    margin-top: 105px;
-  }
-
-  .media-container {
-    &:hover .icon-container {
-      opacity: 0.85;
-    }
-
-    .icon-container {
-      @include clingToParent();
-      display: flex;
-      margin: auto;
-    }
-    .icon-img__play{
-      @include media-breakpoint-down(sm) {
-        width: 15%;
-        height: auto;
-      }
+    margin-top: 8em;
+    @include media-breakpoint-down(md) {
+      margin-top: 6em;
     }
   }
 
@@ -62,6 +48,16 @@
   .section__exclusive-content {
     .icon-modules {
       flex-flow: row wrap;
+      @include media-breakpoint-up(md){
+        display: flex;
+        flex-direction: column;
+
+        & > * {
+          flex-grow: 1;
+          flex-shrink: 1;
+          flex-basis: auto;
+        }
+      }
       @include media-breakpoint-between(xs, md) {
         display: flex;
       }

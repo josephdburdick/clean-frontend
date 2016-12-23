@@ -1,0 +1,23 @@
+/*
+
+Media
+*/
+
+//_ Video Container
+.media-container {
+  &:hover .icon-container {
+    opacity: 0.85;
+  }
+
+  .icon-container {
+    @include fitToParent();
+    display: flex;
+    margin: auto;
+  }
+  .icon-img__play{
+    @include media-breakpoint-down(sm) {
+      width: 15%;
+      height: auto;
+    }
+  }
+}
