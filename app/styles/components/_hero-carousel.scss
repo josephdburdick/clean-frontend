@@ -30,7 +30,5 @@ Hero Carousel
 
 // Slick slider overrides
 .slick-dots li button:before{
-  @include media-breakpoint-down(lg) {
-    font-size: 1rem;
-  }
+  font-size: 1rem;
 }
