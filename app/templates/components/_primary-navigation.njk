@@ -15,10 +15,10 @@
                       <div class="media-left">
                         {% if link.image.circle %}
                           <span class="icon-bg">
-                            <img src="{{imgDir}}{{link.image.src}}" class="media-object"/> {#img-fluid#}
+                            <img src="{{imgDir}}{{link.image.src}}" class="media-object"/>
                           </span>
                         {% else %}
-                          <img src="{{imgDir}}{{link.image.src}}" width="{{link.image.width}}" class="media-object"/> {#img-fluid#}
+                          <img src="{{imgDir}}{{link.image.src}}" width="{{link.image.width}}" class="media-object"/>
                         {% endif %}
                       </div>
                       <div class="media-body">
@@ -26,7 +26,7 @@
                           {{link.title}}
                         </div>
                         <div class="dropdown-text">
-                          {{link.text}}
+                          {{link.text | safe}}
                         </div>
                       </div>
                     </div>

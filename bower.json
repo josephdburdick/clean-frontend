@@ -15,8 +15,8 @@
         "slick/fonts/slick.eot",
         "slick/fonts/slick.woff",
         "slick/ajax-loader.gif",
-        "slick/slick.css",
-        "slick/slick-theme.css",
+        "slick/slick.scss",
+        "slick/slick-theme.scss",
         "slick/slick.js"
       ]
     },
@@ -33,6 +33,7 @@
         "css/font-awesome.css",
         "fonts/fontawesome-webfont.eot",
         "fonts/fontawesome-webfont.woff",
+        "fonts/fontawesome-webfont.woff2",
         "fonts/fontawesome-webfont.ttf",
         "fonts/fontawesome-webfont.svg"
       ]
