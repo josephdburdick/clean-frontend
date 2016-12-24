@@ -89,7 +89,7 @@ export default {
             {
               href: 'tel:8884978417',
               title: '(888) 497 - 8417',
-              text: 'Call us Monday - Friday, 9am - 6pm EST',
+              text: 'Call us Monday - Friday<br>9am - 6pm EST',
               image: {
                 src: 'icon__phone.svg',
                 width: 47,
@@ -151,11 +151,17 @@ export default {
       }
     ]
   },
+  secondaryNav: [
+    {
+      text: 'Login',
+      href: '#login'
+    }
+  ],
   cart: {
     id: 'primary-cart',
     link: {
       text: 'My Cart',
-      href: '#'
+      href: '#mycart'
     },
     icon: {
       alt: 'Cart Icon',

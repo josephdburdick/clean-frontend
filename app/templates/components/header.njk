@@ -10,17 +10,19 @@
           <a href={{logo.href}} class="d-inline-block bg bg-cover" style="background-image: url('{{imgDir}}{{logo.image.src}}'); width:{{logo.image.width}}px; height:{{logo.image.height}}px;"></a>
         </h1>
         <a href class="fa fa-bars fa-3x hidden-lg-up global-header__menu-trigger" aria-hidden="true" data-toggle="mobile-menu"></a>
-        <a href="{{header.cart.link.href}}" class="global-header__cart hidden-md-down">
-          <span class="d-inline-block global-header__cart-icon">
+        <span class="global-header__cart hidden-md-down">
+          {% for link in header.secondaryNav %}
+          <a href="{{link.href}}" class="global-header__secondary-link">{{link.text}}</a>
+          {% endfor %}
+          <a href="{{header.cart.link.href}}" class="d-inline-block global-header__cart-icon">
             <img src="{{imgDir}}{{header.cart.icon.src}}" alt="{{header.cart.icon.alt}}" width="{{header.cart.icon.size}}" height="{{header.cart.icon.size}}"/>
             <sup class="global-header__cart-count">
               <span class="tag tag-pill tag-primary">
                 {{header.cart.count}}
               </span>
             </sup>
-          </span>
-          <span class="global-header__cart-link">{{header.cart.link.text}}</span>
-        </a>
+          </a>
+        </span>
       </div>
     </div>
   </div>
