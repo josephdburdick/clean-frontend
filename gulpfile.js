@@ -198,8 +198,7 @@ gulp.task('extras', () => {
     '!data',
     '!app/*.html',
     '!app/templates/*.njk',
-    '!app/**/*.njk',
-    '.tmp/fonts/*'
+    '!app/**/*.njk'
   ], {
     dot: true
   }).pipe(gulp.dest('dist'));
