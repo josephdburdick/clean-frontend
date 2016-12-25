@@ -9,7 +9,7 @@
         <h1 class="global-header__logo text-md-center text-xs-left">
           <a href={{logo.href}} class="d-inline-block bg bg-cover" style="background-image: url('{{imgDir}}{{logo.image.src}}'); width:{{logo.image.width}}px; height:{{logo.image.height}}px;"></a>
         </h1>
-        <a href class="fa fa-bars fa-3x hidden-lg-up global-header__menu-trigger" aria-hidden="true" data-toggle="mobile-menu"></a>
+        <a href class="fa fa-bars fa-3x hidden-lg-up global-header__menu-trigger" aria-hidden="true" data-toggle="mobile-menu" role="button"></a>
         <span class="global-header__cart hidden-md-down">
           {% for link in header.secondaryNav %}
           <a href="{{link.href}}" class="global-header__secondary-link">{{link.text}}</a>

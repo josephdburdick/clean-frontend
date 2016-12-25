@@ -5,7 +5,7 @@
   subheaderLevel="h4",
   hr=false)
 %}
-<div class="section-header {% if hr %}section-heading--hr{% endif %}">
+<div class="section-header {% if hr %}section-heading--hr{% endif %}" role="heading">
   <{{headerLevel}} class="section-heading text-xs-center">{{ heading | safe }}</{{headerLevel}}>
   {% if subheading %}
     <{{subheaderLevel}} class="section-subheading text-xs-center">{{ subheading | safe }}</{{subheaderLevel}}>

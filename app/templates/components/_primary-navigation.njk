@@ -1,16 +1,16 @@
-<nav class="navbar {{header.nav.id}}">
+<nav class="navbar {{header.nav.id}}" role="navigation">
   <ul class="nav {{header.nav.id}}__menu">
     {% for link in header.nav.links %}
       <li class="nav-item {% if link.dropdown %}dropdown{% endif %} {% if link.mobileOnly %}hidden-md-up{% endif %}">
-        <a href="{% if link.links %}#{% else %}{{link.href}}{% endif %}" class="nav-link {%if link.dropdown %}dropdown-toggle{% endif %}" {% if link.dropdown %} data-toggle="dropdown" aria-labelledby="dropdownMenuLink" {% endif %}>
+        <a role="link" href="{% if link.links %}#{% else %}{{link.href}}{% endif %}" class="nav-link {%if link.dropdown %}dropdown-toggle{% endif %}" {% if link.dropdown %} data-toggle="dropdown" aria-labelledby="dropdownMenuLink" {% endif %}>
           {{link.text}}
         </a>
         {% if link.dropdown %}
           <div class="dropdown-menu {{header.nav.id}}__dropdown-menu {{header.nav.id}}__dropdown-menu_{{link.dropdown.id}}" aria-labelledby="dropdownMenu">
             <ul class="list-unstyled row flex-items-xs-center">
               {% for link in link.dropdown.items %}
-                <li class="col-sm-6 dropdown-link-item">
-                  <a href="{{link.href}}" class="d-block">
+                <li class="col-sm-6 dropdown-link-item" role="menuitem">
+                  <a role="link" href="{{link.href}}" class="d-block">
                     <div class="media">
                       <div class="media-left">
                         {% if link.image.circle %}

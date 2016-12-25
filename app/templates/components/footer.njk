@@ -10,7 +10,7 @@
             <ul class="list-unstyled global-footer__social-links">
               {% for link in footer.connect.social.links %}
               <li>
-                <a href="{{link.href}}" class="d-block">
+                <a href="{{link.href}}" class="d-block" role="link">
                   <img class="img-fluid" src="{{imgDir}}{{link.icon.url}}" alt="{{link.name}} icon" width="{{link.icon.width}}">
                 </a>
               </li>
@@ -18,13 +18,13 @@
             </ul>
           </div>
           <div class="col-md-3 hidden-md-down">
-            <a href="{{footer.connect.telephone.link.href}}">
+            <a href="{{footer.connect.telephone.link.href}}" role="link">
               <img src="{{imgDir}}{{footer.connect.telephone.icon.url}}" alt="Call {{footer.connect.telephone.text}}" width="{{footer.connect.telephone.icon.width}}">
               {{footer.connect.telephone.link.text}}
             </a>
           </div>
           <div class="col-md-4 hidden-md-down">
-            <a href="{{footer.connect.email.link.href}}">
+            <a href="{{footer.connect.email.link.href}}" role="link">
               <img src="{{imgDir}}{{footer.connect.email.icon.url}}" alt="Call {{footer.connect.email.text}}" width="{{footer.connect.email.icon.width}}">
               {{footer.connect.email.link.text}}
             </a>
