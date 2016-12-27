@@ -29,11 +29,20 @@ export default {
           id: 'store',
           items: [
             {
-              title: 'Programs',
+              title: 'The Program',
               text: 'Our flagship programs designed by Dr. Junger, M.D.',
-              href: '#/cleanse-list',
+              href: 'http://www.cleanprogram.com/cleanse',
               image: {
                 src: 'dd__main-product-photo_1_1_1.jpg',
+                width: 80
+              }
+            },
+            {
+              title: 'Maintenance Kit',
+              text: "Dr. Junger's recommended daily wellness supplements and shake.",
+              href: '#/shakes',
+              image: {
+                src: 'dd__essentials-shake_2.jpg',
                 width: 80
               }
             },
@@ -56,6 +65,15 @@ export default {
               }
             },
             {
+              title: 'Books & Gifts',
+              text: 'Literature to get started or stay inspired.',
+              href: '#/clean-books',
+              image: {
+                src: 'dd__Clean-Book.jpg',
+                width: 80
+              }
+            },
+            {
               title: 'Clean Gut',
               text: 'Advanced digestive support.',
               href: '#/extra-support',
@@ -64,15 +82,6 @@ export default {
                 width: 80
               }
             },
-            {
-              title: 'Books & Gifts',
-              text: 'Literature to get started or stay inspired.',
-              href: '#/clean-books',
-              image: {
-                src: 'dd__Clean-Book.jpg',
-                width: 80
-              }
-            }
           ]
         }
       },

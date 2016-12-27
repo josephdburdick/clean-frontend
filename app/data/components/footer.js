@@ -111,7 +111,7 @@ export default {
       },
 
       {
-        text: 'Coaching',
+        text: 'Free Coaching',
         href: '#coaching'
       },
       {

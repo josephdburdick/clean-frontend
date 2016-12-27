@@ -40,6 +40,9 @@ Primary Navigation
     max-width: 33.3vw;
   }
   &__menu{
+    a {
+      color: $blue;
+    }
     @include media-breakpoint-up(lg) {
       padding: 0 .5em;
       .nav-item{
@@ -81,7 +84,7 @@ Primary Navigation
         text-transform: uppercase;
         font-size: .8em;
         letter-spacing: .2em;
-        color: $off-black;
+
         &:hover{
           background-color: $light-gray;
         }
@@ -153,7 +156,7 @@ Primary Navigation
       text-decoration: none;
     }
     & .dropdown-title{
-      color: $brand-primary;
+      color: $link-color;
       font-weight: normal;
     }
     & .dropdown-text{
