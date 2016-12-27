@@ -23,8 +23,8 @@ export default {
         `,
         `
           <div class="carousel-item" itemprop="associatedMedia" itemscope itemtype="MediaObject">
-            <img src="https://placeimg.com/720/382/nature" data-lazy="https://placeimg.com/1440/765/nature" alt="First slide" class="carousel-img hidden-sm-down" itemprop="http://schema.org/image">
-            <img src="images/bg__hero_smoothie--xs-lowres.jpg" data-lazy="images/bg__hero_smoothie--xs.png" alt="First slide" class="carousel-img hidden-md-up" itemprop="http://schema.org/image">
+            <img data-lazy="https://placeimg.com/1440/765/nature" alt="First slide" class="carousel-img hidden-sm-down" itemprop="http://schema.org/image">
+            <img data-lazy="images/bg__hero_smoothie--xs.png" alt="First slide" class="carousel-img hidden-md-up" itemprop="http://schema.org/image">
             <div class="position-absolute fit-to-parent">
               <div class="row fit-to-parent flex-items-xs-middle flex-items-xs-center">
                 <div class="col-lg-4 col-md-6 col-sm-8 col-xs-10 text-xs-center" style="max-width:500px;">
@@ -37,8 +37,8 @@ export default {
         `,
         `
           <div class="carousel-item" itemprop="associatedMedia" itemscope itemtype="MediaObject">
-            <img src="https://placeimg.com/720/382/nature" data-lazy="https://placeimg.com/1440/765/nature" alt="First slide" class="carousel-img hidden-sm-down" itemprop="http://schema.org/image">
-            <img src="images/bg__hero_smoothie--xs-lowres.jpg" data-lazy="images/bg__hero_smoothie--xs.png" alt="First slide" class="carousel-img hidden-md-up" itemprop="http://schema.org/image">
+            <img data-lazy="https://placeimg.com/1440/765/nature" alt="First slide" class="carousel-img hidden-sm-down" itemprop="http://schema.org/image">
+            <img data-lazy="images/bg__hero_smoothie--xs.png" alt="First slide" class="carousel-img hidden-md-up" itemprop="http://schema.org/image">
             <div class="position-absolute fit-to-parent">
               <div class="row fit-to-parent flex-items-xs-middle flex-items-xs-center">
                 <div class="col-lg-4 col-md-6 col-sm-8 col-xs-10 text-xs-center" style="max-width:500px;">
@@ -51,8 +51,8 @@ export default {
         `,
         `
           <div class="carousel-item" itemprop="associatedMedia" itemscope itemtype="MediaObject">
-            <img src="https://placeimg.com/720/382/nature" data-lazy="https://placeimg.com/1440/765/nature" alt="First slide" class="carousel-img hidden-sm-down" itemprop="http://schema.org/image">
-            <img src="images/bg__hero_smoothie--xs-lowres.jpg" data-lazy="images/bg__hero_smoothie--xs.png" alt="First slide" class="carousel-img hidden-md-up" itemprop="http://schema.org/image">
+            <img data-lazy="https://placeimg.com/1440/765/nature" alt="First slide" class="carousel-img hidden-sm-down" itemprop="http://schema.org/image">
+            <img data-lazy="images/bg__hero_smoothie--xs.png" alt="First slide" class="carousel-img hidden-md-up" itemprop="http://schema.org/image">
             <div class="position-absolute fit-to-parent">
               <div class="row fit-to-parent flex-items-xs-middle flex-items-xs-center">
                 <div class="col-lg-4 col-md-6 col-sm-8 col-xs-10 text-xs-center" style="max-width:500px;">
