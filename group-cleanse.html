@@ -34,7 +34,7 @@
         <h1 class="global-header__logo text-md-center text-xs-left">
           <a href="/" class="d-inline-block bg bg-cover" style="background-image: url('images/logo.png'); width:203px; height:46px"></a>
         </h1>
-        <a href class="fa fa-bars fa-3x hidden-lg-up global-header__menu-trigger" aria-hidden="true" data-toggle="mobile-menu"></a>
+        <a href class="fa fa-bars fa-3x hidden-lg-up global-header__menu-trigger" aria-hidden="true" data-toggle="mobile-menu" role="button"></a>
         <span class="global-header__cart hidden-md-down">
           
           <a href="#login" class="global-header__secondary-link">Login</a>
@@ -51,33 +51,33 @@
       </div>
     </div>
   </div>
-  <nav class="navbar primary-navigation">
+  <nav class="navbar primary-navigation" role="navigation">
   <ul class="nav primary-navigation__menu">
     
       <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a role="link" href="#" class="nav-link">
           The Program
         </a>
         
       </li>
     
       <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a role="link" href="#" class="nav-link">
           Daily Shakes
         </a>
         
       </li>
     
       <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-labelledby="dropdownMenuLink">
+        <a role="link" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-labelledby="dropdownMenuLink">
           Store
         </a>
         
           <div class="dropdown-menu primary-navigation__dropdown-menu primary-navigation__dropdown-menu_store" aria-labelledby="dropdownMenu">
             <ul class="list-unstyled row flex-items-xs-center">
               
-                <li class="col-sm-6 dropdown-link-item">
-                  <a href="#/cleanse-list" class="d-block">
+                <li class="col-sm-6 dropdown-link-item" role="menuitem">
+                  <a role="link" href="http://www.cleanprogram.com/cleanse" class="d-block">
                     <div class="media">
                       <div class="media-left">
                         
@@ -86,7 +86,7 @@
                       </div>
                       <div class="media-body">
                         <div class="dropdown-title">
-                          Programs
+                          The Program
                         </div>
                         <div class="dropdown-text">
                           Our flagship programs designed by Dr. Junger, M.D.
@@ -96,8 +96,28 @@
                   </a>
                 </li>
               
-                <li class="col-sm-6 dropdown-link-item">
-                  <a href="#/shakes" class="d-block">
+                <li class="col-sm-6 dropdown-link-item" role="menuitem">
+                  <a role="link" href="#/shakes" class="d-block">
+                    <div class="media">
+                      <div class="media-left">
+                        
+                          <img src="images/dd__essentials-shake_2.jpg" width="80" class="media-object">
+                        
+                      </div>
+                      <div class="media-body">
+                        <div class="dropdown-title">
+                          Maintenance Kit
+                        </div>
+                        <div class="dropdown-text">
+                          Dr. Junger's recommended daily wellness supplements and shake.
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              
+                <li class="col-sm-6 dropdown-link-item" role="menuitem">
+                  <a role="link" href="#/shakes" class="d-block">
                     <div class="media">
                       <div class="media-left">
                         
@@ -116,8 +136,8 @@
                   </a>
                 </li>
               
-                <li class="col-sm-6 dropdown-link-item">
-                  <a href="#/supplements" class="d-block">
+                <li class="col-sm-6 dropdown-link-item" role="menuitem">
+                  <a role="link" href="#/supplements" class="d-block">
                     <div class="media">
                       <div class="media-left">
                         
@@ -136,28 +156,8 @@
                   </a>
                 </li>
               
-                <li class="col-sm-6 dropdown-link-item">
-                  <a href="#/extra-support" class="d-block">
-                    <div class="media">
-                      <div class="media-left">
-                        
-                          <img src="images/dd__BG.jpg" width="80" class="media-object">
-                        
-                      </div>
-                      <div class="media-body">
-                        <div class="dropdown-title">
-                          Clean Gut
-                        </div>
-                        <div class="dropdown-text">
-                          Advanced digestive support.
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              
-                <li class="col-sm-6 dropdown-link-item">
-                  <a href="#/clean-books" class="d-block">
+                <li class="col-sm-6 dropdown-link-item" role="menuitem">
+                  <a role="link" href="#/clean-books" class="d-block">
                     <div class="media">
                       <div class="media-left">
                         
@@ -176,28 +176,48 @@
                   </a>
                 </li>
               
+                <li class="col-sm-6 dropdown-link-item" role="menuitem">
+                  <a role="link" href="#/extra-support" class="d-block">
+                    <div class="media">
+                      <div class="media-left">
+                        
+                          <img src="images/dd__BG.jpg" width="80" class="media-object">
+                        
+                      </div>
+                      <div class="media-body">
+                        <div class="dropdown-title">
+                          Clean Gut
+                        </div>
+                        <div class="dropdown-text">
+                          Advanced digestive support.
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              
             </ul>
           </div>
         
       </li>
     
       <li class="nav-item">
-        <a href="#" class="nav-link">
+        <a role="link" href="#" class="nav-link">
           Blog
         </a>
         
       </li>
     
       <li class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-labelledby="dropdownMenuLink">
+        <a role="link" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-labelledby="dropdownMenuLink">
           Support
         </a>
         
           <div class="dropdown-menu primary-navigation__dropdown-menu primary-navigation__dropdown-menu_support" aria-labelledby="dropdownMenu">
             <ul class="list-unstyled row flex-items-xs-center">
               
-                <li class="col-sm-6 dropdown-link-item">
-                  <a href="tel:8884978417" class="d-block">
+                <li class="col-sm-6 dropdown-link-item" role="menuitem">
+                  <a role="link" href="tel:8884978417" class="d-block">
                     <div class="media">
                       <div class="media-left">
                         
@@ -218,8 +238,8 @@
                   </a>
                 </li>
               
-                <li class="col-sm-6 dropdown-link-item">
-                  <a href="mailto:support@cleanprogram.com" class="d-block">
+                <li class="col-sm-6 dropdown-link-item" role="menuitem">
+                  <a role="link" href="mailto:support@cleanprogram.com" class="d-block">
                     <div class="media">
                       <div class="media-left">
                         
@@ -240,8 +260,8 @@
                   </a>
                 </li>
               
-                <li class="col-sm-6 dropdown-link-item">
-                  <a href="http://clean.helpscoutdocs.com" class="d-block">
+                <li class="col-sm-6 dropdown-link-item" role="menuitem">
+                  <a role="link" href="http://clean.helpscoutdocs.com" class="d-block">
                     <div class="media">
                       <div class="media-left">
                         
@@ -262,8 +282,8 @@
                   </a>
                 </li>
               
-                <li class="col-sm-6 dropdown-link-item">
-                  <a href="http://my.cleanprogram.com" class="d-block">
+                <li class="col-sm-6 dropdown-link-item" role="menuitem">
+                  <a role="link" href="http://my.cleanprogram.com" class="d-block">
                     <div class="media">
                       <div class="media-left">
                         
@@ -284,8 +304,8 @@
                   </a>
                 </li>
               
-                <li class="col-sm-6 dropdown-link-item">
-                  <a href="#" class="d-block">
+                <li class="col-sm-6 dropdown-link-item" role="menuitem">
+                  <a role="link" href="#" class="d-block">
                     <div class="media">
                       <div class="media-left">
                         
@@ -312,14 +332,14 @@
       </li>
     
       <li class="nav-item hidden-md-up">
-        <a href="#" class="nav-link">
+        <a role="link" href="#" class="nav-link">
           Login
         </a>
         
       </li>
     
       <li class="nav-item hidden-md-up">
-        <a href="#" class="nav-link">
+        <a role="link" href="#" class="nav-link">
           My Cart
         </a>
         
@@ -369,7 +389,7 @@
     <section class="clearfix container page-section section__product">
 
       
-<div class="section-header">
+<div class="section-header" role="heading">
   <h3 class="section-heading text-xs-center">Join the 21-Day Group Cleanse</h3>
   
 </div>
@@ -456,7 +476,7 @@
     <section class="clearfix container page-section section__exclusive-content">
 
       
-<div class="section-header">
+<div class="section-header" role="heading">
   <h3 class="section-heading text-xs-center">Group Cleanse Exclusive Content</h3>
   
 </div>
@@ -532,7 +552,7 @@
         <div class="row flex-items-xs-center">
 
           
-<div class="section-header">
+<div class="section-header" role="heading">
   <h3 class="section-heading text-xs-center">Join Us!</h3>
   
 </div>
@@ -576,7 +596,7 @@
     <section class="clearfix container page-section section__social">
 
       
-<div class="section-header">
+<div class="section-header" role="heading">
   <h3 class="section-heading text-xs-center">Let's Get Social</h3>
   
 </div>
@@ -639,7 +659,7 @@
     <section class="clearfix container page-section section__bundles">
 
       
-<div class="section-header">
+<div class="section-header" role="heading">
   <h3 class="section-heading text-xs-center">Exclusive Bundles</h3>
   
     <h4 class="section-subheading text-xs-center">Enhance your cleanse experience and save on our favorite supportive products.</h4>
@@ -758,31 +778,31 @@
             <ul class="list-unstyled global-footer__social-links">
               
               <li>
-                <a href="http://instagram.com/cleanprogram" class="d-block">
+                <a href="http://instagram.com/cleanprogram" class="d-block" role="link">
                   <img class="img-fluid" src="images/icon__circle_instagram.svg" alt="instagram icon" width="36">
                 </a>
               </li>
               
               <li>
-                <a href="https://www.snapchat.com/cleanprogram" class="d-block">
+                <a href="https://www.snapchat.com/cleanprogram" class="d-block" role="link">
                   <img class="img-fluid" src="images/icon__circle_snapchat.svg" alt="snapchat icon" width="36">
                 </a>
               </li>
               
               <li>
-                <a href="http://www.pinterest.com/cleanprogram/" class="d-block">
+                <a href="http://www.pinterest.com/cleanprogram/" class="d-block" role="link">
                   <img class="img-fluid" src="images/icon__circle_pinterest.svg" alt="pinterest icon" width="36">
                 </a>
               </li>
               
               <li>
-                <a href="http://www.facebook.com/cleanprogram" class="d-block">
+                <a href="http://www.facebook.com/cleanprogram" class="d-block" role="link">
                   <img class="img-fluid" src="images/icon__circle_facebook.svg" alt="facebook icon" width="36">
                 </a>
               </li>
               
               <li>
-                <a href="http://twitter.com/cleanprogram" class="d-block">
+                <a href="http://twitter.com/cleanprogram" class="d-block" role="link">
                   <img class="img-fluid" src="images/icon__circle_twitter.svg" alt="twitter icon" width="36">
                 </a>
               </li>
@@ -790,13 +810,13 @@
             </ul>
           </div>
           <div class="col-md-3 hidden-md-down">
-            <a href="tel:18884978417">
+            <a href="tel:18884978417" role="link">
               <img src="images/icon__phone.svg" alt="Call " width="30">
               (888) 497 - 8417
             </a>
           </div>
           <div class="col-md-4 hidden-md-down">
-            <a href="#email-support">
+            <a href="#email-support" role="link">
               <img src="images/icon__email.svg" alt="Call " width="30">
               support@cleanprogram.com
             </a>
@@ -844,7 +864,7 @@
             <ul class="list-unstyled col-md-4 footer-navigation-links footer-navigation__column-3">
                 <li>
                   <a href="#coaching" class="text-uppercase">
-                    Coaching
+                    Free Coaching
                   </a>
                 </li>
                 <li>
