@@ -188,7 +188,7 @@ var carousel = function (options) {
   var _this = {};
 
   var defaults = {
-    lazyLoad: 'progressive',
+    lazyLoad: 'ondemand',
     adaptiveHeight: true,
     autoplay: true,
     autoplaySpeed: 8000,
@@ -203,6 +203,9 @@ var carousel = function (options) {
 
   _this.init = function () {
     $('.hero-carousel').slick(settings);
+    // .on('beforeChange', (event, slick, currentSlide, nextSlide) => {
+    // const $nextSlide = slick.$slides[nextSlide];
+    // })
   };
 
   return { init: _this.init };

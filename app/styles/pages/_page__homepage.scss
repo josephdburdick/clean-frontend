@@ -20,6 +20,9 @@
         min-height: 435px;
       }
     }
+    & + .page-section {
+      margin-top: 4em;
+    }
   }
   .product-attributes{
     @include media-breakpoint-down(lg) {

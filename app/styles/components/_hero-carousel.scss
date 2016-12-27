@@ -5,14 +5,18 @@ Hero Carousel
 
 .hero-carousel{
   .carousel-item{
+    display: block;
     position: relative;
     width: 100%;
     max-width: 100vw;
+    background-color: $light-gray;
+
   }
   .carousel-item > img,
   .carousel-item > a > img{
     width: 100%;
     max-width: 100vw;
+    height: auto;
     position: relative;
     display: block;
     margin-left: auto;
@@ -22,6 +26,10 @@ Hero Carousel
 
 // Hide all slides until slick slider initiates
 // .hero-carousel:not(.slick-initialized){
+//   opacity: 0;
+// }
+// .hero-carousel:not(.slick-initialized) .carousel-item:first-child{
+//   display: block;
 //   opacity: 0;
 // }
 .hero-carousel:not(.slick-initialized) .carousel-item:not(:first-child){

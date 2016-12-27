@@ -1,0 +1,7 @@
+{% macro heroCarousel(items, indicators=false) %}
+<div class="hero-carousel" {% if indicators %}data-indicators="true"{% endif %} itemscope itemtype="http://schema.org/ImageGallery" role="listbox">
+  {% for slides in items %}
+    {{ slides | safe }}
+  {% endfor %}
+</div>
+{% endmacro %}

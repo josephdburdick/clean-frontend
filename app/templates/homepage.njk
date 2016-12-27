@@ -5,6 +5,7 @@
 
   {% from "macros/_section-header.njk" import sectionHeader %}
   {% from "macros/_media-modal-toggle.njk" import mediaModalToggle %}
+  {% from "macros/_hero-carousel.njk" import heroCarousel %}
   <!-- MAIN -->
   <main role="main" class="main-body page__{{data.id}}">
     {# home hero #}
@@ -12,7 +13,7 @@
     <section class="clearfix page-section section__hero">
       <div class="row">
         <div class="col-md-12">
-          {% include 'components/_hero-carousel.njk' %}
+          {{ heroCarousel(items = hero.items, indicators = true) }}
         </div>
       </div>
     </section>

@@ -6,9 +6,64 @@ export default {
   url : "homepage.html",
   sections : {
     hero: {
-      background: {
-        url: "video__bg_poster--xl.png",
-      }
+      items: [
+        `
+          <div class="carousel-item active" itemprop="associatedMedia" itemscope itemtype="MediaObject">
+            <img src="images/bg__hero_smoothie--lg-lowres.jpg" data-lazy="images/bg__hero_smoothie--lg.png" alt="First slide" class="carousel-img hidden-sm-down" itemprop="http://schema.org/image">
+            <img src="images/bg__hero_smoothie--xs-lowres.jpg" data-lazy="images/bg__hero_smoothie--xs.png" alt="First slide" class="carousel-img hidden-md-up" itemprop="http://schema.org/image">
+            <div class="position-absolute fit-to-parent">
+              <div class="row fit-to-parent flex-items-xs-middle flex-items-xs-center">
+                <div class="col-lg-4 col-md-6 col-sm-8 col-xs-10 text-xs-center" style="max-width:500px;">
+                  <h1 class="mb-2"><img src="images/text__2017-group-cleanse.png" alt="2017 Group Cleanse" class="img-fluid"></h1>
+                  <a href="http://www.cleanprogram.com/group-detox-cleanse" class="btn btn-lg btn-block btn-black hero-button mt-2">Join Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
+        `
+          <div class="carousel-item" itemprop="associatedMedia" itemscope itemtype="MediaObject">
+            <img src="https://placeimg.com/720/382/nature" data-lazy="https://placeimg.com/1440/765/nature" alt="First slide" class="carousel-img hidden-sm-down" itemprop="http://schema.org/image">
+            <img src="images/bg__hero_smoothie--xs-lowres.jpg" data-lazy="images/bg__hero_smoothie--xs.png" alt="First slide" class="carousel-img hidden-md-up" itemprop="http://schema.org/image">
+            <div class="position-absolute fit-to-parent">
+              <div class="row fit-to-parent flex-items-xs-middle flex-items-xs-center">
+                <div class="col-lg-4 col-md-6 col-sm-8 col-xs-10 text-xs-center" style="max-width:500px;">
+                  <h1 class="mb-2"><img data-lazy="images/text__2017-group-cleanse.png" alt="2017 Group Cleanse" class="img-fluid"></h1>
+                  <a href="http://www.cleanprogram.com/group-detox-cleanse" class="btn btn-lg btn-block btn-black hero-button mt-2">Join Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
+        `
+          <div class="carousel-item" itemprop="associatedMedia" itemscope itemtype="MediaObject">
+            <img src="https://placeimg.com/720/382/nature" data-lazy="https://placeimg.com/1440/765/nature" alt="First slide" class="carousel-img hidden-sm-down" itemprop="http://schema.org/image">
+            <img src="images/bg__hero_smoothie--xs-lowres.jpg" data-lazy="images/bg__hero_smoothie--xs.png" alt="First slide" class="carousel-img hidden-md-up" itemprop="http://schema.org/image">
+            <div class="position-absolute fit-to-parent">
+              <div class="row fit-to-parent flex-items-xs-middle flex-items-xs-center">
+                <div class="col-lg-4 col-md-6 col-sm-8 col-xs-10 text-xs-center" style="max-width:500px;">
+                  <h1 class="mb-2"><img data-lazy="images/text__2017-group-cleanse.png" alt="2017 Group Cleanse" class="img-fluid"></h1>
+                  <a href="http://www.cleanprogram.com/group-detox-cleanse" class="btn btn-lg btn-block btn-black hero-button mt-2">Join Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
+        `
+          <div class="carousel-item" itemprop="associatedMedia" itemscope itemtype="MediaObject">
+            <img src="https://placeimg.com/720/382/nature" data-lazy="https://placeimg.com/1440/765/nature" alt="First slide" class="carousel-img hidden-sm-down" itemprop="http://schema.org/image">
+            <img src="images/bg__hero_smoothie--xs-lowres.jpg" data-lazy="images/bg__hero_smoothie--xs.png" alt="First slide" class="carousel-img hidden-md-up" itemprop="http://schema.org/image">
+            <div class="position-absolute fit-to-parent">
+              <div class="row fit-to-parent flex-items-xs-middle flex-items-xs-center">
+                <div class="col-lg-4 col-md-6 col-sm-8 col-xs-10 text-xs-center" style="max-width:500px;">
+                  <h1 class="mb-2"><img data-lazy="images/text__2017-group-cleanse.png" alt="2017 Group Cleanse" class="img-fluid"></h1>
+                  <a href="http://www.cleanprogram.com/group-detox-cleanse" class="btn btn-lg btn-block btn-black hero-button mt-2">Join Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        `
+      ]
     },
     product: {
       title: "Start Here",
