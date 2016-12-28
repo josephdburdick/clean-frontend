@@ -17,9 +17,9 @@ $list-group-item-padding-x:             1.25rem !default;
 
 $grid-breakpoints: (
   xs: 0,
-  sm: 576px,
-  md: 768px,
-  lg: 990px,
+  sm: 481px, //576px,
+  md: 641px,
+  lg: 961px,
   xl: 1250px
 ) !default;
 
