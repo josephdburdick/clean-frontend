@@ -42,7 +42,7 @@ const C = (() => {
 
 gulp.task('data', () => {
   return gulp.src('app/data/**/*.js')
-    .pipe($.plumber({errorHandler: $.notify.onError("Error: <%= error.message %>")}))
+    .pipe($.plumber({errorHandler: $.notify.onError('Error: <%= error.message %>')}))
     .pipe($.babel())
     .pipe(gulp.dest('.tmp/data'))
     .pipe(reload({stream: true}));
@@ -58,7 +58,7 @@ gulp.task('bundle', () => {
         })
       ]
     })
-    .pipe($.plumber({errorHandler: $.notify.onError("Error: <%= error.message %>")}))
+    .pipe($.plumber({errorHandler: $.notify.onError('Error: <%= error.message %>')}))
     .pipe(source('index.js', './app/scripts'))
     .pipe(buffer())
     .pipe($.sourcemaps.init({loadMaps: true}))
@@ -78,7 +78,7 @@ gulp.task('bundle:data', ['data'], () => {
       })
     ]
   })
-  .pipe($.plumber({errorHandler: $.notify.onError("Error: <%= error.message %>")}))
+  .pipe($.plumber({errorHandler: $.notify.onError('Error: <%= error.message %>')}))
   .pipe(source('global.js', './.tmp/data'))
   .pipe(buffer())
   .pipe($.sourcemaps.init({loadMaps: true}))
@@ -98,7 +98,7 @@ gulp.task('templates', ['data'], () => {
     }))
     .pipe($.nunjucks.compile())
     .pipe($.rename({
-      extname: ".html"
+      extname: '.html'
     }))
     .pipe(gulp.dest('.tmp/'))
     .pipe(reload({stream: true}));
@@ -106,7 +106,7 @@ gulp.task('templates', ['data'], () => {
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
-    .pipe($.plumber({errorHandler: $.notify.onError("Error: <%= error.message %>")}))
+    .pipe($.plumber({errorHandler: $.notify.onError('Error: <%= error.message %>')}))
     .pipe($.sourcemaps.init())
     .pipe($.sass.sync({
       outputStyle: 'expanded',
@@ -121,7 +121,7 @@ gulp.task('styles', () => {
 
 gulp.task('scripts', ['bundle'], () => {
   return gulp.src('./.tmp/scripts/**/*.js')
-    .pipe($.plumber({errorHandler: $.notify.onError("Error: <%= error.message %>")}))
+    .pipe($.plumber({errorHandler: $.notify.onError('Error: <%= error.message %>')}))
     .pipe($.sourcemaps.init())
     .pipe($.babel())
     .pipe($.sourcemaps.write('.'))
@@ -155,7 +155,7 @@ gulp.task('lint', () => {
       'no-undef' : 2
     },
       parserOptions: {
-      sourceType: "module"
+      sourceType: 'module'
     }
   })
   .pipe(gulp.dest('app/scripts'));

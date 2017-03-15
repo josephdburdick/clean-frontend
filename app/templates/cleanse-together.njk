@@ -1,0 +1,208 @@
+{% extends "layout/_layout.njk" %}
+{% block content %}
+  {% set imageDir = global.dir.images %}
+  {% set data = global.views.groupCleanse %}
+
+  {% from "macros/_section-header.njk" import sectionHeader %}
+  {% from "macros/_media-modal-toggle.njk" import mediaModalToggle %}
+
+  <!-- MAIN -->
+  <main role="main" class="main-body page__{{data.id}}">
+    {# hero #}
+    {% set hero = data.sections.hero %}
+    {% set video = data.sections.hero.video %}
+    {% set modal = data.sections.modals.video %}
+    <section class="clearfix container page-section section__hero">
+      <div class="row">
+        <div class="col-md-12">
+          {{ mediaModalToggle(poster = imageDir + hero.video.poster.url, mediaUrl=modal.url) }}
+        </div>
+      </div>
+    </section>
+    {# /hero #}
+
+    {# group cleanse product #}
+    {% set product = data.sections.product %}
+    <section class="clearfix container page-section section__product">
+
+      {{ sectionHeader(heading = product.title) }}
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4 flex-md-last fill-height-or-more">
+          {% include 'components/_purchase-box.njk' %}
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 section__product_feature-image">
+          <div class="row flex-items-xs-middle text-xs-center h-100">
+            <img src="{{imageDir}}{{product.image.url}}" class="img-fluid" alt="{{product.image.alt}}">
+          </div>
+        </div>
+      </div>
+      <div class="row gutter--top">
+        <div class="col-md-12">
+          <div class="body-text--lg">
+            {{product.description | safe}}
+          </div>
+        </div>
+      </div>
+    </section>
+    {# /group cleanse product #}
+
+    {# group cleanse exclusive content #}
+    {% set exclusive = data.sections['exclusive-content'] %}
+    <section class="clearfix container page-section section__exclusive-content">
+
+      {{ sectionHeader(heading = exclusive.title) }}
+
+      <div class="row row--double-gutter flex-items-xs-center">
+        {# exclusive content featured module #}
+        <div class="col-xs-12 col-sm-12 col-md-8 flex-md-last flex-xs-first feature-module-container fill-height-or-more">
+          <div class="card card-outline--2 fill-height-or-more feature-module">
+            <div class="card-img">
+              <img class="img-fluid img-fluid--full" src="{{imageDir}}{{exclusive.feature.image.url}}" alt="{{exclusive.feature.image.alt}}">
+            </div>
+            <div class="row flex-items-xs-center text-xs-center card-block">
+              <div class="col-xs-12 col-sm-10 text-wrap">
+                <div class="card-block__header">
+                  <h4 class="text-xs-center text-uppercase card-heading feature-module__title">
+                    {{exclusive.feature.title}}
+                  </h4>
+                </div>
+                <div class="card-text body-text--large feature-module__body">{{exclusive.feature.bodyText}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {# /exclusive content featured module #}
+        {# exclusive content icon modules #}
+        <div class="col-xs-12 col-sm-12 col-md-4 flex-items-xs-between icon-modules">
+          {% for item in exclusive.items %}
+            <div class="col-xs-12 col-sm-4 col-md-12 col-lg-12 card card-outline--2 icon-module {{item.className}}">
+              <a class="icon-module__link card-block" href="{{item.href}}">
+                <div class="icon-container">
+                  <img src="{{imageDir}}{{item.image.url}}" class="img-fluid img-fluid--full" alt="{{item.title}} icon" />
+                </div>
+                <div class="icon-module__overlay text-xs-center">
+                  <span class="icon-module__overlay-title text-uppercase heading-text--medium">{{item.title}}</span>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+        {# /exclusive content icon modules #}
+      </div>
+    </section>
+    {# /group cleanse exclusive content #}
+
+    {# join us #}
+    {% set join = data.sections.join %}
+    <section class="clearfix container page-section section__join-us">
+      <div class="bg-cover position-absolute" style="background-image:url(images/{{join.background.url}})"></div>
+      <div class="col-xs-12">
+        <div class="row flex-items-xs-center">
+
+          {{ sectionHeader(heading = join.title) }}
+
+        </div>
+        <div class="row flex-items-xs-center form-group">
+          <div class="col-xs-12 col-sm-10 col-md-7 text-xs-center body-text--lg text-wrap">
+            {{join.bodyText}}
+          </div>
+        </div>
+        <div class="row flex-items-xs-center">
+          <form class="form col-md-10 col-lg-8">
+            <div class="form-group input-group-lg input-email-container">
+              <input type="text" name="input-email" class="form-control form-control--block input-lg" value="" placeholder="Your Email Address">
+            </div>
+            <div class="row flex-items-md-around flex-items-xs-center">
+              {% set cls = cycler("btn-column--odd", "btn-column--even") %}
+              {% for button in join.options %}
+              <div class="col-xs-12 col-sm-6 col-md col-lg {{ cls.next() }}">
+                <div class="form-group">
+                  <button class="btn btn-primary btn-lg" href role="button" data-startdate="{{button.date}}">{{button.text}}</button>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+    {# /join us #}
+
+    {# let's get social #}
+    {% set social = data.sections.social %}
+    <section class="clearfix container page-section section__social">
+
+      {{ sectionHeader(heading = social.title) }}
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row flex-items-sm-center flex-items-xs-center section__social-items">
+            {% for item in social.items %}
+            <div class="col-xs-10 col-sm-6 col-md-6 col-lg-4 section__social-item">
+              <div class="card-block icon-container text-xs-center">
+                <img src="{{imageDir}}{{item.icon.url}}" alt="{{item.title}}" width="{{item.icon.width}}" height="{{item.icon.height}}" />
+              </div>
+              <div class="card-block card-block__header">
+                <h4 class="card-heading heading-text--medium text-xs-center">
+                  {{item.title}}
+                </h4>
+              </div>
+              <div class="card-block card-body">
+                <div class="card-text text-xs-center body-text--lg social-module__body">{{item.bodyText}}</div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+    {# /let's get social #}
+
+    {# exclusive bundles #}
+    {% set bundles = data.sections.bundles %}
+    <section class="clearfix container page-section section__bundles">
+
+      {{ sectionHeader(heading = bundles.title, subheading = bundles.subtitle) }}
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row price-chart price-chart__items">
+            {% for item in bundles.items %}
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 section__bundle-item price-chart__item">
+              <div class="card card--thin-padding card-outline--2">
+                <div class="card-img card-outline--bottom icon-container text-xs-center">
+                  <img class="img-fluid" src="{{imageDir}}{{item.image.url}}" alt="{{item.title}}" width="{{item.image.width}}" height="{{item.image.height}}" />
+                </div>
+                <div class="card-block">
+                  <h4 class="card-heading text-uppercase t--light text-xs-center">
+                    {{item.title}}
+                  </h4>
+                  <div class="card-body card-text text-xs-center social-module__body">{{item.bodyText}}</div>
+                </div>
+                <div class="card-block">
+                  <hr>
+                  <div class="row flex-items-xs-middle flex-items-xs-center price-chart__prices">
+                    <div class="col-xs text-xs-center price-chart__price-text">
+                      <s>Total ${{item.price.total}}</s>
+                    </div>
+                    <div class="col col-divider--vertical"></div>
+                    <div class="col-xs text-xs-center price-chart__price-text">
+                      Now ${{item.price.now}}
+                    </div>
+                  </div>
+                </div>
+                <div class="card-block">
+                  <a href="{{item.link.href}}" class="text-xs-center btn-block btn-cta">{{item.link.text}}</a>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </section>
+    {# /exclusive bundles #}
+  </main>
+  <!-- / MAIN -->
+{% endblock %}
