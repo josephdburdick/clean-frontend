@@ -8,19 +8,29 @@
 </head>
 <body>
   <div id="mocha"></div>
-  <script src="../bower_components/mocha/mocha.js"></script>
-  <script>mocha.setup('bdd');</script>
-  <script src="../bower_components/chai/chai.js"></script>
   <script
   src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
+
+  <script src="../bower_components/mocha/mocha.js"></script>
+  <script>mocha.setup('bdd');</script>
+  <script src="../bower_components/chai/chai.js"></script>
+  <script src="../bower_components/chai-jq/chai-jq.js"></script>
   <script>
     var assert = chai.assert;
     var expect = chai.expect;
     var should = chai.should();
   </script>
+
   <!-- bower:js -->
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/tether/dist/js/tether.js"></script>
+  <script src="/bower_components/bootstrap/js/dist/dropdown.js"></script>
+  <script src="/bower_components/bootstrap/js/dist/modal.js"></script>
+  <script src="/bower_components/bootstrap/js/dist/util.js"></script>
+  <script src="/bower_components/modernizr/modernizr.js"></script>
+  <script src="/bower_components/slick-carousel/slick/slick.js"></script>
   <!-- endbower -->
   <!-- include source files here... -->
 

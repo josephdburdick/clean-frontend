@@ -7,12 +7,12 @@
         </a>
         {% if link.dropdown %}
           <div class="dropdown-menu {{header.nav.id}}__dropdown-menu {{header.nav.id}}__dropdown-menu_{{link.dropdown.id}}" aria-labelledby="dropdownMenu">
-            <ul class="list-unstyled row flex-items-xs-center">
+            <ul class="list-unstyled row justify-content-center align-items-center">
               {% for link in link.dropdown.items %}
                 <li class="col-sm-6 dropdown-link-item" role="menuitem">
                   <a role="link" href="{{link.href}}" class="d-block">
-                    <div class="media">
-                      <div class="media-left">
+                    <div class="media align-items-center">
+                      <div class="mr-2">
                         {% if link.image.circle %}
                           <span class="icon-bg">
                             <img src="{{imgDir}}{{link.image.src}}" class="media-object"/>

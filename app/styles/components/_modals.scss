@@ -3,49 +3,63 @@
 MODALS
 */
 
-.modal{
+.modal {
   @include media-breakpoint-up(md) {
-    .modal-dialog{
+    .modal-dialog {
       max-width: 970px;
     }
-    .modal-content{
+
+    .modal-content {
       border-radius: 0;
     }
-    .modal-body{
+
+    .modal-body {
       padding: $grid-gutter-width;
       max-width: 670px;
       margin: auto;
     }
   }
-  .modal-header{
+
+  .modal-header {
     padding: $grid-gutter-width $grid-gutter-width 0 $grid-gutter-width;
     border-bottom: 0;
   }
-  .modal-footer{
+
+  .modal-footer {
     border-top: 0;
   }
-  .modal__btn-close{
+
+  .modal__btn-close {
     font-size: 20px;
     opacity: 1;
+
     &:hover {
       opacity: .5;
     }
   }
-  &.modal-prompt .modal-content{
+
+  &.modal-prompt .modal-content {
     min-height: 45vh;
     display: flex;
     flex-direction: column;
     border-radius: 0;
   }
-  .modal-prompt__date-picker--option-text{
+
+  .modal-prompt__date-picker--option-text {
     @include proxima('regular');
     font-size: 30px;
   }
+
+  .modal-content {
+    display: block;
+  }
 }
-#modal--primary .modal-body{
+
+#modal--primary .modal-body {
   max-width: none;
 }
-#modal-prompt__date-picker .modal-body{
+
+#modal-prompt__date-picker .modal-body {
   padding-left: $grid-gutter-width;
   padding-right: $grid-gutter-width;
 }

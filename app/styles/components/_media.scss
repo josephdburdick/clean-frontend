@@ -14,7 +14,8 @@ Media
     display: flex;
     margin: auto;
   }
-  .icon-img__play{
+
+  .icon-img__play {
     @include media-breakpoint-down(sm) {
       width: 15%;
       height: auto;

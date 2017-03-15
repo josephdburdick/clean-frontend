@@ -11,14 +11,11 @@ const rollup = require('rollup-stream');
 const source = require('vinyl-source-stream');
 const buffer = require('vinyl-buffer');
 const nodeResolve = require('rollup-plugin-node-resolve');
-
-const fs = require('fs');
-const vm = require('vm');
 const path = require('path');
 
-function requireUncached( $module ) {
-  delete require.cache[require.resolve( $module )];
-  return require( $module );
+function requireUncached($module) {
+  delete require.cache[require.resolve($module)];
+  return require($module);
 }
 
 const C = (() => {
@@ -31,7 +28,7 @@ const C = (() => {
   };
   this.getFileType = (file) => path.basename(file.path).split('.').pop();
   this.getFileName = (file) => {
-    let filePath = path.basename(file.path).split('.');
+    const filePath = path.basename(file.path).split('.');
     filePath.pop();
     filePath.push('js');
     return filePath.join('.');
@@ -42,32 +39,35 @@ const C = (() => {
 
 gulp.task('data', () => {
   return gulp.src('app/data/**/*.js')
-    .pipe($.plumber({errorHandler: $.notify.onError("Error: <%= error.message %>")}))
+    .pipe($.plumber({ errorHandler: $.notify.onError('Error: <%= error.message %>') }))
     .pipe($.babel())
     .pipe(gulp.dest('.tmp/data'))
-    .pipe(reload({stream: true}));
+    .pipe(reload({ stream: true }));
 });
 
 gulp.task('bundle', () => {
   return rollup({
-      entry: './app/scripts/index.js',
-      sourceMap: false,
-      plugins: [
-        nodeResolve({
-          jsnext: true
-        })
-      ]
-    })
-    .pipe($.plumber({errorHandler: $.notify.onError("Error: <%= error.message %>")}))
-    .pipe(source('index.js', './app/scripts'))
-    .pipe(buffer())
-    .pipe($.sourcemaps.init({loadMaps: true}))
-    .pipe($.rename('main.js'))
-    .pipe($.babel())
-    .pipe($.sourcemaps.write('.'))
-    .pipe(gulp.dest('./test/scripts'))
-    .pipe(gulp.dest('./.tmp/scripts'));
+    entry: './app/scripts/index.js',
+    sourceMap: false,
+    plugins: [
+      nodeResolve({
+        jsnext: true
+      })
+    ]
+  })
+  .pipe($.plumber({
+    errorHandler: $.notify.onError('Error: <%= error.message %>')
+  }))
+  .pipe(source('index.js', './app/scripts'))
+  .pipe(buffer())
+  .pipe($.sourcemaps.init({ loadMaps: true }))
+  .pipe($.rename('main.js'))
+  .pipe($.babel())
+  .pipe($.sourcemaps.write('.'))
+  .pipe(gulp.dest('./test/scripts'))
+  .pipe(gulp.dest('./.tmp/scripts'));
 });
+
 gulp.task('bundle:data', ['data'], () => {
   return rollup({
     entry: './.tmp/data/global.js',
@@ -78,10 +78,10 @@ gulp.task('bundle:data', ['data'], () => {
       })
     ]
   })
-  .pipe($.plumber({errorHandler: $.notify.onError("Error: <%= error.message %>")}))
+  .pipe($.plumber({ errorHandler: $.notify.onError('Error: <%= error.message %>') }))
   .pipe(source('global.js', './.tmp/data'))
   .pipe(buffer())
-  .pipe($.sourcemaps.init({loadMaps: true}))
+  .pipe($.sourcemaps.init({ loadMaps: true }))
   .pipe($.sourcemaps.write('.'))
   .pipe(gulp.dest('./test/data'));
 });
@@ -98,40 +98,48 @@ gulp.task('templates', ['data'], () => {
     }))
     .pipe($.nunjucks.compile())
     .pipe($.rename({
-      extname: ".html"
+      extname: '.html'
     }))
     .pipe(gulp.dest('.tmp/'))
-    .pipe(reload({stream: true}));
+    .pipe(reload({ stream: true }));
 });
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
-    .pipe($.plumber({errorHandler: $.notify.onError("Error: <%= error.message %>")}))
+    .pipe($.plumber({
+      errorHandler: $.notify.onError('Error: <%= error.message %>')
+    }))
     .pipe($.sourcemaps.init())
     .pipe($.sass.sync({
       outputStyle: 'expanded',
       precision: 10,
       includePaths: ['.']
     }).on('error', $.sass.logError))
-    .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']}))
+    .pipe($.autoprefixer({
+      browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']
+    }))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('.tmp/styles'))
-    .pipe(reload({stream: true}));
+    .pipe(reload({
+      stream: true
+    }));
 });
 
 gulp.task('scripts', ['bundle'], () => {
   return gulp.src('./.tmp/scripts/**/*.js')
-    .pipe($.plumber({errorHandler: $.notify.onError("Error: <%= error.message %>")}))
+    .pipe($.plumber({
+      errorHandler: $.notify.onError('Error: <%= error.message %>')
+    }))
     .pipe($.sourcemaps.init())
     .pipe($.babel())
     .pipe($.sourcemaps.write('.'))
     .pipe(gulp.dest('dist/scripts'))
-    .pipe(reload({stream: true}));
+    .pipe(reload({ stream: true }));
 });
 
 function lint(files, options) {
   return gulp.src(files)
-    .pipe(reload({stream: true, once: true}))
+    .pipe(reload({ stream: true, once: true }))
     .pipe($.eslint(options))
     .pipe($.eslint.format())
     .pipe($.if(!browserSync.active, $.eslint.failAfterError()));
@@ -142,40 +150,48 @@ gulp.task('lint', () => {
     fix: true,
     ecmaFeatures: {
       modules: true,
-      spread : true,
-      restParams : true
+      spread: true,
+      restParams: true
     },
-    env : {
-      browser : true,
-      node : true,
-      es6 : true
+    env: {
+      browser: true,
+      node: true,
+      es6: true
     },
-    rules : {
-      'no-unused-vars' : 2,
-      'no-undef' : 2
+    rules: {
+      'no-unused-vars': 2,
+      'no-undef': 2
     },
-      parserOptions: {
-      sourceType: "module"
+    parserOptions: {
+      sourceType: 'module'
     }
   })
   .pipe(gulp.dest('app/scripts'));
 });
+
 gulp.task('lint:test', () => {
   return lint('test/spec/**/*.js', {
     fix: true,
     env: {
-      mocha: true
+      browser: true,
+      node: true,
+      es6: true
     }
-  })
-    .pipe(gulp.dest('test/spec'));
+  }).pipe(gulp.dest('test/spec'));
 });
 
 gulp.task('html', ['templates', 'styles', 'bundle'], () => {
   return gulp.src('.tmp/*.html')
-    .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
+    .pipe($.useref({
+      searchPath: ['.tmp', 'app', '.']
+    }))
     .pipe($.if('*.js', $.uglify()))
-    .pipe($.if('*.css', $.cssnano({safe: true, autoprefixer: false})))
-    .pipe($.if('*.html', $.htmlmin({collapseWhitespace: false})))
+    .pipe($.if('*.css', $.cssnano({
+      safe: true, autoprefixer: false
+    })))
+    .pipe($.if('*.html', $.htmlmin({
+      collapseWhitespace: false
+    })))
     .pipe(gulp.dest('dist'));
 });
 
@@ -186,7 +202,7 @@ gulp.task('images', () => {
 });
 
 gulp.task('fonts', () => {
-  return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {})
+  return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', (err) => console.log(err))
     .concat('app/fonts/**/*'))
     .pipe(gulp.dest('.tmp/fonts'))
     .pipe(gulp.dest('dist/fonts'));
@@ -227,8 +243,8 @@ gulp.task('serve', () => {
       '.tmp/fonts/**/*'
     ]).on('change', reload);
 
-    gulp.watch('app/data/**/*.js', ['templates']);
-    gulp.watch('app/templates/**/*.njk', ['templates']);
+    gulp.watch('app/data/**/*.js', ['templates']).on('change', reload);
+    gulp.watch('app/templates/**/*.njk', ['templates']).on('change', reload);
     gulp.watch('app/styles/**/*.scss', ['styles']);
     gulp.watch('app/scripts/**/*.js', ['bundle']);
     gulp.watch('app/fonts/**/*', ['fonts']);
@@ -246,7 +262,7 @@ gulp.task('serve:dist', () => {
   });
 });
 
-gulp.task('serve:test', ['templates', 'styles','bundle:data'], () => {
+gulp.task('serve:test', ['templates', 'styles', 'bundle:data'], () => {
   browserSync({
     notify: false,
     port: 3000,
@@ -281,10 +297,18 @@ gulp.task('wiredep', () => {
       ignorePath: /^(\.\.\/)*\.\./
     }))
     .pipe(gulp.dest('app/templates/layout'));
+
+  gulp.src('test/index.html')
+    .pipe(wiredep({
+      ignorePath: /^(\.\.\/)*\.\./
+    }))
+    .pipe(gulp.dest('test'));
 });
 
 gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
-  return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
+  return gulp.src('dist/**/*').pipe($.size({
+    title: 'build', gzip: true
+  }));
 });
 
 gulp.task('default', () => {

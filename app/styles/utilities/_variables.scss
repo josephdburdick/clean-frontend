@@ -57,6 +57,7 @@ $border-color: #d7dadf;
 $white:       #FFFFFF !default;
 $black:       #000000 !default;
 $blue:        #263675 !default;
+$dark-blue:   #0d004b !default;
 $orange:      #eb5c21 !default;
 $light-gray:  #e0e5ec !default;
 $medium-gray: #f1f1f1 !default;
@@ -70,7 +71,7 @@ $Opacity:                      0.6;
 
 //_  Theme Color
 //_  ------------------------
-$primary-color:               #0f1f66;
+$primary-color:               $blue;
 $secondary-color:             $medium-gray;
 $tertiary-color:              $light-gray;
 $warning-color:               $dark-red;

@@ -3,17 +3,17 @@
 Hero Carousel
 */
 
-.hero-carousel{
-  .carousel-item{
+.hero-carousel {
+  .carousel-item {
     display: block;
     position: relative;
     width: 100%;
     max-width: 100vw;
     background-color: $light-gray;
-
   }
+
   .carousel-item > img,
-  .carousel-item > a > img{
+  .carousel-item > a > img {
     width: 100%;
     max-width: 100vw;
     height: auto;
@@ -32,11 +32,11 @@ Hero Carousel
 //   display: block;
 //   opacity: 0;
 // }
-.hero-carousel:not(.slick-initialized) .carousel-item:not(:first-child){
+.hero-carousel:not(.slick-initialized) .carousel-item:not(:first-child) {
   display: none;
 }
 
 // Slick slider overrides
-.slick-dots li button:before{
+.slick-dots li button:before {
   font-size: 1rem;
 }

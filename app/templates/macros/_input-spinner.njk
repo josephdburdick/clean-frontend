@@ -1,0 +1,16 @@
+{% macro inputSpinner(name=false, value="0", min=false, max=false, buttonClass=false, inputClass=false) %}
+<div class="input-group input-spinner" itemscope>
+  <button type="button" class="btn btn-default {%if buttonClass %}{{buttonClass}}{% endif %}" data-role="decrement">-</button>
+  <input
+    {% if name %}id="{{name}}"{% endif %}
+    {% if name %}name="{{name}}"{% endif %}
+    type="number"
+    class="form-control {%if inputClass %}{{inputClass}}{% endif %}"
+    value="{{value}}"
+    {% if min %}min="{{min}}"{% endif %}
+    {% if max %}max="{{max}}"{% endif %}
+    role="input"
+    match="^[1-9][0-9]*$" required>
+  <button type="button" class="btn btn-default {%if buttonClass %}{{buttonClass}}{% endif %}" data-role="increment">+</button>
+</div>
+{% endmacro %}

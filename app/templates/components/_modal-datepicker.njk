@@ -4,7 +4,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <div class="row">
-          <div class="col-xs-12">
+          <div class="col">
             <a class="close modal__btn-close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><img src="{{imagesDir}}{{site.icons.btnClose}}"/></span></a>
           </div>
         </div>
@@ -12,11 +12,11 @@
       <div class="modal-body">
         <form class="form" role="form" data-function="datepicker">
           <div class="row">
-            <div class="col-xs-12 section-header">
-              <h2 class="section-heading text-xs-center">{{datepicker.headerText}}</h2>
+            <div class="col section-header">
+              <h2 class="section-heading text-center">{{datepicker.headerText}}</h2>
             </div>
           </div>
-          <div class="row flex-items-xs-between">
+          <div class="row justify-content-xs-between">
             {% for option in datepicker.options %}
             <div class="col-sm">
               <label class="control control--radio">
@@ -28,7 +28,7 @@
             {% endfor %}
           </div>
           <div class="row">
-            <div class="col-xs-12 text-xs-center text-success gutter--top body-text--lg" data-function="form-feedback">
+            <div class="col text-center text-success gutter--top body-text--lg" data-function="form-feedback">
               &nbsp;
             </div>
           </div>

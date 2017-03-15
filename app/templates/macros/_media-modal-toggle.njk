@@ -12,9 +12,9 @@
 {% set imageDir = global.dir.images %}
 {% set modal = global.components.modal %}
 <div class="media-container">
-  <a href="#" class="display-flex position-relative flex-items-xs-center flex-items-xs-middle" href="#{{id}}" class="text-muted" data-toggle="modal" data-target="#{{id}}" data-media-url="{{mediaUrl}}" data-media-autoplay="{{autoplay}}">
+  <a href="#" class="display-flex position-relative justify-content-center align-items-center" href="#{{id}}" class="text-muted" data-toggle="modal" data-target="#{{id}}" data-media-url="{{mediaUrl}}" data-media-autoplay="{{autoplay}}">
     <img class="img-fluid" src="{{imageDir}}{{poster}}" alt="{{alt}}" />
-    <div class="row flex-items-xs-center flex-items-xs-middle icon-container">
+    <div class="row justify-content-center align-items-center icon-container">
       <img src="{{playImageUrl}}" alt="Play Media" width="{{playImageWidth}}" height="{{playImageHeight}}" class="icon-img__play"/>
     </div>
   </a>

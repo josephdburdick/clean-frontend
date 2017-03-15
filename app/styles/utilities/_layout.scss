@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header.global-header{
+  flex: 0 1 auto;
+}
+
+main[role="main"]{
+  flex: 1 1 auto;
+}
+
+.pos-a {
+  position: absolute;
+}
+
+.pos-r {
+  position: relative;
+}
+
+.min-h-100 {
+  min-height: 100%;
+}
+
+.max-h-100 {
+  max-height: 100%;
+}
