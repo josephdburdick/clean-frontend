@@ -1,7 +1,7 @@
 {% extends "layout/_layout.njk" %}
 {% block content %}
   {% set imageDir = global.dir.images %}
-  {% set data = global.views.groupCleanse %}
+  {% set data = global.views.cleanseTogether %}
 
   {% from "macros/_section-header.njk" import sectionHeader %}
   {% from "macros/_media-modal-toggle.njk" import mediaModalToggle %}
@@ -9,7 +9,7 @@
   <!-- MAIN -->
   <main role="main" class="main-body page__{{data.id}}">
     {# hero #}
-    {% set hero = data.sections.hero %}
+    {# {% set hero = data.sections.hero %}
     {% set video = data.sections.hero.video %}
     {% set modal = data.sections.modals.video %}
     <section class="clearfix container page-section section__hero">
@@ -18,37 +18,11 @@
           {{ mediaModalToggle(poster = imageDir + hero.video.poster.url, mediaUrl=modal.url) }}
         </div>
       </div>
-    </section>
+    </section> #}
     {# /hero #}
 
-    {# group cleanse product #}
-    {% set product = data.sections.product %}
-    <section class="clearfix container page-section section__product">
-
-      {{ sectionHeader(heading = product.title) }}
-
-      <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4 flex-md-last fill-height-or-more">
-          {% include 'components/_purchase-box.njk' %}
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 section__product_feature-image">
-          <div class="row flex-items-xs-middle text-xs-center h-100">
-            <img src="{{imageDir}}{{product.image.url}}" class="img-fluid" alt="{{product.image.alt}}">
-          </div>
-        </div>
-      </div>
-      <div class="row gutter--top">
-        <div class="col-md-12">
-          <div class="body-text--lg">
-            {{product.description | safe}}
-          </div>
-        </div>
-      </div>
-    </section>
-    {# /group cleanse product #}
-
     {# group cleanse exclusive content #}
-    {% set exclusive = data.sections['exclusive-content'] %}
+    {% set exclusive = data.sections.exclusiveContent %}
     <section class="clearfix container page-section section__exclusive-content">
 
       {{ sectionHeader(heading = exclusive.title) }}
@@ -93,42 +67,6 @@
     </section>
     {# /group cleanse exclusive content #}
 
-    {# join us #}
-    {% set join = data.sections.join %}
-    <section class="clearfix container page-section section__join-us">
-      <div class="bg-cover position-absolute" style="background-image:url(images/{{join.background.url}})"></div>
-      <div class="col-xs-12">
-        <div class="row flex-items-xs-center">
-
-          {{ sectionHeader(heading = join.title) }}
-
-        </div>
-        <div class="row flex-items-xs-center form-group">
-          <div class="col-xs-12 col-sm-10 col-md-7 text-xs-center body-text--lg text-wrap">
-            {{join.bodyText}}
-          </div>
-        </div>
-        <div class="row flex-items-xs-center">
-          <form class="form col-md-10 col-lg-8">
-            <div class="form-group input-group-lg input-email-container">
-              <input type="text" name="input-email" class="form-control form-control--block input-lg" value="" placeholder="Your Email Address">
-            </div>
-            <div class="row flex-items-md-around flex-items-xs-center">
-              {% set cls = cycler("btn-column--odd", "btn-column--even") %}
-              {% for button in join.options %}
-              <div class="col-xs-12 col-sm-6 col-md col-lg {{ cls.next() }}">
-                <div class="form-group">
-                  <button class="btn btn-primary btn-lg" href role="button" data-startdate="{{button.date}}">{{button.text}}</button>
-                </div>
-              </div>
-              {% endfor %}
-            </div>
-          </form>
-        </div>
-      </div>
-    </section>
-    {# /join us #}
-
     {# let's get social #}
     {% set social = data.sections.social %}
     <section class="clearfix container page-section section__social">
@@ -159,50 +97,18 @@
     </section>
     {# /let's get social #}
 
-    {# exclusive bundles #}
-    {% set bundles = data.sections.bundles %}
-    <section class="clearfix container page-section section__bundles">
-
-      {{ sectionHeader(heading = bundles.title, subheading = bundles.subtitle) }}
-
+    {# video #}
+    {% set hero = data.sections.cleanProgramDay %}
+    {% set video = data.sections.cleanProgramDay.video %}
+    {% set modal = data.sections.cleanProgramDay.modal %}
+    <section class="clearfix container page-section section__hero">
       <div class="row">
-        <div class="col-xs-12">
-          <div class="row price-chart price-chart__items">
-            {% for item in bundles.items %}
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 section__bundle-item price-chart__item">
-              <div class="card card--thin-padding card-outline--2">
-                <div class="card-img card-outline--bottom icon-container text-xs-center">
-                  <img class="img-fluid" src="{{imageDir}}{{item.image.url}}" alt="{{item.title}}" width="{{item.image.width}}" height="{{item.image.height}}" />
-                </div>
-                <div class="card-block">
-                  <h4 class="card-heading text-uppercase t--light text-xs-center">
-                    {{item.title}}
-                  </h4>
-                  <div class="card-body card-text text-xs-center social-module__body">{{item.bodyText}}</div>
-                </div>
-                <div class="card-block">
-                  <hr>
-                  <div class="row flex-items-xs-middle flex-items-xs-center price-chart__prices">
-                    <div class="col-xs text-xs-center price-chart__price-text">
-                      <s>Total ${{item.price.total}}</s>
-                    </div>
-                    <div class="col col-divider--vertical"></div>
-                    <div class="col-xs text-xs-center price-chart__price-text">
-                      Now ${{item.price.now}}
-                    </div>
-                  </div>
-                </div>
-                <div class="card-block">
-                  <a href="{{item.link.href}}" class="text-xs-center btn-block btn-cta">{{item.link.text}}</a>
-                </div>
-              </div>
-            </div>
-            {% endfor %}
-          </div>
+        <div class="col-md-12">
+          {{ mediaModalToggle(poster = imageDir + hero.video.poster.url, mediaUrl=modal.url) }}
         </div>
       </div>
     </section>
-    {# /exclusive bundles #}
+    {# /video #}
   </main>
   <!-- / MAIN -->
 {% endblock %}
