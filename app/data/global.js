@@ -4,6 +4,7 @@ import modal from './components/modal';
 
 import index from './templates/index';
 import groupCleanse from './templates/group-cleanse';
+import cleanseTogether from './templates/cleanse-together';
 import homepage from './templates/homepage';
 
 const global = {
@@ -23,7 +24,8 @@ const global = {
   views: {
     index,
     homepage,
-    groupCleanse
+    groupCleanse,
+    cleanseTogether
   }
 };
 
