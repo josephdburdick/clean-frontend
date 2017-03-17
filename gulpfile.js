@@ -227,8 +227,8 @@ gulp.task('serve', () => {
       '.tmp/fonts/**/*'
     ]).on('change', reload);
 
-    gulp.watch('app/data/**/*.js', ['templates']);
-    gulp.watch('app/templates/**/*.njk', ['templates']);
+    gulp.watch('app/data/**/*.js', ['templates']).on('change', reload);
+    gulp.watch('app/templates/**/*.njk', ['templates']).on('change', reload);
     gulp.watch('app/styles/**/*.scss', ['styles']);
     gulp.watch('app/scripts/**/*.js', ['bundle']);
     gulp.watch('app/fonts/**/*', ['fonts']);
