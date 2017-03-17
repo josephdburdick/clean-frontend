@@ -13,6 +13,7 @@ $slick-loader-path: "../images/";
 // endbower
 @import 'utilities/fonts';
 @import 'utilities/grid';
+@import 'utilities/layout';
 @import 'utilities/helpers';
 
 
@@ -29,7 +30,7 @@ Components
 @import 'components/modals';
 @import 'components/lists';
 @import 'components/hero-carousel';
-
+@import 'components/exclusive-content';
 
 @import 'components/purchase-box';
 @import 'components/global-header';

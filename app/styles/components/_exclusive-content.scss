@@ -1,0 +1,113 @@
+/*
+
+Exclusive Content
+*/
+.section__exclusive-content {
+  .icon-modules {
+    flex-flow: row wrap;
+    @include media-breakpoint-up(md){
+      display: flex;
+      flex-direction: column;
+
+      & > * {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: auto;
+      }
+    }
+    @include media-breakpoint-between(xs, md) {
+      display: flex;
+    }
+
+    & > div + div {
+      @include media-breakpoint-up(md) {
+        margin-top: $grid-gutter-width * 2;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .text-wrap{
+    @include media-breakpoint-up(md) {
+      max-width: calc(350px);
+    }
+  }
+
+  .icon-module {
+    display: flex;
+    position: relative;
+    min-height: 185px;
+
+    @include media-breakpoint-only(sm) {
+      margin-top: $grid-gutter-width;
+      flex-basis: calc(33.3% - #{$grid-gutter-width / 2});
+    }
+    @include media-breakpoint-down(sm) {
+      margin-top: $grid-gutter-width;
+    }
+
+    &__link {
+      display: flex;
+      flex: 1;
+      color: black;
+      text-decoration: none;
+      flex-direction: column;
+      margin-left: -$grid-gutter-width / 2;
+      margin-right: -$grid-gutter-width / 2;
+      padding: 0;
+    }
+
+    &__overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      transform: translateY(50%);
+
+      span {
+        background-color: white;
+        padding: 0 $grid-gutter-width;
+        @include media-breakpoint-only(sm){
+          padding: 0 10px;
+        }
+      }
+    }
+  }
+
+  .icon-container {
+    position: relative;
+    margin: auto;
+    text-align: center;
+  }
+}
+
+.feature-module__title,
+.icon-module__overlay-title,
+.icon-module__title {
+  @include futura('medium');
+  font-size: $grid-gutter-width;
+}
+.feature-module {
+  min-height: 100%;
+  margin-bottom: 0;
+  .card-body{
+    @include media-breakpoint-up(md) {
+      max-width: 330px;
+    }
+  }
+  .card-block {
+    padding: $grid-gutter-width;
+  }
+
+  .card-block + .card-block {
+    padding-top: 0;
+  }
+
+  &__title {
+    margin-top: 0;
+  }
+
+  &__body {
+    font-size: 21px;
+  }
+}
