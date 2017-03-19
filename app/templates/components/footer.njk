@@ -3,9 +3,9 @@
 
 <footer class="{{footer.id}}">
   <div class="container">
-    <div class="row row--no-gutter flex-items-xs-middle flex-items-sm-middle flex-items-md-left">
+    <div class="row row--no-gutter align-items-center justify-content-sm-middle justify-content-md-left">
       <div class="col-md-12">
-        <div class="row flex-items-xs-middle flex-items-sm-middle flex-items-md-left mb-1">
+        <div class="row align-items-center justify-content-sm-middle justify-content-md-left mb-1">
           <div class="col-md">
             <ul class="list-unstyled global-footer__social-links">
               {% for link in footer.connect.social.links %}
@@ -32,7 +32,7 @@
         </div>
       </div>
     </div>
-    <div class="row flex-items-xs-middle">
+    <div class="row align-items-center">
       <div class="col-lg-8 col-md-12">
         <div class="row {{footer.nav.id}}">
           {%- for links in footer.nav.links | slice(3) %}

@@ -3,7 +3,7 @@ const MEDIA = (() => {
   const _this = {
     default: {
       iframe: {
-        attributes: 'webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder="0"',
+        attributes: 'class="embed-responsive-item" webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder="0"',
         width: 560,
         height: 315
       }
@@ -15,7 +15,8 @@ const MEDIA = (() => {
     }
   };
   _this.default.iframe.template = (embedUrl) => `
-    <iframe src="${embedUrl}"
+    <iframe
+      src="${embedUrl}"
       width="${_this.default.iframe.width}"
       height="${_this.default.iframe.height}"
       ${_this.default.iframe.attributes}></iframe>

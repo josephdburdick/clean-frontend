@@ -70,25 +70,27 @@ const cleanseTogether = {
         }
       ]
     },
-    features: [
-      {
-        image: {
-          url: "bg__feature_cheers-w-shakes.png"
+    featureGrid: {
+      items: [
+        {
+          image: {
+            url: "bg__feature_cheers-w-shakes.png"
+          },
+          title: "Cleanse Together",
+          description: "<p>Save $50 or every cleanse when you purchase together and start together!</p>",
+          footer: "<small>*All cleanse together purchases must be made with a single form of payment and shipped to one address. Cleanse Together purchases cannot be combined with other discounts. Other restrictions may apply.</small>"
         },
-        title: "Cleanse Together",
-        description: "<p>Save $50 or every cleanse when you purchase together and start together!</p>",
-        footer: "<small>*All cleanse together purchases must be made with a single form of payment and shipped to one address. Cleanse Together purchases cannot be combined with other discounts. Other restrictions may apply.</small>"
-      },
-      {
-        image: {
-          url: "bg__feature_stethescope.png"
-        },
-        title: "Doctor Driven",
-        description: "<p>The 21-Day Clean Program’s doctor-driven protocol coupled with functional ingredients conveniently help you experience what it means to feel good.</p>",
-      }
-    ],
+        {
+          image: {
+            url: "bg__feature_stethescope.png"
+          },
+          title: "Doctor Driven",
+          description: "<p>The 21-Day Clean Program’s doctor-driven protocol coupled with functional ingredients conveniently help you experience what it means to feel good.</p>",
+        }
+      ]
+    },
     exclusiveContent: {
-      title: "Group Cleanse Exclusive Content",
+      title: "Access to Exclusive Content",
       feature: {
         image: {
           alt: "Tune in ever week for tips and answers from Dr. Junger",

@@ -67,6 +67,20 @@ HEADINGS
   }
 }
 
+.section-header.section-header--bg-blue{
+  background-color: $blue;
+  color: white;
+  padding: 0.75em 0;
+
+  .section-heading,
+  .section-subheading {
+    margin: 0;
+    @include rem('font-size', 32px);
+    @include letter-spacing('heading');
+    @include proxima('bold');
+  }
+}
+
 .module-header{
   margin-bottom: $grid-gutter-width / 2;
 }

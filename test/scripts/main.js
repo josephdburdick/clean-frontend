@@ -30,7 +30,7 @@ var MEDIA = function () {
   var _this = {
     default: {
       iframe: {
-        attributes: 'webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder="0"',
+        attributes: 'class="embed-responsive-item" webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder="0"',
         width: 560,
         height: 315
       }
@@ -42,7 +42,7 @@ var MEDIA = function () {
     }
   };
   _this.default.iframe.template = function (embedUrl) {
-    return '\n    <iframe src="' + embedUrl + '"\n      width="' + _this.default.iframe.width + '"\n      height="' + _this.default.iframe.height + '"\n      ' + _this.default.iframe.attributes + '></iframe>\n  ';
+    return '\n    <iframe\n      src="' + embedUrl + '"\n      width="' + _this.default.iframe.width + '"\n      height="' + _this.default.iframe.height + '"\n      ' + _this.default.iframe.attributes + '></iframe>\n  ';
   };
   _this.get.vimeo.idByUrl = function (url) {
     var id = false;

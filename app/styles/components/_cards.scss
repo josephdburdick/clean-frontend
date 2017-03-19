@@ -67,7 +67,8 @@ CARDS
     }
     .card-img {
       text-align: center;
-
+      margin: -#{$i}px;
+      
       &.card-img--top {
         margin-top: -#{$i}px;
         margin-left: -#{$i}px;

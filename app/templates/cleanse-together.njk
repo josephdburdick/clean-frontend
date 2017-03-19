@@ -21,90 +21,120 @@
     </section> #}
     {# /hero #}
 
-    {# group cleanse exclusive content #}
-    {% set exclusive = data.sections.exclusiveContent %}
-    <section class="clearfix container page-section section__exclusive-content">
-
-      {{ sectionHeader(heading = exclusive.title) }}
-
-      <div class="row row--double-gutter flex-items-xs-center">
-        {# exclusive content featured module #}
-        <div class="col-xs-12 col-sm-12 col-md-8 flex-md-last flex-xs-first feature-module-container fill-height-or-more">
-          <div class="card card-outline--2 fill-height-or-more feature-module">
-            <div class="card-img">
-              <img class="img-fluid img-fluid--full" src="{{imageDir}}{{exclusive.feature.image.url}}" alt="{{exclusive.feature.image.alt}}">
+    {# feature grid #}
+    {% set featureGrid = data.sections.featureGrid %}
+    <section class="clearfix page-section section__feature-grid">
+      {% set oddOrEven = cycler("", "-reverse") %}
+      {% for item in featureGrid.items %}
+        <div class="row flex-row{{ oddOrEven.next() }} no-gutters justify-content-center align-items-center">
+          <div class="col-md-12 col-lg">
+            <div class="embed-responsive embed-responsive-1by1">
+              <img src="{{imageDir}}{{item.image.url}}" alt="" class="embed-responsive-item">
             </div>
-            <div class="row flex-items-xs-center text-xs-center card-block">
-              <div class="col-xs-12 col-sm-10 text-wrap">
-                <div class="card-block__header">
-                  <h4 class="text-xs-center text-uppercase card-heading feature-module__title">
-                    {{exclusive.feature.title}}
-                  </h4>
-                </div>
-                <div class="card-text body-text--large feature-module__body">{{exclusive.feature.bodyText}}</div>
+          </div>
+
+          <div class="col-md-12 col-lg">
+            <div class="row justify-content-center">
+              <div class="col-lg-8 col-md-9 col-sm-10 col">
+                {% if item.title %}
+                <header>
+                  <div class="heading">{{item.title}}</div>
+                </header>
+                <hr class="thick" />
+                {% endif %}
+                {% if item.description %}
+                <main>
+                  {{item.description | safe}}
+                </main>
+                {% endif %}
+                {% if item.footer %}
+                <footer>
+                  {{item.footer | safe}}
+                </footer>
+                {% endif %}
               </div>
             </div>
           </div>
         </div>
-        {# /exclusive content featured module #}
-        {# exclusive content icon modules #}
-        <div class="col-xs-12 col-sm-12 col-md-4 flex-items-xs-between icon-modules">
-          {% for item in exclusive.items %}
-            <div class="col-xs-12 col-sm-4 col-md-12 col-lg-12 card card-outline--2 icon-module {{item.className}}">
-              <a class="icon-module__link card-block" href="{{item.href}}">
+      {% endfor %}
+    </section>
+    {# /feature grid #}
+
+    {# group cleanse exclusive content #}
+    {% set exclusive = data.sections.exclusiveContent %}
+    <section class="clearfix page-section section__exclusive-content">
+
+      {{ sectionHeader(subheading = exclusive.title, class="section-header--bg-blue text-uppercase") }}
+      <div class="container section-padding">
+        <div class="row row--double-gutter justify-content-center">
+          {# exclusive content featured module #}
+          <div class="col col-sm-12 col-md-8 flex-md-last flex-xs-first feature-module-container fill-height-or-more">
+            <div class="card card-outline--2 fill-height-or-more feature-module">
+              <div class="card-img">
+                <img class="img-fluid img-fluid--full" src="{{imageDir}}{{exclusive.feature.image.url}}" alt="{{exclusive.feature.image.alt}}">
+              </div>
+              <div class="row justify-content-center text-center card-block">
+                <div class="col col-sm-10 text-wrap">
+                  <div class="card-block__header">
+                    <h4 class="text-center text-uppercase card-heading feature-module__title">
+                      {{exclusive.feature.title}}
+                    </h4>
+                  </div>
+                  <div class="card-text body-text--large feature-module__body">{{exclusive.feature.bodyText}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          {# /exclusive content featured module #}
+          {# exclusive content icon modules #}
+          <div class="col col-sm-12 col-md-4 justify-content-xs-between icon-modules">
+            {% for item in exclusive.items %}
+            <div class="col col-sm-4 col-md-12 col-lg-12 card card-outline--2 icon-module {{item.className}}">
+              <a class="icon-module__link" href="{{item.href}}">
                 <div class="icon-container">
                   <img src="{{imageDir}}{{item.image.url}}" class="img-fluid img-fluid--full" alt="{{item.title}} icon" />
                 </div>
-                <div class="icon-module__overlay text-xs-center">
+                <div class="icon-module__overlay text-center">
                   <span class="icon-module__overlay-title text-uppercase heading-text--medium">{{item.title}}</span>
                 </div>
               </a>
             </div>
-          {% endfor %}
+            {% endfor %}
+          </div>
+          {# /exclusive content icon modules #}
         </div>
-        {# /exclusive content icon modules #}
       </div>
     </section>
     {# /group cleanse exclusive content #}
 
-    {# let's get social #}
+    {# social #}
     {% set social = data.sections.social %}
-    <section class="clearfix container page-section section__social">
-
-      {{ sectionHeader(heading = social.title) }}
-
+    <section class="clearfix container page-section section__social section-padding pt-0">
       <div class="row">
-        <div class="col-xs-12">
-          <div class="row flex-items-sm-center flex-items-xs-center section__social-items">
+        <div class="col-sm-12">
+          <div class="row justify-content-around section__social-items">
             {% for item in social.items %}
-            <div class="col-xs-10 col-sm-6 col-md-6 col-lg-4 section__social-item">
-              <div class="card-block icon-container text-xs-center">
-                <img src="{{imageDir}}{{item.icon.url}}" alt="{{item.title}}" width="{{item.icon.width}}" height="{{item.icon.height}}" />
-              </div>
-              <div class="card-block card-block__header">
-                <h4 class="card-heading heading-text--medium text-xs-center">
-                  {{item.title}}
-                </h4>
-              </div>
-              <div class="card-block card-body">
-                <div class="card-text text-xs-center body-text--lg social-module__body">{{item.bodyText}}</div>
-              </div>
+            <div class="col-auto">
+              <img src="{{imageDir}}{{item.icon.url}}" alt="{{item.title}}" width="{{item.icon.width}}" height="{{item.icon.height}}" />
             </div>
             {% endfor %}
           </div>
         </div>
       </div>
     </section>
-    {# /let's get social #}
+    {# /social #}
 
     {# video #}
-    {% set hero = data.sections.cleanProgramDay %}
+    {% set cleanProgramDay = data.sections.cleanProgramDay %}
     {% set video = data.sections.cleanProgramDay.video %}
     {% set modal = data.sections.cleanProgramDay.modal %}
-    <section class="clearfix container page-section section__hero">
-      <div class="row">
-        <div class="col-md-12">
-          {{ mediaModalToggle(poster = imageDir + hero.video.poster.url, mediaUrl=modal.url) }}
+    <section class="clearfix page-section section__cleanProgramDay">
+      {{ sectionHeader(subheading=cleanProgramDay.title, class="section-header--bg-blue text-uppercase") }}
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            {{ mediaModalToggle(poster = imageDir + cleanProgramDay.video.poster.url, mediaUrl=modal.url) }}
+          </div>
         </div>
       </div>
     </section>

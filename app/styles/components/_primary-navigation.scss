@@ -11,6 +11,9 @@ Primary Navigation
 
   @include media-breakpoint-up(md) {
     text-align: center;
+    .nav {
+      flex-direction: row;
+    }
     .navbar-nav .nav-item + .nav-item{
       margin-left: 0
     }
@@ -30,6 +33,9 @@ Primary Navigation
     transform-origin: top center;
     opacity: 0;
     transition: opacity $transition-speed $transition-ease;
+    .nav {
+      flex-direction: column;
+    }
     body.mobile-menu--open &{
       transform: scale(1, 1);
       opacity: 1;
@@ -44,7 +50,8 @@ Primary Navigation
       color: $blue;
     }
     @include media-breakpoint-up(lg) {
-      padding: 0 .5em;
+      justify-content: center;
+      padding: 0 0.5em;
       .nav-item{
         padding: 0 1em;
         display: inline-block;
@@ -60,6 +67,7 @@ Primary Navigation
         border-bottom: 1px solid transparent;
         margin-bottom: -1px;
         transition: border-bottom-color $transition-speed $transition-ease, color $transition-speed $transition-ease;
+
         @include media-breakpoint-up(lg) {
           li:not(.dropdown) &:hover {
             border-bottom-color: currentcolor;
