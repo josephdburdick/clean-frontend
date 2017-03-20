@@ -41,6 +41,9 @@ MODALS
     @include proxima('regular');
     font-size: 30px;
   }
+  .modal-content {
+    display: block;
+  }
 }
 #modal--primary .modal-body{
   max-width: none;
