@@ -50,8 +50,9 @@ const mediaModal = (() => {
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
+            <span></span>
             <a class="close modal__btn-close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true"><img src="images/icon__btn-x.png"/></span>
+              <span aria-hidden="true"><img src="images/icon__btn-x.png"/></span>
             </a>
           </div>
           <div class="modal-body">
