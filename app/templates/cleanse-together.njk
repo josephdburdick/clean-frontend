@@ -28,14 +28,13 @@
       {% for item in featureGrid.items %}
         <div class="row flex-row{{ oddOrEven.next() }} no-gutters justify-content-center align-items-center">
           <div class="col-md-12 col-lg">
-            <div class="embed-responsive embed-responsive-1by1">
-              <img src="{{imageDir}}{{item.image.url}}" alt="" class="embed-responsive-item">
+            <div class="section__feature-grid_item bg-cover" style="background-image:url({{imageDir}}{{item.image.url}});">
             </div>
           </div>
 
           <div class="col-md-12 col-lg">
             <div class="row justify-content-center">
-              <div class="col-lg-8 col-md-9 col-sm-10 col">
+              <div class="col-lg-8 col-md-9 col-sm-10 col text-center">
                 {% if item.title %}
                 <header>
                   <div class="heading">{{item.title}}</div>
@@ -68,7 +67,7 @@
       <div class="container section-padding">
         <div class="row row--double-gutter justify-content-center">
           {# exclusive content featured module #}
-          <div class="col col-sm-12 col-md-8 flex-md-last flex-xs-first feature-module-container fill-height-or-more">
+          <div class="col-xs-12 col-sm-12 col-md-8 flex-md-last flex-xs-first feature-module-container fill-height-or-more">
             <div class="card card-outline--2 fill-height-or-more feature-module">
               <div class="card-img">
                 <img class="img-fluid img-fluid--full" src="{{imageDir}}{{exclusive.feature.image.url}}" alt="{{exclusive.feature.image.alt}}">
@@ -87,9 +86,9 @@
           </div>
           {# /exclusive content featured module #}
           {# exclusive content icon modules #}
-          <div class="col col-sm-12 col-md-4 justify-content-xs-between icon-modules">
+          <div class="col-xs-12 col-sm-12 col-md-4 justify-content-between icon-modules">
             {% for item in exclusive.items %}
-            <div class="col col-sm-4 col-md-12 col-lg-12 card card-outline--2 icon-module {{item.className}}">
+            <div class="col-xs-12 col-sm-4 col-md-12 col-lg-12 card card-outline--2 icon-module {{item.className}}">
               <a class="icon-module__link" href="{{item.href}}">
                 <div class="icon-container">
                   <img src="{{imageDir}}{{item.image.url}}" class="img-fluid img-fluid--full" alt="{{item.title}} icon" />

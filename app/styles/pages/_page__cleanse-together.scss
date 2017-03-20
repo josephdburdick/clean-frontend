@@ -270,4 +270,9 @@
   .purchase-box button[type="submit"] {
     background-color: $orange;
   }
+
+  .section__feature-grid .section__feature-grid_item{
+    @extend .bg-cover;
+    height: 590px;
+  }
 }

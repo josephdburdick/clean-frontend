@@ -162,7 +162,7 @@ var mediaModal = function () {
   }, _this.placeholderTemplate = function () {
     return '<div class="embed-responsive-item placeholder-block"></div>';
   }, _this.modalTemplate = function () {
-    return '\n    <div class="modal fade" id="modal--primary" tabindex="-1" role="dialog" aria-labelledby="Modal Window" aria-hidden="true">\n      <div class="modal-dialog" role="document">\n        <div class="modal-content">\n          <div class="modal-header">\n            <a class="close modal__btn-close" data-dismiss="modal" aria-label="Close">\n            <span aria-hidden="true"><img src="images/icon__btn-x.png"/></span>\n            </a>\n          </div>\n          <div class="modal-body">\n            ' + _this.placeholderTemplate() + '\n          </div>\n        </div>\n      </div>\n    </div>';
+    return '\n    <div class="modal fade" id="modal--primary" tabindex="-1" role="dialog" aria-labelledby="Modal Window" aria-hidden="true">\n      <div class="modal-dialog" role="document">\n        <div class="modal-content">\n          <div class="modal-header">\n            <span></span>\n            <a class="close modal__btn-close" data-dismiss="modal" aria-label="Close">\n              <span aria-hidden="true"><img src="images/icon__btn-x.png"/></span>\n            </a>\n          </div>\n          <div class="modal-body">\n            ' + _this.placeholderTemplate() + '\n          </div>\n        </div>\n      </div>\n    </div>';
   }, _this.wrapperTemplate = function (mediaHtml) {
     return '\n    <div role="media" class="media-container embed-responsive embed-responsive-16by9">\n      ' + (!!mediaHtml ? mediaHtml : null) + '\n    </div>';
   };
