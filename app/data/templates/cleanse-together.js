@@ -9,8 +9,8 @@ const cleanseTogether = {
   sections : {
     hero: {
       image: {
-        alt: "21-day Group Cleanse Package",
-        url: "product__feature_21-day-package.png",
+        alt: "Cleanse Together",
+        url: "bg__hero_pink-swear.png",
         height: 415,
         width: "100%"
       },

@@ -9,16 +9,11 @@
   <!-- MAIN -->
   <main role="main" class="main-body page__{{data.id}}">
     {# hero #}
-    {# {% set hero = data.sections.hero %}
-    {% set video = data.sections.hero.video %}
-    {% set modal = data.sections.modals.video %}
-    <section class="clearfix container page-section section__hero">
-      <div class="row">
-        <div class="col-md-12">
-          {{ mediaModalToggle(poster = imageDir + hero.video.poster.url, mediaUrl=modal.url) }}
-        </div>
-      </div>
-    </section> #}
+    {% set hero = data.sections.hero %}
+    <section class="clearfix page-section section__hero" style="background-image: url({{imageDir}}{{hero.image.url}});">
+
+
+    </section>
     {# /hero #}
 
     {# feature grid #}

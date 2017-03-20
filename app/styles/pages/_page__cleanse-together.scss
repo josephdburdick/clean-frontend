@@ -48,7 +48,17 @@
 
   /*
 
-  SECTION JOIN US
+  HERO
+  */
+  .section__hero {
+    min-height: 920px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  /*
+
+  JOIN US
   */
   .section__join-us {
     position: relative;
