@@ -10,9 +10,15 @@
   <main role="main" class="main-body page__{{data.id}}">
     {# hero #}
     {% set hero = data.sections.hero %}
-    <section class="clearfix page-section section__hero" style="background-image: url({{imageDir}}{{hero.image.url}});">
-
-
+    <section class="clearfix page-section section__hero pos-r d-flex" style="background-image: url({{imageDir}}{{hero.image.url}});">
+      <div class="m-auto">
+        <div class="container text-center">
+          <img src="{{imageDir}}text__cleanse-together.png" alt="cleanse-together">
+          <div class="section__hero_cta">
+            <a href="{{hero.ctaButton.href}}" class="btn btn-primary btn-lg ">{{hero.ctaButton.text}}</a>
+          </div>
+        </div>
+      </div>
     </section>
     {# /hero #}
 
