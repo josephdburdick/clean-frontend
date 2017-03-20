@@ -25,8 +25,9 @@ Global header
   }
   &__cart-count{
     margin-left: -1em;
-    .tag-pill{
+    .badge-pill{
       border: 2px solid white;
+      background-color: #0275d8;
     }
   }
   &__secondary-link{

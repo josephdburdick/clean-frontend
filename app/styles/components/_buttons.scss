@@ -6,7 +6,7 @@
 }
 .btn-primary {
   color: white;
-  
+
   &:focus{
     color: white;
   }
@@ -31,4 +31,8 @@
 
 .btn-lg{
   @include futura('extra bold')
+}
+
+.btn-warning {
+  color: white;
 }

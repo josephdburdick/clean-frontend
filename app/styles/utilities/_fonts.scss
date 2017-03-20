@@ -6,7 +6,7 @@ $heading-font: "futura-pt"; // book:400 | bold:700 | 130k
   font-style: normal;
 }
 
-@mixin futura($weight: "book"){
+@mixin futura($weight: "book") {
   @if $weight == "book" {
     @include font-family-fallback("futura-pt");
     font-weight: 400;
@@ -31,32 +31,32 @@ $heading-font: "futura-pt"; // book:400 | bold:700 | 130k
   }
 }
 
-@mixin proxima($weight: "regular"){
+@mixin proxima($weight: "regular") {
   font-style: normal;
   @if $weight == "regular" {
-    @include font-family-fallback('proxima-nova');
+    @include font-family-fallback("proxima-nova");
     font-weight: 400;
   } @else if $weight == "medium" {
-    @include font-family-fallback('proxima-nova');
+    @include font-family-fallback("proxima-nova");
     font-weight: 500;
   } @else if $weight == "medium italic" {
-    @include font-family-fallback('proxima-nova');
+    @include font-family-fallback("proxima-nova");
     font-weight: 500;
     font-style: italic;
   } @else if $weight == "semibold" {
-    @include font-family-fallback('proxima-nova');
+    @include font-family-fallback("proxima-nova");
     font-weight: 600;
   } @else if $weight == "semi-bold" {
-    @include font-family-fallback('proxima-nova');
+    @include font-family-fallback("proxima-nova");
     font-weight: 600;
   } @else if $weight == "bold" {
-    @include font-family-fallback('proxima-nova');
+    @include font-family-fallback("proxima-nova");
     font-weight: 700;
   } @else if $weight == "thin" {
-    @include font-family-fallback('proxima-nova');
+    @include font-family-fallback("proxima-nova");
     font-weight: 100;
   } @else {
-    @include font-family-fallback('proxima-nova');
+    @include font-family-fallback("proxima-nova");
     font-weight: 400;
   }
 }
@@ -91,5 +91,5 @@ BODY
   }
 }
 .body-text--medium{
-  @include proxima('medium');
+  @include proxima("medium");
 }

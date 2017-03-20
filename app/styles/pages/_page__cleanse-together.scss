@@ -51,9 +51,28 @@
   HERO
   */
   .section__hero {
-    min-height: 920px;
     background-position: center;
     background-size: cover;
+
+    @include media-breakpoint-down(md) {
+      min-height: 800px;
+    }
+    @include media-breakpoint-up(md) {
+      min-height: 920px;
+    }
+  }
+  .section__hero_cta {
+    @include media-breakpoint-down(md) {
+      margin-top: 2 * $spacer;
+    }
+  }
+
+  .section__hero_description {
+    @include proxima('bold');
+    @include letter-spacing('heading');
+    @include em(font-size, 28px);
+
+    -webkit-font-smoothing: antialiased;
   }
 
   /*
@@ -211,19 +230,15 @@
   */
   .btn {
     @include futura('medium');
-    font-size: 16px;
+    font-size: 1rem;
     border-radius: 0;
   }
 
   .btn-lg {
-    padding: 12px 24px;
-    height: 56px;
+    @include futura('bold');
+    font-size: 2rem;
+    border-radius: 0;
   }
-
-  .btn-md {
-    height: 40px;
-  }
-
   .form-control--block {
     width: 100%;
   }

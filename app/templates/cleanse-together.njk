@@ -11,60 +11,78 @@
     {# hero #}
     {% set hero = data.sections.hero %}
     <section class="clearfix page-section section__hero pos-r d-flex" style="background-image: url({{imageDir}}{{hero.image.url}});">
-      <div class="m-auto">
+      <div class="m-auto w-100">
         <div class="container text-center">
-          <img src="{{imageDir}}text__cleanse-together.png" alt="cleanse-together">
-          <div class="section__hero_cta">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-sm col-md col-lg text-center">
+              <img src="{{imageDir}}text__cleanse-together.png" alt="Cleanse Together" class="img-fluid" style="position: relative;margin-bottom: -2em;z-index: 10;pointer-events: none;">
+            </div>
+          </div>
+          <div class="row align-items-center justify-content-center section__hero_cta hidden-md-down">
             <a href="{{hero.ctaButton.href}}" class="btn btn-primary btn-lg ">{{hero.ctaButton.text}}</a>
+          </div>
+          <div class="row align-items-center justify-content-center">
+            <div class="col-sm-10 col-md-10 col-lg-8 col-xl-7">
+              <div class="text-white section__hero_description mt-4">
+                <p>{{hero.description}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="row section__hero_cta hidden-md-up">
+            <a href="{{hero.ctaButton.href}}" class="btn btn-orange btn-lg ">{{hero.ctaButton.text}}</a>
           </div>
         </div>
       </div>
     </section>
     {# /hero #}
 
-    {# feature grid #}
-    {% set featureGrid = data.sections.featureGrid %}
-    <section class="clearfix page-section section__feature-grid">
-      {% set oddOrEven = cycler("", "-reverse") %}
-      {% for item in featureGrid.items %}
-        <div class="row flex-row{{ oddOrEven.next() }} no-gutters justify-content-center align-items-center">
-          <div class="col-md-12 col-lg">
-            <div class="section__feature-grid_item bg-cover" style="background-image:url({{imageDir}}{{item.image.url}});">
+    {# How it Works #}
+    {% set howItWorks = data.sections['how-it-works'] %}
+      {{ sectionHeader(subheading = howItWorks.title, class="letter-spacing--heading section-header--bg-blue text-uppercase") }}
+      {# feature grid #}
+      {% set featureGrid = data.sections.featureGrid %}
+      <section class="clearfix page-section section__feature-grid">
+        {% set oddOrEven = cycler("", "-reverse") %}
+        {% for item in featureGrid.items %}
+          <div class="row flex-row{{ oddOrEven.next() }} no-gutters justify-content-center align-items-center">
+            <div class="col-md-12 col-lg">
+              <div class="section__feature-grid_item bg-cover" style="background-image:url({{imageDir}}{{item.image.url}});">
+              </div>
             </div>
-          </div>
 
-          <div class="col-md-12 col-lg">
-            <div class="row justify-content-center">
-              <div class="col-lg-8 col-md-9 col-sm-10 col text-center">
-                {% if item.title %}
-                <header>
-                  <div class="heading">{{item.title}}</div>
-                </header>
-                <hr class="thick" />
-                {% endif %}
-                {% if item.description %}
-                <main>
-                  {{item.description | safe}}
-                </main>
-                {% endif %}
-                {% if item.footer %}
-                <footer>
-                  {{item.footer | safe}}
-                </footer>
-                {% endif %}
+            <div class="col-md-12 col-lg">
+              <div class="row justify-content-center">
+                <div class="col-lg-8 col-md-9 col-sm-10 col text-center">
+                  {% if item.title %}
+                  <header>
+                    <div class="heading">{{item.title}}</div>
+                  </header>
+                  <hr class="thick" />
+                  {% endif %}
+                  {% if item.description %}
+                  <main>
+                    {{item.description | safe}}
+                  </main>
+                  {% endif %}
+                  {% if item.footer %}
+                  <footer>
+                    {{item.footer | safe}}
+                  </footer>
+                  {% endif %}
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      {% endfor %}
-    </section>
-    {# /feature grid #}
+        {% endfor %}
+      </section>
+      {# /feature grid #}
+    {# /How it Works #}
 
     {# group cleanse exclusive content #}
     {% set exclusive = data.sections.exclusiveContent %}
     <section class="clearfix page-section section__exclusive-content">
 
-      {{ sectionHeader(subheading = exclusive.title, class="section-header--bg-blue text-uppercase") }}
+      {{ sectionHeader(subheading = exclusive.title, class="letter-spacing--heading section-header--bg-blue text-uppercase") }}
       <div class="container section-padding">
         <div class="row row--double-gutter justify-content-center">
           {# exclusive content featured module #}
@@ -129,14 +147,8 @@
     {% set video = data.sections.cleanProgramDay.video %}
     {% set modal = data.sections.cleanProgramDay.modal %}
     <section class="clearfix page-section section__cleanProgramDay">
-      {{ sectionHeader(subheading=cleanProgramDay.title, class="section-header--bg-blue text-uppercase") }}
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            {{ mediaModalToggle(poster = imageDir + cleanProgramDay.video.poster.url, mediaUrl=modal.url) }}
-          </div>
-        </div>
-      </div>
+      {{ sectionHeader(subheading=cleanProgramDay.title, class="letter-spacing--heading section-header--bg-blue text-uppercase") }}
+      {{ mediaModalToggle(poster = imageDir + cleanProgramDay.video.poster.url, mediaUrl=modal.url) }}
     </section>
     {# /video #}
   </main>

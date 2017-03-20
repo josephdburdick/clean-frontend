@@ -71,14 +71,18 @@ HEADINGS
   background-color: $blue;
   color: white;
   padding: 0.75em 0;
+  @include letter-spacing('heading');
 
   .section-heading,
   .section-subheading {
     margin: 0;
     @include rem('font-size', 32px);
-    @include letter-spacing('heading');
     @include proxima('bold');
   }
+}
+
+.letter-spacing--heading {
+  @include letter-spacing('heading');
 }
 
 .module-header{
