@@ -54,6 +54,21 @@
     {# How it Works #}
     {% set howItWorks = data.sections['how-it-works'] %}
       {{ sectionHeader(subheading = howItWorks.title, class="letter-spacing--heading section-header--bg-blue text-uppercase") }}
+
+      <div class="row row--double-gutter justify-content-center align-items-stretch">
+      {% for item in howItWorks.items %}
+        <div class="col-sm-10 col-md-6 col-lg-3 text-center pt-4 pb-4">
+          <div>
+            <img src="{{imageDir}}{{item.image.url}}" width="{{item.image.width}}" height="{{item.image.height}}" alt="{{item.title}}">
+          </div>
+          {{ sectionHeader(subheading = item.title, class="letter-spacing--heading text-uppercase") }}
+          <div>
+            {{item.description}}
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+
       {# feature grid #}
       {% set featureGrid = data.sections.featureGrid %}
       <section class="clearfix page-section section__feature-grid">

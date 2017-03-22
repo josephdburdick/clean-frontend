@@ -48,7 +48,7 @@ const cleanseTogether = {
           href: "#cleanse-together"
         }, {
           image: {
-            url: "icon_feature_calendar.png",
+            url: "icon__feature_calendar.png",
             width: 140,
             height: 130
           },
