@@ -14,7 +14,20 @@ const cleanseTogether = {
         height: 415,
         width: "100%"
       },
-
+      headingImage: {
+        style: "position: relative;margin-bottom: -2em;z-index: 10;pointer-events: none;",
+        alt: "Cleanse Together",
+        mobile: {
+          url: "text__cleanse-together--mobile.png",
+          width: 230,
+          height: 146
+        },
+        desktop: {
+          url: "text__cleanse-together.png",
+          width: 996,
+          height: 236
+        }
+      },
       description: "Save $50 per cleanse and experience the 21-Day Clean Program with built-in support from friends, family, and coworkers.",
       ctaButton: {
         text: "Get Started",

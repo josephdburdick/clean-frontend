@@ -10,12 +10,25 @@
   <main role="main" class="main-body page__{{data.id}}">
     {# hero #}
     {% set hero = data.sections.hero %}
-    <section class="clearfix page-section section__hero pos-r d-flex" style="background-image: url({{imageDir}}{{hero.image.url}});">
-      <div class="m-auto w-100">
+    <section class="clearfix page-section section__hero pos-r d-flex" style="background-image: url({{imageDir}}{{hero.image.url}});"> <!--  -->
+      <div class="m-auto w-100 pos-a">
         <div class="container text-center">
           <div class="row align-items-center justify-content-center">
             <div class="col-sm col-md col-lg text-center">
-              <img src="{{imageDir}}text__cleanse-together.png" alt="Cleanse Together" class="img-fluid" style="position: relative;margin-bottom: -2em;z-index: 10;pointer-events: none;">
+              <img
+                src="{{imageDir}}{{hero.headingImage.desktop.url}}"
+                width="{{hero.headingImage.desktop.width}}"
+                height="{{hero.headingImage.desktop.height}}"
+                alt="{{hero.headingImage.alt}}"
+                class="img-fluid hidden-md-down"
+                style="{{hero.headingImage.style}}">
+              <img
+                src="{{imageDir}}{{hero.headingImage.mobile.url}}"
+                width="{{hero.headingImage.mobile.width}}"
+                height="{{hero.headingImage.mobile.height}}"
+                alt="{{hero.headingImage.alt}}"
+                class="img-fluid hidden-lg-up"
+                style="{{hero.headingImage.style}}">
             </div>
           </div>
           <div class="row align-items-center justify-content-center section__hero_cta hidden-md-down">
@@ -28,8 +41,10 @@
               </div>
             </div>
           </div>
-          <div class="row section__hero_cta hidden-md-up">
-            <a href="{{hero.ctaButton.href}}" class="btn btn-orange btn-lg ">{{hero.ctaButton.text}}</a>
+          <div class="row align-items-center justify-content-center section__hero_cta hidden-lg-up">
+            <div class="col-auto">
+              <a href="{{hero.ctaButton.href}}" class="btn btn-warning btn-lg ">{{hero.ctaButton.text}}</a>
+            </div>
           </div>
         </div>
       </div>
