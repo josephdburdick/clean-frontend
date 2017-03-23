@@ -15,7 +15,7 @@ HEADINGS
   @include futura('medium');
 }
 
-.section-heading{
+.section-heading {
   @include futura('medium');
   font-size: 35px;
   margin: 0 0 $grid-gutter-width;
@@ -24,22 +24,22 @@ HEADINGS
   }
 }
 
-.section-header .section-heading + .section-subheading{
+.section-header .section-heading + .section-subheading {
   margin-top: .5em;
   margin-bottom: 0;
 }
-.section-header{
+.section-header {
   position: relative;
   margin: 0 0 #{$grid-gutter-width} 0;
 }
-.section-header .section-heading{
+.section-header .section-heading {
   @include futura('medium');
-  @include letter-spacing('heading');
+  letter-spacing: 0.275em;
   text-transform: uppercase;
   margin: 0;
 }
 
-.section-header.section-heading--hr{
+.section-header.section-heading--hr {
   text-align: center;
   &:before{
     content: "";
@@ -54,7 +54,7 @@ HEADINGS
     z-index: 0;
   }
 }
-.section-header.section-heading--hr .section-heading{
+.section-header.section-heading--hr .section-heading {
   position: relative;
   background-color: white;
   display: inline-block;
@@ -67,7 +67,7 @@ HEADINGS
   }
 }
 
-.section-header.section-header--bg-blue{
+.section-header.section-header--bg-blue {
   background-color: $blue;
   color: white;
   padding: 0.75em 0;

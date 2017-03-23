@@ -5,6 +5,10 @@ HR
 hr {
 
   &.thick {
-    
+    width: 100%;
+    position: relative;
+    border-top: 0.5rem solid black;
+    margin: 2em auto;
+    max-width: 150px;
   }
 }
