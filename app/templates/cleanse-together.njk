@@ -57,7 +57,7 @@
 
       <div class="row justify-content-center align-items-stretch">
       {% for item in howItWorks.items %}
-        <div class="col-sm-10 col-md-6 col-lg-3 text-center how__item">
+        <div class="col-sm-10 col-md-6 col-lg-6 col-xl-3 text-center how__item">
           <div class="how__image">
             <img src="{{imageDir}}{{item.image.url}}" width="{{item.image.width}}" height="{{item.image.height}}" alt="{{item.title}}">
           </div>
@@ -82,9 +82,9 @@
               </div>
             </div>
 
-            <div class="d-flex align-items-center col-md-12 col-lg section__feature-grid_item section__feature-grid_content">
+            <div class="d-flex align-items-center justify-content-center col-md-12 col-lg section__feature-grid_item section__feature-grid_content">
               <div class="d-flex align-items-center justify-content-center">
-                <div class="col-lg-8 col-md-9 col-sm-10 col text-center">
+                <div class="col-sm-10 col-md-9 col-lg-10 col-xl-8 col text-center">
                   {% if item.title %}
                   <header class="heading">
                     {{item.title}}
@@ -96,14 +96,13 @@
                     {{item.description | safe}}
                   </main>
                   {% endif %}
-                </div>
                   {% if item.footer %}
-                  <div class="col-lg-8 col-md-9 col-sm-10 col text-center">
-                    <footer>
-                      {{item.footer | safe}}
-                    </footer>
-                  </div>
+                  <footer class="mt-5 pos-a">
+                    {{item.footer | safe}}
+                  </footer>
                   {% endif %}
+
+                </div>
               </div>
             </div>
           </div>
