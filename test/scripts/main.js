@@ -215,11 +215,46 @@ var carousel$1 = {
   init: carousel.init
 };
 
+var purchaseSteps = function () {
+  var _this = {
+    state: {
+      step: 0,
+      name: null,
+      participants: 0,
+      flavors: {
+        vanilla: 0,
+        chocolate: 0,
+        mixed: 0
+      },
+      date: {
+        start: null
+      }
+    }
+  };
+
+  var init = function init() {
+    return registerEvents();
+  };
+
+  var registerEvents = function registerEvents() {
+    console.log(_this.state);
+  };
+
+  return {
+    init: init
+  };
+}();
+
+var purchaseSteps$1 = {
+  init: purchaseSteps.init
+};
+
 (function () {
   $('document').ready(function () {
     mobileMenu$1.init();
     mediaModal$1.init();
     carousel$1.init();
+    purchaseSteps$1.init();
   });
 })();
 //# sourceMappingURL=main.js.map
