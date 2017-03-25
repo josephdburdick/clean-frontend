@@ -5,7 +5,8 @@
     "bootstrap": "4.0.0-alpha.6",
     "font-awesome": "fontawesome#^4.7.0",
     "modernizr": "~2.8.1",
-    "slick-carousel": "slick.js#^1.6.0"
+    "slick-carousel": "slick.js#^1.6.0",
+    "chai-jquery": "^2.0.1"
   },
   "overrides": {
     "slick-carousel": {

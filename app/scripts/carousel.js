@@ -1,6 +1,5 @@
 const carousel = ((options) => {
-  'use strict';
-  let _this = {};
+  const _this = {};
 
   const defaults = {
     lazyLoad: 'ondemand',
@@ -11,21 +10,18 @@ const carousel = ((options) => {
     slidesToShow: 1,
     centerMode: true,
     centerPadding: '0px',
-    variableWidth: true
+    variableWidth: true,
   };
 
   const settings = Object.assign({}, defaults, options);
 
   _this.init = () => {
-    $('.hero-carousel').slick(settings)
-      // .on('beforeChange', (event, slick, currentSlide, nextSlide) => {
-        // const $nextSlide = slick.$slides[nextSlide];
-      // })
+    $('.hero-carousel').slick(settings);
   };
 
-  return { init: _this.init }
+  return { init: _this.init };
 })();
 
 export default {
-  init : carousel.init
-}
+  init: carousel.init,
+};

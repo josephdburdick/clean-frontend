@@ -1,3 +1,5 @@
+const $ = window.$ || {};
+
 import mobileMenu from './mobile-menu';
 import mediaModal from './media-modal';
 import carousel from './carousel';

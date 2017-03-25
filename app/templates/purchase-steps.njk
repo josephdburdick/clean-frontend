@@ -1,0 +1,18 @@
+{% extends "layout/_layout.njk" %}
+{% block content %}
+  {% set imageDir = global.dir.images %}
+  {% set data = global.views.purchaseSteps %}
+
+  <!-- MAIN -->
+  {# Purchase Steps #}
+  {% set bg = data.sections.bg %}
+  <main role="main" class="main-body bg-cover page__{{data.id}}" style="background-image: url({{imageDir}}{{bg.image.url}});">
+    <section class="clearfix pos-r d-flex flex-column bg-cover">
+      <div class="m-auto w-100 min-h-100">
+        Test
+      </div>
+    </section>
+  </main>
+  {# /Purchase Steps #}
+  <!-- / MAIN -->
+{% endblock %}

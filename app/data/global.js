@@ -3,9 +3,10 @@ import footer from './components/footer';
 import modal from './components/modal';
 
 import index from './templates/index';
+import homepage from './templates/homepage';
 import groupCleanse from './templates/group-cleanse';
 import cleanseTogether from './templates/cleanse-together';
-import homepage from './templates/homepage';
+import purchaseSteps from './templates/purchase-steps';
 
 const global = {
   title: "21-Day Cleanse, Detox, and Diet | Clean Program",
@@ -25,7 +26,8 @@ const global = {
     index,
     homepage,
     groupCleanse,
-    cleanseTogether
+    cleanseTogether,
+    purchaseSteps
   }
 };
 

@@ -5,11 +5,14 @@
   },
   "devDependencies": {
     "babel-core": "^6.4.0",
+    "babel-eslint": "^7.2.1",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-es2015-rollup": "^1.2.0",
+    "babel-preset-stage-0": "^6.22.0",
     "babel-register": "^6.5.2",
     "browser-sync": "^2.2.1",
     "del": "^2.2.0",
+    "eslint-plugin-babel": "^4.1.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.0.1",
     "gulp-babel": "^6.1.1",
@@ -59,10 +62,13 @@
   "scripts": {
     "start": "gulp serve",
     "build": "gulp default",
-    "deploy": "gulp default && gulp deploy"
+    "deploy": "gulp default && gulp deploy",
+    "test": "gulp serve:test"
   },
   "dependencies": {
+    "casual": "^1.5.8",
+    "jquery": "^3.2.1",
     "moment": "^2.17.0",
-    "casual": "^1.5.8"
+    "slick-carousel": "^1.6.0"
   }
 }

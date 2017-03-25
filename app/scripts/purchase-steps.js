@@ -7,25 +7,25 @@ const purchaseSteps = (() => {
       flavors: {
         vanilla: 0,
         chocolate: 0,
-        mixed: 0
+        mixed: 0,
       },
       date: {
-        start: null
-      }
-    }
+        start: null,
+      },
+    },
   };
-  
-  const init = () => registerEvents();
 
   const registerEvents = () => {
     console.log(_this.state);
-  }
+  };
+
+  const init = () => registerEvents();
 
   return {
-    init
-  }
+    init,
+  };
 })();
 
 export default {
   init: purchaseSteps.init,
-}
+};
