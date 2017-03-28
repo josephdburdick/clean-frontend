@@ -6,12 +6,64 @@
   <!-- MAIN -->
   {# Purchase Steps #}
   {% set bg = data.sections.bg %}
-  <main role="main" class="main-body bg-cover page__{{data.id}}" style="background-image: url({{imageDir}}{{bg.image.url}});">
-    <section class="clearfix pos-r d-flex flex-column bg-cover">
-      <div class="m-auto w-100 min-h-100">
-        Test
+  {% set headingImage = data.sections.headingImage %}
+  {% from "macros/_hero-carousel.njk" import heroCarousel %}
+  <main role="main" class="d-flex main-body bg-cover page__{{data.id}}" style="background-image: url({{imageDir}}{{bg.image.url}});">
+    <div class="container d-flex justify-content-center align-items-center">
+      <div class="row">
+        <div class="col-sm col-md col-lg-8 text-center">
+          <img
+            src="{{imageDir}}{{headingImage.desktop.url}}"
+            width="{{headingImage.desktop.width}}"
+            height="{{headingImage.desktop.height}}"
+            alt="{{headingImage.alt}}"
+            class="img-fluid hidden-md-down"
+            style="{{headingImage.style}}">
+          <img
+            src="{{imageDir}}{{headingImage.mobile.url}}"
+            width="{{headingImage.mobile.width}}"
+            height="{{headingImage.mobile.height}}"
+            alt="{{headingImage.alt}}"
+            class="img-fluid hidden-lg-up"
+            style="{{headingImage.style}}">
+        </div>
+        <div class="col col-sm-12 col-md-12">
+          <form class="bg-white purchase-steps">
+
+            <div id="purchase-steps--carousel" class="carousel fade" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="row">
+                    <header>
+                      <div class="heading">Hi</div>
+                      <div class="subheading">What's your name?</div>
+                    </header>
+                  </div>
+                  <div class="row">
+                    <main>
+                      <div class="form-group">
+                        <label for="formGroupExampleInput">Example label</label>
+                        <input type="text" class="form-control" id="customer-name" name="customer-name" placeholder="">
+                      </div>
+                      <div class="form-group">
+                        <a class="carousel-control-next" href="#purchase-steps--carousel" role="button" data-slide="next">
+                          Next Step
+                        </a>
+                      </div>
+                    </main>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  asdfasdfsad
+                </div>
+              </div>
+            </div>
+
+          </form>
+        </div>
       </div>
-    </section>
+    </div>
   </main>
   {# /Purchase Steps #}
   <!-- / MAIN -->
