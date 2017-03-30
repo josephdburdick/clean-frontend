@@ -19,20 +19,20 @@ Primary Navigation
     }
   }
   @include media-breakpoint-down(md) {
-    position: absolute;
-    z-index: 5;
-    border-width: 0;
     background-color: white;
-    width: calc(100% - #{$grid-gutter-width});
-    left: 0;
-    right: 0;
-    margin: 0 $grid-gutter-width;
+    border-width: 0;
     box-shadow: inset 0 0 0 1px $light-gray;
+    left: 0;
     margin: 0 ($grid-gutter-width / 2);
-    transform: scale(1, 0);
-    transform-origin: top center;
     opacity: 0;
+    position: absolute;
+    right: 0;
+    transform-origin: top center;
+    transform: scale(1, 0);
     transition: opacity $transition-speed $transition-ease;
+    width: calc(100% - #{$grid-gutter-width});
+    z-index: 5;
+
     .nav {
       flex-direction: column;
     }
@@ -125,9 +125,9 @@ Primary Navigation
   .dropdown > .dropdown-menu{
     display: block;
     opacity: 0;
+    transform-origin: top center;
     transform: translateX(-50%) translateY(-0.125em) scale(1, 0);
     transition: opacity ($transition-speed / 2) $transition-ease;
-    transform-origin: top center;
   }
   .dropdown:hover {
     @include media-breakpoint-up(lg) {
@@ -142,23 +142,29 @@ Primary Navigation
   }
 
   &__dropdown-menu{
+    @include em('max-width', 600px);
+    border: 3px solid $light-gray;
+    left: 50%;
+    padding: $grid-gutter-width * 1;
     position: absolute;
     top: auto;
-    width: 100%;
-    @include em('max-width', 600px);
-    left: 50%;
-    border: 3px solid $light-gray;
     transform: translateX(-50%) translateY(.5em);
-
-    padding: $grid-gutter-width * 1;
+    width: 100%;
 
     & .dropdown-link-item .media-body{
-      flex-direction: column;
       display: flex;
+      flex-direction: column;
       justify-content: center;
     }
-    & .dropdown-link-item:not(:last-child){
-      margin-bottom: 2rem;
+    & .dropdown-link-item{
+      @include media-breakpoint-up(md) {
+        margin-bottom: 2rem;
+      }
+      @include media-breakpoint-down(md) {
+        &:not(:last-child){
+          
+        }
+      }
     }
     & .dropdown-link-item a:hover{
       text-decoration: none;
@@ -181,16 +187,16 @@ Primary Navigation
   @include em('padding', 3px);
 
   background-color: $light-gray;
-  border: solid 1px $light-gray;
   border-radius: 50%;
+  border: solid 1px $light-gray;
   & > img {
-    width: 100%;
-    max-width: 24px;
-    max-height: 24px;
     margin: auto;
+    max-height: 24px;
+    max-width: 24px;
+    width: 100%;
   }
   & > svg {
-    width: 100%;
     fill: $off-black;
+    width: 100%;
   }
 }

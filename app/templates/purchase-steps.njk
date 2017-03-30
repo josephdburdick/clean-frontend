@@ -9,7 +9,7 @@
   {% set headingImage = data.sections.headingImage %}
   {% from "macros/_hero-carousel.njk" import heroCarousel %}
   <main role="main" class="d-flex main-body bg-cover page__{{data.id}}" style="background-image: url({{imageDir}}{{bg.image.url}});">
-    <div class="container d-flex justify-content-center align-items-center">
+    <div class="container justify-content-center align-items-center">
       <div class="row">
         <div class="col-sm col-md-10 col-lg-8 text-center m-auto">
           <img
@@ -28,38 +28,91 @@
             style="{{headingImage.style}}">
         </div>
         <div class="col col-sm-12 col-md-12">
-          <form class="bg-white purchase-steps">
+          <!-- cleanse-together form -->
+          <form id="form__cleanse-together" class="card">
+            <!-- fieldsets -->
+            <fieldset id="step-1">
+              <h2 class="fs-title">Hi</h2>
+              <h3 class="fs-subtitle">What's your name?</h3>
+              <input type="text" name="name" placeholder="Email" />
+              <input type="button" name="next" class="next action-button" value="Next" />
+            </fieldset>
+            <fieldset id="step-2">
+              <h2 class="fs-title">Hi, <u>Lorem</u></h2>
+              <h3 class="fs-subtitle">How many people total in your group?</h3>
 
-            <div id="purchase-steps--carousel" class="carousel fade" data-ride="carousel">
+              <input type="number" name="people-count" placeholder="2" />
+              <input type="button" name="previous" class="btn btn-link action-button" value="Previous" />
+              <a href="#step-1" class="btn btn-link ">
+                <i class="fa fa-larrow"></i> Go Back
+              </a>
+              <a href="#step-3" class="btn btn-lg btn-warning text-uppercase next action-button">
+                Next Step
+              </a>
+            </fieldset>
+            <fieldset>
+              <h2 class="fs-title">Personal Details</h2>
+              <h3 class="fs-subtitle">We will never sell it</h3>
+              <input type="text" name="fname" placeholder="First Name" />
+              <input type="text" name="lname" placeholder="Last Name" />
+              <input type="text" name="phone" placeholder="Phone" />
+              <textarea name="address" placeholder="Address"></textarea>
+              <input type="button" name="previous" class="previous action-button" value="Previous" />
+              <input type="submit" name="submit" class="submit action-button" value="Submit" />
+            </fieldset>
+          </form>
+          {# <form class="bg-white purchase-steps"> #}
+
+            {# <div class="" data-step="1">
+              <div class="row">
+                <div class="col">
+                  <header class="text-center">
+                    <div class="heading">Hi</div>
+                    <div class="subheading">What's your name?</div>
+                  </header>
+                </div>
+              </div>
+              <div class="row">
+                <main class="col">
+                  <input type="text" class="form-control form-control-lg" id="customer-name" name="customer-name" placeholder="">
+                  <div class="form-group">
+                    <a class="carousel-control-next" href="#purchase-steps--carousel" role="button" data-slide="next">
+                      Next Step
+                    </a>
+                  </div>
+                </main>
+              </div>
+            </div> #}
+
+
+            {# <div id="purchase-steps--carousel" class="carousel" data-ride="carousel">
+
               <div class="carousel-inner">
 
-                <div class="carousel-item actihdjdjdve">
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                  {# <div class="form-group">
+                <div class="carousel-item active">
+                  <div class="row">
                     <header>
                       <div class="heading">Hi</div>
                       <div class="subheading">What's your name?</div>
                     </header>
                   </div>
-                  <div class="form-group">
+                  <div class="row">
                     <main>
-
-                      <input type="text" class="form-control" id="customer-name" name="customer-name" placeholder="">
-
+                      <input type="text" class="form-control form-control-lg" id="customer-name" name="customer-name" placeholder="">
                       <div class="form-group">
                         <a class="carousel-control-next" href="#purchase-steps--carousel" role="button" data-slide="next">
                           Next Step
                         </a>
                       </div>
                     </main>
-                  </div> #}
+                  </div>
                 </div>
 
                 <div class="carousel-item">
                   asdfasdfsad
                 </div>
               </div>
-            </div>
+            </div> #}
 
           </form>
         </div>

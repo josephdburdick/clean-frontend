@@ -42,9 +42,9 @@
             </div>
           </div>
           <footer class="product-attributes text-md-left text-center">
-            <ul class="row row--no-gutter list-unstyled product-seals">
+            <ul class="row no-gutter list-unstyled product-seals">
               {% for item in product.iconModules.items %}
-                <li class="col-xs col-lg-3">
+                <li class="col-auto col-lg-3">
                   <figure class="text-center product-seal">
                     <img src="{{imageDir}}{{item.image.url}}" alt="{{item.text}}" width={{item.image.size}}>
                     <figcaption class="text-muted">{{item.text}}</figcaption>
