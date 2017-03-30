@@ -1,6 +1,6 @@
 const inputSpinner = (() => {
   const registerEvents = (options) => {
-    console.log(options);
+    // increase || decrease
     $('.input-spinner .btn[data-role]').on('click', function() {
       const $btn = $(this);
       const $input = $btn.closest('.input-spinner').find('input');
@@ -19,6 +19,13 @@ const inputSpinner = (() => {
           $btn.prev("disabled", true);
         }
       }
+    });
+
+    // Remove all characters except numbers
+    const filterInputValue = str => str.replace(/[^0-9]/, '');
+    $('.input-spinner input[type="text"]').on('changekeypress', (e) => {
+      e.currentTarget.value = filterInputValue(e.currentTarget.value);
+      return this;
     });
   };
 

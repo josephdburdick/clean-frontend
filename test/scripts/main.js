@@ -233,7 +233,7 @@ var carousel$1 = {
 
 var inputSpinner = function () {
   var registerEvents = function registerEvents(options) {
-    console.log(options);
+    // increase || decrease
     $('.input-spinner .btn[data-role]').on('click', function () {
       var $btn = $(this);
       var $input = $btn.closest('.input-spinner').find('input');
@@ -252,6 +252,15 @@ var inputSpinner = function () {
           $btn.prev("disabled", true);
         }
       }
+    });
+
+    // Remove all characters except numbers
+    var filterInputValue = function filterInputValue(str) {
+      return str.replace(/[^0-9]/, '');
+    };
+    $('.input-spinner input[type="text"]').on('changekeypress', function (e) {
+      e.currentTarget.value = filterInputValue(e.currentTarget.value);
+      return undefined;
     });
   };
 
