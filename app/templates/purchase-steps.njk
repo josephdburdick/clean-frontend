@@ -7,8 +7,9 @@
   {# Purchase Steps #}
   {% set bg = data.sections.bg %}
   {% set headingImage = data.sections.headingImage %}
-  {% from "macros/_hero-carousel.njk" import heroCarousel %}
-  <main role="main" class="d-flex main-body bg-cover page__{{data.id}}" style="background-image: url({{imageDir}}{{bg.image.url}});">
+  {% from "macros/_input-spinner.njk" import inputSpinner %}
+
+  <main role="main" class="main-body bg-cover page__{{data.id}}" style="background-image: url({{imageDir}}{{bg.image.url}});">
     <div class="container justify-content-center align-items-center">
       <div class="row">
         <div class="col-sm col-md-10 col-lg-8 text-center m-auto">
@@ -32,6 +33,9 @@
           <form id="form__cleanse-together" class="card">
             <!-- fieldsets -->
             <fieldset id="step-1">
+              <div class="step-banner">
+                Step 1 of 5
+              </div>
               <h2 class="fs-title">Hi</h2>
               <h3 class="fs-subtitle">What's your name?</h3>
               <input type="text" name="name" placeholder="Email" />
@@ -41,8 +45,8 @@
               <h2 class="fs-title">Hi, <u>Lorem</u></h2>
               <h3 class="fs-subtitle">How many people total in your group?</h3>
 
-              <input type="number" name="people-count" placeholder="2" />
-              <input type="button" name="previous" class="btn btn-link action-button" value="Previous" />
+              {{ inputSpinner(name="people-count", value="1", min="1") }}
+
               <a href="#step-1" class="btn btn-link ">
                 <i class="fa fa-larrow"></i> Go Back
               </a>
@@ -50,15 +54,35 @@
                 Next Step
               </a>
             </fieldset>
-            <fieldset>
-              <h2 class="fs-title">Personal Details</h2>
-              <h3 class="fs-subtitle">We will never sell it</h3>
-              <input type="text" name="fname" placeholder="First Name" />
-              <input type="text" name="lname" placeholder="Last Name" />
-              <input type="text" name="phone" placeholder="Phone" />
-              <textarea name="address" placeholder="Address"></textarea>
-              <input type="button" name="previous" class="previous action-button" value="Previous" />
-              <input type="submit" name="submit" class="submit action-button" value="Submit" />
+            <fieldset id="step-3">
+              <h2 class="fs-title">Great!</h2>
+              <h3 class="fs-subtitle">What flavors would your group like?</h3>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="product-count--vanilla">
+                      Vanilla
+                    </label>
+                    {{ inputSpinner(name="product-count--vanilla", value="1", min="1") }}
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="product-count--chocolate">
+                      Chocolate
+                    </label>
+                    {{ inputSpinner(name="product-count--chocolate", value="1", min="1") }}
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="product-count--mixed">
+                      Mixed
+                    </label>
+                    {{ inputSpinner(name="product-count--mixed", value="1", min="1") }}
+                  </div>
+                </div>
+              </div>
             </fieldset>
           </form>
           {# <form class="bg-white purchase-steps"> #}

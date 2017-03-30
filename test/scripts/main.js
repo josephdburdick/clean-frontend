@@ -231,25 +231,46 @@ var carousel$1 = {
   init: carousel.init
 };
 
-var purchaseSteps = function () {
-  var _this = {
-    state: {
-      step: 0,
-      name: null,
-      participants: 0,
-      flavors: {
-        vanilla: 0,
-        chocolate: 0,
-        mixed: 0
-      },
-      date: {
-        start: null
+var inputSpinner = function () {
+  var registerEvents = function registerEvents(options) {
+    console.log(options);
+    $('.input-spinner .btn[data-role]').on('click', function () {
+      var $btn = $(this);
+      var $input = $btn.closest('.input-spinner').find('input');
+      if ($btn.data('role') === 'increment') {
+        if ($input.attr('max') == undefined || parseInt($input.val()) < parseInt($input.attr('max'))) {
+          $input.val(parseInt($input.val(), 10) + 1);
+        } else {
+          $btn.next('disabled', true);
+        }
       }
-    }
+
+      if ($btn.data('role') === 'decrement') {
+        if ($input.attr('min') == undefined || parseInt($input.val()) > parseInt($input.attr('min'))) {
+          $input.val(parseInt($input.val(), 10) - 1);
+        } else {
+          $btn.prev("disabled", true);
+        }
+      }
+    });
   };
 
+  var init = function init(options) {
+    return registerEvents(options);
+  };
+
+  return {
+    init: init
+  };
+}();
+
+var inputSpinner$1 = {
+  init: inputSpinner.init
+};
+
+var purchaseSteps = function () {
   var registerEvents = function registerEvents() {
-    console.log(_this.state);
+    inputSpinner$1.init();
   };
 
   var init = function init() {

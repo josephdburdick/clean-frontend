@@ -1,22 +1,8 @@
-const purchaseSteps = (() => {
-  const _this = {
-    state: {
-      step: 0,
-      name: null,
-      participants: 0,
-      flavors: {
-        vanilla: 0,
-        chocolate: 0,
-        mixed: 0,
-      },
-      date: {
-        start: null,
-      },
-    },
-  };
+import inputSpinner from './input-spinner';
 
+const purchaseSteps = (() => {
   const registerEvents = () => {
-    console.log(_this.state);
+    inputSpinner.init()
   };
 
   const init = () => registerEvents();

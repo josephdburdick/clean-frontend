@@ -1,0 +1,15 @@
+{% macro inputSpinner(name=false, value="0", min=false, max=false) %}
+<div class="input-group input-spinner" itemscope>
+  <button class="btn btn-default" type="button" data-role="decrement"><i class="fa fa-minus"></i></button>
+  <input
+    {% if name %}id="{{name}}"{% endif %}
+    {% if name %}name="{{name}}"{% endif %}
+    type="text"
+    class="form-control"
+    value="{{value}}"
+    {% if min %}min="{{min}}"{% endif %}
+    {% if max %}max="{{max}}"{% endif %}
+    role="input">
+  <button class="btn btn-default" type="button" data-role="increment"><i class="fa fa-plus"></i></button>
+</div>
+{% endmacro %}
