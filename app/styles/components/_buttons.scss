@@ -11,6 +11,12 @@
     color: white;
   }
 }
+
+.btn-default--light{
+  color: $off-black;
+  background-color: $gray-lighter;
+}
+
 .btn-default--dark{
   background-color: $off-black;
   color: white;

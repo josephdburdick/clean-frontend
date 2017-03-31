@@ -30,59 +30,96 @@
         </div>
         <div class="col col-sm-12 col-md-12">
           <!-- cleanse-together form -->
-          <form id="form__cleanse-together" class="card">
+          <form id="form__cleanse-together" class="card text-center" method="post">
             <!-- fieldsets -->
             <fieldset id="step-1">
-              <div class="step-banner">
-                Step 1 of 5
+              <div class="card-block">
+                <div class="step-banner">
+                  Step 1 of 5
+                </div>
+                <h2 class="fs-title">Hi</h2>
+                <h3 class="fs-subtitle">What's your name?</h3>
+
+                <div class="form-group">
+                  <input type="text" name="name" class="form-control" pattern="[a-zA-Z]+" />
+                </div>
+                <div class="form-group">
+                  <a href="#step-3" class="btn btn-lg btn-warning text-uppercase next action-button">
+                    Next Step
+                  </a>
+                </div>
               </div>
-              <h2 class="fs-title">Hi</h2>
-              <h3 class="fs-subtitle">What's your name?</h3>
-              <input type="text" name="name" placeholder="Email" />
-              <input type="button" name="next" class="next action-button" value="Next" />
             </fieldset>
+
             <fieldset id="step-2">
-              <h2 class="fs-title">Hi, <u>Lorem</u></h2>
-              <h3 class="fs-subtitle">How many people total in your group?</h3>
-
-              {{ inputSpinner(name="people-count", value="1", min="1") }}
-
-              <a href="#step-1" class="btn btn-link ">
-                <i class="fa fa-larrow"></i> Go Back
-              </a>
-              <a href="#step-3" class="btn btn-lg btn-warning text-uppercase next action-button">
-                Next Step
-              </a>
+              <div class="card-block">
+                <h2 class="fs-title">Hi, <u>Lorem</u></h2>
+                <h3 class="fs-subtitle">How many people total in your group?</h3>
+                <div class="form-group">
+                  {{ inputSpinner(name="people-count", value="1", min="1", buttonClass="btn-default--light") }}
+                </div>
+                <div class="form-group">
+                  <a href="#step-1" class="btn btn-link ">
+                    <i class="fa fa-caret-left" aria-hidden="true"></i> Go Back
+                  </a>
+                </div>
+                <div class="form-group">
+                  <a href="#step-3" class="btn btn-lg btn-warning text-uppercase next action-button">
+                    Next Step
+                  </a>
+                </div>
+              </div>
             </fieldset>
+
             <fieldset id="step-3">
-              <h2 class="fs-title">Great!</h2>
-              <h3 class="fs-subtitle">What flavors would your group like?</h3>
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label for="product-count--vanilla">
-                      Vanilla
-                    </label>
-                    {{ inputSpinner(name="product-count--vanilla", value="0", min="0") }}
+              <div class="card-block">
+                <h2 class="fs-title">Great!</h2>
+                <h3 class="fs-subtitle">What flavors would your group like?</h3>
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="product-count--vanilla">
+                        Vanilla
+                      </label>
+                      {{ inputSpinner(name="product-count--vanilla", value="0", min="0", buttonClass="btn-default--light") }}
+                    </div>
                   </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label for="product-count--chocolate">
-                      Chocolate
-                    </label>
-                    {{ inputSpinner(name="product-count--chocolate", value="0", min="0") }}
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="product-count--chocolate">
+                        Chocolate
+                      </label>
+                      {{ inputSpinner(name="product-count--chocolate", value="0", min="0", buttonClass="btn-default--light") }}
+                    </div>
                   </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label for="product-count--mixed">
-                      Mixed
-                    </label>
-                    {{ inputSpinner(name="product-count--mixed", value="0", min="0") }}
+                  <div class="col-md-4">
+                    <div class="form-group">
+                      <label for="product-count--mixed">
+                        Mixed
+                      </label>
+                      {{ inputSpinner(name="product-count--mixed", value="0", min="0", buttonClass="btn-default--light") }}
+                    </div>
                   </div>
                 </div>
               </div>
+              <div class="card-block">
+                <div class="form-group">
+                  <a href="#step-1" class="btn btn-link ">
+                    <i class="fa fa-caret-left" aria-hidden="true"></i> Go Back
+                  </a>
+                </div>
+                <div class="form-group">
+                  <a href="#step-3" class="btn btn-lg btn-warning text-uppercase next action-button">
+                    Next Step
+                  </a>
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <input type="submit" value="Submit" class="btn btn-lg btn-primary">
+
             </fieldset>
           </form>
           {# <form class="bg-white purchase-steps"> #}

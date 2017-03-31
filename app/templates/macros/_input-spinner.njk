@@ -1,6 +1,6 @@
-{% macro inputSpinner(name=false, value="0", min=false, max=false) %}
+{% macro inputSpinner(name=false, value="0", min=false, max=false, buttonClass=false) %}
 <div class="input-group input-spinner" itemscope>
-  <button class="btn btn-default" type="button" data-role="decrement"><i class="fa fa-minus"></i></button>
+  <input type="button" class="btn btn-default {%if buttonClass %}{{buttonClass}}{% endif %}" role="button" data-role="decrement" value="-" />
   <input
     {% if name %}id="{{name}}"{% endif %}
     {% if name %}name="{{name}}"{% endif %}
@@ -9,7 +9,8 @@
     value="{{value}}"
     {% if min %}min="{{min}}"{% endif %}
     {% if max %}max="{{max}}"{% endif %}
-    role="input">
-  <button class="btn btn-default" type="button" data-role="increment"><i class="fa fa-plus"></i></button>
+    role="input"
+    match="\d">
+  <input type="button" class="btn btn-default {%if buttonClass %}{{buttonClass}}{% endif %}" role="button" data-role="increment" value="+" />
 </div>
 {% endmacro %}

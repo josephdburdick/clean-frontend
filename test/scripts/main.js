@@ -232,11 +232,14 @@ var carousel$1 = {
 };
 
 var inputSpinner = function () {
+  var filterInputValue = function filterInputValue(str) {
+    return str.replace(/[^0-9]/, '');
+  };
   var registerEvents = function registerEvents(options) {
     // increase || decrease
-    $('.input-spinner .btn[data-role]').on('click', function () {
+    $('.input-spinner [type="button"][data-role]').on('click', function (e) {
       var $btn = $(this);
-      var $input = $btn.closest('.input-spinner').find('input');
+      var $input = $btn.closest('.input-spinner').find('input:not([type="button"])');
       if ($btn.data('role') === 'increment') {
         if ($input.attr('max') == undefined || parseInt($input.val()) < parseInt($input.attr('max'))) {
           $input.val(parseInt($input.val(), 10) + 1);
@@ -252,13 +255,12 @@ var inputSpinner = function () {
           $btn.prev("disabled", true);
         }
       }
+      // e.preventDefault();
     });
 
     // Remove all characters except numbers
-    var filterInputValue = function filterInputValue(str) {
-      return str.replace(/[^0-9]/, '');
-    };
-    $('.input-spinner input[type="text"]').on('changekeypress', function (e) {
+
+    $('.input-spinner input[type="text"]').on('change keypress', function (e) {
       e.currentTarget.value = filterInputValue(e.currentTarget.value);
       return undefined;
     });
@@ -277,9 +279,43 @@ var inputSpinner$1 = {
   init: inputSpinner.init
 };
 
+var validateForm = function validateForm(_ref) {
+  var form = _ref.form,
+      schema = _ref.schema;
+
+  console.log(schema);
+  var $form = $(form);
+  $form.on('submit', function (e) {
+    e.preventDefault();
+    var data = $form.serializeArray().map(function (v) {
+      return [v.name, v.value];
+    });
+    console.log(data);
+  });
+  return schema;
+};
+
 var purchaseSteps = function () {
+  var schema = {
+    name: {
+      value: "",
+      type: String
+    },
+    participants: 0,
+    products: {
+      vanilla: 0,
+      chocolate: 0,
+      mixed: 0
+    },
+    date: undefined
+  };
+
   var registerEvents = function registerEvents() {
     inputSpinner$1.init();
+    validateForm({
+      form: '#form__cleanse-together',
+      schema: schema
+    });
   };
 
   var init = function init() {

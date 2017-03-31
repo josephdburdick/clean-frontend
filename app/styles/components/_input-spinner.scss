@@ -11,4 +11,20 @@ Input Spinner
     margin: 0;
   }
   -moz-appearance: textfield;
+  border: 1px solid $border-color;
+  text-align: center;
+  height: 50px;
+  margin-left: -1px;
+  margin-right: -1px;
+  @include proxima('bold');
+}
+.input-spinner .btn{
+  height: 50px;
+  display: inline-flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  background-color: $tertiary-color;
+  border: 1px solid $border-color;
+  z-index: 5;
 }

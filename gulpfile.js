@@ -162,7 +162,7 @@ gulp.task('lint', () => {
       'no-unused-vars' : 2,
       'no-undef' : 2
     },
-      parserOptions: {
+    parserOptions: {
       sourceType: 'module'
     }
   })
