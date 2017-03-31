@@ -231,17 +231,19 @@ var carousel$1 = {
   init: carousel.init
 };
 
+var $$6 = window.jQuery || {};
+
 var inputSpinner = function () {
   var filterInputValue = function filterInputValue(str) {
     return str.replace(/[^0-9]/, '');
   };
-  var registerEvents = function registerEvents(options) {
+  var registerEvents = function registerEvents() {
     // increase || decrease
-    $('.input-spinner [type="button"][data-role]').on('click', function (e) {
-      var $btn = $(this);
+    $$6('.input-spinner [type="button"][data-role]').on('click', function (e) {
+      var $btn = $$6(e.currentTarget);
       var $input = $btn.closest('.input-spinner').find('input:not([type="button"])');
       if ($btn.data('role') === 'increment') {
-        if ($input.attr('max') == undefined || parseInt($input.val()) < parseInt($input.attr('max'))) {
+        if (!$input.attr('max') || parseInt($input.val(), 10) < parseInt($input.attr('max'), 10)) {
           $input.val(parseInt($input.val(), 10) + 1);
         } else {
           $btn.next('disabled', true);
@@ -249,10 +251,10 @@ var inputSpinner = function () {
       }
 
       if ($btn.data('role') === 'decrement') {
-        if ($input.attr('min') == undefined || parseInt($input.val()) > parseInt($input.attr('min'))) {
+        if (!$input.attr('min') || parseInt($input.val(), 10) > parseInt($input.attr('min'), 10)) {
           $input.val(parseInt($input.val(), 10) - 1);
         } else {
-          $btn.prev("disabled", true);
+          $btn.prev('disabled', true);
         }
       }
       // e.preventDefault();
@@ -260,14 +262,13 @@ var inputSpinner = function () {
 
     // Remove all characters except numbers
 
-    $('.input-spinner input[type="text"]').on('change keypress', function (e) {
+    $$6('.input-spinner input[type="text"]').on('change keypress', function (e) {
       e.currentTarget.value = filterInputValue(e.currentTarget.value);
-      return undefined;
     });
   };
 
-  var init = function init(options) {
-    return registerEvents(options);
+  var init = function init() {
+    return registerEvents();
   };
 
   return {
@@ -279,35 +280,56 @@ var inputSpinner$1 = {
   init: inputSpinner.init
 };
 
+var $$5 = window.jQuery || {};
+
 var validateForm = function validateForm(_ref) {
   var form = _ref.form,
       schema = _ref.schema;
 
-  console.log(schema);
-  var $form = $(form);
+  var $form = $$5(form);
   $form.on('submit', function (e) {
     e.preventDefault();
-    var data = $form.serializeArray().map(function (v) {
-      return [v.name, v.value];
-    });
+    var data = {
+      array: $form.serializeArray(),
+      obj: {}
+    };
+
+    data.array.reduce(function (acc, cur) {
+      data.obj[cur.name] = cur;
+    }, {});
+
     console.log(data);
   });
-  return schema;
 };
 
 var purchaseSteps = function () {
   var schema = {
     name: {
-      value: "",
-      type: String
+      value: '',
+      type: 'String'
     },
-    participants: 0,
+    'participant-count': {
+      value: 0,
+      type: 'Number'
+    },
     products: {
-      vanilla: 0,
-      chocolate: 0,
-      mixed: 0
+      vanilla: {
+        value: 0,
+        type: 'Number'
+      },
+      chocolate: {
+        value: 0,
+        type: 'Number'
+      },
+      mixed: {
+        value: 0,
+        type: 'Number'
+      }
     },
-    date: undefined
+    startDate: {
+      value: '',
+      type: 'Date'
+    }
   };
 
   var registerEvents = function registerEvents() {
@@ -331,14 +353,12 @@ var purchaseSteps$1 = {
   init: purchaseSteps.init
 };
 
-var $$1 = window.$ || {};
+var $$1 = window.jQuery || {};
 
-(function () {
-  $$1('document').ready(function () {
-    mobileMenu$1.init();
-    mediaModal$1.init();
-    carousel$1.init();
-    purchaseSteps$1.init();
-  });
-})();
+$$1('document').ready(function () {
+  mobileMenu$1.init();
+  mediaModal$1.init();
+  carousel$1.init();
+  purchaseSteps$1.init();
+});
 //# sourceMappingURL=main.js.map

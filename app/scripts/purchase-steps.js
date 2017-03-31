@@ -1,31 +1,51 @@
 import inputSpinner from './input-spinner';
+const $ = window.jQuery || {};
 
 const validateForm = ({ form, schema }) => {
-  console.log(schema);
   const $form = $(form);
   $form.on('submit', function(e) {
     e.preventDefault();
-    const data = $form.serializeArray().map(function(v) {
-      return [v.name, v.value];
-    });
+    const data = {
+      array: $form.serializeArray(),
+      obj: {}
+    };
+
+    data.array.reduce((acc, cur) => {
+      data.obj[cur.name] = cur;
+    }, {});
+
     console.log(data);
   });
-  return schema;
-}
+};
 
 const purchaseSteps = (() => {
   const schema = {
     name: {
-      value: "",
-      type: String
+      value: '',
+      type: 'String'
     },
-    participants: 0,
+    'participant-count': {
+      value: 0,
+      type: 'Number'
+    },
     products: {
-      vanilla: 0,
-      chocolate: 0,
-      mixed: 0,
+      vanilla: {
+        value: 0,
+        type: 'Number'
+      },
+      chocolate: {
+        value: 0,
+        type: 'Number'
+      },
+      mixed: {
+        value: 0,
+        type: 'Number'
+      },
     },
-    date: undefined,
+    startDate: {
+      value: '',
+      type: 'Date'
+    }
   };
 
   const registerEvents = () => {

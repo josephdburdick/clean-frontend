@@ -41,7 +41,7 @@
                 <h3 class="fs-subtitle">What's your name?</h3>
 
                 <div class="form-group">
-                  <input type="text" name="name" class="form-control" pattern="[a-zA-Z]+" />
+                  <input type="text" name="name" class="form-control form-control-lg" pattern="[a-zA-Z]+" />
                 </div>
                 <div class="form-group">
                   <a href="#step-3" class="btn btn-lg btn-warning text-uppercase next action-button">
@@ -56,7 +56,7 @@
                 <h2 class="fs-title">Hi, <u>Lorem</u></h2>
                 <h3 class="fs-subtitle">How many people total in your group?</h3>
                 <div class="form-group">
-                  {{ inputSpinner(name="people-count", value="1", min="1", buttonClass="btn-default--light") }}
+                  {{ inputSpinner(name="participant-count", value="1", min="1", inputClass="form-control-lg", buttonClass="btn-default--light") }}
                 </div>
                 <div class="form-group">
                   <a href="#step-1" class="btn btn-link ">
@@ -79,26 +79,26 @@
                 <div class="row">
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label for="product-count--vanilla">
+                      <label for="products-vanilla">
                         Vanilla
                       </label>
-                      {{ inputSpinner(name="product-count--vanilla", value="0", min="0", buttonClass="btn-default--light") }}
+                      {{ inputSpinner(name="products-vanilla", value="0", min="0", inputClass="form-control-lg", buttonClass="btn-default--light") }}
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label for="product-count--chocolate">
+                      <label for="products-chocolate">
                         Chocolate
                       </label>
-                      {{ inputSpinner(name="product-count--chocolate", value="0", min="0", buttonClass="btn-default--light") }}
+                      {{ inputSpinner(name="products-chocolate", value="0", min="0", inputClass="form-control-lg", buttonClass="btn-default--light") }}
                     </div>
                   </div>
                   <div class="col-md-4">
                     <div class="form-group">
-                      <label for="product-count--mixed">
+                      <label for="products-mixed">
                         Mixed
                       </label>
-                      {{ inputSpinner(name="product-count--mixed", value="0", min="0", buttonClass="btn-default--light") }}
+                      {{ inputSpinner(name="products-mixed", value="0", min="0", inputClass="form-control-lg", buttonClass="btn-default--light") }}
                     </div>
                   </div>
                 </div>
@@ -119,61 +119,7 @@
 
             <fieldset>
               <input type="submit" value="Submit" class="btn btn-lg btn-primary">
-
             </fieldset>
-          </form>
-          {# <form class="bg-white purchase-steps"> #}
-
-            {# <div class="" data-step="1">
-              <div class="row">
-                <div class="col">
-                  <header class="text-center">
-                    <div class="heading">Hi</div>
-                    <div class="subheading">What's your name?</div>
-                  </header>
-                </div>
-              </div>
-              <div class="row">
-                <main class="col">
-                  <input type="text" class="form-control form-control-lg" id="customer-name" name="customer-name" placeholder="">
-                  <div class="form-group">
-                    <a class="carousel-control-next" href="#purchase-steps--carousel" role="button" data-slide="next">
-                      Next Step
-                    </a>
-                  </div>
-                </main>
-              </div>
-            </div> #}
-
-
-            {# <div id="purchase-steps--carousel" class="carousel" data-ride="carousel">
-
-              <div class="carousel-inner">
-
-                <div class="carousel-item active">
-                  <div class="row">
-                    <header>
-                      <div class="heading">Hi</div>
-                      <div class="subheading">What's your name?</div>
-                    </header>
-                  </div>
-                  <div class="row">
-                    <main>
-                      <input type="text" class="form-control form-control-lg" id="customer-name" name="customer-name" placeholder="">
-                      <div class="form-group">
-                        <a class="carousel-control-next" href="#purchase-steps--carousel" role="button" data-slide="next">
-                          Next Step
-                        </a>
-                      </div>
-                    </main>
-                  </div>
-                </div>
-
-                <div class="carousel-item">
-                  asdfasdfsad
-                </div>
-              </div>
-            </div> #}
 
           </form>
         </div>

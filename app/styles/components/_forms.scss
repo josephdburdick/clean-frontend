@@ -161,4 +161,8 @@ FORMS
   .select select:disabled ~ .select__arrow {
     border-top-color: darken($light-gray, 10%);
   }
+
+  .form-control-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn{
+    border-radius: 0;
+  }
 }

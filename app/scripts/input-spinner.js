@@ -1,23 +1,27 @@
+const $ = window.jQuery || {};
+
 const inputSpinner = (() => {
   const filterInputValue = str => str.replace(/[^0-9]/, '');
-  const registerEvents = (options) => {
+  const registerEvents = () => {
     // increase || decrease
     $('.input-spinner [type="button"][data-role]').on('click', function(e) {
-      const $btn = $(this);
+      const $btn = $(e.currentTarget);
       const $input = $btn.closest('.input-spinner').find('input:not([type="button"])');
       if ($btn.data('role') === 'increment') {
-        if ($input.attr('max') == undefined || parseInt($input.val()) < parseInt($input.attr('max'))) {
+        if (!$input.attr('max') || parseInt($input.val(), 10) < parseInt($input.attr('max'), 10)) {
           $input.val(parseInt($input.val(), 10) + 1);
-        } else {
+        }
+        else {
           $btn.next('disabled', true);
         }
       }
 
       if ($btn.data('role') === 'decrement') {
-        if ($input.attr('min') == undefined || parseInt($input.val()) > parseInt($input.attr('min'))) {
+        if (!$input.attr('min') || parseInt($input.val(), 10) > parseInt($input.attr('min'), 10)) {
           $input.val(parseInt($input.val(), 10) - 1);
-        } else {
-          $btn.prev("disabled", true);
+        }
+        else {
+          $btn.prev('disabled', true);
         }
       }
       // e.preventDefault();
@@ -27,11 +31,10 @@ const inputSpinner = (() => {
 
     $('.input-spinner input[type="text"]').on('change keypress', (e) => {
       e.currentTarget.value = filterInputValue(e.currentTarget.value);
-      return this;
     });
   };
 
-  const init = (options) => registerEvents(options);
+  const init = () => registerEvents();
 
   return {
     init,
