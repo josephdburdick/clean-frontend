@@ -1,6 +1,17 @@
 .page__purchase-steps {
-  // clear: both;
-  // display: flex;
+  padding: 8em 0;
+
+  .heading-image-container {
+    margin-bottom: 8em;
+  }
+  .heading-image {
+    @include media-breakpoint-down('md') {
+      margin-bottom: 4em;
+    }
+    @include media-breakpoint-up('md') {
+      margin-bottom: 6em;
+    }
+  }
 }
 
 .purchase-steps--carousel {

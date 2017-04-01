@@ -6,13 +6,15 @@ PURCHASE BOX
   align-items: stretch;
   margin-bottom: 0;
 }
-.purchase-box .card-heading{
+
+.purchase-box .card-heading {
   @include letter-spacing('heading');
 }
 
 .purchase-box .card-block {
   flex: 1;
   padding: 36px;
+
   &:first-child {
     padding-top: 24px;
   }

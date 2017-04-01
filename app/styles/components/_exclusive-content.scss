@@ -5,7 +5,7 @@ Exclusive Content
 .section__exclusive-content {
   .icon-modules {
     flex-flow: row wrap;
-    @include media-breakpoint-up(md){
+    @include media-breakpoint-up(md) {
       display: flex;
       flex-direction: column;
 
@@ -26,7 +26,8 @@ Exclusive Content
       }
     }
   }
-  .text-wrap{
+
+  .text-wrap {
     @include media-breakpoint-up(md) {
       max-width: calc(350px);
     }
@@ -67,7 +68,7 @@ Exclusive Content
       span {
         background-color: white;
         padding: 0 $grid-gutter-width;
-        @include media-breakpoint-only(sm){
+        @include media-breakpoint-only(sm) {
           padding: 0 10px;
         }
       }
@@ -87,14 +88,17 @@ Exclusive Content
   @include futura('medium');
   font-size: $grid-gutter-width;
 }
+
 .feature-module {
   min-height: 100%;
   margin-bottom: 0;
-  .card-body{
+
+  .card-body {
     @include media-breakpoint-up(md) {
       max-width: 330px;
     }
   }
+
   .card-block {
     padding: $grid-gutter-width;
   }

@@ -3,15 +3,17 @@
 Global header
 */
 
-.global-header{
+.global-header {
   position: relative;
-  &__logo{
+
+  &__logo {
     margin: 0;
     padding: $grid-gutter-width 0;
     line-height: 0;
   }
 
-  &__cart, &__menu-trigger{
+  &__cart,
+  &__menu-trigger {
     position: absolute;
     top: 50%;
     right: $grid-gutter-width / 2;
@@ -19,21 +21,25 @@ Global header
     text-decoration: none !important;
     color: $off-black !important;
   }
-  &__cart-icon{
+
+  &__cart-icon {
     text-decoration: none !important;
     margin: 0 .25em;
   }
-  &__cart-count{
+
+  &__cart-count {
     margin-left: -1em;
-    .badge-pill{
+
+    .badge-pill {
       border: 2px solid white;
       background-color: #0275d8;
     }
   }
-  &__secondary-link{
+
+  &__secondary-link {
+    @include em('font-size', 12px);
     display: inline-block;
     margin: 0 .5em;
-    @include em('font-size', 12px);
     color: $off-black;
     border-bottom: 1px dotted $off-black;
     text-decoration: none !important;

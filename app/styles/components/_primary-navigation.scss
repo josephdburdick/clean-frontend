@@ -2,7 +2,7 @@
 
 Primary Navigation
 */
-.primary-navigation{
+.primary-navigation {
   flex-basis: 100%;
   border-width: 1px 0;
   border-color: $light-gray;
@@ -11,11 +11,13 @@ Primary Navigation
 
   @include media-breakpoint-up(md) {
     text-align: center;
+
     .nav {
       flex-direction: row;
     }
-    .navbar-nav .nav-item + .nav-item{
-      margin-left: 0
+
+    .navbar-nav .nav-item + .nav-item {
+      margin-left: 0;
     }
   }
   @include media-breakpoint-down(md) {
@@ -36,7 +38,8 @@ Primary Navigation
     .nav {
       flex-direction: column;
     }
-    body.mobile-menu--open &{
+
+    body.mobile-menu--open & {
       transform: scale(1, 1);
       opacity: 1;
     }
@@ -45,20 +48,23 @@ Primary Navigation
     left: auto;
     max-width: 33.3vw;
   }
-  &__menu{
+
+  &__menu {
     a {
       color: $blue;
     }
     @include media-breakpoint-up(lg) {
       justify-content: center;
       padding: 0 0.5em;
-      .nav-item{
+
+      .nav-item {
         padding: 0 1em;
         display: inline-block;
         vertical-align: top;
         position: static;
       }
-      .nav-item > a{
+
+      .nav-item > a {
         @include futura('bold');
         text-transform: uppercase;
         font-size: .8em;
@@ -76,16 +82,18 @@ Primary Navigation
       }
     }
     @include media-breakpoint-down(md) {
-      .nav-item{
+      .nav-item {
         display: block;
         vertical-align: top;
         text-align: center;
         padding: 0;
       }
+
       & > .nav-item + .nav-item {
         border-top: 1px solid $light-gray;
       }
-      .nav-item > a{
+
+      .nav-item > a {
         @include futura('medium');
         display: block;
         padding: 1.6em 1em;
@@ -93,17 +101,17 @@ Primary Navigation
         font-size: .8em;
         letter-spacing: .2em;
 
-        &:hover{
+        &:hover {
           background-color: $light-gray;
         }
       }
     }
   }
 
-  .dropdown-toggle{
+  .dropdown-toggle {
     position: relative;
 
-    &:after{
+    &:after {
       content: "";
       opacity: 0;
       transition: opacity $transition-speed $transition-ease;
@@ -122,26 +130,29 @@ Primary Navigation
       bottom: -1.6em;
     }
   }
-  .dropdown > .dropdown-menu{
+
+  .dropdown > .dropdown-menu {
     display: block;
     opacity: 0;
     transform-origin: top center;
     transform: translateX(-50%) translateY(-0.125em) scale(1, 0);
     transition: opacity ($transition-speed / 2) $transition-ease;
   }
+
   .dropdown:hover {
     @include media-breakpoint-up(lg) {
-      .dropdown-toggle:after{
+      .dropdown-toggle:after {
         opacity: 1;
       }
-      & > .dropdown-menu{
+
+      & > .dropdown-menu {
         opacity: 1;
         transform: translateX(-50%) translateY(-0.125em) scale(1, 1);
       }
     }
   }
 
-  &__dropdown-menu{
+  &__dropdown-menu {
     @include em('max-width', 600px);
     border: 3px solid $light-gray;
     left: 50%;
@@ -151,50 +162,55 @@ Primary Navigation
     transform: translateX(-50%) translateY(.5em);
     width: 100%;
 
-    & .dropdown-link-item .media-body{
+    & .dropdown-link-item .media-body {
       display: flex;
       flex-direction: column;
       justify-content: center;
     }
-    & .dropdown-link-item{
+
+    & .dropdown-link-item {
       @include media-breakpoint-up(md) {
         margin-bottom: 2rem;
       }
       @include media-breakpoint-down(md) {
-        &:not(:last-child){
-          
+        &:not(:last-child) {
         }
       }
     }
-    & .dropdown-link-item a:hover{
+
+    & .dropdown-link-item a:hover {
       text-decoration: none;
     }
-    & .dropdown-title{
+
+    & .dropdown-title {
       color: $link-color;
       font-weight: normal;
     }
-    & .dropdown-text{
+
+    & .dropdown-text {
       @include em('font-size', 12px);
       line-height: 1.4;
       color: #666;
     }
   }
 }
-.icon-bg{
+
+.icon-bg {
   display: inline-flex;
   @include em('width', 47px);
   @include em('height', 47px);
   @include em('padding', 3px);
-
   background-color: $light-gray;
   border-radius: 50%;
   border: solid 1px $light-gray;
+
   & > img {
     margin: auto;
     max-height: 24px;
     max-width: 24px;
     width: 100%;
   }
+
   & > svg {
     fill: $off-black;
     width: 100%;

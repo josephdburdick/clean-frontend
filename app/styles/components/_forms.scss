@@ -10,7 +10,7 @@ FORMS
     vertical-align: top;
     background: $white;
     text-align: left;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
     padding: 30px;
     width: 200px;
     height: 210px;
@@ -162,7 +162,10 @@ FORMS
     border-top-color: darken($light-gray, 10%);
   }
 
-  .form-control-lg, .input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn{
+  .form-control-lg,
+  .input-group-lg > .form-control,
+  .input-group-lg > .input-group-addon,
+  .input-group-lg > .input-group-btn > .btn {
     border-radius: 0;
   }
 }

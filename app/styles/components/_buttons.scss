@@ -1,46 +1,49 @@
-.btn{
+.btn {
   @include futura('book');
   text-transform: uppercase;
   letter-spacing: 0.25em;
   border-radius: 0px;
 }
+
 .btn-primary {
   color: white;
 
-  &:focus{
+  &:focus {
     color: white;
   }
 }
 
-.btn-default--light{
+.btn-default--light {
   color: $off-black;
   background-color: $gray-lighter;
 }
 
-.btn-default--dark{
+.btn-default--dark {
   background-color: $off-black;
   color: white;
 }
 
-.btn-black{
+.btn-black {
   background-color: black;
   color: white;
 
-  &:hover{ color: white; }
+  &:hover {
+    color: white;
+  }
 }
 
 [class*="btn-outline"],
-[class^="btn-outline"]{
+[class^="btn-outline"] {
   border-width: 5px;
 }
 
-
-.btn-lg{
-  @include futura('extra bold')
+.btn-lg {
+  @include futura('extra bold');
 }
 
 .btn-warning {
   color: white;
+
   &:hover {
     color: white;
   }

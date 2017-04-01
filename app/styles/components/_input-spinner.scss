@@ -3,8 +3,7 @@
 Input Spinner
 */
 
-.input-spinner input[type="number"]{
-
+.input-spinner input[type="number"] {
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -18,7 +17,8 @@ Input Spinner
   margin-right: -1px;
   @include proxima('bold');
 }
-.input-spinner .btn{
+
+.input-spinner .btn {
   height: 50px;
   display: inline-flex;
   text-align: center;

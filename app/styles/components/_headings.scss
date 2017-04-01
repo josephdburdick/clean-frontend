@@ -5,12 +5,15 @@ HEADINGS
 .heading-text {
   @include futura('book');
 }
+
 .heading-text--book {
   @include futura('book');
 }
+
 .heading-text--medium {
   @include futura('medium');
 }
+
 .heading-text--light {
   @include futura('medium');
 }
@@ -28,10 +31,12 @@ HEADINGS
   margin-top: .5em;
   margin-bottom: 0;
 }
+
 .section-header {
   position: relative;
   margin: 0 0 #{$grid-gutter-width} 0;
 }
+
 .section-header .section-heading {
   @include futura('medium');
   letter-spacing: 0.275em;
@@ -41,7 +46,8 @@ HEADINGS
 
 .section-header.section-heading--hr {
   text-align: center;
-  &:before{
+
+  &:before {
     content: "";
     display: block;
     border: 2px solid $off-black;
@@ -54,6 +60,7 @@ HEADINGS
     z-index: 0;
   }
 }
+
 .section-header.section-heading--hr .section-heading {
   position: relative;
   background-color: white;
@@ -85,10 +92,11 @@ HEADINGS
   @include letter-spacing('heading');
 }
 
-.module-header{
+.module-header {
   margin-bottom: $grid-gutter-width / 2;
 }
-.module-heading{
+
+.module-heading {
   @include em('font-size', 24px);
   @include futura('medium');
   @include letter-spacing('heading');
