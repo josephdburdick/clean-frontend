@@ -12,6 +12,19 @@
       margin-bottom: 6em;
     }
   }
+  .price-comparison {
+    @include proxima('bold');
+    .price {
+      @include rem('font-size', 36px);
+    }
+  }
+}
+
+#form__cleanse-together fieldset {
+  overflow: hidden;
+  position: relative;
+  @include rem('font-size', 20px);
+  @include proxima('bold');
 }
 
 .purchase-steps--carousel {

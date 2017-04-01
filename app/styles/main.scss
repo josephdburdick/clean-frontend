@@ -14,6 +14,7 @@ $slick-loader-path: "../images/";
 @import 'utilities/fonts';
 @import 'utilities/grid';
 @import 'utilities/layout';
+@import 'utilities/typography';
 @import 'utilities/helpers';
 
 
@@ -22,22 +23,23 @@ $slick-loader-path: "../images/";
 Components
 */
 @import 'components/bg';
-@import 'components/media';
-@import 'components/headings';
-@import 'components/hr';
-@import 'components/forms';
 @import 'components/buttons';
 @import 'components/cards';
-@import 'components/modals';
-@import 'components/lists';
-@import 'components/hero-carousel';
-@import 'components/step-banner';
+@import 'components/carousels';
+@import 'components/corner-ribbon';
 @import 'components/exclusive-content';
+@import 'components/forms';
+@import 'components/headings';
+@import 'components/hero-carousel';
+@import 'components/hr';
+@import 'components/lists';
+@import 'components/media';
+@import 'components/modals';
 
-@import 'components/purchase-box';
+@import 'components/global-footer';
 @import 'components/global-header';
 @import 'components/primary-navigation';
-@import 'components/global-footer';
+@import 'components/purchase-box';
 
 
 /*

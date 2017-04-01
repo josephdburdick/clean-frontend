@@ -1,5 +1,7 @@
 'use strict';
 
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
 var $$2 = window.$ || {};
 
 var mobileMenu = function () {
@@ -231,7 +233,7 @@ var carousel$1 = {
   init: carousel.init
 };
 
-var $$6 = window.jQuery || {};
+var $$5 = window.jQuery || {};
 
 var inputSpinner = function () {
   var filterInputValue = function filterInputValue(str) {
@@ -239,8 +241,8 @@ var inputSpinner = function () {
   };
   var registerEvents = function registerEvents() {
     // increase || decrease
-    $$6('.input-spinner [type="button"][data-role]').on('click', function (e) {
-      var $btn = $$6(e.currentTarget);
+    $$5('.input-spinner [type="button"][data-role]').on('click', function (e) {
+      var $btn = $$5(e.currentTarget);
       var $input = $btn.closest('.input-spinner').find('input:not([type="button"])');
       if ($btn.data('role') === 'increment') {
         if (!$input.attr('max') || parseInt($input.val(), 10) < parseInt($input.attr('max'), 10)) {
@@ -262,7 +264,7 @@ var inputSpinner = function () {
 
     // Remove all characters except numbers
 
-    $$6('.input-spinner input[type="text"]').on('change keypress', function (e) {
+    $$5('.input-spinner input[type="text"]').on('change keypress', function (e) {
       e.currentTarget.value = filterInputValue(e.currentTarget.value);
     });
   };
@@ -280,13 +282,14 @@ var inputSpinner$1 = {
   init: inputSpinner.init
 };
 
-var $$5 = window.jQuery || {};
+// const $ = window.jQuery || {};
 
 var validateForm = function validateForm(_ref) {
   var form = _ref.form,
       schema = _ref.schema;
 
-  var $form = $$5(form);
+  var $form = $(form);
+
   $form.on('submit', function (e) {
     e.preventDefault();
     var data = {
@@ -299,6 +302,52 @@ var validateForm = function validateForm(_ref) {
     }, {});
 
     console.log(data);
+    console.log(schema);
+  }).on('change keyup', 'input', function (e) {
+    var input = {
+      el: e.currentTarget,
+      $el: $(e.currentTarget),
+      name: e.currentTarget.name,
+      value: e.currentTarget.value
+    };
+    var $nextButton = input.$el.closest('fieldset').find('[data-slide="next"]');
+    var _schema$input$name = schema[input.name],
+        value = _schema$input$name.value,
+        type = _schema$input$name.type;
+
+    console.log(input.value);
+    if (input.value !== value && _typeof(input.value) === type) {
+      return $nextButton.is(':disabled') ? $nextButton.prop('disabled', false) : null;
+    } else {
+      return $nextButton.not(':disabled') ? $nextButton.prop('disabled', true) : null;
+    }
+    return true;
+  });
+};
+
+var purchaseStepsCarousel = function purchaseStepsCarousel(_ref2) {
+  var carouselEl = _ref2.carouselEl;
+
+  var $carousel = $(carouselEl).slick({
+    adaptiveHeight: true,
+    centerMode: true,
+    centerPadding: '60px',
+    cssEase: 'linear',
+    draggable: false,
+    fade: true,
+    infinite: false,
+    slidesToShow: 1,
+    speed: 500,
+    arrows: false
+  });
+
+  $(carouselEl).on('click', '[data-slide]', function (e) {
+    /* requires data-slide="next | prev" */
+    e.preventDefault;
+    var $button = $(e.currentTarget);
+    var direction = $button.data('slide');
+    var slickArg = 'slick' + direction.charAt(0).toUpperCase() + direction.slice(1);
+    $carousel.slick(slickArg);
   });
 };
 
@@ -306,24 +355,24 @@ var purchaseSteps = function () {
   var schema = {
     name: {
       value: '',
-      type: 'String'
+      type: 'string'
     },
     'participant-count': {
       value: 0,
-      type: 'Number'
+      type: 'number'
     },
     products: {
       vanilla: {
         value: 0,
-        type: 'Number'
+        type: 'number'
       },
       chocolate: {
         value: 0,
-        type: 'Number'
+        type: 'number'
       },
       mixed: {
         value: 0,
-        type: 'Number'
+        type: 'number'
       }
     },
     startDate: {
@@ -333,10 +382,17 @@ var purchaseSteps = function () {
   };
 
   var registerEvents = function registerEvents() {
+    var options = {
+      formEl: '#form__cleanse-together',
+      carouselEl: '#form__cleanse-together_carousel'
+    };
     inputSpinner$1.init();
     validateForm({
-      form: '#form__cleanse-together',
+      form: options.formEl,
       schema: schema
+    });
+    purchaseStepsCarousel({
+      carouselEl: options.carouselEl
     });
   };
 

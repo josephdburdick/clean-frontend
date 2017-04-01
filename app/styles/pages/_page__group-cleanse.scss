@@ -146,24 +146,6 @@
     font-size: 30px;
   }
 
-  s {
-    text-decoration: none;
-    position: relative;
-
-    &:after {
-      content: "";
-      display: inline-block;
-      border-top: 4px solid;
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 50%;
-      transform: scale(1.25, 1) translateY(-50%);
-      opacity: 0.75;
-      user-select: none;
-    }
-  }
-
   .section__bundles .card-heading {
     @include futura('light');
     @include letter-spacing('tight');

@@ -57,6 +57,9 @@
         2,
         "single"
       ]
+    },
+    "globals": {
+      "$": true
     }
   },
   "scripts": {
