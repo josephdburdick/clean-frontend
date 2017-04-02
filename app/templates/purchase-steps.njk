@@ -13,44 +13,34 @@
     <div class="container justify-content-center align-items-center">
       <div class="row">
         <div class="col-sm col-md-10 col-lg-8 text-center m-auto">
-          <img
-            src="{{imageDir}}{{headingImage.desktop.url}}"
-            width="{{headingImage.desktop.width}}"
-            height="{{headingImage.desktop.height}}"
-            alt="{{headingImage.alt}}"
-            class="img-fluid hidden-md-down heading-image">
-          <img
-            src="{{imageDir}}{{headingImage.mobile.url}}"
-            width="{{headingImage.mobile.width}}"
-            height="{{headingImage.mobile.height}}"
-            alt="{{headingImage.alt}}"
-            class="img-fluid hidden-lg-up heading-image">
+          <img src="{{imageDir}}{{headingImage.desktop.url}}" width="{{headingImage.desktop.width}}" height="{{headingImage.desktop.height}}" alt="{{headingImage.alt}}" class="img-fluid hidden-md-down heading-image">
+          <img src="{{imageDir}}{{headingImage.mobile.url}}" width="{{headingImage.mobile.width}}" height="{{headingImage.mobile.height}}" alt="{{headingImage.alt}}" class="img-fluid hidden-lg-up heading-image">
         </div>
         <div class="col col-sm-12 col-md-12">
           <!-- cleanse-together form -->
           <form id="form__cleanse-together" class="card text-center" method="post">
             <div id="form__cleanse-together_carousel" class="carousel">
-                <!-- fieldsets -->
-                <fieldset>
-                  <div class="card-block">
-                    <div class="corner-ribbon top-left blue text-uppercase">
-                      1 of 5
-                    </div>
-                    <div class="row justify-content-center align-items-center">
-                      <div class="col col-sm-10 col-md-8 col-lg-6 col-xl-5">
-                        <h2 class="fs-title">Hi</h2>
-                        <h3 class="fs-subtitle">What's your name?</h3>
+              <!-- fieldsets -->
+              <fieldset>
+                <div class="card-block">
+                  <div class="corner-ribbon top-left blue text-uppercase">
+                    1 of 5
+                  </div>
+                  <div class="row justify-content-center align-items-center">
+                    <div class="col col-sm-10 col-md-8 col-lg-6 col-xl-5">
+                      <h2 class="fs-title">Hi</h2>
+                      <h3 class="fs-subtitle">What's your name?</h3>
 
-                        <div class="form-group">
-                          <input type="text" name="name" class="form-control form-control-lg" pattern="[a-zA-Z]+" required />
-                        </div>
-                        <div class="form-group">
-                          <button disabled role="button" data-slide="next" class="btn btn-lg btn-warning text-uppercase">
-                            Next Step
-                          </button>
-                        </div>
+                      <div class="form-group">
+                        <input type="text" name="name" class="form-control form-control-lg" pattern="[a-zA-Z]+" required/>
+                      </div>
+                      <div class="form-group">
+                        <button disabled role="button" data-slide="next" class="btn btn-lg btn-warning text-uppercase">
+                          Next Step
+                        </button>
                       </div>
                     </div>
+                  </div>
                 </div>
               </fieldset>
 
@@ -61,21 +51,27 @@
                   </div>
                   <div class="row justify-content-center align-items-center">
                     <div class="col col-sm-10 col-md-8 col-lg-6 col-xl-5">
-                      <h2 class="fs-title">Hi, <u>Lorem</u></h2>
-                      <h3 class="fs-subtitle">How many people total in your group?</h3>
-                      <div class="form-group">
-                        {{ inputSpinner(name="participant-count", value="1", min="1", inputClass="form-control-lg", buttonClass="btn-default--light") }}
+                      <div class="card-block">
+                        <h2 class="fs-title">Hi,
+                          <u>Lorem</u>
+                        </h2>
+                        <h3 class="fs-subtitle">How many people total in your group?</h3>
+                      </div>
+                      <div class="card-block">
+                        <div class="form-group">
+                          {{ inputSpinner(name="participant-count", value="1", min="1", inputClass="form-control-lg", buttonClass="btn-default--light") }}
+                        </div>
                       </div>
                       <div class="form-group">
                         <button data-slide="prev" class="btn btn-link ">
-                          <i class="fa fa-caret-left" aria-hidden="true"></i> Go Back
+                          <i class="fa fa-caret-left" aria-hidden="true"></i>
+                          Go Back
                         </button>
                       </div>
                       <div class="form-group">
-                        <button disabled data-slide="next"
-                          class="btn btn-lg btn-warning text-uppercase">
-                            Next Step
-                          </button>
+                        <button disabled data-slide="next" class="btn btn-lg btn-warning text-uppercase">
+                          Next Step
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -95,26 +91,26 @@
                       <div class="row justify-content-center align-items-center">
                         <div class="col-md-4">
                           <div class="form-group">
-                            <label for="products-vanilla">
+                            <label for="vanilla-count">
                               Vanilla
                             </label>
-                            {{ inputSpinner(name="products-vanilla", value="0", min="0", inputClass="form-control-lg", buttonClass="btn-default--light") }}
+                            {{ inputSpinner(name="vanilla-count", value="0", min="0", inputClass="form-control-lg", buttonClass="btn-default--light") }}
                           </div>
                         </div>
                         <div class="col-md-4">
                           <div class="form-group">
-                            <label for="products-chocolate">
+                            <label for="chocolate-count">
                               Chocolate
                             </label>
-                            {{ inputSpinner(name="products-chocolate", value="0", min="0", inputClass="form-control-lg", buttonClass="btn-default--light") }}
+                            {{ inputSpinner(name="chocolate-count", value="0", min="0", inputClass="form-control-lg", buttonClass="btn-default--light") }}
                           </div>
                         </div>
                         <div class="col-md-4">
                           <div class="form-group">
-                            <label for="products-mixed">
+                            <label for="mixed-count">
                               Mixed
                             </label>
-                            {{ inputSpinner(name="products-mixed", value="0", min="0", inputClass="form-control-lg", buttonClass="btn-default--light") }}
+                            {{ inputSpinner(name="mixed-count", value="0", min="0", inputClass="form-control-lg", buttonClass="btn-default--light") }}
                           </div>
                         </div>
                       </div>
@@ -122,7 +118,8 @@
                     <div class="card-block">
                       <div class="form-group">
                         <button role="button" data-slide="prev" class="btn btn-link ">
-                          <i class="fa fa-caret-left" aria-hidden="true"></i> Go Back
+                          <i class="fa fa-caret-left" aria-hidden="true"></i>
+                          Go Back
                         </a>
                       </div>
                       <div class="form-group">
@@ -131,8 +128,8 @@
                         </button>
                       </div>
                     </div>
-                    </div>
                   </div>
+                </div>
               </fieldset>
 
               <fieldset>
@@ -148,7 +145,9 @@
                       <div class="row justify-content-around align-content-center">
                         <div class="col-auto price-comparison">
                           <div>Original price:</div>
-                          <div class="price"><s>$900</s></div>
+                          <div class="price">
+                            <s>$900</s>
+                          </div>
                         </div>
                         <div class="col-auto price-comparison">
                           <div>You saved:</div>
@@ -158,23 +157,23 @@
                       <div class="card-block">
                         <div class="form-group">
                           <button role="button" data-slide="prev" class="btn btn-link">
-                            <i class="fa fa-caret-left" aria-hidden="true"></i> Go Back
+                            <i class="fa fa-caret-left" aria-hidden="true"></i>
+                            Go Back
                           </button>
                         </div>
                         <div class="form-group">
-                          <button disabled type="submit" class="btn btn-lg btn-primary">Submit</button
+                          <button disabled type="submit" class="btn btn-lg btn-primary">Submit</button </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </fieldset>
-            </div>
-          </form>
+                </fieldset>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
-  {# /Purchase Steps #}
-  <!-- / MAIN -->
-{% endblock %}
+    </main>
+    {# /Purchase Steps #}
+    <!-- / MAIN -->
+  {% endblock %}

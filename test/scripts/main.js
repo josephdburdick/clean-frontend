@@ -1,6 +1,6 @@
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 var $$2 = window.$ || {};
 
@@ -283,6 +283,12 @@ var inputSpinner$1 = {
 };
 
 // const $ = window.jQuery || {};
+var handleNameInput = function handleNameInput(props) {
+  console.log(props);
+  setState({
+    name: name
+  });
+};
 
 var validateForm = function validateForm(_ref) {
   var form = _ref.form,
@@ -315,12 +321,34 @@ var validateForm = function validateForm(_ref) {
         value = _schema$input$name.value,
         type = _schema$input$name.type;
 
-    console.log(input.value);
-    if (input.value !== value && _typeof(input.value) === type) {
-      return $nextButton.is(':disabled') ? $nextButton.prop('disabled', false) : null;
-    } else {
-      return $nextButton.not(':disabled') ? $nextButton.prop('disabled', true) : null;
+
+    if (input.name === 'name') {
+      handleNameInput(input);
     }
+    // if (
+    //   input.value !== value &&
+    //   typeof input.value === type
+    // ) {
+    $nextButton.is(':disabled') ? $nextButton.prop('disabled', false) : null;
+    // }
+    // else {
+    //   $nextButton.not(':disabled') ? $nextButton.prop('disabled', true) : null;
+    // }
+    //
+    // if (input.$el.min && input.value < input.$el.min) {
+    //   $nextButton.is(':disabled') ? $nextButton.prop('disabled', false) : null;
+    // }
+    // else {
+    //   $nextButton.not(':disabled') ? $nextButton.prop('disabled', true) : null;
+    // }
+    //
+    // if (input.$el.max && input.value < input.$el.max) {
+    //   $nextButton.is(':disabled') ? $nextButton.prop('disabled', false) : null;
+    // }
+    // else {
+    //   $nextButton.not(':disabled') ? $nextButton.prop('disabled', true) : null;
+    // }
+
     return true;
   });
 };
@@ -351,35 +379,40 @@ var purchaseStepsCarousel = function purchaseStepsCarousel(_ref2) {
   });
 };
 
+var state = {};
+
+var schema = {
+  name: {
+    value: '',
+    type: 'string'
+  },
+  'participant-count': {
+    value: 0,
+    type: 'number'
+  },
+  'vanilla-count': {
+    value: 0,
+    type: 'number'
+  },
+  'chocolate-count': {
+    value: 0,
+    type: 'number'
+  },
+  'mixed-count': {
+    value: 0,
+    type: 'number'
+  },
+  startDate: {
+    value: '',
+    type: 'Date'
+  }
+};
+
+var setState = function setState(props) {
+  state = Object.assign.apply(Object, [{}, schema].concat(_toConsumableArray(props)));
+  return state;
+};
 var purchaseSteps = function () {
-  var schema = {
-    name: {
-      value: '',
-      type: 'string'
-    },
-    'participant-count': {
-      value: 0,
-      type: 'number'
-    },
-    products: {
-      vanilla: {
-        value: 0,
-        type: 'number'
-      },
-      chocolate: {
-        value: 0,
-        type: 'number'
-      },
-      mixed: {
-        value: 0,
-        type: 'number'
-      }
-    },
-    startDate: {
-      value: '',
-      type: 'Date'
-    }
-  };
 
   var registerEvents = function registerEvents() {
     var options = {
@@ -401,12 +434,16 @@ var purchaseSteps = function () {
   };
 
   return {
-    init: init
+    init: init,
+    state: schema,
+    setState: setState
   };
 }();
 
 var purchaseSteps$1 = {
-  init: purchaseSteps.init
+  init: purchaseSteps.init,
+  state: purchaseSteps.schema,
+  setState: purchaseSteps.setState
 };
 
 var $$1 = window.jQuery || {};

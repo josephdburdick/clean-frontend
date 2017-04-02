@@ -1,5 +1,11 @@
 import inputSpinner from './input-spinner';
 // const $ = window.jQuery || {};
+const handleNameInput = props => {
+  console.log(props);
+  setState({
+    name
+  })
+};
 
 const validateForm = ({ form, schema }) => {
   const $form = $(form);
@@ -26,17 +32,36 @@ const validateForm = ({ form, schema }) => {
         name: e.currentTarget.name,
         value: e.currentTarget.value
       };
-      const $nextButton = input.$el.closest('fieldset').find('[data-slide="next"]')
+      const $nextButton = input.$el.closest('fieldset').find('[data-slide="next"]');
       const { value, type } = schema[input.name];
-      console.log(input.value);
-      if (
-        input.value !== value &&
-        typeof input.value === type
-      ) {
-        return $nextButton.is(':disabled') ? $nextButton.prop('disabled', false) : null;
-      } else {
-        return $nextButton.not(':disabled') ? $nextButton.prop('disabled', true) : null;
+
+      if (input.name === 'name') {
+        handleNameInput(input);
       }
+      // if (
+      //   input.value !== value &&
+      //   typeof input.value === type
+      // ) {
+      $nextButton.is(':disabled') ? $nextButton.prop('disabled', false) : null;
+      // }
+      // else {
+      //   $nextButton.not(':disabled') ? $nextButton.prop('disabled', true) : null;
+      // }
+      //
+      // if (input.$el.min && input.value < input.$el.min) {
+      //   $nextButton.is(':disabled') ? $nextButton.prop('disabled', false) : null;
+      // }
+      // else {
+      //   $nextButton.not(':disabled') ? $nextButton.prop('disabled', true) : null;
+      // }
+      //
+      // if (input.$el.max && input.value < input.$el.max) {
+      //   $nextButton.is(':disabled') ? $nextButton.prop('disabled', false) : null;
+      // }
+      // else {
+      //   $nextButton.not(':disabled') ? $nextButton.prop('disabled', true) : null;
+      // }
+
       return true;
 
     });
@@ -69,35 +94,43 @@ const purchaseStepsCarousel = ({ carouselEl }) => {
   });
 };
 
+let state = {};
+
+const schema = {
+  name: {
+    value: '',
+    type: 'string'
+  },
+  'participant-count': {
+    value: 0,
+    type: 'number'
+  },
+  'vanilla-count': {
+    value: 0,
+    type: 'number'
+  },
+  'chocolate-count': {
+    value: 0,
+    type: 'number'
+  },
+  'mixed-count': {
+    value: 0,
+    type: 'number'
+  },
+  startDate: {
+    value: '',
+    type: 'Date'
+  }
+};
+
+const setState = props => {
+  state = Object.assign({},
+    schema,
+    ...props
+  );
+  return state;
+};
 const purchaseSteps = (() => {
-  const schema = {
-    name: {
-      value: '',
-      type: 'string'
-    },
-    'participant-count': {
-      value: 0,
-      type: 'number'
-    },
-    products: {
-      vanilla: {
-        value: 0,
-        type: 'number'
-      },
-      chocolate: {
-        value: 0,
-        type: 'number'
-      },
-      mixed: {
-        value: 0,
-        type: 'number'
-      },
-    },
-    startDate: {
-      value: '',
-      type: 'Date'
-    }
-  };
 
   const registerEvents = () => {
     const options = {
@@ -117,10 +150,14 @@ const purchaseSteps = (() => {
   const init = () => registerEvents();
 
   return {
-    init
+    init,
+    state: schema,
+    setState
   };
 })();
 
 export default {
-  init: purchaseSteps.init
+  init: purchaseSteps.init,
+  state: purchaseSteps.schema,
+  setState: purchaseSteps.setState
 };
