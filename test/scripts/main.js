@@ -283,11 +283,45 @@ var inputSpinner$1 = {
 };
 
 // const $ = window.jQuery || {};
-var handleNameInput = function handleNameInput(props) {
-  console.log(props);
-  setState({
-    name: name
-  });
+
+var state = {};
+
+var schema = {
+  name: {
+    value: '',
+    type: 'string'
+  },
+  'participant-count': {
+    value: 0,
+    type: 'number'
+  },
+  'vanilla-count': {
+    value: 0,
+    type: 'number'
+  },
+  'chocolate-count': {
+    value: 0,
+    type: 'number'
+  },
+  'mixed-count': {
+    value: 0,
+    type: 'number'
+  },
+  startDate: {
+    value: '',
+    type: 'Date'
+  }
+};
+
+var setState = function setState(props) {
+  state = Object.assign.apply(Object, [{}, schema].concat(_toConsumableArray(props)));
+  return state;
+};
+
+var handleNameInput = function handleNameInput(input) {
+  if (input.name && $('[data-bind="' + input.name + '"]').length) {
+    $('[data-bind="' + input.name + '"]').text(input.value);
+  }
 };
 
 var validateForm = function validateForm(_ref) {
@@ -379,39 +413,6 @@ var purchaseStepsCarousel = function purchaseStepsCarousel(_ref2) {
   });
 };
 
-var state = {};
-
-var schema = {
-  name: {
-    value: '',
-    type: 'string'
-  },
-  'participant-count': {
-    value: 0,
-    type: 'number'
-  },
-  'vanilla-count': {
-    value: 0,
-    type: 'number'
-  },
-  'chocolate-count': {
-    value: 0,
-    type: 'number'
-  },
-  'mixed-count': {
-    value: 0,
-    type: 'number'
-  },
-  startDate: {
-    value: '',
-    type: 'Date'
-  }
-};
-
-var setState = function setState(props) {
-  state = Object.assign.apply(Object, [{}, schema].concat(_toConsumableArray(props)));
-  return state;
-};
 var purchaseSteps = function () {
 
   var registerEvents = function registerEvents() {

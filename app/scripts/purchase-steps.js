@@ -1,10 +1,47 @@
 import inputSpinner from './input-spinner';
 // const $ = window.jQuery || {};
-const handleNameInput = props => {
-  console.log(props);
-  setState({
-    name
-  })
+
+let state = {};
+
+const schema = {
+  name: {
+    value: '',
+    type: 'string'
+  },
+  'participant-count': {
+    value: 0,
+    type: 'number'
+  },
+  'vanilla-count': {
+    value: 0,
+    type: 'number'
+  },
+  'chocolate-count': {
+    value: 0,
+    type: 'number'
+  },
+  'mixed-count': {
+    value: 0,
+    type: 'number'
+  },
+  startDate: {
+    value: '',
+    type: 'Date'
+  }
+};
+
+const setState = props => {
+  state = Object.assign({},
+    schema,
+    ...props
+  );
+  return state;
+};
+
+const handleNameInput = input => {
+  if (input.name && $(`[data-bind="${input.name}"]`).length) {
+    $(`[data-bind="${input.name}"]`).text(input.value);
+  }
 };
 
 const validateForm = ({ form, schema }) => {
@@ -94,42 +131,6 @@ const purchaseStepsCarousel = ({ carouselEl }) => {
   });
 };
 
-let state = {};
-
-const schema = {
-  name: {
-    value: '',
-    type: 'string'
-  },
-  'participant-count': {
-    value: 0,
-    type: 'number'
-  },
-  'vanilla-count': {
-    value: 0,
-    type: 'number'
-  },
-  'chocolate-count': {
-    value: 0,
-    type: 'number'
-  },
-  'mixed-count': {
-    value: 0,
-    type: 'number'
-  },
-  startDate: {
-    value: '',
-    type: 'Date'
-  }
-};
-
-const setState = props => {
-  state = Object.assign({},
-    schema,
-    ...props
-  );
-  return state;
-};
 const purchaseSteps = (() => {
 
   const registerEvents = () => {
