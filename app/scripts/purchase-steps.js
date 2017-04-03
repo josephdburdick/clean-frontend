@@ -58,39 +58,35 @@ const validateForm = ({ form, schema }) => {
         name: e.currentTarget.name,
         value: e.currentTarget.value
       };
-      const $nextButton = input.$el.closest('fieldset').find('[data-slide="next"]');
-      // const { value, type } = schema[input.name];
-
       handleInputBinding(input);
+      const $nextButton = input.$el.closest('fieldset').find('[data-slide="next"]');
 
       if (input.$el.closest('fieldset').is('#flavorCount')) {
-        const $flavorCountFieldset = input.$el.closest('fieldset');
         let sum = 0;
+        const $flavorCountFieldset = input.$el.closest('fieldset');
         const $numberInputs = $flavorCountFieldset.find('input[type="number"]');
-        const minimumQuantity = parseInt($('#participantCount').val());
+        const minimumQuantity = parseInt($('#participantCount').val(), 10);
         $numberInputs.map((i, numberInput) => {
           sum += parseInt(numberInput.value, 10);
         });
-        console.log('sum');
-        console.log(sum);
-        console.log('minimumQuantity');
-        console.log(minimumQuantity);
-        if (minimumQuantity < sum) {
+
+        if (minimumQuantity <= sum) {
           $nextButton.prop('disabled', false);
-          $flavorCountFieldset.find('.form-control-feedback').removeClass('hidden');
+          $flavorCountFieldset.find('.form-control-feedback').addClass('hidden');
         }
         else {
           $nextButton.prop('disabled', true);
-          $flavorCountFieldset.find('.form-control-feedback').addClass('hidden');
+          $flavorCountFieldset.find('.form-control-feedback').removeClass('hidden');
+        }
+      } else {
+        if (input.$el.is(':valid') && !input.$el.closest('fieldset').is('#flavorCount')) {
+          $nextButton.prop('disabled', false);
+        }
+        else {
+          $nextButton.prop('disabled', true);
         }
       }
 
-      if (input.$el.is(':valid')) {
-        $nextButton.prop('disabled', false);
-      }
-      else {
-        $nextButton.prop('disabled', true);
-      }
 
       return true;
 
