@@ -29,28 +29,35 @@
   top: 25px;
   left: -50px;
   transform: rotate(-45deg);
-}
+  width: 200px;
 
-.corner-ribbon.top-right{
-  top: 25px;
-  right: -50px;
-  left: auto;
-  transform: rotate(45deg);
-}
+  &:before{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 50px solid $dark-blue;
+    top: -50px;
+    left: 50px;
+  }
 
-.corner-ribbon.bottom-left{
-  top: auto;
-  bottom: 25px;
-  left: -50px;
-  transform: rotate(45deg);
-}
+  @include media-breakpoint-down('sm'){
+    width: 100%;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    line-height: 50px;
 
-.corner-ribbon.bottom-right{
-  top: auto;
-  right: -50px;
-  bottom: 25px;
-  left: auto;
-  transform: rotate(-45deg);
+    transform: rotate(0deg);
+
+    &:before {
+      display: none;
+    }
+  }
 }
 
 /* Colors */

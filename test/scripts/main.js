@@ -339,36 +339,31 @@ var validateForm = function validateForm(_ref) {
       name: e.currentTarget.name,
       value: e.currentTarget.value
     };
-    var $nextButton = input.$el.closest('fieldset').find('[data-slide="next"]');
-    // const { value, type } = schema[input.name];
-
     handleInputBinding(input);
+    var $nextButton = input.$el.closest('fieldset').find('[data-slide="next"]');
 
     if (input.$el.closest('fieldset').is('#flavorCount')) {
-      var $flavorCountFieldset = input.$el.closest('fieldset');
       var sum = 0;
+      var $flavorCountFieldset = input.$el.closest('fieldset');
       var $numberInputs = $flavorCountFieldset.find('input[type="number"]');
-      var minimumQuantity = parseInt($('#participantCount').val());
+      var minimumQuantity = parseInt($('#participantCount').val(), 10);
       $numberInputs.map(function (i, numberInput) {
         sum += parseInt(numberInput.value, 10);
       });
-      console.log('sum');
-      console.log(sum);
-      console.log('minimumQuantity');
-      console.log(minimumQuantity);
-      if (minimumQuantity < sum) {
+
+      if (minimumQuantity <= sum) {
         $nextButton.prop('disabled', false);
-        $flavorCountFieldset.find('.form-control-feedback').removeClass('hidden');
+        $flavorCountFieldset.find('.form-control-feedback').addClass('hidden');
       } else {
         $nextButton.prop('disabled', true);
-        $flavorCountFieldset.find('.form-control-feedback').addClass('hidden');
+        $flavorCountFieldset.find('.form-control-feedback').removeClass('hidden');
       }
-    }
-
-    if (input.$el.is(':valid')) {
-      $nextButton.prop('disabled', false);
     } else {
-      $nextButton.prop('disabled', true);
+      if (input.$el.is(':valid') && !input.$el.closest('fieldset').is('#flavorCount')) {
+        $nextButton.prop('disabled', false);
+      } else {
+        $nextButton.prop('disabled', true);
+      }
     }
 
     return true;
