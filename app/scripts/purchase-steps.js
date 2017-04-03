@@ -96,8 +96,6 @@ const validateForm = ({ form, schema }) => {
 const purchaseStepsCarousel = ({ carouselEl }) => {
   const $carousel = $(carouselEl).slick({
     adaptiveHeight: true,
-    centerMode: true,
-    centerPadding: '60px',
     cssEase: 'linear',
     draggable: false,
     fade: true,

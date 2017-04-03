@@ -31,6 +31,7 @@
                       <h2 class="purchase-steps__title">Hi</h2>
                       <h3 class="purchase-steps__subtitle">What's your name?</h3>
 
+
                       <div class="form-group mt-4 mb-4">
                         <input type="text" name="name" class="form-control form-control-lg" pattern="[a-zA-Z]{2,}" placeholder="Please enter at least 2 characters" required/>
                       </div>
@@ -39,6 +40,7 @@
                           Next Step
                         </button>
                       </div>
+
                     </div>
                   </div>
                 </div>
@@ -57,7 +59,7 @@
                         </h2>
                         <h3 class="purchase-steps__subtitle">How many people total in your group?</h3>
                       </div>
-                      
+
                       <div class="form-group mt-4 mb-4">
                         {{ inputSpinner(name="participantCount", value="0", min="1", inputClass="form-control-lg", buttonClass="btn-default--light") }}
                       </div>
@@ -116,19 +118,18 @@
                       <div class="form-control-feedback text-danger hidden">You need to select at least <span data-bind="participantCount"></span>.</div>
                     </div>
                   </div>
-                  <div class="card-block">
-                    <div class="row justify-content-center align-items-center">
-                      <div class="col col-sm-12 form-group">
-                        <button role="button" data-slide="prev" class="btn btn-link ">
-                          <i class="fa fa-caret-left" aria-hidden="true"></i>
-                          Go Back
-                        </button>
-                      </div>
-                      <div class="col col-sm-12 form-group form-group">
-                        <button disabled data-slide="next" class="btn btn-lg btn-warning text-uppercase">
-                          Next Step
-                        </button>
-                      </div>
+
+                  <div class="row justify-content-center align-items-center">
+                    <div class="col col-sm-12 form-group">
+                      <button role="button" data-slide="prev" class="btn btn-link ">
+                        <i class="fa fa-caret-left" aria-hidden="true"></i>
+                        Go Back
+                      </button>
+                    </div>
+                    <div class="col col-sm-12 form-group form-group">
+                      <button disabled data-slide="next" class="btn btn-lg btn-warning text-uppercase">
+                        Next Step
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -137,6 +138,34 @@
               <fieldset>
                 <div class="corner-ribbon top-left blue text-uppercase">
                   4 of 5
+                </div>
+                <div class="card-block">
+                  <div class="row justify-content-center align-items-center">
+                    <div class="col col-sm-10 col-md-8 col-lg-8 col-xl-6">
+                      <h2 class="purchase-steps__title">Lovely</h2>
+                      <h3 class="purchase-steps__subtitle">Now pick a start date that works for everyone.</h3>
+
+                      <div class="row form-group justify-content-center align-content-center">
+                        [datepicker]
+                      </div>
+
+                      <div class="form-group">
+                        <button role="button" data-slide="prev" class="btn btn-link">
+                          <i class="fa fa-caret-left" aria-hidden="true"></i>
+                          Go Back
+                        </button>
+                      </div>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-lg btn-primary">Submit</button </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </fieldset>
+              <fieldset>
+                <div class="corner-ribbon top-left blue text-uppercase">
+                  5 of 5
                 </div>
                 <div class="card-block">
                   <div class="row justify-content-center align-items-center">
@@ -156,20 +185,18 @@
                           <div class="price">$850</div>
                         </div>
                       </div>
-                      <div class="row justify-content-center align-content-center">
-                        <div class="card-block">
-                          <div class="form-group">
-                            <button role="button" data-slide="prev" class="btn btn-link">
-                              <i class="fa fa-caret-left" aria-hidden="true"></i>
-                              Go Back
-                            </button>
-                          </div>
-                          <div class="form-group">
-                            <button disabled type="submit" class="btn btn-lg btn-primary">Submit</button </div>
-                            </div>
-                          </div>
+
+                      <div class="form-group">
+                        <button role="button" data-slide="prev" class="btn btn-link">
+                          <i class="fa fa-caret-left" aria-hidden="true"></i>
+                          Go Back
+                        </button>
+                      </div>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-lg btn-primary">Submit</button </div>
                         </div>
                       </div>
+
                     </div>
                   </div>
                 </fieldset>

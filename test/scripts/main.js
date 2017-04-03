@@ -375,8 +375,6 @@ var purchaseStepsCarousel = function purchaseStepsCarousel(_ref2) {
 
   var $carousel = $(carouselEl).slick({
     adaptiveHeight: true,
-    centerMode: true,
-    centerPadding: '60px',
     cssEase: 'linear',
     draggable: false,
     fade: true,
