@@ -1,26 +1,23 @@
 import inputSpinner from './input-spinner';
-// const $ = window.jQuery || {};
-
-let state = {};
 
 const schema = {
   name: {
     value: '',
     type: 'string'
   },
-  'participant-count': {
+  participantCount: {
     value: 0,
     type: 'number'
   },
-  'vanilla-count': {
+  vanillaCount: {
     value: 0,
     type: 'number'
   },
-  'chocolate-count': {
+  chocolateCount: {
     value: 0,
     type: 'number'
   },
-  'mixed-count': {
+  mixedCount: {
     value: 0,
     type: 'number'
   },
@@ -30,15 +27,7 @@ const schema = {
   }
 };
 
-const setState = props => {
-  state = Object.assign({},
-    schema,
-    ...props
-  );
-  return state;
-};
-
-const handleNameInput = input => {
+const handleInputBinding = input => {
   if (input.name && $(`[data-bind="${input.name}"]`).length) {
     $(`[data-bind="${input.name}"]`).text(input.value);
   }
@@ -70,34 +59,38 @@ const validateForm = ({ form, schema }) => {
         value: e.currentTarget.value
       };
       const $nextButton = input.$el.closest('fieldset').find('[data-slide="next"]');
-      const { value, type } = schema[input.name];
+      // const { value, type } = schema[input.name];
 
-      if (input.name === 'name') {
-        handleNameInput(input);
+      handleInputBinding(input);
+
+      if (input.$el.closest('fieldset').is('#flavorCount')) {
+        const $flavorCountFieldset = input.$el.closest('fieldset');
+        let sum = 0;
+        const $numberInputs = $flavorCountFieldset.find('input[type="number"]');
+        const minimumQuantity = parseInt($('#participantCount').val());
+        $numberInputs.map((i, numberInput) => {
+          sum += parseInt(numberInput.value, 10);
+        });
+        console.log('sum');
+        console.log(sum);
+        console.log('minimumQuantity');
+        console.log(minimumQuantity);
+        if (minimumQuantity < sum) {
+          $nextButton.prop('disabled', false);
+          $flavorCountFieldset.find('.form-control-feedback').removeClass('hidden');
+        }
+        else {
+          $nextButton.prop('disabled', true);
+          $flavorCountFieldset.find('.form-control-feedback').addClass('hidden');
+        }
       }
-      // if (
-      //   input.value !== value &&
-      //   typeof input.value === type
-      // ) {
-      $nextButton.is(':disabled') ? $nextButton.prop('disabled', false) : null;
-      // }
-      // else {
-      //   $nextButton.not(':disabled') ? $nextButton.prop('disabled', true) : null;
-      // }
-      //
-      // if (input.$el.min && input.value < input.$el.min) {
-      //   $nextButton.is(':disabled') ? $nextButton.prop('disabled', false) : null;
-      // }
-      // else {
-      //   $nextButton.not(':disabled') ? $nextButton.prop('disabled', true) : null;
-      // }
-      //
-      // if (input.$el.max && input.value < input.$el.max) {
-      //   $nextButton.is(':disabled') ? $nextButton.prop('disabled', false) : null;
-      // }
-      // else {
-      //   $nextButton.not(':disabled') ? $nextButton.prop('disabled', true) : null;
-      // }
+
+      if (input.$el.is(':valid')) {
+        $nextButton.prop('disabled', false);
+      }
+      else {
+        $nextButton.prop('disabled', true);
+      }
 
       return true;
 
@@ -114,7 +107,7 @@ const purchaseStepsCarousel = ({ carouselEl }) => {
     fade: true,
     infinite: false,
     slidesToShow: 1,
-    speed: 500,
+    speed: 300,
     arrows: false
   });
 
@@ -132,7 +125,6 @@ const purchaseStepsCarousel = ({ carouselEl }) => {
 };
 
 const purchaseSteps = (() => {
-
   const registerEvents = () => {
     const options = {
       formEl: '#form__cleanse-together',
@@ -151,14 +143,10 @@ const purchaseSteps = (() => {
   const init = () => registerEvents();
 
   return {
-    init,
-    state: schema,
-    setState
+    init
   };
 })();
 
 export default {
-  init: purchaseSteps.init,
-  state: purchaseSteps.schema,
-  setState: purchaseSteps.setState
+  init: purchaseSteps.init
 };

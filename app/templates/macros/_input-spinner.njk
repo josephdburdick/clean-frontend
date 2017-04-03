@@ -10,7 +10,7 @@
     {% if min %}min="{{min}}"{% endif %}
     {% if max %}max="{{max}}"{% endif %}
     role="input"
-    match="\d" required>
+    match="^[1-9][0-9]*$" required>
   <button type="button" class="btn btn-default {%if buttonClass %}{{buttonClass}}{% endif %}" data-role="increment">+</button>
 </div>
 {% endmacro %}

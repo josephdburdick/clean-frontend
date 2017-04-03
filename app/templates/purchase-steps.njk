@@ -27,12 +27,12 @@
                     1 of 5
                   </div>
                   <div class="row justify-content-center align-items-center">
-                    <div class="col col-sm-10 col-md-8 col-lg-6 col-xl-5">
+                    <div class="col col-sm-10 col-md-8 col-lg-8 col-xl-6">
                       <h2 class="fs-title">Hi</h2>
                       <h3 class="fs-subtitle">What's your name?</h3>
 
-                      <div class="form-group">
-                        <input type="text" name="name" class="form-control form-control-lg" pattern="[a-zA-Z]+" required/>
+                      <div class="form-group mt-4 mb-4">
+                        <input type="text" name="name" class="form-control form-control-lg" pattern="[a-zA-Z]{2,}" placeholder="Please enter at least 2 characters" required/>
                       </div>
                       <div class="form-group">
                         <button disabled role="button" data-slide="next" class="btn btn-lg btn-warning text-uppercase">
@@ -50,17 +50,15 @@
                     2 of 5
                   </div>
                   <div class="row justify-content-center align-items-center">
-                    <div class="col col-sm-10 col-md-8 col-lg-6 col-xl-5">
+                    <div class="col col-sm-10 col-md-8 col-lg-8 col-xl-6">
                       <div class="card-block">
                         <h2 class="fs-title">Hi,
                           <span data-bind="name">Lorem</span>
                         </h2>
                         <h3 class="fs-subtitle">How many people total in your group?</h3>
                       </div>
-                      <div class="card-block">
-                        <div class="form-group">
-                          {{ inputSpinner(name="participant-count", value="0", min="1", inputClass="form-control-lg", buttonClass="btn-default--light") }}
-                        </div>
+                      <div class="form-group mt-4 mb-4">
+                        {{ inputSpinner(name="participantCount", value="0", min="1", inputClass="form-control-lg", buttonClass="btn-default--light") }}
                       </div>
                       <div class="form-group">
                         <button data-slide="prev" class="btn btn-link ">
@@ -78,52 +76,55 @@
                 </div>
               </fieldset>
 
-              <fieldset>
+              <fieldset id="flavorCount">
                 <div class="card-block">
                   <div class="corner-ribbon top-left blue text-uppercase">
                     3 of 5
                   </div>
                   <div class="row justify-content-center align-items-center">
-                    <div class="col col-sm-10 col-md-8 col-lg-6 col-xl-5">
+                    <div class="col col-sm-12">
                       <h2 class="fs-title">Great!</h2>
                       <h3 class="fs-subtitle">What flavors would your group like?</h3>
 
                       <div class="row justify-content-center align-items-center">
-                        <div class="col-md-4">
+                        <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
                           <div class="form-group">
-                            <label for="vanilla-count">
+                            <label for="vanillaCount">
                               Vanilla
                             </label>
-                            {{ inputSpinner(name="vanilla-count", value="0", min="0", inputClass="form-control-lg", buttonClass="btn-default--light") }}
+                            {{ inputSpinner(name="vanillaCount", value="0", min="0", inputClass="form-control-lg", buttonClass="btn-default--light") }}
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
                           <div class="form-group">
-                            <label for="chocolate-count">
+                            <label for="chocolateCount">
                               Chocolate
                             </label>
-                            {{ inputSpinner(name="chocolate-count", value="0", min="0", inputClass="form-control-lg", buttonClass="btn-default--light") }}
+                            {{ inputSpinner(name="chocolateCount", value="0", min="0", inputClass="form-control-lg", buttonClass="btn-default--light") }}
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col col-xs-12 col-sm-6 col-md-4 col-lg-4 col-xl-4">
                           <div class="form-group">
-                            <label for="mixed-count">
+                            <label for="mixedCount">
                               Mixed
                             </label>
-                            {{ inputSpinner(name="mixed-count", value="0", min="0", inputClass="form-control-lg", buttonClass="btn-default--light") }}
+                            {{ inputSpinner(name="mixedCount", value="0", min="0", inputClass="form-control-lg", buttonClass="btn-default--light") }}
                           </div>
                         </div>
                       </div>
+                      <div class="form-control-feedback text-danger hidden">You need to select at least <span data-bind="participantCount"></span>.</div>
                     </div>
-                    <div class="card-block">
-                      <div class="form-group">
+                  </div>
+                  <div class="card-block">
+                    <div class="row justify-content-center align-items-center">
+                      <div class="col col-sm-12 form-group">
                         <button role="button" data-slide="prev" class="btn btn-link ">
                           <i class="fa fa-caret-left" aria-hidden="true"></i>
                           Go Back
-                        </a>
+                        </button>
                       </div>
-                      <div class="form-group">
-                        <button data-slide="next" class="btn btn-lg btn-warning text-uppercase">
+                      <div class="col col-sm-12 form-group form-group">
+                        <button disabled data-slide="next" class="btn btn-lg btn-warning text-uppercase">
                           Next Step
                         </button>
                       </div>
@@ -138,7 +139,7 @@
                     4 of 5
                   </div>
                   <div class="row justify-content-center align-items-center">
-                    <div class="col col-sm-10 col-md-8 col-lg-6 col-xl-5">
+                    <div class="col col-sm-10 col-md-8 col-lg-8 col-xl-6">
                       <h2 class="fs-title">Whoa</h2>
                       <h3 class="fs-subtitle">You saved xxx</h3>
 
@@ -154,15 +155,18 @@
                           <div class="price">$850</div>
                         </div>
                       </div>
-                      <div class="card-block">
-                        <div class="form-group">
-                          <button role="button" data-slide="prev" class="btn btn-link">
-                            <i class="fa fa-caret-left" aria-hidden="true"></i>
-                            Go Back
-                          </button>
-                        </div>
-                        <div class="form-group">
-                          <button disabled type="submit" class="btn btn-lg btn-primary">Submit</button </div>
+                      <div class="row justify-content-center align-content-center">
+                        <div class="card-block">
+                          <div class="form-group">
+                            <button role="button" data-slide="prev" class="btn btn-link">
+                              <i class="fa fa-caret-left" aria-hidden="true"></i>
+                              Go Back
+                            </button>
+                          </div>
+                          <div class="form-group">
+                            <button disabled type="submit" class="btn btn-lg btn-primary">Submit</button </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>

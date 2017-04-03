@@ -8,8 +8,13 @@ const inputSpinner = (() => {
       const $btn = $(e.currentTarget);
       const $input = $btn.closest('.input-spinner').find('input:not([type="button"])');
       if ($btn.data('role') === 'increment') {
-        if (!$input.attr('max') || parseInt($input.val(), 10) < parseInt($input.attr('max'), 10)) {
-          $input.val(parseInt($input.val(), 10) + 1);
+        if (
+          !$input.attr('max') ||
+          parseInt($input.val(), 10) < parseInt($input.attr('max'), 10)
+        ) {
+          $input
+            .val(parseInt($input.val(), 10) + 1)
+            .trigger('change');
         }
         else {
           $btn.next('disabled', true);
@@ -17,8 +22,13 @@ const inputSpinner = (() => {
       }
 
       if ($btn.data('role') === 'decrement') {
-        if (!$input.attr('min') || parseInt($input.val(), 10) > parseInt($input.attr('min'), 10)) {
-          $input.val(parseInt($input.val(), 10) - 1);
+        if (
+          !$input.attr('min') ||
+          parseInt($input.val(), 10) > parseInt($input.attr('min'), 10)
+        ) {
+          $input
+            .val(parseInt($input.val(), 10) - 1)
+            .trigger('change');
         }
         else {
           $btn.prev('disabled', true);

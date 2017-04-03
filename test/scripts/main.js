@@ -1,7 +1,5 @@
 'use strict';
 
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
 var $$2 = window.$ || {};
 
 var mobileMenu = function () {
@@ -246,7 +244,7 @@ var inputSpinner = function () {
       var $input = $btn.closest('.input-spinner').find('input:not([type="button"])');
       if ($btn.data('role') === 'increment') {
         if (!$input.attr('max') || parseInt($input.val(), 10) < parseInt($input.attr('max'), 10)) {
-          $input.val(parseInt($input.val(), 10) + 1);
+          $input.val(parseInt($input.val(), 10) + 1).trigger('change');
         } else {
           $btn.next('disabled', true);
         }
@@ -254,7 +252,7 @@ var inputSpinner = function () {
 
       if ($btn.data('role') === 'decrement') {
         if (!$input.attr('min') || parseInt($input.val(), 10) > parseInt($input.attr('min'), 10)) {
-          $input.val(parseInt($input.val(), 10) - 1);
+          $input.val(parseInt($input.val(), 10) - 1).trigger('change');
         } else {
           $btn.prev('disabled', true);
         }
@@ -282,28 +280,24 @@ var inputSpinner$1 = {
   init: inputSpinner.init
 };
 
-// const $ = window.jQuery || {};
-
-var state = {};
-
 var schema = {
   name: {
     value: '',
     type: 'string'
   },
-  'participant-count': {
+  participantCount: {
     value: 0,
     type: 'number'
   },
-  'vanilla-count': {
+  vanillaCount: {
     value: 0,
     type: 'number'
   },
-  'chocolate-count': {
+  chocolateCount: {
     value: 0,
     type: 'number'
   },
-  'mixed-count': {
+  mixedCount: {
     value: 0,
     type: 'number'
   },
@@ -313,12 +307,7 @@ var schema = {
   }
 };
 
-var setState = function setState(props) {
-  state = Object.assign.apply(Object, [{}, schema].concat(_toConsumableArray(props)));
-  return state;
-};
-
-var handleNameInput = function handleNameInput(input) {
+var handleInputBinding = function handleInputBinding(input) {
   if (input.name && $('[data-bind="' + input.name + '"]').length) {
     $('[data-bind="' + input.name + '"]').text(input.value);
   }
@@ -351,37 +340,36 @@ var validateForm = function validateForm(_ref) {
       value: e.currentTarget.value
     };
     var $nextButton = input.$el.closest('fieldset').find('[data-slide="next"]');
-    var _schema$input$name = schema[input.name],
-        value = _schema$input$name.value,
-        type = _schema$input$name.type;
+    // const { value, type } = schema[input.name];
 
+    handleInputBinding(input);
 
-    if (input.name === 'name') {
-      handleNameInput(input);
+    if (input.$el.closest('fieldset').is('#flavorCount')) {
+      var $flavorCountFieldset = input.$el.closest('fieldset');
+      var sum = 0;
+      var $numberInputs = $flavorCountFieldset.find('input[type="number"]');
+      var minimumQuantity = parseInt($('#participantCount').val());
+      $numberInputs.map(function (i, numberInput) {
+        sum += parseInt(numberInput.value, 10);
+      });
+      console.log('sum');
+      console.log(sum);
+      console.log('minimumQuantity');
+      console.log(minimumQuantity);
+      if (minimumQuantity < sum) {
+        $nextButton.prop('disabled', false);
+        $flavorCountFieldset.find('.form-control-feedback').removeClass('hidden');
+      } else {
+        $nextButton.prop('disabled', true);
+        $flavorCountFieldset.find('.form-control-feedback').addClass('hidden');
+      }
     }
-    // if (
-    //   input.value !== value &&
-    //   typeof input.value === type
-    // ) {
-    $nextButton.is(':disabled') ? $nextButton.prop('disabled', false) : null;
-    // }
-    // else {
-    //   $nextButton.not(':disabled') ? $nextButton.prop('disabled', true) : null;
-    // }
-    //
-    // if (input.$el.min && input.value < input.$el.min) {
-    //   $nextButton.is(':disabled') ? $nextButton.prop('disabled', false) : null;
-    // }
-    // else {
-    //   $nextButton.not(':disabled') ? $nextButton.prop('disabled', true) : null;
-    // }
-    //
-    // if (input.$el.max && input.value < input.$el.max) {
-    //   $nextButton.is(':disabled') ? $nextButton.prop('disabled', false) : null;
-    // }
-    // else {
-    //   $nextButton.not(':disabled') ? $nextButton.prop('disabled', true) : null;
-    // }
+
+    if (input.$el.is(':valid')) {
+      $nextButton.prop('disabled', false);
+    } else {
+      $nextButton.prop('disabled', true);
+    }
 
     return true;
   });
@@ -399,7 +387,7 @@ var purchaseStepsCarousel = function purchaseStepsCarousel(_ref2) {
     fade: true,
     infinite: false,
     slidesToShow: 1,
-    speed: 500,
+    speed: 300,
     arrows: false
   });
 
@@ -414,7 +402,6 @@ var purchaseStepsCarousel = function purchaseStepsCarousel(_ref2) {
 };
 
 var purchaseSteps = function () {
-
   var registerEvents = function registerEvents() {
     var options = {
       formEl: '#form__cleanse-together',
@@ -435,16 +422,12 @@ var purchaseSteps = function () {
   };
 
   return {
-    init: init,
-    state: schema,
-    setState: setState
+    init: init
   };
 }();
 
 var purchaseSteps$1 = {
-  init: purchaseSteps.init,
-  state: purchaseSteps.schema,
-  setState: purchaseSteps.setState
+  init: purchaseSteps.init
 };
 
 var $$1 = window.jQuery || {};
