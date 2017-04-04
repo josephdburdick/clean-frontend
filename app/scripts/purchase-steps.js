@@ -11,16 +11,8 @@ const validateForm = ({ form }) => {
   const $form = $(form);
 
   $form
-    .on('submit', function(e) {
+    .on('submit', function() {
       // e.preventDefault();
-      const data = {
-        array: $form.serializeArray(),
-        obj: {}
-      };
-
-      data.array.reduce((acc, cur) => {
-        data.obj[cur.name] = cur;
-      }, {});
     })
     .on('change keyup', 'input', (e) => {
       const input = {
