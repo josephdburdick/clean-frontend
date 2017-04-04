@@ -1,5 +1,10 @@
 .page__purchase-steps {
-  padding: 8em 0;
+  @include media-breakpoint-down('sm') {
+    padding: ($spacer * 2) 0;
+  }
+  @include media-breakpoint-up('sm') {
+    padding: ($spacer * 4) 0;
+  }
 
   .purchase-steps__title{
     @include proxima('bold');
@@ -11,10 +16,10 @@
   }
   .heading-image {
     @include media-breakpoint-down('sm') {
-      margin-bottom: 4em;
+      margin-bottom: ($spacer * 1);
     }
     @include media-breakpoint-up('sm') {
-      margin-bottom: 6em;
+      margin-bottom: ($spacer * 2);
     }
   }
   .price-comparison {
@@ -38,6 +43,16 @@
   position: relative;
   @include rem('font-size', 20px);
   @include proxima('bold');
+}
+
+#form__cleanse-together .form-spacer {
+  font-size: 1rem;
+  @include media-breakpoint-down('md'){
+    height: 1em;
+  }
+  @include media-breakpoint-up('md'){
+    height: 5em;
+  }
 }
 
 #form__cleanse-together input {

@@ -33,7 +33,7 @@ const MEDIA = (() => {
     $.ajax({
       url: 'https://vimeo.com/api/oembed.json?url=' + url,
       type: 'GET',
-      success: function(response) {
+      success(response) {
         if (response.video_id) {
           id = response.video_id;
         }
@@ -78,25 +78,28 @@ const MEDIA = (() => {
   _this.is.vimeo = (url) => !!_this.get.vimeo.idByUrl(url);
   _this.is.video = () => !!_this.is.youtube || !!_this.is.vimeo;
   _this.get.videoType = (url) => {
-    if (!!_this.is.youtube(url)) {
+    if (_this.is.youtube(url)) {
       return 'youtube';
-    } else if (!!_this.is.vimeo(url)) {
+    }
+    else if (_this.is.vimeo(url)) {
       return 'vimeo';
-    } else {
+    }
+    else {
       return 'unknown';
     }
   };
 
   _this.get.iframe = (url, settings) => {
     _state.autoplay = settings.autoplay;
-    if (_this.is.video(url)){
+    if (_this.is.video(url)) {
       const videoType = _this.get.videoType(url);
       return _this.get[videoType].embed(url);
-    } else {
+    }
+    else {
       console.warn('Media url type is unknown.');
       return false;
     }
-  }
+  };
 
   return {
     is: _this.is,
@@ -107,4 +110,4 @@ const MEDIA = (() => {
 export default {
   is: MEDIA.is,
   get: MEDIA.get
-}
+};

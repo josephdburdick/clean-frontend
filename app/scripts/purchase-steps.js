@@ -1,31 +1,5 @@
 import inputSpinner from './input-spinner';
-
-const schema = {
-  name: {
-    value: '',
-    type: 'string'
-  },
-  participantCount: {
-    value: 0,
-    type: 'number'
-  },
-  vanillaCount: {
-    value: 0,
-    type: 'number'
-  },
-  chocolateCount: {
-    value: 0,
-    type: 'number'
-  },
-  mixedCount: {
-    value: 0,
-    type: 'number'
-  },
-  startDate: {
-    value: '',
-    type: 'Date'
-  }
-};
+import inputDateSelector from './input-dateselector';
 
 const handleInputBinding = input => {
   if (input.name && $(`[data-bind="${input.name}"]`).length) {
@@ -33,12 +7,12 @@ const handleInputBinding = input => {
   }
 };
 
-const validateForm = ({ form, schema }) => {
+const validateForm = ({ form }) => {
   const $form = $(form);
 
   $form
     .on('submit', function(e) {
-      e.preventDefault();
+      // e.preventDefault();
       const data = {
         array: $form.serializeArray(),
         obj: {}
@@ -47,9 +21,6 @@ const validateForm = ({ form, schema }) => {
       data.array.reduce((acc, cur) => {
         data.obj[cur.name] = cur;
       }, {});
-
-      console.log(data);
-      console.log(schema);
     })
     .on('change keyup', 'input', (e) => {
       const input = {
@@ -67,26 +38,24 @@ const validateForm = ({ form, schema }) => {
         const $numberInputs = $flavorCountFieldset.find('input[type="number"]');
         const minimumQuantity = parseInt($('#participantCount').val(), 10);
         $numberInputs.map((i, numberInput) => {
-          sum += parseInt(numberInput.value, 10);
+          sum = sum + parseInt(numberInput.value, 10);
         });
 
         if (minimumQuantity <= sum) {
           $nextButton.prop('disabled', false);
-          $flavorCountFieldset.find('.form-control-feedback').addClass('hidden');
+          $flavorCountFieldset.find('.form-control-feedback').addClass('invisible');
         }
         else {
           $nextButton.prop('disabled', true);
-          $flavorCountFieldset.find('.form-control-feedback').removeClass('hidden');
-        }
-      } else {
-        if (input.$el.is(':valid') && !input.$el.closest('fieldset').is('#flavorCount')) {
-          $nextButton.prop('disabled', false);
-        }
-        else {
-          $nextButton.prop('disabled', true);
+          $flavorCountFieldset.find('.form-control-feedback').removeClass('invisible');
         }
       }
-
+      else if (input.$el.is(':valid') && !input.$el.closest('fieldset').is('#flavorCount')) {
+        $nextButton.prop('disabled', false);
+      }
+      else {
+        $nextButton.prop('disabled', true);
+      }
 
       return true;
 
@@ -126,12 +95,12 @@ const purchaseSteps = (() => {
     };
     inputSpinner.init();
     validateForm({
-      form: options.formEl,
-      schema
+      form: options.formEl
     });
     purchaseStepsCarousel({
       carouselEl: options.carouselEl
     });
+    inputDateSelector.init();
   };
 
   const init = () => registerEvents();

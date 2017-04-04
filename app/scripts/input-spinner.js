@@ -1,5 +1,3 @@
-const $ = window.jQuery || {};
-
 const inputSpinner = (() => {
   const filterInputValue = str => str.replace(/[^0-9]/, '');
   const registerEvents = () => {

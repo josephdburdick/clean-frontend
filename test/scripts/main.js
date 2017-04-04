@@ -108,9 +108,9 @@ var MEDIA = function () {
     return !!_this.is.youtube || !!_this.is.vimeo;
   };
   _this.get.videoType = function (url) {
-    if (!!_this.is.youtube(url)) {
+    if (_this.is.youtube(url)) {
       return 'youtube';
-    } else if (!!_this.is.vimeo(url)) {
+    } else if (_this.is.vimeo(url)) {
       return 'vimeo';
     } else {
       return 'unknown';
@@ -231,16 +231,14 @@ var carousel$1 = {
   init: carousel.init
 };
 
-var $$5 = window.jQuery || {};
-
 var inputSpinner = function () {
   var filterInputValue = function filterInputValue(str) {
     return str.replace(/[^0-9]/, '');
   };
   var registerEvents = function registerEvents() {
     // increase || decrease
-    $$5('.input-spinner [type="button"][data-role]').on('click', function (e) {
-      var $btn = $$5(e.currentTarget);
+    $('.input-spinner [type="button"][data-role]').on('click', function (e) {
+      var $btn = $(e.currentTarget);
       var $input = $btn.closest('.input-spinner').find('input:not([type="button"])');
       if ($btn.data('role') === 'increment') {
         if (!$input.attr('max') || parseInt($input.val(), 10) < parseInt($input.attr('max'), 10)) {
@@ -262,7 +260,7 @@ var inputSpinner = function () {
 
     // Remove all characters except numbers
 
-    $$5('.input-spinner input[type="text"]').on('change keypress', function (e) {
+    $('.input-spinner input[type="text"]').on('change keypress', function (e) {
       e.currentTarget.value = filterInputValue(e.currentTarget.value);
     });
   };
@@ -280,31 +278,31 @@ var inputSpinner$1 = {
   init: inputSpinner.init
 };
 
-var schema = {
-  name: {
-    value: '',
-    type: 'string'
-  },
-  participantCount: {
-    value: 0,
-    type: 'number'
-  },
-  vanillaCount: {
-    value: 0,
-    type: 'number'
-  },
-  chocolateCount: {
-    value: 0,
-    type: 'number'
-  },
-  mixedCount: {
-    value: 0,
-    type: 'number'
-  },
-  startDate: {
-    value: '',
-    type: 'Date'
-  }
+// import Moment from 'moment';
+var inputDateSelector = function () {
+  var registerEvents = function registerEvents() {
+    $('.datepicker').datepicker({
+      templates: {
+        leftArrow: '<i class="fa fa-caret-left"></i>',
+        rightArrow: '<i class="fa fa-caret-right"></i>'
+      },
+      startDate: 'today',
+      maxViewMode: 0
+    });
+  };
+  $('#cleanse-together-datepicker-start').on('changeDate', function () {
+    $('#startDate').val($('#cleanse-together-datepicker-start').datepicker('getFormattedDate'));
+  });
+  var init = function init() {
+    return registerEvents();
+  };
+  return {
+    init: init
+  };
+}();
+
+var inputDateSelector$1 = {
+  init: inputDateSelector.init
 };
 
 var handleInputBinding = function handleInputBinding(input) {
@@ -314,13 +312,12 @@ var handleInputBinding = function handleInputBinding(input) {
 };
 
 var validateForm = function validateForm(_ref) {
-  var form = _ref.form,
-      schema = _ref.schema;
+  var form = _ref.form;
 
   var $form = $(form);
 
   $form.on('submit', function (e) {
-    e.preventDefault();
+    // e.preventDefault();
     var data = {
       array: $form.serializeArray(),
       obj: {}
@@ -329,9 +326,6 @@ var validateForm = function validateForm(_ref) {
     data.array.reduce(function (acc, cur) {
       data.obj[cur.name] = cur;
     }, {});
-
-    console.log(data);
-    console.log(schema);
   }).on('change keyup', 'input', function (e) {
     var input = {
       el: e.currentTarget,
@@ -343,27 +337,27 @@ var validateForm = function validateForm(_ref) {
     var $nextButton = input.$el.closest('fieldset').find('[data-slide="next"]');
 
     if (input.$el.closest('fieldset').is('#flavorCount')) {
-      var sum = 0;
-      var $flavorCountFieldset = input.$el.closest('fieldset');
-      var $numberInputs = $flavorCountFieldset.find('input[type="number"]');
-      var minimumQuantity = parseInt($('#participantCount').val(), 10);
-      $numberInputs.map(function (i, numberInput) {
-        sum += parseInt(numberInput.value, 10);
-      });
+      (function () {
+        var sum = 0;
+        var $flavorCountFieldset = input.$el.closest('fieldset');
+        var $numberInputs = $flavorCountFieldset.find('input[type="number"]');
+        var minimumQuantity = parseInt($('#participantCount').val(), 10);
+        $numberInputs.map(function (i, numberInput) {
+          sum = sum + parseInt(numberInput.value, 10);
+        });
 
-      if (minimumQuantity <= sum) {
-        $nextButton.prop('disabled', false);
-        $flavorCountFieldset.find('.form-control-feedback').addClass('hidden');
-      } else {
-        $nextButton.prop('disabled', true);
-        $flavorCountFieldset.find('.form-control-feedback').removeClass('hidden');
-      }
+        if (minimumQuantity <= sum) {
+          $nextButton.prop('disabled', false);
+          $flavorCountFieldset.find('.form-control-feedback').addClass('invisible');
+        } else {
+          $nextButton.prop('disabled', true);
+          $flavorCountFieldset.find('.form-control-feedback').removeClass('invisible');
+        }
+      })();
+    } else if (input.$el.is(':valid') && !input.$el.closest('fieldset').is('#flavorCount')) {
+      $nextButton.prop('disabled', false);
     } else {
-      if (input.$el.is(':valid') && !input.$el.closest('fieldset').is('#flavorCount')) {
-        $nextButton.prop('disabled', false);
-      } else {
-        $nextButton.prop('disabled', true);
-      }
+      $nextButton.prop('disabled', true);
     }
 
     return true;
@@ -402,12 +396,12 @@ var purchaseSteps = function () {
     };
     inputSpinner$1.init();
     validateForm({
-      form: options.formEl,
-      schema: schema
+      form: options.formEl
     });
     purchaseStepsCarousel({
       carouselEl: options.carouselEl
     });
+    inputDateSelector$1.init();
   };
 
   var init = function init() {

@@ -150,17 +150,17 @@ gulp.task('lint', () => {
     fix: true,
     ecmaFeatures: {
       modules: true,
-      spread : true,
-      restParams : true
+      spread: true,
+      restParams: true
     },
-    env : {
-      browser : true,
-      node : true,
-      es6 : true
+    env: {
+      browser: true,
+      node: true,
+      es6: true
     },
-    rules : {
-      'no-unused-vars' : 2,
-      'no-undef' : 2
+    rules: {
+      'no-unused-vars': 2,
+      'no-undef': 2
     },
     parserOptions: {
       sourceType: 'module'
@@ -172,10 +172,10 @@ gulp.task('lint', () => {
 gulp.task('lint:test', () => {
   return lint('test/spec/**/*.js', {
     fix: true,
-    env : {
-      browser : true,
-      node : true,
-      es6 : true
+    env: {
+      browser: true,
+      node: true,
+      es6: true
     }
   }).pipe(gulp.dest('test/spec'));
 });
@@ -202,7 +202,7 @@ gulp.task('images', () => {
 });
 
 gulp.task('fonts', () => {
-  return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', function (err) {})
+  return gulp.src(require('main-bower-files')('**/*.{eot,svg,ttf,woff,woff2}', (err) => console.log(err))
     .concat('app/fonts/**/*'))
     .pipe(gulp.dest('.tmp/fonts'))
     .pipe(gulp.dest('dist/fonts'));
