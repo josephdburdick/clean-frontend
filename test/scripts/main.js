@@ -280,13 +280,19 @@ var inputSpinner$1 = {
 
 // import Moment from 'moment';
 var inputDateSelector = function () {
+  function addDays(date, days) {
+    var result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+  }
+  var today = new Date();
   var registerEvents = function registerEvents() {
     $('.datepicker').datepicker({
       templates: {
         leftArrow: '<i class="fa fa-caret-left"></i>',
         rightArrow: '<i class="fa fa-caret-right"></i>'
       },
-      startDate: 'today',
+      startDate: addDays(today, 2),
       maxViewMode: 0
     });
   };
